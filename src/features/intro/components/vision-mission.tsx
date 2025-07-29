@@ -1,8 +1,10 @@
 import {env} from '@/configs/env'
+
 import {Download} from 'lucide-react'
 
 // Updated component with dark mode support and improved styling
 export function VisionMissionSection() {
+   
   return (
     <div className="relative -mx-4 mt-8 flex w-screen flex-col md:mx-0 md:mt-24 md:max-w-[1220px] md:flex-row">
       {/* Background decorative elements */}
@@ -26,7 +28,7 @@ export function VisionMissionSection() {
               funds, data and identity.
             </p>
             <a
-              href={env.NEXT_PUBLIC_VERUS_DOCS}
+              href="/papers/VerusVision.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group mt-8 flex items-center gap-2 text-[14px] text-verus-blue transition-all duration-300 hover:underline dark:text-blue-400 md:mt-8 md:text-[15px]"
