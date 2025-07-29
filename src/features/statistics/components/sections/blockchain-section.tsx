@@ -1,3 +1,5 @@
+'use client'
+
 /*
  * BlockchainSection Component
  * - Displays current block height
@@ -5,8 +7,9 @@
  * - Shows staking amount and percentage
  * - Uses consistent styling with other sections
  */
-
 import {Zap} from 'lucide-react'
+
+import {getVrscStats} from '../../server/get-vrsc-stats'
 
 interface BlockchainSectionProps {
   blockHeight: string
@@ -15,12 +18,15 @@ interface BlockchainSectionProps {
   stakingPercentage: string
 }
 
-export function BlockchainSection({
-  blockHeight,
-  hashRate,
-  stakingAmount,
-  stakingPercentage,
-}: BlockchainSectionProps) {
+export function BlockchainSection() {
+  //   {
+  //   blockHeight,
+  //   hashRate,
+  //   stakingAmount,
+  //   stakingPercentage,
+  // }: BlockchainSectionProp
+  const {miningInfo, stakingPercentage} = getVrscStats()
+
   return (
     <div className="relative overflow-hidden p-10 md:p-14">
       <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
@@ -35,7 +41,7 @@ export function BlockchainSection({
         </div>
 
         <span className="bg-gradient-to-br from-indigo-500 to-blue-600 bg-clip-text text-[60px] leading-none tracking-tight text-transparent dark:from-indigo-400 dark:to-blue-500">
-          {blockHeight}
+          {miningInfo?.blockHeight}
         </span>
         <div className="mt-2">
           <span className="text-[15px] font-medium uppercase tracking-wider text-gray-600 dark:text-gray-400 md:text-[17px]">
@@ -49,7 +55,7 @@ export function BlockchainSection({
               Network Hash Rate
             </div>
             <div className="text-[18px] font-medium text-gray-900 dark:text-white">
-              {hashRate}
+              {miningInfo?.hashRate}
             </div>
           </div>
           <div>
@@ -57,7 +63,7 @@ export function BlockchainSection({
               Estimated Staking Amount
             </div>
             <div className="text-[18px] font-medium text-gray-900 dark:text-white">
-              {stakingAmount}
+              {miningInfo?.stakingAmount}
               <div className="mt-1 text-[14px] text-gray-500 dark:text-gray-400">
                 {stakingPercentage} of Supply
               </div>

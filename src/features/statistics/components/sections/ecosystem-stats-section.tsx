@@ -10,6 +10,7 @@ import {Coins, Network, Users} from 'lucide-react'
 
 export function EcosystemStatsSection() {
   // Static ecosystem data
+  // TODO: make this dynamic however, unknown how to find data
   const ecosystemData = {
     verusIds: '32k+',
     currencies: '59',

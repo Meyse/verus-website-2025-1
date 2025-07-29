@@ -1,11 +1,14 @@
+'use client'
+
 /*
  * PriceSection Component
  * - Displays current VRSC price
  * - Shows market cap and circulating supply
  * - Includes max supply information
  */
-
 import {BarChart3} from 'lucide-react'
+
+import {getVrscStats} from '../../server/get-vrsc-stats'
 
 interface PriceSectionProps {
   price: string
@@ -14,12 +17,20 @@ interface PriceSectionProps {
   maxSupply: string
 }
 
-export function PriceSection({
-  price,
-  marketCap,
-  circulatingSupply,
-  maxSupply,
-}: PriceSectionProps) {
+// Define max supply
+const maxSupply = 83540184
+
+// Format max supply
+const formattedMaxSupply = maxSupply.toLocaleString() + ' VRSC'
+
+export function PriceSection() {
+  // {
+  // price,
+  // marketCap,
+  // circulatingSupply,
+  // maxSupply,
+  // }: PriceSectionProps
+  const {price, marketCap, circulatingSupply} = getVrscStats()
   return (
     <div className="relative overflow-hidden p-10 md:p-14">
       <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
@@ -57,7 +68,7 @@ export function PriceSection({
                 {circulatingSupply}
               </div>
               <div className="mt-1 text-[14px] text-gray-500 dark:text-gray-400">
-                Max Supply: {maxSupply}
+                Max Supply: {formattedMaxSupply}
               </div>
             </div>
           </div>

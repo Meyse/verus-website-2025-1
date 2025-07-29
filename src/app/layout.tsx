@@ -8,6 +8,7 @@ import NextTopLoader from 'nextjs-toploader'
 import {DevUItools} from '@/components/devTools'
 import {Header} from '@/components/header'
 import {ThemeProvider} from '@/components/providers/next_theme_provider'
+import TanstackProvider from '@/components/providers/tanstack-query-provider'
 
 import {geomanist} from './fonts'
 
@@ -53,9 +54,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           disableTransitionOnChange
         >
           <Header />
-          {children}
+          <TanstackProvider>
+            {children}
 
-          <DevUItools />
+            <DevUItools />
+          </TanstackProvider>
         </ThemeProvider>
       </body>
     </html>
