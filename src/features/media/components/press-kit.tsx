@@ -52,7 +52,7 @@ export function PressKit() {
                 Scalability:
               </span>{' '}
               The protocol is unlimited in scale by way of deploying an
-              unlimited amount of interoperable blockchains.
+              unlimited number of interoperable blockchains.
             </li>
             <li>
               <span className="font-medium text-gray-900 dark:text-gray-200">
@@ -149,7 +149,7 @@ export function PressKit() {
             <p>
               Another is the full release of its Public Blockchain as a Service
               (PBaaS), which enabled the unlimited scale multi-chain and
-              multi-currency part of the protocol, featuring UTXO-resistant
+              multi-currency part of the protocol, featuring MEV-resistant
               DeFi.
             </p>
             <p>
