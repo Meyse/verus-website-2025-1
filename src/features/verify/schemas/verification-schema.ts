@@ -6,7 +6,7 @@ export type VerifySchema = Partial<z.infer<typeof verificationSchema>>
 export const verificationSchema = z
   .object({
     verify_type,
-    verusid: z.string().min(1, 'Please enter a VerusID'),
+    verusid: z.string().min(1, 'Please enter a VerusID or i-address'),
     signature: z.string().min(1, 'Please enter a signature'),
     message: z.string().optional(),
     hash: z.string().optional(),

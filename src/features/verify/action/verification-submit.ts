@@ -21,7 +21,6 @@ export const verificationFormAction = actionClient
       parsedInput: {verify_type, hash, message, fileHash, verusid, signature},
     }) => {
       try {
-        if (verusid.slice(-1) !== '@') throw new Error('Invalid VerusID')
         let result
         switch (verify_type) {
           case 'message':

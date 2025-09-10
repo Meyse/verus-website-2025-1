@@ -16,17 +16,6 @@ export async function getVerification(formInfo: VerifySchema) {
   const {hash, message, verusid, signature} = formInfo
   const errorStatus: StatusError = {}
   if ((!!hash || !!message) && !!verusid && !!signature) {
-    if (verusid.slice(-1) !== '@') {
-      errorStatus.verusid = 'Please enter a valid VerusID'
-      return {
-        hash,
-        message,
-        verusid,
-        signature,
-        error: errorStatus,
-        auto: true,
-      }
-    }
     try {
       let result
       if (!!hash && hash.length > 0)

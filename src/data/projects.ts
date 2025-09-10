@@ -1,8 +1,8 @@
 // Project list component with filtering capabilities
 
-import type {ProjectCardProps} from '@/features/projects/project-card'
+import type { ProjectCardProps } from '@/features/projects/project-card'
 
-import {env} from '@/configs/env'
+import { env } from '@/configs/env'
 
 // This can be moved to a separate data file when the list gets larger
 export const projects = [
@@ -92,6 +92,12 @@ export const projects = [
     name: 'VerusInvoices',
     description: 'Easily ceate invoices to share and use with Verus Mobile.',
     url: 'https://www.verusinvoices.com',
+    category: 'Technology',
+  },
+  {
+    name: 'Nymia',
+    description: 'Zero-trace messaging & payments in one app. Uses zero-knowledge privacy.',
+    url: 'https://www.nymia.app',
     category: 'Technology',
   },
 ].sort((a, b) => a.name.localeCompare(b.name)) as ProjectCardProps[] // Sort alphabetically by name
