@@ -11,6 +11,10 @@ export interface AssetProps {
   height: number
 }
 
+/**
+ * File updated: corrected PNG paths to match actual filenames with -512 suffix
+ * (verus-*-*-512.png) so production downloads work.
+ */
 export const brand_assets: AssetProps[] = [
   {
     name: 'Horizontal blue logo',
@@ -18,7 +22,7 @@ export const brand_assets: AssetProps[] = [
     color: 'blue',
     usage: 'Default logo for light backgrounds',
     svgPath: '/img/brand-assets/verus-logo-blue.svg',
-    pngPath: '/img/brand-assets/verus-logo-blue.png',
+    pngPath: '/img/brand-assets/verus-logo-blue-512.png',
     width: 300,
     height: 100,
   },
@@ -28,7 +32,7 @@ export const brand_assets: AssetProps[] = [
     color: 'white',
     usage: 'For dark backgrounds',
     svgPath: '/img/brand-assets/verus-logo-white.svg',
-    pngPath: '/img/brand-assets/verus-logo-white.png',
+    pngPath: '/img/brand-assets/verus-logo-white-512.png',
     width: 300,
     height: 100,
   },
@@ -38,7 +42,7 @@ export const brand_assets: AssetProps[] = [
     color: 'blue',
     usage: 'Default icon for light backgrounds',
     svgPath: '/img/brand-assets/verus-icon-blue.svg',
-    pngPath: '/img/brand-assets/verus-icon-blue.png',
+    pngPath: '/img/brand-assets/verus-icon-blue-512.png',
     width: 100,
     height: 100,
   },
@@ -48,7 +52,7 @@ export const brand_assets: AssetProps[] = [
     color: 'white',
     usage: 'For dark backgrounds',
     svgPath: '/img/brand-assets/verus-icon-white.svg',
-    pngPath: '/img/brand-assets/verus-icon-white.png',
+    pngPath: '/img/brand-assets/verus-icon-white-512.png',
     width: 100,
     height: 100,
   },

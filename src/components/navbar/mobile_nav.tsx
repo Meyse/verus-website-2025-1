@@ -1,17 +1,23 @@
 'use client'
 
-import type {AnchorHTMLAttributes} from 'react'
+/**
+ * File updated: fixed mobile section toggle for "Use & Wallet" by aligning
+ * isOpen comparison with the section key derived from the title. Also reordered
+ * items so "Wallet" appears before "Get Started" in the Use & Wallet section.
+ */
 
-import {useEffect, useRef, useState} from 'react'
+import type { AnchorHTMLAttributes } from 'react'
+
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
 
-import {env} from '@/configs/env'
-import {ChevronRight, ExternalLink} from 'lucide-react'
-import {FaFacebook, FaReddit} from 'react-icons/fa'
-import {FaTelegram, FaXTwitter, FaYoutube} from 'react-icons/fa6'
-import {IoLogoDiscord, IoLogoGithub} from 'react-icons/io5'
+import { env } from '@/configs/env'
+import { ChevronRight, ExternalLink } from 'lucide-react'
+import { FaFacebook, FaReddit } from 'react-icons/fa'
+import { FaTelegram, FaXTwitter, FaYoutube } from 'react-icons/fa6'
+import { IoLogoDiscord, IoLogoGithub } from 'react-icons/io5'
 
-import {cn} from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 type SectionProps = {
   title: string
@@ -151,8 +157,8 @@ export function MobileNav() {
         <nav className="relative p-6">
           {/* Use Verus Section */}
           <MobileSection
-            title="Use"
-            isOpen={openSection === 'use'}
+            title="Use & Wallet"
+            isOpen={openSection === 'use & wallet'}
             toggleSection={toggleSection}
           >
             <h3 className="border-b border-gray-200 pb-2 pt-8 text-[11px] font-medium uppercase text-gray-500 dark:border-gray-700 dark:text-gray-400">
@@ -160,16 +166,16 @@ export function MobileNav() {
             </h3>
             <div className="space-y-2">
               <MenuLink
-                href="/get-started"
+                href="/wallet"
                 className="block py-2 pt-4 text-[15px] text-gray-700 transition-colors hover:text-verus-blue dark:text-gray-300 dark:hover:text-blue-400"
               >
-                Get Started
+                Wallet
               </MenuLink>
               <MenuLink
-                href="/wallet"
+                href="/get-started"
                 className="block py-2 text-[15px] text-gray-700 transition-colors hover:text-verus-blue dark:text-gray-300 dark:hover:text-blue-400"
               >
-                Wallet
+                Get Started
               </MenuLink>
               <MenuLink
                 href="/verusid"

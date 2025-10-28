@@ -1,4 +1,4 @@
-import {env} from '@/configs/env'
+import { env } from '@/configs/env'
 import {
   BridgeSection,
   CompareSection,
@@ -11,9 +11,9 @@ import {
   ProtocolSection,
   VerusIDSection,
 } from '@/features/home/components'
-import {IoLogoDiscord} from 'react-icons/io5'
+import { IoLogoDiscord } from 'react-icons/io5'
 
-import {BgWrapper} from '@/components/bg-wrapper'
+import { BgWrapper } from '@/components/bg-wrapper'
 
 export default function Home() {
   return (
@@ -23,9 +23,8 @@ export default function Home() {
           The Internet of Value
         </h1>
         <p className="mx-auto max-w-[400px] pt-[10px] text-center text-[16px] font-normal leading-snug tracking-tight text-white opacity-90 md:max-w-[900px] md:pt-[1px] md:text-[32px]">
-          A fundamentally different and better protocol to build Web3,
-          <br className="hidden md:block" /> and to empower individuals &
-          communities.
+          Where you truly own your <span className="font-medium">money</span>, <span className="font-medium">identity</span> and <span className="font-medium">data</span>.
+          <br className="hidden md:block" /> Not just access them.
         </p>
         <div className="mb-16 mt-8 flex flex-col gap-4 md:mb-32 md:flex-row">
           <a

@@ -1,7 +1,10 @@
-import type {AssetProps} from '@/data/brand-assets'
+/**
+ * File updated: replaced next/link with <a> for static asset downloads (SVG/PNG)
+ * to ensure proper download behavior in production; kept absolute paths.
+ */
+import type { AssetProps } from '@/data/brand-assets'
 
 import Image from 'next/image'
-import Link from 'next/link'
 
 export function BrandAssetsLogos({
   filteredLogos,
@@ -54,23 +57,25 @@ export function BrandAssetsLogos({
 
             <div className="flex space-x-3">
               {asset.svgPath && (
-                <Link
+                <a
                   href={asset.svgPath}
                   target="_blank"
+                  rel="noopener noreferrer"
                   download
                   className="flex h-[40px] items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-6 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700"
                 >
                   SVG
-                </Link>
+                </a>
               )}
-              <Link
+              <a
                 href={asset.pngPath}
                 target="_blank"
+                rel="noopener noreferrer"
                 download
                 className="flex h-[40px] items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-6 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700"
               >
                 PNG
-              </Link>
+              </a>
             </div>
           </div>
         ))}
