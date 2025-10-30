@@ -1,12 +1,13 @@
 import Image from 'next/image'
 
-import {Coins, ExternalLink} from 'lucide-react'
+import { Coins, ExternalLink } from 'lucide-react'
 
 /*
  * ExchangesSection - Server Component
  * - Second section of the Get VRSC page showing exchange options
  * - Displays available exchanges with their logos
  * - Fully server-rendered with no client-side JavaScript
+ * - Updated: Removed TradeOgre exchange card, now only displays SafeTrade
  */
 
 export function ExchangesSection() {
@@ -30,13 +31,13 @@ export function ExchangesSection() {
           conduct your own due diligence before using any exchange service.
         </p>
 
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid max-w-2xl grid-cols-1 gap-6 justify-items-start">
           {/* SafeTrade */}
           <a
             href="https://safe.trade"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col items-center rounded-xl border border-gray-700 bg-gray-800 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/20"
+            className="group flex flex-col items-center rounded-xl border border-gray-700 bg-white dark:bg-gray-800 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/20"
           >
             <div className="mb-3 flex h-20 w-48 items-center justify-center">
               <Image
@@ -47,7 +48,7 @@ export function ExchangesSection() {
                 className="max-h-full max-w-full object-contain"
               />
             </div>
-            <p className="mt-2 text-center text-[16px] font-medium text-white">
+            <p className="mt-2 text-center text-[16px] font-medium dark:text-white text-gray-900">
               SafeTrade
             </p>
             <div className="mt-1 flex items-center gap-1">
@@ -56,30 +57,6 @@ export function ExchangesSection() {
             </div>
           </a>
 
-          {/* TradeOgre */}
-          <a
-            href="https://tradeogre.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col items-center rounded-xl border border-gray-700 bg-gray-800 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/20"
-          >
-            <div className="mb-3 flex h-20 w-48 items-center justify-center">
-              <Image
-                src="/img/exchanges/tradeogre.png"
-                alt="TradeOgre Exchange"
-                width={500}
-                height={500}
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-            <p className="mt-2 text-center text-[16px] font-medium text-white">
-              TradeOgre
-            </p>
-            <div className="mt-1 flex items-center gap-1">
-              <span className="text-[13px] text-gray-400">Visit Exchange</span>
-              <ExternalLink className="h-3 w-3 text-gray-400 transition-colors group-hover:text-blue-400" />
-            </div>
-          </a>
         </div>
 
         <div className="mt-8 text-center">
