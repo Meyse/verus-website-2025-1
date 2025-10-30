@@ -1,16 +1,16 @@
 import './globals.css'
 
-import type {Metadata} from 'next'
+import type { Metadata } from 'next'
 
-import {env} from '@/configs/env'
+import { env } from '@/configs/env'
 import NextTopLoader from 'nextjs-toploader'
 
-import {DevUItools} from '@/components/devTools'
-import {Header} from '@/components/header'
-import {ThemeProvider} from '@/components/providers/next_theme_provider'
+import { DevUItools } from '@/components/devTools'
+import { Header } from '@/components/header'
+import { ThemeProvider } from '@/components/providers/next_theme_provider'
 import TanstackProvider from '@/components/providers/tanstack-query-provider'
 
-import {geomanist} from './fonts'
+import { geomanist } from './fonts'
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: 'The Internet of Value | Verus',
   },
   description:
-    'A fundamentally different and better protocol to build Web3, and to empower individuals & communities.',
+    'The protocol where you own your identity, data, and money. Ownership, not just access.',
   keywords:
     'Verus, blockchain, Web3, cryptocurrency, decentralization, DeFi, identity, privacy, interoperability, scalability',
   openGraph: {

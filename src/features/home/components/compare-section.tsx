@@ -25,7 +25,7 @@ export function CompareSection() {
               <div className="h-full w-full">
                 <div className="h-full rounded-none border border-red-200 bg-gradient-to-br from-red-50 to-red-100 p-6 shadow-lg shadow-red-100/20 dark:border-red-800/40 dark:from-red-950/70 dark:to-red-900/30 dark:shadow-red-900/20 md:rounded-lg md:p-8">
                   <div className="mb-5 flex items-center gap-2">
-                    <div className="rounded-lg bg-red-100 p-1.5 dark:bg-red-800/30">
+                    <div className="rounded-lg p-1.5">
                       <AlertTriangle className="h-5 w-5 text-red-600 dark:text-red-400" />
                     </div>
                     <h3 className="text-[16px] font-medium text-red-700 dark:text-red-300 md:text-[18px]">
@@ -92,7 +92,7 @@ export function CompareSection() {
               <div className="h-full w-full">
                 <div className="h-full rounded-none border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-100 p-6 shadow-lg shadow-blue-100/20 dark:border-blue-700/40 dark:from-blue-900/70 dark:to-indigo-900/30 dark:shadow-blue-900/20 md:rounded-lg md:p-8">
                   <div className="mb-5 flex items-center gap-2">
-                    <div className="rounded-lg bg-blue-100 p-1.5 dark:bg-blue-800/30">
+                    <div className="rounded-lg -1.5">
                       <Image
                         src="/img/verus-icon.svg"
                         alt="Verus Icon"
@@ -101,7 +101,7 @@ export function CompareSection() {
                         className="h-5 w-5"
                       />
                     </div>
-                    <h3 className="text-[16px] font-medium text-blue-700 dark:text-blue-300 md:text-[18px]">
+                    <h3 className="text-[16px] font-medium text-verus-blue dark:text-blue-300 md:text-[18px]">
                       The Verus Advantage
                     </h3>
                   </div>
@@ -114,7 +114,7 @@ export function CompareSection() {
                         </span>
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-[15px] font-medium text-blue-800 dark:text-blue-200 md:text-[17px]">
+                        <h4 className="text-[15px] font-medium text-verus-blue dark:text-blue-200 md:text-[17px]">
                           No Code to Exploit
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
@@ -129,7 +129,7 @@ export function CompareSection() {
                         </span>
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-[15px] font-medium text-blue-800 dark:text-blue-200 md:text-[17px]">
+                        <h4 className="text-[15px] font-medium text-verus-blue dark:text-blue-200 md:text-[17px]">
                           Protocol Guaranteed
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
@@ -144,7 +144,7 @@ export function CompareSection() {
                         </span>
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-[15px] font-medium text-blue-800 dark:text-blue-200 md:text-[17px]">
+                        <h4 className="text-[15px] font-medium text-verus-blue dark:text-blue-200 md:text-[17px]">
                           Direct Transactions
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
@@ -204,7 +204,7 @@ export function CompareSection() {
               <div className="h-full w-full">
                 <div className="h-full rounded-none border border-red-200 bg-gradient-to-br from-red-50 to-red-100 p-6 shadow-lg shadow-red-100/20 dark:border-red-800/40 dark:from-red-950/70 dark:to-red-900/30 dark:shadow-red-900/20 md:rounded-lg md:p-8">
                   <div className="mb-5 flex items-center gap-2">
-                    <div className="rounded-lg bg-red-100 p-1.5 dark:bg-red-800/30">
+                    <div className="rounded-lg p-1.5">
                       <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
                     </div>
                     <h3 className="text-[16px] font-medium text-red-700 dark:text-red-300 md:text-[18px]">
@@ -272,10 +272,10 @@ export function CompareSection() {
               <div className="h-full w-full">
                 <div className="h-full rounded-none border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-100 p-6 shadow-lg shadow-blue-100/20 dark:border-blue-700/40 dark:from-blue-900/70 dark:to-indigo-900/30 dark:shadow-blue-900/20 md:rounded-lg md:p-8">
                   <div className="mb-5 flex items-center gap-2">
-                    <div className="rounded-lg bg-blue-100 p-1.5 dark:bg-blue-800/30">
+                    <div className="rounded-lg p-1.5">
                       <Shield className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <h3 className="text-[16px] font-medium text-blue-700 dark:text-blue-300 md:text-[18px]">
+                    <h3 className="text-[16px] font-medium text-verus-blue dark:text-blue-300 md:text-[18px]">
                       The Verus Protocol Advantage
                     </h3>
                   </div>
@@ -288,7 +288,7 @@ export function CompareSection() {
                         </span>
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-[15px] font-medium text-blue-800 dark:text-blue-200 md:text-[17px]">
+                        <h4 className="text-[15px] font-medium text-verus-blue dark:text-blue-200 md:text-[17px]">
                           Protocol-Level Assets
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
@@ -304,7 +304,7 @@ export function CompareSection() {
                         </span>
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-[15px] font-medium text-blue-800 dark:text-blue-200 md:text-[17px]">
+                        <h4 className="text-[15px] font-medium text-verus-blue dark:text-blue-200 md:text-[17px]">
                           Direct Validation
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
@@ -319,7 +319,7 @@ export function CompareSection() {
                         </span>
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-[15px] font-medium text-blue-800 dark:text-blue-200 md:text-[17px]">
+                        <h4 className="text-[15px] font-medium text-verus-blue dark:text-blue-200 md:text-[17px]">
                           Native Security
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">

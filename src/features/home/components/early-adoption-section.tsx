@@ -17,7 +17,7 @@ export function EarlyAdoptionSection() {
         </h2>
 
         <p className="mx-auto max-w-[800px] text-[16px] font-normal leading-relaxed tracking-tight text-gray-600 dark:text-gray-300 md:text-[20px]">
-          Since 2018, Verus has systematically solved crypto's biggest problems. No MEV exploitation. No smart contract risks. No permission-based wallets. Just protocol-level security for everything you build.
+          Since 2018, Verus has systematically tackled crypto's core problems: MEV, scalability, self-sovereign identity, 51% hash attack resistance, and others. All achieved without VC funding, ICOs, premines or taxes.
         </p>
       </div>
 
@@ -88,7 +88,7 @@ export function EarlyAdoptionSection() {
             <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-indigo-500/5 blur-[60px] dark:bg-indigo-500/10"></div>
             <div className="relative z-10">
               <div className="mb-3 flex items-center gap-2">
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500 text-white">
+                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-verus-blue text-white">
                   <Wrench className="h-3 w-3" />
                 </div>
                 <span className="text-[14px] font-medium uppercase tracking-wide text-gray-600 dark:text-gray-300">
@@ -109,7 +109,7 @@ export function EarlyAdoptionSection() {
             <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
             <div className="relative z-10">
               <div className="mb-3 flex items-center gap-2">
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-white">
+                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-verus-blue text-white">
                   <Zap className="h-3 w-3" />
                 </div>
                 <span className="text-[14px] font-medium uppercase tracking-wide text-gray-600 dark:text-gray-300">
