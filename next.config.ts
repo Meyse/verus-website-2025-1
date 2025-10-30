@@ -1,6 +1,6 @@
-import type {NextConfig} from 'next'
+import type { NextConfig } from 'next'
 
-import {env} from '@/configs/env'
+import { env } from '@/configs/env'
 
 const _env = env
 const nextConfig: NextConfig = {
@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
       {source: '/exchanges', destination: '/get-vrsc', permanent: true},
       {source: '/create', destination: '/build', permanent: true},
       {source: '/foundations', destination: '/intro', permanent: true},
-      {source: '/eth-bridge', destination: '/build', permanent: true},
+      {source: '/eth-bridge', destination: '/ethereum-bridge', permanent: true},
       {
         source: '/media#brand-assets',
         destination: '/media/brand-assets',
@@ -54,7 +54,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/wallet/:slug',
-        destination: '/ethereum-bridge',
+        destination: '/wallet',
         permanent: true,
       },
       {

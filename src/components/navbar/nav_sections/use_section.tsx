@@ -1,3 +1,7 @@
+/**
+ * File updated: reordered items so "Wallet" appears before "Get Started"
+ * in the Use & Wallet section of the desktop navigation.
+ */
 import Image from 'next/image'
 
 import {env} from '@/configs/env'
@@ -23,20 +27,20 @@ export function UseSection() {
         </h3>
         <div className="space-y-4">
           <NavLink
-            href="/get-started"
-            icon={
-              <LuBookOpen className="h-5 w-5 text-gray-500 transition-colors group-hover:text-verus-blue" />
-            }
-            title="Get Started"
-            description="Information to help you on your way"
-          />
-          <NavLink
             href="/wallet"
             icon={
               <LuWallet className="h-5 w-5 text-gray-500 transition-colors group-hover:text-verus-blue" />
             }
             title="Wallet"
             description="Connect securily to the Verus ecosystem"
+          />
+          <NavLink
+            href="/get-started"
+            icon={
+              <LuBookOpen className="h-5 w-5 text-gray-500 transition-colors group-hover:text-verus-blue" />
+            }
+            title="Get Started"
+            description="Information to help you on your way"
           />
           <NavLink
             href="/verusid"

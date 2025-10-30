@@ -22,7 +22,7 @@ export function BridgeSection() {
             href="/ethereum-bridge"
             className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-blue-600 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:text-[16px]"
           >
-            Learn more
+            Explore the bridge
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -46,7 +46,7 @@ export function BridgeSection() {
             href="/ethereum-bridge"
             className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-blue-600 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:text-[16px]"
           >
-            Learn more
+            Explore the bridge
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"

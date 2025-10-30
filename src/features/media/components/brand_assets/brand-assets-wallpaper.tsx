@@ -1,9 +1,12 @@
-import type {AssetProps} from '@/data/brand-assets'
+/**
+ * File updated: replaced next/link with <a> for static wallpaper downloads
+ * to ensure proper download behavior in production; kept absolute paths.
+ */
+import type { AssetProps } from '@/data/brand-assets'
 
 import Image from 'next/image'
-import Link from 'next/link'
 
-import {Download} from 'lucide-react'
+import { Download } from 'lucide-react'
 
 export function BrandAssetsWallpaper({
   filteredWallpaper,
@@ -53,15 +56,16 @@ export function BrandAssetsWallpaper({
             </div>
 
             <div className="flex space-x-3">
-              <Link
+              <a
                 href={asset.pngPath}
                 target="_blank"
+                rel="noopener noreferrer"
                 download
                 className="flex h-[40px] flex-1 items-center justify-center rounded-lg border border-blue-600 bg-verus-blue px-6 text-[14px] font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-700 hover:bg-blue-700"
               >
                 <Download className="mr-2 h-4 w-4" />
                 Download Wallpaper
-              </Link>
+              </a>
             </div>
           </div>
         ))}

@@ -1,12 +1,15 @@
 // Brand assets component displaying logos, icons, and brand guidelines
-import Link from 'next/link'
+/**
+ * File updated: replaced next/link with <a> for ZIP download to ensure
+ * proper download behavior in production; kept absolute path.
+ */
 
-import {brand_assets} from '@/data/brand-assets'
-import {Download} from 'lucide-react'
+import { brand_assets } from '@/data/brand-assets'
+import { Download } from 'lucide-react'
 
 import BrandAssetFilterController from './brand-assets-filter-controller'
-import {BrandAssetsLogos} from './brand-assets-logos'
-import {BrandAssetsWallpaper} from './brand-assets-wallpaper'
+import { BrandAssetsLogos } from './brand-assets-logos'
+import { BrandAssetsWallpaper } from './brand-assets-wallpaper'
 
 type SearchParams = Promise<{[key: string]: string | undefined}>
 
@@ -46,14 +49,15 @@ export async function BrandAssets({
           websites.
         </p>
 
-        <Link
+        <a
           href="/img/brand-assets/brand-assets.zip"
           target="_blank"
+          rel="noopener noreferrer"
           className="mt-4 flex items-center gap-2 text-verus-blue hover:underline dark:text-blue-300"
         >
           <Download className="h-4 w-4" />
           <span>Download all Verus brand assets (.zip)</span>
-        </Link>
+        </a>
       </div>
 
       <BrandAssetFilterController />

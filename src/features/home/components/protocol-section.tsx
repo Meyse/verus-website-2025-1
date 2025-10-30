@@ -1,4 +1,4 @@
-import {IoMdDownload} from 'react-icons/io'
+import { IoMdDownload } from 'react-icons/io'
 
 export function ProtocolSection() {
   return (
@@ -19,26 +19,10 @@ export function ProtocolSection() {
         <div className="relative z-10 flex flex-col items-center">
           <div className="mb-8 md:mb-16">
             <h2 className="mb-4 text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:max-w-[900px] md:text-[55px]">
-              <span className="text-gray-600 dark:text-white">
-                Unlimited Scalability—
-              </span>
-              {''}
-              <span className="relative">
-                <span className="relative inline-block">
-                  <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                    Native Multi-Chain Architecture
-                  </span>
-                  <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-verus-blue/10 blur-md" />
-                </span>
-              </span>
+              Horizontal Scalability: Multi-Chain Architecture
             </h2>
             <p className="text-center text-[16px] font-normal leading-relaxed tracking-tight text-gray-600 dark:text-gray-300 md:max-w-[800px] md:text-[20px]">
-              Verus achieves unlimited scalability by embracing a multi-chain
-              approach rather than scaling up a single blockchain. Instead of
-              pushing the limits of a monolithic chain, Verus enables anyone to
-              launch fully interoperable blockchains as needed, creating a
-              network that scales horizontally—similar to how the internet is
-              built on millions of servers rather than one super-server.
+              Scale out, not up. Launch interoperable blockchains as needed rather than overloading a single chain. Think millions of servers, not one super-server.
             </p>
           </div>
 
