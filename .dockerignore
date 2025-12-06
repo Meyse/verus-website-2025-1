@@ -1,0 +1,22 @@
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next
+.git
+.gitignore
+.gitattributes
+
+.bolt
+.cursor
+.vscode
+.env.development
+
+
+# don't include non-production files
+archive_bck
+components.json
+eslint.config.js
+prettier.config.js
+template.env.local
