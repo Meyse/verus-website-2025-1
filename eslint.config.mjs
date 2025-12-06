@@ -61,7 +61,7 @@ const eslintConfig = [
   ),
 
   ...compat.config({
-    extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
+    extends: ['next/core-web-vitals', 'prettier'],
     rules: {
       'react/no-unescaped-entities': 'off',
       '@next/next/no-html-link-for-pages': 'error',

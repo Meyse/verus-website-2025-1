@@ -1,10 +1,10 @@
 'use client'
 
-import {useEffect, useRef} from 'react'
+import { useEffect, useRef } from 'react'
 
-import {env} from '@/configs/env'
-import {milestones} from '@/data/timeline-data'
-import {BarChart3, Clock, Download} from 'lucide-react'
+import { env } from '@/configs/env'
+import { milestones } from '@/data/timeline-data'
+import { BarChart3, Clock, Download } from 'lucide-react'
 
 /*
  * Updated:
@@ -194,7 +194,7 @@ export function TimelineClient() {
 
           <div className="mt-6 flex flex-col items-center justify-center gap-4 md:flex-row">
             <a
-              href={env.NEXT_PUBLIC_VERUS_DOCS}
+              href="/papers/VerusVision.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:text-[16px]"
