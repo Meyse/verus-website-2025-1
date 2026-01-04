@@ -168,8 +168,8 @@ export const env = createEnv({
   isServer: typeof window === 'undefined',
   emptyStringAsUndefined: true,
   // Create a clean invalidator error for env variables
-  onValidationError: (issues: readonly StandardSchemaV1.Issue[]) => {
-  /*  const errors = new ZodError(issues as any[])
+  /*onValidationError: (issues: readonly StandardSchemaV1.Issue[]) => {
+    const errors = new ZodError(issues as any[])
     // console.info('❌ Invalid environment variables:', issues)
     console.error(
       '❌ Invalid environment variables:',
