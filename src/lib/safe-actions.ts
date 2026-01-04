@@ -2,14 +2,12 @@ import {
   createSafeActionClient,
   DEFAULT_SERVER_ERROR_MESSAGE,
 } from 'next-safe-action'
-import {zodAdapter} from 'next-safe-action/adapters/zod'
 import {z} from 'zod'
 
 export class ActionError extends Error {}
 
 // Base Client
 export const actionClient = createSafeActionClient({
-  validationAdapter: zodAdapter(),
   // You can provide a custom handler for server errors, otherwise the lib will use `console.error`
   // as the default logging mechanism and will return the DEFAULT_SERVER_ERROR_MESSAGE for all server errors.
   handleServerError: (e) => {
@@ -29,6 +27,7 @@ export const actionClient = createSafeActionClient({
       actionName: z.string(),
     })
   },
+  defaultValidationErrorsShape: 'flattened',
 })
 
 /** example of adding auth to safe-action */

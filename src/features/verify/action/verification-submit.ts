@@ -9,7 +9,7 @@ import {actionClient} from '@/lib/safe-actions'
 
 export const verificationFormAction = actionClient
   .metadata({actionName: 'verification'})
-  .schema(verificationSchema, {
+  .inputSchema(verificationSchema, {
     // Here we use the `flattenValidationErrors` function to customize the returned validation errors
     // object to the client.
     // eslint-disable-next-line @typescript-eslint/require-await

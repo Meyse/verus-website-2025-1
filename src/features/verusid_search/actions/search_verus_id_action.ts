@@ -7,7 +7,7 @@ import {validateVerusId} from '../server/validate-verusId'
 
 export const searchVerusIdAction = actionClient
   .metadata({actionName: 'verusID search'})
-  .schema(verusIDsearchSchema)
+  .inputSchema(verusIDsearchSchema)
   .action(async ({parsedInput: {verusid}}) => {
     // console.log(verusid)
     let verusID = verusid
