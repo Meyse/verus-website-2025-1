@@ -1,4 +1,4 @@
-import type {StandardSchemaV1} from '@/types/standardSchema'
+// import type {StandardSchemaV1} from '@/types/standardSchema'
 
 import {createEnv} from '@t3-oss/env-nextjs'
 import {z, ZodError} from 'zod'
@@ -169,7 +169,7 @@ export const env = createEnv({
   emptyStringAsUndefined: true,
   // Create a clean invalidator error for env variables
   onValidationError: (issues: readonly StandardSchemaV1.Issue[]) => {
-    const errors = new ZodError(issues as any[])
+  /*  const errors = new ZodError(issues as any[])
     // console.info('❌ Invalid environment variables:', issues)
     console.error(
       '❌ Invalid environment variables:',
@@ -178,6 +178,7 @@ export const env = createEnv({
     //exit before building
     process.exit(1)
   },
+  */
   // Called when server variables are accessed on the client.
   onInvalidAccess: (variable: string) => {
     console.error(
