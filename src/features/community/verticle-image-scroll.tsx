@@ -1,7 +1,9 @@
 'use client'
 
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import Image from 'next/image'
+
+import {useIsMounted} from '@/hooks/use-is-mounted'
 
 // Define image paths for the vertical scrolling images (separated into left and right columns)
 const leftColumnImages = Array.from(
@@ -15,9 +17,10 @@ const rightColumnImages = Array.from(
 
 // Right image grid side - desktop only - with smooth infinite scrolling
 export const VerticleImageScroll = () => {
-  const [isMounted, setIsMounted] = useState(false)
+  const isMounted = useIsMounted()
+
   useEffect(() => {
-    setIsMounted(true)
+    if (!isMounted) return
 
     // Safari animation fix - force animation recognition after mount
     setTimeout(() => {
@@ -31,7 +34,7 @@ export const VerticleImageScroll = () => {
         ;(container as HTMLElement).style.transform = 'translateZ(0)'
       })
     }, 50)
-  }, [])
+  }, [isMounted])
 
   // Only try to animate after component has mounted on client
   if (!isMounted) {

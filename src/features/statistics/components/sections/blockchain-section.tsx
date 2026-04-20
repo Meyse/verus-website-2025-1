@@ -9,14 +9,7 @@
  */
 import {Zap} from 'lucide-react'
 
-import {getVrscStats} from '../../server/get-vrsc-stats'
-
-interface BlockchainSectionProps {
-  blockHeight: string
-  hashRate: string
-  stakingAmount: string
-  stakingPercentage: string
-}
+import {useVrscStats} from '../../server/get-vrsc-stats'
 
 export function BlockchainSection() {
   //   {
@@ -25,7 +18,7 @@ export function BlockchainSection() {
   //   stakingAmount,
   //   stakingPercentage,
   // }: BlockchainSectionProp
-  const {miningInfo, stakingPercentage} = getVrscStats()
+  const {miningInfo, stakingPercentage} = useVrscStats()
 
   return (
     <div className="relative overflow-hidden p-10 md:p-14">

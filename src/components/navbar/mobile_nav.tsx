@@ -5,9 +5,9 @@
  * isOpen comparison with the section key derived from the title. Also reordered
  * items so "Wallet" appears before "Get Started" in the Use & Wallet section.
  */
-import type {AnchorHTMLAttributes} from 'react'
+import type {AnchorHTMLAttributes, ReactNode} from 'react'
 
-import {useEffect, useRef, useState} from 'react'
+import {createContext, useContext, useEffect, useRef, useState} from 'react'
 import Link from 'next/link'
 
 import {env} from '@/configs/env'
@@ -24,7 +24,7 @@ type SectionProps = {
   title: string
   isOpen: boolean
   toggleSection: (section: string) => void
-  children: React.ReactNode
+  children: ReactNode
 }
 //TODO:clean this up
 //?? maybe split this up
@@ -94,7 +94,23 @@ function MobileSection({title, isOpen, toggleSection, children}: SectionProps) {
 }
 type MenuLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string
+  children: ReactNode
 }
+
+const MobileMenuCloseContext = createContext<(() => void) | undefined>(
+  undefined
+)
+
+function MenuLink({href, children, className, ...props}: MenuLinkProps) {
+  const closeMenu = useContext(MobileMenuCloseContext)
+
+  return (
+    <Link href={href} className={className} onClick={closeMenu} {...props}>
+      {children}
+    </Link>
+  )
+}
+
 export function MobileNav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [openSection, setOpenSection] = useState<string | null>(null)
@@ -108,15 +124,8 @@ export function MobileNav() {
     setIsMobileMenuOpen(false)
   }
 
-  // Modified Link component that closes the menu on click
-  const MenuLink = ({href, children, className, ...props}: MenuLinkProps) => (
-    <Link href={href} className={className} onClick={closeMenu} {...props}>
-      {children}
-    </Link>
-  )
-
   return (
-    <>
+    <MobileMenuCloseContext.Provider value={closeMenu}>
       {/* Mobile Menu Button */}
       <button
         className="relative z-50 flex h-8 w-8 items-center justify-center rounded-md transition-colors hover:bg-gray-100/50 dark:hover:bg-gray-800/50 md:hidden"
@@ -616,6 +625,6 @@ export function MobileNav() {
           </div>
         </nav>
       </div>
-    </>
+    </MobileMenuCloseContext.Provider>
   )
 }

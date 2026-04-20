@@ -25,7 +25,7 @@ export async function ArweaveContent({content}: {content: any}) {
   // pass info
   return (
     <div className="mb-4 flex flex-col rounded-lg border border-gray-200 shadow-sm dark:border-gray-700/50">
-      <ArweaveContentCard content={content} contentData={results.result} />
+      <ArweaveContentCard contentData={results.result} />
     </div>
   )
 }

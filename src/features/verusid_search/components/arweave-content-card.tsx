@@ -1,18 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
-import { useState } from 'react'
+import {useState} from 'react'
 
 import ReactMarkdown from 'react-markdown'
 import rehypeSanitize from 'rehype-sanitize'
 
-export function ArweaveContentCard({
-  content,
-  contentData,
-}: {
-  content: any
-  contentData: any
-}) {
+export function ArweaveContentCard({contentData}: {contentData: any}) {
   const [isExpanded, setIsExpanded] = useState(false)
 
   // Helper function to get content preview (reduced to 3 lines)
@@ -24,7 +18,7 @@ export function ArweaveContentCard({
       }
       return contentData
     }
-    
+
     if (typeof contentData === 'object') {
       const jsonString = JSON.stringify(contentData, null, 2)
       const lines = jsonString.split('\n')
@@ -33,16 +27,17 @@ export function ArweaveContentCard({
       }
       return jsonString
     }
-    
+
     return String(contentData)
   }
 
   const preview = getContentPreview()
-  const hasMoreContent = typeof contentData === 'string' 
-    ? contentData.split('\n').length > 3 
-    : typeof contentData === 'object'
-    ? JSON.stringify(contentData, null, 2).split('\n').length > 3
-    : String(contentData).split('\n').length > 3
+  const hasMoreContent =
+    typeof contentData === 'string'
+      ? contentData.split('\n').length > 3
+      : typeof contentData === 'object'
+        ? JSON.stringify(contentData, null, 2).split('\n').length > 3
+        : String(contentData).split('\n').length > 3
 
   if (isExpanded) {
     return (
@@ -76,7 +71,7 @@ export function ArweaveContentCard({
       {/* Content Preview */}
       <div className="bg-white p-4 dark:bg-gray-800/80">
         {typeof contentData === 'object' ? (
-          <pre className="text-xs text-gray-800 dark:text-gray-200 whitespace-pre-wrap">
+          <pre className="whitespace-pre-wrap text-xs text-gray-800 dark:text-gray-200">
             {preview}
           </pre>
         ) : (

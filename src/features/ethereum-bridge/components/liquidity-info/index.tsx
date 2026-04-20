@@ -20,7 +20,7 @@ import {LiquidityTooltip} from './liquidity-tooltip'
 export function BridgeLiquidityInfo() {
   const queryClient = getQueryClient()
 
-  queryClient.prefetchQuery({
+  void queryClient.prefetchQuery({
     queryKey: ['bridge-info'],
     queryFn: getBridgeData,
   })

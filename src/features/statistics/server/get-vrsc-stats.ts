@@ -7,7 +7,7 @@ import {calculateStakingPercentage} from '../lib/calc-stake-percentage'
 import {getMiningInfo} from './get-mining-info'
 import {getVRSCPrice} from './get-vrsc-price'
 
-export function getVrscStats() {
+export function useVrscStats() {
   const {data: miningInfo} = useQuery({
     queryKey: ['mining-info'],
     queryFn: getMiningInfo,

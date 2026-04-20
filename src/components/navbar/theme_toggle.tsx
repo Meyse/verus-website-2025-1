@@ -1,11 +1,10 @@
 'use client'
 
-import {useEffect, useState} from 'react'
-
 import {Moon, Sun} from 'lucide-react'
 import {useTheme} from 'next-themes'
 
 import {cn} from '@/lib/utils'
+import {useIsMounted} from '@/hooks/use-is-mounted'
 
 type ThemeMode = 'system' | 'light' | 'dark'
 
@@ -36,12 +35,8 @@ export function ThemeModeControl({
   controlClassName,
   variant = 'default',
 }: ThemeModeControlProps) {
-  const [mounted, setMounted] = useState(false)
+  const mounted = useIsMounted()
   const {theme, setTheme} = useTheme()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const activeTheme: ThemeMode =
     mounted && isThemeMode(theme) ? theme : 'system'
