@@ -6,7 +6,7 @@ const features = [
     alt: 'Community-built',
     title: 'Community-built',
     description:
-      'No ICO, premine, or dev fees. Launched fairly, community-developed and runs on donations.',
+      'No ICO, premine, or dev fees. Launched fairly and community-developed by donations.',
   },
   {
     src: '/img/hero/security.svg',
