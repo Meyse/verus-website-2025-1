@@ -1,7 +1,6 @@
 // This file provides the header component with navigation for the Verus website
-// Last updated: Added theme toggle for dark/light mode
 
-import {DesktopNav, Logo, MobileNav, SocialIcons, ThemeToggle} from './navbar'
+import {DesktopNav, Logo, MobileNav, SocialIcons} from './navbar'
 
 export function Header() {
   return (
@@ -14,7 +13,6 @@ export function Header() {
 
         <div className="flex items-center">
           <SocialIcons />
-          <ThemeToggle />
         </div>
         <MobileNav />
       </div>

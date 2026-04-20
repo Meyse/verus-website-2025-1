@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { env } from '@/configs/env'
+import {env} from '@/configs/env'
 import {
   FaFacebook,
   FaGithub,
@@ -10,8 +10,10 @@ import {
   FaTelegram,
   FaYoutube,
 } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
-import { IoLogoDiscord } from 'react-icons/io5'
+import {FaXTwitter} from 'react-icons/fa6'
+import {IoLogoDiscord} from 'react-icons/io5'
+
+import {ThemeModeControl} from '@/components/navbar'
 
 export function Footer() {
   return (
@@ -372,11 +374,16 @@ export function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-12 flex items-center justify-between border-t border-gray-800 pt-8">
+          <div className="mt-12 flex flex-col gap-6 border-t border-gray-800 pt-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="text-[14px] text-gray-400">
               © {new Date().getFullYear()} The Verus Community. All rights
               reserved.
             </div>
+            <ThemeModeControl
+              variant="inverted"
+              className="max-w-[360px]"
+              controlClassName="shrink-0"
+            />
             <div className="flex gap-2">
               <Link
                 href="/privacy-policy"

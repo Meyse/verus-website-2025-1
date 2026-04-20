@@ -5,19 +5,20 @@
  * isOpen comparison with the section key derived from the title. Also reordered
  * items so "Wallet" appears before "Get Started" in the Use & Wallet section.
  */
+import type {AnchorHTMLAttributes} from 'react'
 
-import type { AnchorHTMLAttributes } from 'react'
-
+import {useEffect, useRef, useState} from 'react'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
 
-import { env } from '@/configs/env'
-import { ChevronRight, ExternalLink } from 'lucide-react'
-import { FaFacebook, FaReddit } from 'react-icons/fa'
-import { FaTelegram, FaXTwitter, FaYoutube } from 'react-icons/fa6'
-import { IoLogoDiscord, IoLogoGithub } from 'react-icons/io5'
+import {env} from '@/configs/env'
+import {ChevronRight, ExternalLink} from 'lucide-react'
+import {FaFacebook, FaReddit} from 'react-icons/fa'
+import {FaTelegram, FaXTwitter, FaYoutube} from 'react-icons/fa6'
+import {IoLogoDiscord, IoLogoGithub} from 'react-icons/io5'
 
-import { cn } from '@/lib/utils'
+import {cn} from '@/lib/utils'
+
+import {ThemeModeControl} from './theme_toggle'
 
 type SectionProps = {
   title: string
@@ -575,6 +576,10 @@ export function MobileNav() {
                 </MenuLink>
               </div>
             </div>
+          </div>
+
+          <div className="border-b border-gray-100 py-5 dark:border-gray-800">
+            <ThemeModeControl controlClassName="shrink-0" />
           </div>
 
           {/* Social Media Icons */}
