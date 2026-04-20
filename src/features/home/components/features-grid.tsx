@@ -62,7 +62,7 @@ const features = [
 export function FeaturesGrid() {
   return (
     <div className="relative w-screen md:max-w-[1220px]">
-      <div className="mb-2 border border-white/60 bg-white/25 bg-gradient-to-br from-white/50 via-white/25 to-white/10 shadow-[0_24px_80px_-36px_rgba(15,23,42,0.65)] backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:from-gray-950/50 dark:via-gray-900/35 dark:to-blue-950/20 md:mb-4 md:rounded-lg">
+      <div className="mb-2 border border-white/60 bg-white/25 bg-gradient-to-br from-white/50 via-white/25 to-white/10 shadow-[0_24px_80px_-36px_rgba(15,23,42,0.65)] backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:from-gray-950/80 dark:via-gray-900/65 dark:to-blue-950/40 md:mb-4 md:rounded-lg">
         <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-12 px-5 py-10 md:grid-cols-4 md:gap-x-8 md:gap-y-16 md:px-8 md:py-12">
           {features.map((feature) => (
             <article
