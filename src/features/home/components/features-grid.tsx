@@ -13,7 +13,7 @@ const features = [
     alt: 'Security',
     title: 'Security',
     description:
-      'PoW and PoS combine to resist 51% attacks without vulnerable smart contracts.',
+      'Combined PoW and PoS resist 51% attacks, built without vulnerable smart contracts.',
   },
   {
     src: '/img/hero/scale.svg',
@@ -55,7 +55,7 @@ const features = [
     alt: 'DeFi',
     title: 'DeFi',
     description:
-      'Native transactions keep costs low and avoid MEV-style smart contract extraction.',
+      'Fair DeFi without MEV exploitation or high fees. Native transactions keep costs low.',
   },
 ] as const
 

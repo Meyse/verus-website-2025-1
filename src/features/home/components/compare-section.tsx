@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import { env } from '@/configs/env'
-import { AlertCircle, AlertTriangle, Shield } from 'lucide-react'
+import { AlertTriangle } from 'lucide-react'
 import { FaMedium } from 'react-icons/fa'
 
 export function CompareSection() {
@@ -23,7 +23,7 @@ export function CompareSection() {
             <div className="grid w-full max-w-[1000px] grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
               {/* Problems with Smart Contracts */}
               <div className="h-full w-full">
-                <div className="h-full rounded-none border border-red-200 bg-gradient-to-br from-red-50 to-red-100 p-6 shadow-lg shadow-red-100/20 dark:border-red-800/40 dark:from-red-950/70 dark:to-red-900/30 dark:shadow-red-900/20 md:rounded-lg md:p-8">
+                <div className="h-full p-6 md:p-8">
                   <div className="mb-5 flex items-center gap-2">
                     <div className="rounded-lg p-1.5">
                       <AlertTriangle className="h-5 w-5 text-red-600 dark:text-red-400" />
@@ -90,7 +90,7 @@ export function CompareSection() {
 
               {/* The Verus Solution */}
               <div className="h-full w-full">
-                <div className="h-full rounded-none border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-100 p-6 shadow-lg shadow-blue-100/20 dark:border-blue-700/40 dark:from-blue-900/70 dark:to-indigo-900/30 dark:shadow-blue-900/20 md:rounded-lg md:p-8">
+                <div className="h-full p-6 md:p-8">
                   <div className="mb-5 flex items-center gap-2">
                     <div className="rounded-lg -1.5">
                       <Image
@@ -202,10 +202,10 @@ export function CompareSection() {
             <div className="grid w-full max-w-[1000px] grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
               {/* Problems with Token Systems */}
               <div className="h-full w-full">
-                <div className="h-full rounded-none border border-red-200 bg-gradient-to-br from-red-50 to-red-100 p-6 shadow-lg shadow-red-100/20 dark:border-red-800/40 dark:from-red-950/70 dark:to-red-900/30 dark:shadow-red-900/20 md:rounded-lg md:p-8">
+                <div className="h-full p-6 md:p-8">
                   <div className="mb-5 flex items-center gap-2">
                     <div className="rounded-lg p-1.5">
-                      <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
+                      <AlertTriangle className="h-5 w-5 text-red-600 dark:text-red-400" />
                     </div>
                     <h3 className="text-[16px] font-medium text-red-700 dark:text-red-300 md:text-[18px]">
                       Conventional Token Systems
@@ -270,10 +270,16 @@ export function CompareSection() {
 
               {/* The Verus Difference */}
               <div className="h-full w-full">
-                <div className="h-full rounded-none border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-100 p-6 shadow-lg shadow-blue-100/20 dark:border-blue-700/40 dark:from-blue-900/70 dark:to-indigo-900/30 dark:shadow-blue-900/20 md:rounded-lg md:p-8">
+                <div className="h-full p-6 md:p-8">
                   <div className="mb-5 flex items-center gap-2">
-                    <div className="rounded-lg p-1.5">
-                      <Shield className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                    <div className="rounded-lg -1.5">
+                      <Image
+                        src="/img/verus-icon.svg"
+                        alt="Verus Icon"
+                        width={20}
+                        height={20}
+                        className="h-5 w-5"
+                      />
                     </div>
                     <h3 className="text-[16px] font-medium text-verus-blue dark:text-blue-300 md:text-[18px]">
                       The Verus Protocol Advantage

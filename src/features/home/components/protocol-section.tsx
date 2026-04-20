@@ -11,7 +11,7 @@ export function ProtocolSection() {
             style={{willChange: 'transform'}}
           />
           <div
-            className="absolute bottom-0 right-0 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 transform rounded-full bg-indigo-500/5 blur-[100px]"
+            className="absolute bottom-0 right-0 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 transform rounded-full bg-blue-500/5 blur-[100px]"
             style={{willChange: 'transform'}}
           />
         </div>

@@ -85,7 +85,7 @@ export function EarlyAdoptionSection() {
 
           {/* Technical Foundation */}
           <div className="relative overflow-hidden p-10 md:p-14">
-            <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-indigo-500/5 blur-[60px] dark:bg-indigo-500/10"></div>
+            <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
             <div className="relative z-10">
               <div className="mb-3 flex items-center gap-2">
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-verus-blue text-white">
