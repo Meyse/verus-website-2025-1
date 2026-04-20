@@ -1,4 +1,4 @@
-import { Code2, FileCode, Layers } from 'lucide-react'
+import {Code2, FileCode, Layers} from 'lucide-react'
 
 /*
  * Updated:
@@ -18,18 +18,7 @@ export function TechnicalSection() {
       {/* Developer-focused Title */}
       <div className="mb-12 flex flex-col items-center justify-center md:mb-16">
         <h2 className="mx-auto mb-4 max-w-[1000px] text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-6 md:text-[55px]">
-          <span className="text-gray-600 dark:text-white">
-            Developer-First APIs—
-          </span>
-          {''}
-          <span className="relative">
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                Simple Integration
-              </span>
-              <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/10 via-verus-blue/10 to-purple-500/10 blur-md" />
-            </span>
-          </span>
+          Simple Developer-First APIs
         </h2>
         <p className="mx-auto max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[20px]">
           Leverage blockchain storage with familiar APIs designed for rapid
@@ -160,8 +149,6 @@ export function TechnicalSection() {
                       type and namespace.
                     </p>
                   </div>
-
-                
                 </div>
               </div>
             </div>

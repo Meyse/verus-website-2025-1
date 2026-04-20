@@ -24,13 +24,7 @@ export function MigrateContent() {
 
             <div className="relative">
               <h2 className="mb-4 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-6 md:text-[40px]">
-                <span className="text-gray-600 dark:text-white">
-                  1:1 ERC-20 Mapping—
-                </span>
-                {''}
-                <span className="bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                  The Best of Both Worlds
-                </span>
+                1:1 ERC-20 Mapping Gives You the Best of Both Worlds
               </h2>
 
               <p className="mb-10 max-w-4xl text-[16px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[18px]">
@@ -263,11 +257,7 @@ export function MigrateContent() {
       <section className="relative mb-24">
         <div className="mx-auto w-full max-w-[1100px]">
           <h2 className="mb-6 text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-10 md:text-[45px]">
-            <span className="text-gray-600 dark:text-white">How to </span>
-            {''}
-            <span className="bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-              Migrate Your Token
-            </span>
+            How to Migrate Your Token
           </h2>
 
           <p className="mx-auto mb-16 max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[18px]">

@@ -12,15 +12,7 @@ export function DataStorageExample() {
     <section className="relative mb-24 md:mt-32">
       <div className="mb-16 flex flex-col items-center justify-center">
         <h2 className="mx-auto mb-4 max-w-[1000px] text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[55px]">
-          <span className="text-gray-600 dark:text-white">Store Data With</span>{' '}
-          <span className="relative">
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                Simple Commands
-              </span>
-              <span className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-blue-500/10 via-verus-blue/10 to-purple-500/10 blur-lg" />
-            </span>
-          </span>
+          Store Data with Simple Commands
         </h2>
         <p className="mx-auto max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[20px]">
           Add structured data to your VerusID with a single API call, creating a

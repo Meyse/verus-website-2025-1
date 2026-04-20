@@ -21,15 +21,7 @@ export function UseCasesSection() {
       {/* Centered Title */}
       <div className="mb-12 text-center">
         <h2 className="mb-6 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[55px]">
-          <span className="text-gray-600 dark:text-white">Real-World </span>
-          <span className="relative">
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                Use Cases
-              </span>
-              <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/10 via-verus-blue/10 to-purple-500/10 blur-md" />
-            </span>
-          </span>
+          Real-World Use Cases
         </h2>
       </div>
 

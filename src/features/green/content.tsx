@@ -8,18 +8,7 @@ export function GreenContent() {
         <div className="relative">
           <div className="flex flex-col items-center justify-center">
             <h2 className="mx-auto mb-4 max-w-[1000px] text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[55px]">
-              <span className="text-gray-600 dark:text-white">
-                Environmentally Conscious{' '}
-              </span>
-              {''}
-              <span className="relative">
-                <span className="relative inline-block">
-                  <span className="relative z-10 bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent dark:to-green-400">
-                    Blockchain Technology
-                  </span>
-                  <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-green-500/10 via-green-500/10 to-green-500/10 blur-md" />
-                </span>
-              </span>
+              Environmentally Conscious Blockchain Technology
             </h2>
             <p className="mx-auto mb-16 max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[20px]">
               Verus combines the security of proof-of-work with the energy
@@ -63,13 +52,7 @@ export function GreenContent() {
       {/* Why Proof of Work Is Essential Section */}
       <section className="relative mb-24">
         <h2 className="mb-4 text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-10 md:text-[45px]">
-          <span className="text-gray-600 dark:text-white">
-            Why proof-of-work is{' '}
-          </span>
-          {''}
-          <span className="bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent dark:to-green-400">
-            Essential
-          </span>
+          Why Proof of Work Is Essential
         </h2>
 
         <p className="mx-auto mb-16 max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[18px]">
@@ -207,11 +190,7 @@ export function GreenContent() {
       <section className="relative mb-24">
         <div className="mx-auto w-full max-w-[1100px]">
           <h2 className="mb-6 text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-10 md:text-[45px]">
-            <span className="text-gray-600 dark:text-white">The Best of </span>
-            {''}
-            <span className="bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent dark:to-green-400">
-              Both Worlds
-            </span>
+            The Best of Both Worlds
           </h2>
 
           <p className="mx-auto mb-12 max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[18px]">

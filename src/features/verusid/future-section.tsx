@@ -18,7 +18,7 @@ export function FutureSection() {
         {/* Content */}
         <div className="relative z-10 border border-blue-100/80 p-8 pt-12 dark:border-blue-900/20 md:p-16">
           <div className="mx-auto flex max-w-[800px] flex-col items-center text-center">
-            <h2 className="mb-4 text-[22px] font-medium leading-[1.1] tracking-tight text-verus-blue dark:text-blue-400 md:text-[40px]">
+            <h2 className="mb-4 text-[22px] font-medium leading-[1.1] tracking-tight text-gray-800 dark:text-white md:text-[40px]">
               Building for tomorrow, available today.
             </h2>
             <p className="mb-12 text-[14px] leading-[1.8] tracking-tight text-gray-700 dark:text-gray-300 md:text-[15px]">
