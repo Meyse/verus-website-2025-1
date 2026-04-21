@@ -1,12 +1,3 @@
-/**
- * File updated: replaced 'Pioneer Advantage' and 'Building Without the Noise' cards
- * with 'Technical Foundation' and 'Developer Experience', updated icons (Wrench, Zap),
- * revised copy to match new content, unified large-number gradient styling to
- * match the TVL color scheme, and switched gradient end color to Verus brand
- * (to-verus-blue) including dark variant.
- */
-import {Wrench, Zap} from 'lucide-react'
-
 export function EarlyAdoptionSection() {
   const getCellBorders = (index: number) => {
     const isDesktopRightColumn = index % 2 === 1
@@ -37,8 +28,8 @@ export function EarlyAdoptionSection() {
               $50M+
             </span>
             <div className="mt-3">
-              <span className="text-[15px] font-medium uppercase tracking-wider text-gray-600 dark:text-gray-400 md:text-[17px]">
-                Total Value Locked
+              <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
+                Total value locked
               </span>
             </div>
           </div>
@@ -55,7 +46,7 @@ export function EarlyAdoptionSection() {
               32k+
             </span>
             <div className="mt-3">
-              <span className="text-[15px] font-medium uppercase tracking-wider text-gray-600 dark:text-gray-400 md:text-[17px]">
+              <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
                 VerusID registrations
               </span>
             </div>
@@ -74,7 +65,7 @@ export function EarlyAdoptionSection() {
               $500M+
             </span>
             <div className="mt-3">
-              <span className="text-[15px] font-medium uppercase tracking-wider text-gray-600 dark:text-gray-400 md:text-[17px]">
+              <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
                 Lifetime on-chain DeFi volume (since 2023)
               </span>
             </div>
@@ -93,14 +84,13 @@ export function EarlyAdoptionSection() {
               4
             </span>
             <div className="mt-3">
-              <span className="text-[15px] font-medium uppercase tracking-wider text-gray-600 dark:text-gray-400 md:text-[17px]">
+              <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
                 Chains in the ecosystem
               </span>
             </div>
           </div>
         </div>
 
-        {/* Technical Foundation */}
         <div
           className={`relative overflow-hidden border-gray-200 p-10 dark:border-gray-800 md:p-14 ${getCellBorders(
             4
@@ -108,14 +98,6 @@ export function EarlyAdoptionSection() {
         >
           <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
           <div className="relative z-10">
-            <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-verus-blue text-white">
-                <Wrench className="h-3 w-3" />
-              </div>
-              <span className="text-[14px] font-medium uppercase tracking-wide text-gray-600 dark:text-gray-300">
-                Technical Foundation
-              </span>
-            </div>
             <h3 className="mb-4 font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
               No Smart Contract Dependencies
             </h3>
@@ -128,7 +110,6 @@ export function EarlyAdoptionSection() {
           </div>
         </div>
 
-        {/* Developer Experience */}
         <div
           className={`relative overflow-hidden border-gray-200 p-10 dark:border-gray-800 md:p-14 ${getCellBorders(
             5
@@ -136,14 +117,6 @@ export function EarlyAdoptionSection() {
         >
           <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
           <div className="relative z-10">
-            <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-verus-blue text-white">
-                <Zap className="h-3 w-3" />
-              </div>
-              <span className="text-[14px] font-medium uppercase tracking-wide text-gray-600 dark:text-gray-300">
-                Developer Experience
-              </span>
-            </div>
             <h3 className="mb-4 font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
               Build More, Code Less
             </h3>
