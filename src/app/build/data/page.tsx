@@ -4,7 +4,10 @@ import {env} from '@/configs/env'
 import {DataContent, FeaturesGrid} from '@/features/build/data'
 import {IoLogoDiscord} from 'react-icons/io5'
 
+import {createBuildBreadcrumbJsonLd} from '@/lib/seo/schema'
+
 import {BgWrapper} from '@/components/bg-wrapper'
+import {JsonLd} from '@/components/seo/json-ld'
 
 export const metadata: Metadata = {
   title: 'Store & Retrieve Data On-Chain',
@@ -17,9 +20,15 @@ export const metadata: Metadata = {
   },
 }
 
+const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
+  'Store & Retrieve Data On-Chain',
+  '/build/data'
+)
+
 export default function DataPage() {
   return (
     <BgWrapper>
+      <JsonLd data={breadcrumbJsonLd} />
       <div className="flex flex-col items-center px-4 pt-[30px] md:pt-[70px]">
         <h1 className="text-center text-[32px] font-medium tracking-tight text-white md:text-[75px]">
           Store & Retrieve Data On-Chain

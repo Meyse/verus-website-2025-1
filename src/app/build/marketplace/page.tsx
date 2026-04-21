@@ -5,7 +5,10 @@ import {MarketplaceContent} from '@/features/build/marketplace/content'
 import {FeaturesGrid} from '@/features/build/marketplace/features-grid'
 import {IoLogoDiscord} from 'react-icons/io5'
 
+import {createBuildBreadcrumbJsonLd} from '@/lib/seo/schema'
+
 import {BgWrapper} from '@/components/bg-wrapper'
+import {JsonLd} from '@/components/seo/json-ld'
 
 export const metadata: Metadata = {
   title: 'P2P Marketplace Protocol',
@@ -15,9 +18,15 @@ export const metadata: Metadata = {
     'P2P marketplace, decentralized trading, blockchain marketplace, peer-to-peer, dApp platform, consensus-secured, Verus',
 }
 
+const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
+  'P2P Marketplace Protocol',
+  '/build/marketplace'
+)
+
 export default function MarketplacePage() {
   return (
     <BgWrapper>
+      <JsonLd data={breadcrumbJsonLd} />
       <div className="relative z-10 flex flex-col items-center px-4 pt-[30px] md:pt-[70px]">
         <h1 className="text-center text-[32px] font-medium tracking-tight text-white md:text-[75px]">
           P2P Marketplace Protocol
