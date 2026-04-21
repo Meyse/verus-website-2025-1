@@ -7,7 +7,6 @@ import {ExternalLink} from 'lucide-react'
 
 import {BgWrapper} from '@/components/bg-wrapper'
 
-export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Verus-Ethereum Bridge',
   description:

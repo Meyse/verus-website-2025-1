@@ -1,5 +1,7 @@
 import 'server-only'
 
+import {unstable_cache} from 'next/cache'
+
 import {env} from '@/configs/env'
 
 import {
@@ -41,7 +43,7 @@ export type BridgeContractMetrics = {
 }
 
 const ALCHEMY_NETWORK = 'eth-mainnet'
-const ALCHEMY_REVALIDATE_SECONDS = 30 * 60
+const ALCHEMY_REVALIDATE_SECONDS = 60 * 60
 const MAX_ALCHEMY_PAGES = 10
 
 let lastKnownBridgeContractMetrics: BridgeContractMetrics | undefined
@@ -160,9 +162,6 @@ async function fetchAlchemyBridgeTokens(apiKey: string) {
         includeErc20Tokens: true,
         ...(pageKey ? {pageKey} : {}),
       }),
-      next: {
-        revalidate: ALCHEMY_REVALIDATE_SECONDS,
-      },
     })
 
     if (!response.ok) {
@@ -187,6 +186,21 @@ async function fetchAlchemyBridgeTokens(apiKey: string) {
 
   throw new Error(`Alchemy pagination exceeded ${MAX_ALCHEMY_PAGES} pages`)
 }
+
+const getCachedAlchemyBridgeTokens = unstable_cache(
+  async () => {
+    if (!env.ALCHEMY_API_KEY) {
+      throw new Error('ALCHEMY_API_KEY is not configured')
+    }
+
+    return fetchAlchemyBridgeTokens(env.ALCHEMY_API_KEY)
+  },
+  ['ethereum-bridge-contract-alchemy-tokens'],
+  {
+    revalidate: ALCHEMY_REVALIDATE_SECONDS,
+    tags: ['ethereum-bridge-contract-metrics'],
+  }
+)
 
 function buildMetricsFromAlchemyTokens(
   tokens: AlchemyToken[]
@@ -257,7 +271,7 @@ export async function getBridgeContractMetrics(): Promise<BridgeContractMetrics>
   }
 
   try {
-    const tokens = await fetchAlchemyBridgeTokens(env.ALCHEMY_API_KEY)
+    const tokens = await getCachedAlchemyBridgeTokens()
     const metrics = buildMetricsFromAlchemyTokens(tokens)
 
     lastKnownBridgeContractMetrics = metrics
