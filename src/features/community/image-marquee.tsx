@@ -1,7 +1,8 @@
 'use client'
 
-import {useEffect, useState} from 'react'
 import Image from 'next/image'
+
+import {useIsMounted} from '@/hooks/use-is-mounted'
 
 // Define image paths for both rows
 const row1Images = Array.from(
@@ -15,11 +16,7 @@ const row2Images = Array.from(
 // Scrolling image carousel for community page
 export function ImageMarquee() {
   // State to track if component has mounted (avoids hydration issues)
-  const [isMounted, setIsMounted] = useState(false)
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
+  const isMounted = useIsMounted()
 
   // Only render after component has mounted on client
   if (!isMounted) {

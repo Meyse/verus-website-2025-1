@@ -14,7 +14,6 @@ export type StatusError = {
 
 export async function getVerification(formInfo: VerifySchema) {
   const {hash, message, verusid, signature} = formInfo
-  const errorStatus: StatusError = {}
   if ((!!hash || !!message) && !!verusid && !!signature) {
     try {
       let result

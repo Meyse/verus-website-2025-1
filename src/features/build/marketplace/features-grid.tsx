@@ -1,4 +1,4 @@
-import { BookOpen, Code2, Cpu, Database, Layers, Lock } from 'lucide-react'
+import {BookOpen, Code2, Cpu, Database, Layers, Lock} from 'lucide-react'
 
 export function FeaturesGrid() {
   return (

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Fragment, Suspense } from 'react'
+import {Fragment, Suspense} from 'react'
 
-import { ArweaveContent } from './arweave-content'
-import { WebContent } from './web-content'
+import {ArweaveContent} from './arweave-content'
+import {WebContent} from './web-content'
 
 export function ProfileContent({content}: {content?: Record<string, any>}) {
   console.log('profile', content)
@@ -14,11 +14,7 @@ export function ProfileContent({content}: {content?: Record<string, any>}) {
     )
   }
 
-  return (
-    <div className="space-y-4">
-      {content.map(ContentCard)}
-    </div>
-  )
+  return <div className="space-y-4">{content.map(ContentCard)}</div>
 }
 
 //vdxfkey
@@ -34,7 +30,7 @@ const ContentCard = (item: Record<string, any>, index: number) => {
 
   // Create a key for this content item
   const contentKey = `${source}-${type}-${index}-content`
-  
+
   // Route to the appropriate content handler
   if (source === 'arweave')
     return (
@@ -53,10 +49,17 @@ const ContentCard = (item: Record<string, any>, index: number) => {
         </Suspense>
       </Fragment>
     )
-  
+
   if (source === 'web')
-    return <WebContentWithPreview key={`${contentKey}`} type={type} content={item} qualifiedName={qualifiedName} />
-  
+    return (
+      <WebContentWithPreview
+        key={`${contentKey}`}
+        type={type}
+        content={item}
+        qualifiedName={qualifiedName}
+      />
+    )
+
   // Default content display for unknown types with preview
   return (
     <details

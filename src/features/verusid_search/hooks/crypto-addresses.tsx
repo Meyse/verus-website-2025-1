@@ -38,48 +38,54 @@ export function CryptoAddressProvider({children}: {children: ReactNode}) {
   const [userId, setUserId] = useState<string | undefined>(undefined)
 
   useEffect(() => {
-    // Initialize verification status and loading states
+    if (!keys || !userId) return
 
-    const initialLoadingState: Record<string, boolean> = {}
-    if (keys && userId) {
-      Object.keys(keys).forEach((keyName) => {
-        initialLoadingState[keyName] = true
-      })
-      setLoadingStates(initialLoadingState)
-      Object.entries(keys).forEach(([keyName, keyData]) => {
-        async function verify(keyName: string, keyData: KeyData) {
-          //Skip
-          if (!keyData.address) {
-            setVerificationResults((prev) => ({
-              ...prev,
-              [keyName]: {valid: 'error'},
-            }))
+    const entries = Object.entries(keys)
+    const currentUserId = userId
+
+    async function verifyAddresses() {
+      setLoadingStates(
+        Object.fromEntries(entries.map(([keyName]) => [keyName, true]))
+      )
+
+      await Promise.all(
+        entries.map(async ([keyName, keyData]) => {
+          async function verify(keyName: string, keyData: KeyData) {
+            //Skip
+            if (!keyData.address) {
+              setVerificationResults((prev) => ({
+                ...prev,
+                [keyName]: {valid: 'error'},
+              }))
+              setLoadingStates((prev) => ({...prev, [keyName]: false}))
+              return
+            }
+            // Prepare verification data for blockchain
+            const verificationData = {
+              user: currentUserId,
+              type: 'blockchain', // This is critical - explicitly set type to blockchain
+              address: keyData.address,
+              qualifiedname: keyData.qualifiedname, // Ensure this is passed through
+              ...keyData,
+            }
+            console.log(`Verifying ${keyName} address:`, verificationData)
+            // Verify the key
+            // const time = getRandomIntInclusive(2, 10) * 1000
+            // await testAwait(time)
+            // const result = {valid: 'true'} as VerificationResult
+
+            const result = await verifyBlockchainSignature(verificationData)
+            console.log(`Verification result for ${keyName}:`, result)
+            setVerificationResults((prev) => ({...prev, [keyName]: result}))
             setLoadingStates((prev) => ({...prev, [keyName]: false}))
           }
-          // Prepare verification data for blockchain
-          const verificationData = {
-            user: userId!,
-            type: 'blockchain', // This is critical - explicitly set type to blockchain
-            address: keyData.address,
-            qualifiedname: keyData.qualifiedname, // Ensure this is passed through
-            ...keyData,
-          }
-          console.log(`Verifying ${keyName} address:`, verificationData)
-          // Verify the key
-          // const time = getRandomIntInclusive(2, 10) * 1000
-          // await testAwait(time)
-          // const result = {valid: 'true'} as VerificationResult
 
-          const result = await verifyBlockchainSignature(verificationData)
-          console.log(`Verification result for ${keyName}:`, result)
-          setVerificationResults((prev) => ({...prev, [keyName]: result}))
-          setLoadingStates((prev) => ({...prev, [keyName]: false}))
-        }
-
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
-        verify(keyName, keyData)
-      })
+          await verify(keyName, keyData)
+        })
+      )
     }
+
+    void verifyAddresses()
   }, [keys, userId])
 
   const valid = (keyName: string): VerificationStatus =>

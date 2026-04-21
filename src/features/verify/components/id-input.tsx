@@ -28,7 +28,8 @@ export function FormVerusIdField() {
             />
           </FormControl>
           <FormDescription className="text-xs text-gray-500 dark:text-gray-400">
-            The identity that created the signature (e.g., somebody@ or iGAw5poQXU9...)
+            The identity that created the signature (e.g., somebody@ or
+            iGAw5poQXU9...)
           </FormDescription>
         </FormItem>
       )}

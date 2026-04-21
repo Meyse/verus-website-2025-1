@@ -1,4 +1,4 @@
-import { env } from '@/configs/env'
+import {env} from '@/configs/env'
 import {
   BridgeSection,
   CompareSection,
@@ -11,9 +11,9 @@ import {
   ProtocolSection,
   VerusIDSection,
 } from '@/features/home/components'
-import { IoLogoDiscord } from 'react-icons/io5'
+import {IoLogoDiscord} from 'react-icons/io5'
 
-import { BgWrapper } from '@/components/bg-wrapper'
+import {BgWrapper} from '@/components/bg-wrapper'
 
 export default function Home() {
   return (
@@ -23,7 +23,9 @@ export default function Home() {
           The Internet of Value
         </h1>
         <p className="mx-auto max-w-[400px] pt-[10px] text-center text-[16px] font-normal leading-snug tracking-tight text-white opacity-90 md:max-w-[900px] md:pt-[1px] md:text-[32px]">
-          Where you own your <span className="font-medium">identity</span>, <span className="font-medium">data</span>, and <span className="font-medium">money</span>.
+          Where you own your <span className="font-medium">identity</span>,{' '}
+          <span className="font-medium">data</span>, and{' '}
+          <span className="font-medium">money</span>.
           <br className="hidden md:block" /> Ownership, not just access.
         </p>
         <div className="mb-16 mt-8 flex flex-col gap-4 md:mb-32 md:flex-row">
@@ -58,8 +60,10 @@ export default function Home() {
           </a>
         </div>
 
-        <FeaturesGrid />
-        <EarlyAdoptionSection />
+        <div className="mb-16 w-screen overflow-hidden border border-gray-200 bg-white/90 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] backdrop-blur-sm dark:border-gray-800 dark:bg-black/30 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] md:mb-20 md:max-w-[1220px] md:rounded-lg">
+          <FeaturesGrid />
+          <EarlyAdoptionSection />
+        </div>
         <CompareSection />
         <ProtocolSection />
         <ParticipationSection />

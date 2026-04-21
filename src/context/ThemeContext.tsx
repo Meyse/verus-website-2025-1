@@ -1,6 +1,14 @@
 'use client'
 
-import {createContext, useContext, useEffect, useState} from 'react'
+import type {ReactNode} from 'react'
+
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useSyncExternalStore,
+} from 'react'
 
 // Simplified ThemeContext - focused only on dark mode toggling
 type Theme = 'light' | 'dark'
@@ -12,43 +20,59 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-export function ThemeProvider({children}: {children: React.ReactNode}) {
-  const [theme, setTheme] = useState<Theme>('dark') // Default to dark for initial render
+const themeStorageKey = 'theme'
+const themeChangeEvent = 'verus-theme-change'
 
-  // Initialize theme from localStorage or system preference
-  useEffect(() => {
-    // Check for stored preference
-    const storedTheme = localStorage.getItem('theme') as Theme | null
+function isTheme(value: string | null): value is Theme {
+  return value === 'light' || value === 'dark'
+}
 
-    if (storedTheme) {
-      // Use stored preference if available
-      setTheme(storedTheme)
-    } else {
-      // Otherwise use system preference
-      const prefersDark = window.matchMedia(
-        '(prefers-color-scheme: dark)'
-      ).matches
-      setTheme(prefersDark ? 'dark' : 'light')
-    }
-  }, [])
+function getPreferredTheme(): Theme {
+  if (typeof window === 'undefined') return 'dark'
+
+  const storedTheme = localStorage.getItem(themeStorageKey)
+  if (isTheme(storedTheme)) return storedTheme
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+}
+
+function subscribeToTheme(callback: () => void) {
+  if (typeof window === 'undefined') return () => {}
+
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  const listener = () => callback()
+
+  window.addEventListener('storage', listener)
+  window.addEventListener(themeChangeEvent, listener)
+  mediaQuery.addEventListener('change', listener)
+
+  return () => {
+    window.removeEventListener('storage', listener)
+    window.removeEventListener(themeChangeEvent, listener)
+    mediaQuery.removeEventListener('change', listener)
+  }
+}
+
+export function ThemeProvider({children}: {children: ReactNode}) {
+  const theme = useSyncExternalStore(
+    subscribeToTheme,
+    getPreferredTheme,
+    () => 'dark'
+  )
 
   // Apply theme class to document when theme changes
   useEffect(() => {
-    // Apply or remove .dark class
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-
-    // Store in localStorage
-    localStorage.setItem('theme', theme)
+    document.documentElement.classList.toggle('dark', theme === 'dark')
+    localStorage.setItem(themeStorageKey, theme)
   }, [theme])
 
   // Simple toggle function
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
-  }
+  const toggleTheme = useCallback(() => {
+    localStorage.setItem(themeStorageKey, theme === 'light' ? 'dark' : 'light')
+    window.dispatchEvent(new Event(themeChangeEvent))
+  }, [theme])
 
   // Expose only what's needed: isDark state and toggle function
   return (

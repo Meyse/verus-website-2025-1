@@ -1,4 +1,4 @@
-import { IoMdDownload } from 'react-icons/io'
+import {IoMdDownload} from 'react-icons/io'
 
 export function ProtocolSection() {
   return (
@@ -11,7 +11,7 @@ export function ProtocolSection() {
             style={{willChange: 'transform'}}
           />
           <div
-            className="absolute bottom-0 right-0 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 transform rounded-full bg-indigo-500/5 blur-[100px]"
+            className="absolute bottom-0 right-0 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 transform rounded-full bg-blue-500/5 blur-[100px]"
             style={{willChange: 'transform'}}
           />
         </div>
@@ -22,7 +22,9 @@ export function ProtocolSection() {
               Horizontal Scalability: Multi-Chain Architecture
             </h2>
             <p className="text-center text-[16px] font-normal leading-relaxed tracking-tight text-gray-600 dark:text-gray-300 md:max-w-[800px] md:text-[20px]">
-              Scale out, not up. Launch interoperable blockchains as needed rather than overloading a single chain. Think millions of servers, not one super-server.
+              Scale out, not up. Launch interoperable blockchains as needed
+              rather than overloading a single chain. Think millions of servers,
+              not one super-server.
             </p>
           </div>
 

@@ -1,4 +1,4 @@
-'use server';
+'use server'
 
 import {fetchMiningInfo} from './fetch-mining-info'
 

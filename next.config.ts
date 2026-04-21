@@ -4,7 +4,7 @@ import {env} from '@/configs/env'
 
 const _env = env
 const nextConfig: NextConfig = {
-  output:"standalone", //required for Docker
+  output: 'standalone', //required for Docker
   /* config options here */
   // For development, we'll use the standard Next.js build
   allowedDevOrigins: ['localhost', 'verus.io', '*.verus.io'],

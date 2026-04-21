@@ -27,12 +27,7 @@ export function TechnicalSection() {
       <div className="relative">
         <div className="mb-16 flex flex-col items-center justify-center">
           <h2 className="mx-auto mb-4 max-w-[1000px] text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[55px]">
-            <span className="block text-gray-600 dark:text-white">
-              Build Decentralized Trading Applications—
-            </span>
-            <span className="block bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-              With Protocol-Level Features, No Complex Contracts
-            </span>
+            Build Decentralized Trading Applications Without Complex Contracts
           </h2>
           <p className="mx-auto max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[20px]">
             The Verus P2P Marketplace protocol provides a complete foundation
@@ -123,7 +118,8 @@ export function TechnicalSection() {
                     </li>
                     <li className="relative pl-6 text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[16px]">
                       <div className="absolute left-0 top-2 h-1.5 w-1.5 rounded-full bg-blue-500/60 dark:bg-blue-400/60"></div>
-                      <span className="font-medium">listopenoffers</span> - Outstanding offers in a wallet
+                      <span className="font-medium">listopenoffers</span> -
+                      Outstanding offers in a wallet
                     </li>
                   </ul>
                 </div>

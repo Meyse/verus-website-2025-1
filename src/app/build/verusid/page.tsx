@@ -5,7 +5,10 @@ import {VerusIDContent} from '@/features/build/verusid/content'
 import {FeaturesGrid} from '@/features/build/verusid/features-grid'
 import {IoLogoDiscord} from 'react-icons/io5'
 
+import {createBuildBreadcrumbJsonLd} from '@/lib/seo/schema'
+
 import {BgWrapper} from '@/components/bg-wrapper'
+import {JsonLd} from '@/components/seo/json-ld'
 
 export const metadata: Metadata = {
   title: 'Build with VerusID',
@@ -19,6 +22,11 @@ export const metadata: Metadata = {
   },
 }
 
+const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
+  'Build with VerusID',
+  '/build/verusid'
+)
+
 /*
  * Updated: Improved the page with conditional dark/light background images
  * and added action buttons matching the style of the main build page.
@@ -26,6 +34,7 @@ export const metadata: Metadata = {
 export default function VerusIDPage() {
   return (
     <BgWrapper>
+      <JsonLd data={breadcrumbJsonLd} />
       <div className="flex flex-col items-center px-4 pt-[30px] md:pt-[70px]">
         <h1 className="text-center text-[32px] font-medium leading-[1.1] tracking-tight text-white md:text-[75px]">
           Build with VerusID

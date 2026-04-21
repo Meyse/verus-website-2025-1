@@ -1,13 +1,13 @@
 // Projects Page - Showcase of projects using Verus technology
-import type { Metadata } from 'next'
+import type {Metadata} from 'next'
 
 import Link from 'next/link'
 
-import { env } from '@/configs/env'
-import { ProjectList } from '@/features/projects/project-list'
-import { IoLogoDiscord } from 'react-icons/io5'
+import {env} from '@/configs/env'
+import {ProjectList} from '@/features/projects/project-list'
+import {IoLogoDiscord} from 'react-icons/io5'
 
-import { BgWrapper } from '@/components/bg-wrapper'
+import {BgWrapper} from '@/components/bg-wrapper'
 
 export const metadata: Metadata = {
   title: 'Projects Built with Verus',
@@ -43,9 +43,9 @@ export default function ProjectsPage() {
                 </h2>
                 <p className="mb-4 text-[14px] text-gray-600 dark:text-gray-300 md:text-[16px]">
                   If you have built a project using Verus technology and would
-                  like to have it considered for listing on this page, please visit our Discord
-                  community and reach out in the #marketing channel to discuss
-                  your project with the community.
+                  like to have it considered for listing on this page, please
+                  visit our Discord community and reach out in the #marketing
+                  channel to discuss your project with the community.
                 </p>
                 <Link
                   href={env.NEXT_PUBLIC_DISCORD}

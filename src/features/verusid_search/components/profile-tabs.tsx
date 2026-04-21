@@ -1,8 +1,8 @@
-import type { ProfileJSONType } from '@/features/verusid_search/lib/create_verus_profile'
-import type { VerusID } from '@/features/verusid_search/server/fetch_verus_id'
-import type { ReactNode } from 'react'
+import type {ReactNode} from 'react'
+import type {ProfileJSONType} from '@/features/verusid_search/lib/create_verus_profile'
+import type {VerusID} from '@/features/verusid_search/server/fetch_verus_id'
 
-import { ProfileContent } from './profile-content'
+import {ProfileContent} from './profile-content'
 
 export default function ProfileTabs({
   profile,
@@ -20,7 +20,7 @@ export default function ProfileTabs({
 }) {
   const identity = profile.identity
   console.log(profileData)
-  
+
   return (
     <div>
       {/* Content Section - only show if collections exist */}
@@ -32,7 +32,7 @@ export default function ProfileTabs({
           <div className="space-y-6">
             <ContentCard>
               <ProfileContent
-                content={profileData?.collections?.content.content}
+                content={profileData.collections.content.content}
               />
             </ContentCard>
           </div>

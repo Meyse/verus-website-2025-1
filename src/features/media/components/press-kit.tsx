@@ -149,8 +149,7 @@ export function PressKit() {
             <p>
               Another is the full release of its Public Blockchain as a Service
               (PBaaS), which enabled the unlimited scale multi-chain and
-              multi-currency part of the protocol, featuring MEV-resistant
-              DeFi.
+              multi-currency part of the protocol, featuring MEV-resistant DeFi.
             </p>
             <p>
               The protocol's fair launch, with no ICO, premine, dev fees, or

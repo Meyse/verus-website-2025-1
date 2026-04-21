@@ -22,18 +22,7 @@ export function SubIDSection() {
     <section className="relative mb-24 md:mt-32">
       <div className="mb-16 flex flex-col items-center justify-center">
         <h2 className="mx-auto mb-4 max-w-[1000px] text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[55px]">
-          <span className="text-gray-600 dark:text-white">
-            SubIDs for Flexible Identity—
-          </span>
-          {''}
-          <span className="relative">
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                Name Your Community
-              </span>
-              <span className="absolute -inset-0.5 rounded-md bg-gradient-to-r from-blue-500/10 via-verus-blue/10 to-purple-500/10 blur-sm" />
-            </span>
-          </span>
+          Name Your Community with Flexible SubIDs
         </h2>
         <p className="mx-auto mb-6 max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[20px]">
           Every currency on Verus can serve as a namespace for self-sovereign

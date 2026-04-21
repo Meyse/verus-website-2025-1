@@ -33,6 +33,9 @@ pnpm-workspace.yaml
 # production
 /build
 
+# deployment-specific generated files
+/src/app/robots.txt
+
 # misc
 .DS_Store
 *.pem

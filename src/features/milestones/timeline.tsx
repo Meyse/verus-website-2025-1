@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import {useEffect, useRef} from 'react'
 
-import { env } from '@/configs/env'
-import { milestones } from '@/data/timeline-data'
-import { BarChart3, Clock, Download } from 'lucide-react'
+import {env} from '@/configs/env'
+import {milestones} from '@/data/timeline-data'
+import {BarChart3, Clock, Download} from 'lucide-react'
 
 /*
  * Updated:

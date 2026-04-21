@@ -1,0 +1,58 @@
+# Verus
+
+> Verus is a community-driven public blockchain protocol for self-sovereign identity, data, money, and scalable decentralized applications. It uses protocol-level features instead of smart contracts and is built around ownership, privacy, interoperability, and fair participation.
+
+Verus is not a company or centralized service. The protocol and ecosystem are developed by a worldwide community. Use the pages below as the preferred sources for understanding Verus, VerusID, PBaaS, mining, staking, wallets, and developer resources.
+
+## Start Here
+
+- [Overview](https://www.verus.io/intro): Introduction to Verus, its protocol design, consensus, privacy, tokenomics, and scaling model.
+- [FAQ](https://www.verus.io/faq): Direct answers to common questions about Verus, PBaaS, mining, staking, privacy, development, economics, and governance.
+- [Get Started](https://www.verus.io/get-started): Entry point for using the Verus ecosystem.
+- [Wallet](https://www.verus.io/wallet): Verus wallet downloads and wallet information.
+
+## Core Concepts
+
+- [VerusID](https://www.verus.io/verusid): Self-sovereign identity, namespace control, privacy, and selective disclosure.
+- [Mining](https://www.verus.io/mining): How to mine VRSC and participate in network security.
+- [Staking](https://www.verus.io/staking): How to run a full node and stake VRSC.
+- [Environmentally Conscious Protocol](https://www.verus.io/green): Verus energy efficiency and protocol design.
+
+## Build on Verus
+
+- [Build Overview](https://www.verus.io/build): Overview of building decentralized applications on Verus.
+- [Developer Resources](https://www.verus.io/build/start): Documentation and resources for developers.
+- [Build with VerusID](https://www.verus.io/build/verusid): Building applications with VerusID.
+- [PBaaS Chains](https://www.verus.io/build/pbaas-chains): Public Blockchain as a Service and interoperable blockchain creation.
+- [Currencies and Liquidity Pools](https://www.verus.io/build/pbaas-currencies): Launching currencies, tokens, and liquidity pools.
+- [On-Chain Data](https://www.verus.io/build/data): Storing and retrieving data on-chain.
+- [DeFi and Payments](https://www.verus.io/build/defi-payments): Protocol-level DeFi, payments, and MEV-resistant design.
+- [P2P Marketplace Protocol](https://www.verus.io/build/marketplace): Decentralized trading applications and services.
+
+## Tools
+
+- [VerusID Search](https://www.verus.io/verusid-search): Search and inspect VerusID information and decentralized profiles.
+- [Verify Signatures](https://www.verus.io/verify): Verify signatures for files, messages, and hashes.
+- [Protocol Statistics](https://www.verus.io/statistics): Network and protocol statistics.
+
+## Technical Papers
+
+- [Verus Vision Paper](https://www.verus.io/papers/VerusVision.pdf): Foundational Verus vision paper.
+- [Verus Proof of Power](https://www.verus.io/papers/VerusPoP.pdf): Hybrid PoW/PoS consensus and 51% attack resistance.
+- [Verus Phase I](https://www.verus.io/papers/VerusPhaseI.pdf): zk-SNARK privacy and ASIC-resistance discussion.
+- [Building dApps at Any Scale](https://www.verus.io/papers/Building_dApps_at_Any_Scale.pdf): Practical guide to decentralized application development on Verus.
+
+## Official External Resources
+
+- [Documentation](https://docs.verus.io): Verus developer and protocol documentation.
+- [Wiki](https://wiki.verus.io): Community-maintained Verus wiki.
+- [GitHub](https://github.com/VerusCoin): Verus source code and releases.
+- [Medium](https://medium.com/veruscoin): Verus articles and announcements.
+
+## Optional
+
+- [Projects](https://www.verus.io/projects): Ecosystem projects built with or around Verus.
+- [People](https://www.verus.io/people): Profiled developers, contributors, advisors, and community members.
+- [Media](https://www.verus.io/media): Press kit, media resources, and brand assets.
+- [Milestones](https://www.verus.io/milestones): Verus development timeline.
+- [Donate](https://www.verus.io/donate): Ways to support Verus.

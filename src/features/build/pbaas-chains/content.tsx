@@ -25,18 +25,7 @@ export function PBaaSContent() {
         <div className="relative">
           <div className="flex flex-col items-center justify-center">
             <h2 className="mx-auto mb-4 max-w-[1000px] text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[55px]">
-              <span className="text-gray-600 dark:text-white">
-                Design Your Chain Economics—
-              </span>
-              {''}
-              <span className="relative">
-                <span className="relative inline-block">
-                  <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                    Complete Control at Protocol Level
-                  </span>
-                  <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/10 via-verus-blue/10 to-purple-500/10 blur-md" />
-                </span>
-              </span>
+              Design Your Chain's Economics with Protocol-Level Control
             </h2>
             <p className="mx-auto mb-16 max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[20px]">
               Take complete control over your blockchain's economic model with
@@ -126,18 +115,7 @@ export function PBaaSContent() {
           {/* Main Title and Description */}
           <div className="mb-16 w-full max-w-[900px] text-center">
             <h2 className="mb-4 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[55px]">
-              <span className="text-gray-600 dark:text-white">
-                Protocol-Level DeFi—
-              </span>
-              {''}
-              <span className="relative">
-                <span className="relative inline-block">
-                  <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                    Built for True Decentralization
-                  </span>
-                  <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/10 via-verus-blue/10 to-purple-500/10 blur-md" />
-                </span>
-              </span>
+              Protocol-Level DeFi Built for True Decentralization
             </h2>
             <p className="mx-auto mb-6 max-w-[800px] text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[16px]">
               All DeFi operations—including currency conversions—execute via
@@ -376,18 +354,7 @@ export function PBaaSContent() {
         <div className="flex flex-col gap-8 md:flex-row md:gap-16">
           <div className="w-full md:w-1/2">
             <h2 className="mb-4 text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-left md:text-[55px]">
-              <span className="text-gray-600 dark:text-white">
-                Launch Options—
-              </span>
-              {''}
-              <span className="relative">
-                <span className="relative inline-block">
-                  <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                    Your Chain, Your Rules
-                  </span>
-                  <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/10 via-verus-blue/10 to-purple-500/10 blur-md" />
-                </span>
-              </span>
+              Launch Your Chain on Your Terms
             </h2>
             <p className="mb-8 text-center text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-left md:text-[16px]">
               PBaaS chains offer sophisticated launch mechanisms designed to
@@ -525,17 +492,7 @@ export function PBaaSContent() {
           <div className="relative flex flex-col items-center gap-12 p-8 md:flex-row md:gap-16 md:p-16">
             <div className="w-full md:w-1/2">
               <h2 className="mb-4 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[55px]">
-                <span className="text-gray-600 dark:text-white">
-                  Storage System—
-                </span>
-                {''}
-                <span className="relative">
-                  <span className="relative inline-block">
-                    <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                      Built Into The Protocol
-                    </span>
-                  </span>
-                </span>
+                Storage Built Into the Protocol
               </h2>
               <p className="mb-6 text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[16px]">
                 Every PBaaS chain includes native storage capabilities at the

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ArrowUpDown, Coins, Database, Network, Store } from 'lucide-react'
+import {ArrowUpDown, Coins, Database, Network, Store} from 'lucide-react'
 
 export function SolutionsGrid() {
   return (

@@ -18,18 +18,7 @@ export function VDXFSection() {
       {/* Developer-focused Title */}
       <div className="mb-12 flex flex-col items-center justify-center md:mb-16">
         <h2 className="mx-auto mb-4 max-w-[1000px] text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-6 md:text-[55px]">
-          <span className="text-gray-600 dark:text-white">
-            Standardized Data Exchange—
-          </span>
-          {''}
-          <span className="relative">
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-                Cross-Chain Compatible
-              </span>
-              <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/10 via-verus-blue/10 to-purple-500/10 blur-md" />
-            </span>
-          </span>
+          Standardized Data Exchange Across Chains
         </h2>
         <p className="mx-auto max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[20px]">
           Build applications with a universal data schema that works seamlessly

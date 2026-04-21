@@ -1,10 +1,7 @@
-import {env} from '@/configs/env'
-
 import {Download} from 'lucide-react'
 
 // Updated component with dark mode support and improved styling
 export function VisionMissionSection() {
-   
   return (
     <div className="relative -mx-4 mt-8 flex w-screen flex-col md:mx-0 md:mt-24 md:max-w-[1220px] md:flex-row">
       {/* Background decorative elements */}

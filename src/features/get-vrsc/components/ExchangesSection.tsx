@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { Coins, ExternalLink } from 'lucide-react'
+import {Coins, ExternalLink} from 'lucide-react'
 
 /*
  * ExchangesSection - Server Component
@@ -31,13 +31,13 @@ export function ExchangesSection() {
           conduct your own due diligence before using any exchange service.
         </p>
 
-        <div className="grid max-w-2xl grid-cols-1 gap-6 justify-items-start">
+        <div className="grid max-w-2xl grid-cols-1 justify-items-start gap-6">
           {/* SafeTrade */}
           <a
             href="https://safe.trade"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col items-center rounded-xl border border-gray-700 bg-white dark:bg-gray-800 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/20"
+            className="group flex flex-col items-center rounded-xl border border-gray-700 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/20 dark:bg-gray-800"
           >
             <div className="mb-3 flex h-20 w-48 items-center justify-center">
               <Image
@@ -48,7 +48,7 @@ export function ExchangesSection() {
                 className="max-h-full max-w-full object-contain"
               />
             </div>
-            <p className="mt-2 text-center text-[16px] font-medium dark:text-white text-gray-900">
+            <p className="mt-2 text-center text-[16px] font-medium text-gray-900 dark:text-white">
               SafeTrade
             </p>
             <div className="mt-1 flex items-center gap-1">
@@ -56,7 +56,6 @@ export function ExchangesSection() {
               <ExternalLink className="h-3 w-3 text-gray-400 transition-colors group-hover:text-blue-400" />
             </div>
           </a>
-
         </div>
 
         <div className="mt-8 text-center">

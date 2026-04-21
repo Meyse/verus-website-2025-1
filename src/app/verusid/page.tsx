@@ -26,16 +26,7 @@ export default function VerusIDPage() {
         <div className="pt-[30px] md:pt-[70px]">
           <div className="mx-auto max-w-[1220px] text-center">
             <h1 className="mb-4 text-center text-[32px] font-medium leading-[1.1] tracking-tight text-white md:mb-8 md:text-[60px]">
-              <span className="text-white">Own Your Digital Future—</span>
-              {''}
-              <span className="relative">
-                <span className="relative inline-block">
-                  <span className="relative z-10 bg-gradient-to-r from-blue-300 to-verus-blue bg-clip-text text-transparent dark:from-blue-300 dark:to-verus-blue">
-                    Your Identity, Your Control
-                  </span>
-                  <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/10 via-verus-blue/20 to-blue-500/10 blur-md" />
-                </span>
-              </span>
+              Your Identity, Your Control
             </h1>
           </div>
         </div>

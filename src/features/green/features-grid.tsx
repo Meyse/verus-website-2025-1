@@ -1,4 +1,12 @@
-import { Battery, Cpu, GitMerge, Leaf, MonitorSmartphone, ShieldCheck, Users } from 'lucide-react'
+import {
+  Battery,
+  Cpu,
+  GitMerge,
+  Leaf,
+  MonitorSmartphone,
+  ShieldCheck,
+  Users,
+} from 'lucide-react'
 
 export function GreenFeaturesGrid() {
   return (
@@ -132,7 +140,7 @@ export function GreenFeaturesGrid() {
             {/* Monetize Commodity Hardware */}
             <div className="group relative h-full overflow-hidden border border-green-100/80 bg-gradient-to-br from-green-50/70 to-white p-6 backdrop-blur-sm transition-all duration-300 dark:border-green-900/30 dark:from-green-950/40 dark:to-gray-950 md:rounded-[20px] md:p-8">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.15),transparent_50%)]"></div>
-              <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-green-400/10 blur-2xl dark:bg-green-400/20"></div>
+              <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-green-400/10 blur-2xl dark:bg-green-400/20"></div>
               <div className="relative">
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-green-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-green-50 dark:border-green-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                   <MonitorSmartphone className="h-7 w-7 text-green-600/80 dark:text-green-400" />
@@ -141,7 +149,10 @@ export function GreenFeaturesGrid() {
                   Monetize Commodity Hardware
                 </h3>
                 <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
-                  Turn idle phones, computers, and ARM devices into income-generating assets. No need for expensive, specialized mining equipment—use multi-purpose devices you already own to earn rewards.
+                  Turn idle phones, computers, and ARM devices into
+                  income-generating assets. No need for expensive, specialized
+                  mining equipment—use multi-purpose devices you already own to
+                  earn rewards.
                 </p>
               </div>
             </div>

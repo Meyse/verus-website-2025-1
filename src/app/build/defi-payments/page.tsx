@@ -5,7 +5,10 @@ import {DeFiContent} from '@/features/build/defi-payments/content'
 import {FeaturesGrid} from '@/features/build/defi-payments/features-grid'
 import {IoLogoDiscord} from 'react-icons/io5'
 
+import {createBuildBreadcrumbJsonLd} from '@/lib/seo/schema'
+
 import {BgWrapper} from '@/components/bg-wrapper'
+import {JsonLd} from '@/components/seo/json-ld'
 
 export const metadata: Metadata = {
   title: 'DeFi & Payments',
@@ -15,9 +18,15 @@ export const metadata: Metadata = {
     'DeFi, decentralized finance, blockchain payments, MEV-free, MEV-resistant, low fees, secure transactions, privacy, Verus',
 }
 
+const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
+  'DeFi & Payments',
+  '/build/defi-payments'
+)
+
 export default function DeFiPaymentsPage() {
   return (
     <BgWrapper>
+      <JsonLd data={breadcrumbJsonLd} />
       <div className="flex flex-col items-center px-4 pt-[30px] md:pt-[70px]">
         <h1 className="text-center text-[32px] font-medium tracking-tight text-white md:text-[75px]">
           DeFi & Payments

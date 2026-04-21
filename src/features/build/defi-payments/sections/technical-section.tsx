@@ -1,4 +1,4 @@
-import { ArrowUpDown, FileCode, QrCode, Wallet } from 'lucide-react'
+import {ArrowUpDown, FileCode, QrCode, Wallet} from 'lucide-react'
 
 /*
  * Updated:
@@ -24,12 +24,7 @@ export function TechnicalSection() {
       <div className="relative">
         <div className="mb-16 flex flex-col items-center justify-center">
           <h2 className="mx-auto mb-4 max-w-[1000px] text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[55px]">
-            <span className="block text-gray-600 dark:text-white">
-              Build Payment Infrastructure—
-            </span>
-            <span className="block bg-gradient-to-r from-verus-blue to-blue-600 bg-clip-text text-transparent dark:to-blue-400">
-              Simple API, Cross-Chain Compatible
-            </span>
+            Build Cross-Chain Payment Infrastructure with Simple APIs
           </h2>
           <p className="mx-auto max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[20px]">
             Implement standardized payment solutions and financial protocols
@@ -232,8 +227,6 @@ export function TechnicalSection() {
             </div>
           </div>
         </div>
-
-     
       </div>
     </section>
   )

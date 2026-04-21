@@ -2,18 +2,18 @@
  * File updated: replaced next/link with <a> for static wallpaper downloads
  * to ensure proper download behavior in production; kept absolute paths.
  */
-import type { AssetProps } from '@/data/brand-assets'
+import type {AssetProps} from '@/data/brand-assets'
 
 import Image from 'next/image'
 
-import { Download } from 'lucide-react'
+import {Download} from 'lucide-react'
 
 export function BrandAssetsWallpaper({
-  filteredWallpaper,
+  wallpaperAssets,
 }: {
-  filteredWallpaper: AssetProps[]
+  wallpaperAssets: AssetProps[]
 }) {
-  if (filteredWallpaper.length === 0) return null
+  if (wallpaperAssets.length === 0) return null
   return (
     <>
       <div className="mb-6">
@@ -22,7 +22,7 @@ export function BrandAssetsWallpaper({
         </h3>
       </div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        {filteredWallpaper.map((asset, index) => (
+        {wallpaperAssets.map((asset, index) => (
           <div
             key={`wallpaper-${index}`}
             className="border border-blue-100/80 bg-white/80 p-6 shadow-sm backdrop-blur-sm dark:border-blue-900/30 dark:bg-gray-900/50 md:rounded-lg"

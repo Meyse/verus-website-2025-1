@@ -1,16 +1,19 @@
 import './globals.css'
 
-import type { Metadata } from 'next'
+import type {Metadata} from 'next'
 
-import { env } from '@/configs/env'
+import {env} from '@/configs/env'
 import NextTopLoader from 'nextjs-toploader'
 
-import { DevUItools } from '@/components/devTools'
-import { Header } from '@/components/header'
-import { ThemeProvider } from '@/components/providers/next_theme_provider'
-import TanstackProvider from '@/components/providers/tanstack-query-provider'
+import {createSiteJsonLd} from '@/lib/seo/schema'
 
-import { geomanist } from './fonts'
+import {DevUItools} from '@/components/devTools'
+import {Header} from '@/components/header'
+import {ThemeProvider} from '@/components/providers/next_theme_provider'
+import TanstackProvider from '@/components/providers/tanstack-query-provider'
+import {JsonLd} from '@/components/seo/json-ld'
+
+import {geomanist} from './fonts'
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
@@ -46,11 +49,13 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       suppressHydrationWarning
     >
       <body className={`${geomanist.className} antialiased`}>
+        <JsonLd data={createSiteJsonLd()} />
         <NextTopLoader showSpinner={false} />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
+          storageKey="verus-theme"
           disableTransitionOnChange
         >
           <Header />

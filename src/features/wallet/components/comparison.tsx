@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-import { env } from '@/configs/env'
-import { Check } from 'lucide-react'
+import {env} from '@/configs/env'
+import {Check} from 'lucide-react'
 
 export function WalletComparison() {
   return (
@@ -312,10 +312,8 @@ export function WalletComparison() {
               <div className="flex w-[30%] justify-center border-l-2 border-[#E9EFFC] p-4 dark:border-gray-800">
                 <div className="flex gap-4">
                   <div className="flex flex-col items-center">
-                    
                     <Check className="h-5 w-5 text-verus-blue dark:text-blue-400" />
                   </div>
-                  
                 </div>
               </div>
               <div className="flex w-[30%] items-center justify-center border-l-2 border-[#E9EFFC] p-4 dark:border-gray-800">
@@ -329,11 +327,9 @@ export function WalletComparison() {
               </div>
               <div className="flex w-[30%] justify-center border-l-2 border-[#E9EFFC] p-4 dark:border-gray-800">
                 <div className="flex gap-4">
-                   <div className="flex flex-col items-center">
-                    
+                  <div className="flex flex-col items-center">
                     <Check className="h-5 w-5 text-verus-blue dark:text-blue-400" />
                   </div>
-                 
                 </div>
               </div>
               <div className="flex w-[30%] items-center justify-center border-l-2 border-[#E9EFFC] p-4 dark:border-gray-800">

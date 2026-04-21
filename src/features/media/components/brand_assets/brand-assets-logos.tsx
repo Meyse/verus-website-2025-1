@@ -2,26 +2,21 @@
  * File updated: replaced next/link with <a> for static asset downloads (SVG/PNG)
  * to ensure proper download behavior in production; kept absolute paths.
  */
-import type { AssetProps } from '@/data/brand-assets'
+import type {AssetProps} from '@/data/brand-assets'
 
 import Image from 'next/image'
 
-export function BrandAssetsLogos({
-  filteredLogos,
-}: {
-  filteredLogos: AssetProps[]
-}) {
-  if (filteredLogos.length === 0) return null
+export function BrandAssetsLogos({logoAssets}: {logoAssets: AssetProps[]}) {
+  if (logoAssets.length === 0) return null
   return (
     <>
-      {/* Section 1: Logos and Icons */}
       <div className="mb-6">
         <h3 className="text-[18px] font-medium text-gray-900 dark:text-white md:text-[24px]">
           Logos & Icons
         </h3>
       </div>
       <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-        {filteredLogos.map((asset, index) => (
+        {logoAssets.map((asset, index) => (
           <div
             key={`logo-icon-${index}`}
             className="border border-blue-100/80 bg-white/80 p-6 shadow-sm backdrop-blur-sm dark:border-blue-900/30 dark:bg-gray-900/50 md:rounded-lg"
@@ -80,7 +75,44 @@ export function BrandAssetsLogos({
           </div>
         ))}
       </div>
-      {/* Section 2: Brand Guidelines */}
+
+      <div className="mb-12">
+        <h3 className="mb-6 text-[18px] font-medium text-gray-900 dark:text-white md:text-[24px]">
+          Brand Color
+        </h3>
+
+        <div className="border border-blue-100/80 bg-white/80 p-6 shadow-sm backdrop-blur-sm dark:border-blue-900/30 dark:bg-gray-900/50 md:rounded-lg md:p-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(180px,260px)_1fr] md:items-center">
+            <div className="h-32 rounded-lg bg-verus-blue shadow-sm md:h-40" />
+
+            <div>
+              <h4 className="text-[18px] font-medium text-gray-900 dark:text-white">
+                Verus Blue
+              </h4>
+              <p className="mt-2 max-w-[560px] text-[14px] text-gray-600 dark:text-gray-300 md:text-[15px]">
+                Use Verus Blue as the primary brand color for Verus identity
+                elements, links, buttons, and accents.
+              </p>
+
+              <dl className="mt-5 grid grid-cols-1 gap-3 text-[14px] md:grid-cols-2">
+                <div>
+                  <dt className="text-gray-500 dark:text-gray-400">HEX</dt>
+                  <dd className="mt-1 font-medium text-gray-900 dark:text-white">
+                    #3165D4
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-gray-500 dark:text-gray-400">RGB</dt>
+                  <dd className="mt-1 font-medium text-gray-900 dark:text-white">
+                    49, 101, 212
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="mb-12 border border-blue-100/80 bg-white/80 p-6 shadow-sm backdrop-blur-sm dark:border-blue-900/30 dark:bg-gray-900/50 md:rounded-lg md:p-8">
         <h3 className="mb-4 text-[18px] font-medium text-gray-900 dark:text-white md:text-[22px]">
           Brand Guidelines

@@ -5,7 +5,10 @@ import {PBaaSContent} from '@/features/build/pbaas-chains/content'
 import {FeaturesGrid} from '@/features/build/pbaas-chains/features-grid'
 import {IoLogoDiscord} from 'react-icons/io5'
 
+import {createBuildBreadcrumbJsonLd} from '@/lib/seo/schema'
+
 import {BgWrapper} from '@/components/bg-wrapper'
+import {JsonLd} from '@/components/seo/json-ld'
 
 export const metadata: Metadata = {
   title: 'Public Blockchains as a Service',
@@ -15,9 +18,15 @@ export const metadata: Metadata = {
     'PBaaS, blockchain as a service, interoperable blockchains, custom blockchain, chain creation, Verus, multichain',
 }
 
+const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
+  'Public Blockchains as a Service',
+  '/build/pbaas-chains'
+)
+
 export default function PBaaSChainPage() {
   return (
     <BgWrapper>
+      <JsonLd data={breadcrumbJsonLd} />
       <div className="flex flex-col items-center px-4 pt-[30px] md:pt-[70px]">
         <h1 className="text-center text-[32px] font-medium tracking-tight text-white md:text-[75px]">
           Public Blockchains as a Service

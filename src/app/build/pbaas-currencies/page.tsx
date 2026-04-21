@@ -5,6 +5,10 @@ import {PBaaSContent} from '@/features/build/pbaas-currencies/content'
 import {FeaturesGrid} from '@/features/build/pbaas-currencies/features-grid'
 import {IoLogoDiscord} from 'react-icons/io5'
 
+import {createBuildBreadcrumbJsonLd} from '@/lib/seo/schema'
+
+import {JsonLd} from '@/components/seo/json-ld'
+
 import {BgWrapper} from '../../../components/bg-wrapper'
 
 export const metadata: Metadata = {
@@ -15,9 +19,15 @@ export const metadata: Metadata = {
     'blockchain currencies, cryptocurrency, tokens, liquidity pools, consensus-secured, Verus, DeFi',
 }
 
+const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
+  'Launch Currencies & Liquidity Pools',
+  '/build/pbaas-currencies'
+)
+
 export default function PBaaSCurrenciesPage() {
   return (
     <BgWrapper>
+      <JsonLd data={breadcrumbJsonLd} />
       <div className="flex flex-col items-center px-4 pt-[30px] md:pt-[70px]">
         <h1 className="text-center text-[32px] font-medium tracking-tight text-white md:text-[75px]">
           Launch Currencies & Liquidity Pools

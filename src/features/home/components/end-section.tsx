@@ -56,23 +56,23 @@ export function EndSection() {
       {/* Open Source Card */}
       <div className="relative h-[180px] w-full overflow-hidden rounded-none shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.3)] md:h-[340px] md:w-1/2 md:rounded-lg">
         {/* Background gradient and pattern */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-indigo-50/70 to-white dark:from-indigo-950/40 dark:to-gray-950"></div>
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_bottom_right,rgba(99,102,241,0.06),transparent_70%)] dark:bg-[radial-gradient(circle_at_bottom_right,rgba(99,102,241,0.1),transparent_70%)]"></div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-50/70 to-white dark:from-blue-950/40 dark:to-gray-950"></div>
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.06),transparent_70%)] dark:bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.1),transparent_70%)]"></div>
 
         {/* Decorative elements */}
-        <div className="absolute right-6 top-6 z-0 h-14 w-14 rounded-full bg-indigo-400/5 backdrop-blur-xl dark:bg-indigo-400/10 md:right-10 md:top-10 md:h-20 md:w-20"></div>
-        <div className="bg-indigo-500/3 absolute -bottom-10 -left-10 z-0 h-40 w-40 rounded-full blur-[60px] dark:bg-indigo-500/5"></div>
+        <div className="absolute right-6 top-6 z-0 h-14 w-14 rounded-full bg-blue-400/5 backdrop-blur-xl dark:bg-blue-400/10 md:right-10 md:top-10 md:h-20 md:w-20"></div>
+        <div className="bg-blue-500/3 absolute -bottom-10 -left-10 z-0 h-40 w-40 rounded-full blur-[60px] dark:bg-blue-500/5"></div>
 
         {/* Content */}
-        <div className="relative z-10 flex h-full flex-col border border-indigo-100/80 p-8 dark:border-indigo-800/20 md:p-16">
+        <div className="relative z-10 flex h-full flex-col border border-blue-100/80 p-8 dark:border-blue-900/20 md:p-16">
           <div>
             <div className="mb-3 flex items-center gap-2">
-              <LuCode className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              <LuCode className="h-5 w-5 text-verus-blue dark:text-blue-400" />
               <span className="text-[14px] font-medium uppercase tracking-wide text-gray-600 dark:text-gray-300">
                 Open Source
               </span>
             </div>
-            <h2 className="max-w-[400px] text-[24px] font-medium leading-[1.1] tracking-tight text-indigo-600 dark:text-indigo-300 md:text-[40px]">
+            <h2 className="max-w-[400px] text-[24px] font-medium leading-[1.1] tracking-tight text-verus-blue dark:text-blue-300 md:text-[40px]">
               Verus is 100% open-source.
             </h2>
           </div>
@@ -81,7 +81,7 @@ export function EndSection() {
               href={env.NEXT_PUBLIC_VERUS_GITHUB}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-indigo-200 bg-white/80 px-8 text-[14px] font-medium text-indigo-600 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-indigo-300 hover:text-indigo-700 hover:shadow-lg dark:border-indigo-800/40 dark:bg-indigo-950/80 dark:text-indigo-300 dark:hover:border-indigo-700 dark:hover:text-indigo-200 dark:hover:shadow-indigo-950/50 md:h-[50px] md:text-[16px]"
+              className="group flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/40 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:text-[16px]"
             >
               Go to GitHub
               <FaGithub className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

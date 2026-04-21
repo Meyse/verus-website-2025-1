@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+
+User-agent: OAI-SearchBot
+Disallow:
+
+Sitemap: https://www.verus.io/sitemap.xml
