@@ -25,7 +25,7 @@ export function EarlyAdoptionSection() {
           <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
           <div className="relative z-10">
             <span className="bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-[80px] leading-none tracking-tight text-transparent dark:from-blue-300 dark:to-blue-500 md:text-[100px] lg:text-[120px]">
-              $50M+
+              $30M+
             </span>
             <div className="mt-3">
               <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
@@ -43,7 +43,7 @@ export function EarlyAdoptionSection() {
           <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
           <div className="relative z-10">
             <span className="bg-gradient-to-br from-blue-400 to-verus-blue bg-clip-text text-[80px] leading-none tracking-tight text-transparent dark:from-blue-300 dark:to-verus-blue md:text-[100px] lg:text-[120px]">
-              32k+
+              41k+
             </span>
             <div className="mt-3">
               <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
