@@ -63,14 +63,14 @@ export function FeaturesGrid() {
   return (
     <div className="grid grid-cols-2 bg-gradient-to-b from-verus-blue/20 via-white/70 to-white/90 dark:from-blue-950/50 dark:via-gray-950/60 dark:to-black/20 md:grid-cols-4">
       {features.map((feature, index) => {
-        const isMobileRightEdge = index % 2 === 1
-        const isDesktopRightEdge = index % 4 === 3
+        const isMobileLeftColumn = index % 2 === 0
+        const isDesktopFirstColumn = index % 4 === 0
         const isMobileBottomRow = index >= features.length - 2
         const isDesktopBottomRow = index >= features.length - 4
         const borderClasses = [
-          !isMobileRightEdge && 'max-md:border-r',
+          !isMobileLeftColumn && 'max-md:border-l',
           !isMobileBottomRow && 'max-md:border-b',
-          !isDesktopRightEdge && 'md:border-r',
+          !isDesktopFirstColumn && 'md:border-l',
           !isDesktopBottomRow && 'md:border-b',
         ]
           .filter(Boolean)
