@@ -1,5 +1,3 @@
-import {Suspense} from 'react'
-
 import {
   BrandAssets,
   MediaMentions,
@@ -8,12 +6,8 @@ import {
 } from '@/features/media/components'
 
 type Params = Promise<{media_type: string}>
-type SearchParams = Promise<{[key: string]: string | undefined}>
 
-export default async function Page(props: {
-  params: Params
-  searchParams: SearchParams
-}) {
+export default async function Page(props: {params: Params}) {
   const {media_type} = await props.params
 
   return (
@@ -22,11 +16,7 @@ export default async function Page(props: {
       <div className="py-8">
         {media_type === 'press-kit' && <PressKit />}
         {media_type === 'media-coverage' && <MediaMentions />}
-        {media_type === 'brand-assets' && (
-          <Suspense>
-            <BrandAssets searchParams={props.searchParams} />
-          </Suspense>
-        )}
+        {media_type === 'brand-assets' && <BrandAssets />}
       </div>
     </div>
   )

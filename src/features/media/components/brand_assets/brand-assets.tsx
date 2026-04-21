@@ -4,21 +4,13 @@
  * proper download behavior in production; kept absolute path.
  */
 
-import { brand_assets } from '@/data/brand-assets'
-import { Download } from 'lucide-react'
+import {brand_assets} from '@/data/brand-assets'
+import {Download} from 'lucide-react'
 
-import BrandAssetFilterController from './brand-assets-filter-controller'
-import { BrandAssetsLogos } from './brand-assets-logos'
-import { BrandAssetsWallpaper } from './brand-assets-wallpaper'
+import {BrandAssetsLogos} from './brand-assets-logos'
+import {BrandAssetsWallpaper} from './brand-assets-wallpaper'
 
-type SearchParams = Promise<{[key: string]: string | undefined}>
-
-export async function BrandAssets({
-  searchParams,
-}: {
-  searchParams: SearchParams
-}) {
-  const filter = (await searchParams).filter
+export function BrandAssets() {
   // Separate assets by type
   const logoAndIconAssets = brand_assets.filter(
     (asset) => asset.type === 'logo' || asset.type === 'icon'
@@ -26,17 +18,6 @@ export async function BrandAssets({
   const wallpaperAssets = brand_assets.filter(
     (asset) => asset.type === 'wallpaper'
   )
-
-  // Filter assets based on selection
-  const filteredLogoIconAssets =
-    !filter || filter === 'all'
-      ? logoAndIconAssets
-      : logoAndIconAssets.filter((asset) => asset.type === filter)
-
-  const filteredWallpaperAssets =
-    !filter || filter === 'all'
-      ? wallpaperAssets
-      : wallpaperAssets.filter((asset) => asset.type === filter)
 
   return (
     <div className="px-4 md:px-0">
@@ -60,11 +41,8 @@ export async function BrandAssets({
         </a>
       </div>
 
-      <BrandAssetFilterController />
-      {/* Section 1: Logos and Icons */}
-      <BrandAssetsLogos filteredLogos={filteredLogoIconAssets} />
-      {/* Section 2: Brand Guidelines */}
-      <BrandAssetsWallpaper filteredWallpaper={filteredWallpaperAssets} />
+      <BrandAssetsLogos logoAssets={logoAndIconAssets} />
+      <BrandAssetsWallpaper wallpaperAssets={wallpaperAssets} />
     </div>
   )
 }
