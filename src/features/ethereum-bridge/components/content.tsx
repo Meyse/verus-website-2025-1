@@ -103,6 +103,28 @@ const formatNumber = (value?: number, maximumFractionDigits = 0) => {
   }).format(value)
 }
 
+const formatEthBalance = (value?: number) =>
+  value === undefined ? 'View live' : `${formatNumber(value, 2)} ETH`
+
+const getMetricStatusText = (
+  metrics: BridgeContractMetrics,
+  updatedAt: string
+) => {
+  if (metrics.status === 'unavailable') {
+    return ' Live values are unavailable right now.'
+  }
+
+  if (metrics.status === 'stale') {
+    return ` Using last known Alchemy values from ${updatedAt}.`
+  }
+
+  if (metrics.status === 'partial') {
+    return ` Refreshed ${updatedAt}; some Alchemy values are unavailable.`
+  }
+
+  return ` Refreshed ${updatedAt}.`
+}
+
 function ContractMetric({
   label,
   value,
@@ -183,28 +205,23 @@ function BridgeContractMetrics({metrics}: {metrics: BridgeContractMetrics}) {
         />
         <ContractMetric
           label="ETH balance"
-          value={`${formatNumber(metrics.ethBalance, 2)} ETH`}
+          value={formatEthBalance(metrics.ethBalance)}
         />
         <ContractMetric
-          label="Token holdings"
-          value={`${formatUsd(metrics.tokenHoldingsUsd)}${
-            metrics.tokenCount
-              ? ` / ${formatNumber(metrics.tokenCount)} holdings`
-              : ''
-          }`}
+          label="ERC-20 value"
+          value={formatUsd(metrics.tokenHoldingsUsd)}
         />
         <ContractMetric
-          label="Transactions"
-          value={formatNumber(metrics.transactionCount)}
+          label="ERC-20 holdings"
+          value={formatNumber(metrics.tokenCount)}
         />
       </div>
 
       <div className="mt-4 flex flex-col gap-3 text-[13px] text-gray-500 dark:text-gray-400 md:flex-row md:items-center md:justify-between">
         <p>
-          Etherscan contract holdings, not protocol-wide Verus liquidity.
-          {metrics.status === 'unavailable'
-            ? ' Live values are unavailable right now.'
-            : ` Refreshed ${updatedAt}.`}
+          Alchemy token balances and USD prices, not protocol-wide Verus
+          liquidity.
+          {getMetricStatusText(metrics, updatedAt)}
         </p>
         <a
           href={ETHEREUM_BRIDGE_CONTRACT_URL}
