@@ -112,7 +112,9 @@ export function FeaturesGrid() {
                 L1 Marketplace
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
-                Enable direct peer-to-peer trading between VerusIDs, currencies, or a combination of both with built-in offer management and global listings.
+                Enable direct peer-to-peer trading between VerusIDs, currencies,
+                or a combination of both with built-in offer management and
+                global listings.
               </p>
             </div>
           </div>

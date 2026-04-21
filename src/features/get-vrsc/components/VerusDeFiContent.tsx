@@ -1,10 +1,10 @@
+import {Suspense} from 'react'
 import Link from 'next/link'
-import { Suspense } from 'react'
 
-import { env } from '@/configs/env'
-import { ArrowLeftRight, Coins, ExternalLink } from 'lucide-react'
+import {env} from '@/configs/env'
+import {ArrowLeftRight, Coins, ExternalLink} from 'lucide-react'
 
-import { LiquidSection, VolumeSection } from './VerusDeFiSection'
+import {LiquidSection, VolumeSection} from './VerusDeFiSection'
 
 /*
  * VerusDeFiSection - Server Component
@@ -38,7 +38,7 @@ export function VerusDeFiContent() {
             </p>
 
             {/* Protocol Statistics Card */}
-            <div className="mb-8 rounded-xl border border-blue-200/60 dark:bg-blue-600/10 bg-white p-4 backdrop-blur-sm dark:border-blue-800/40 dark:bg-blue-900/30">
+            <div className="mb-8 rounded-xl border border-blue-200/60 bg-white p-4 backdrop-blur-sm dark:border-blue-800/40 dark:bg-blue-600/10 dark:bg-blue-900/30">
               <div className="mb-2 text-[12px] font-medium uppercase tracking-wider text-blue-600 dark:text-blue-400">
                 Protocol Activity
               </div>

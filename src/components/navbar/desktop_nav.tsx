@@ -3,11 +3,11 @@ import {
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 
-import { NavMenuItem } from './nav_menu_item'
-import { BuildSection } from './nav_sections/build_section'
-import { CommunitySection } from './nav_sections/community_section'
-import { LearnSection } from './nav_sections/learn_section'
-import { UseSection } from './nav_sections/use_section'
+import {NavMenuItem} from './nav_menu_item'
+import {BuildSection} from './nav_sections/build_section'
+import {CommunitySection} from './nav_sections/community_section'
+import {LearnSection} from './nav_sections/learn_section'
+import {UseSection} from './nav_sections/use_section'
 
 export function DesktopNav() {
   return (

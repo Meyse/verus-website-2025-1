@@ -1,4 +1,4 @@
-'use server';
+'use server'
 
 import {fetchSupply} from './fetch-supply'
 

@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import { env } from '@/configs/env'
-import { Check, ExternalLink } from 'lucide-react'
-import { IoLogoDiscord } from 'react-icons/io5'
+import {env} from '@/configs/env'
+import {Check, ExternalLink} from 'lucide-react'
+import {IoLogoDiscord} from 'react-icons/io5'
 
 // Updated component with dark mode support and improved styling
 export function MiningSteps() {

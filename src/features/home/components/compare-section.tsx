@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import { env } from '@/configs/env'
-import { AlertTriangle } from 'lucide-react'
-import { FaMedium } from 'react-icons/fa'
+import {env} from '@/configs/env'
+import {AlertTriangle} from 'lucide-react'
+import {FaMedium} from 'react-icons/fa'
 
 export function CompareSection() {
   return (
@@ -16,7 +16,9 @@ export function CompareSection() {
                 Move Beyond Smart Contracts: Protocol-Level Security
               </h2>
               <p className="text-center text-[16px] font-normal leading-relaxed tracking-tight text-gray-600 dark:text-gray-300 md:mb-8 md:max-w-[800px] md:text-[20px]">
-                Other protocols use complex smart contracts with inherent vulnerabilities. Verus built currencies, DeFi, identity and data operations directly into the protocol itself.
+                Other protocols use complex smart contracts with inherent
+                vulnerabilities. Verus built currencies, DeFi, identity and data
+                operations directly into the protocol itself.
               </p>
             </div>
 
@@ -92,7 +94,7 @@ export function CompareSection() {
               <div className="h-full w-full">
                 <div className="h-full p-6 md:p-8">
                   <div className="mb-5 flex items-center gap-2">
-                    <div className="rounded-lg -1.5">
+                    <div className="rounded-lg p-1.5">
                       <Image
                         src="/img/verus-icon.svg"
                         alt="Verus Icon"
@@ -118,7 +120,9 @@ export function CompareSection() {
                           No Code to Exploit
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
-                          Currency, DeFi, identity and data operations are blockchain primitives. Validated by protocol rules, not custom code.
+                          Currency, DeFi, identity and data operations are
+                          blockchain primitives. Validated by protocol rules,
+                          not custom code.
                         </p>
                       </div>
                     </li>
@@ -133,7 +137,9 @@ export function CompareSection() {
                           Protocol Guaranteed
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
-                          Every node validates transactions using the same core logic. No external dependencies or contract assumptions.
+                          Every node validates transactions using the same core
+                          logic. No external dependencies or contract
+                          assumptions.
                         </p>
                       </div>
                     </li>
@@ -148,7 +154,8 @@ export function CompareSection() {
                           Direct Transactions
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
-                          Send currencies directly without permission systems. Your keys control your funds, period.
+                          Send currencies directly without permission systems.
+                          Your keys control your funds, period.
                         </p>
                       </div>
                     </li>
@@ -195,7 +202,9 @@ export function CompareSection() {
                 Multi-Currency Protocol
               </h2>
               <p className="text-center text-[16px] font-normal leading-relaxed tracking-tight text-gray-600 dark:text-gray-300 md:mb-8 md:max-w-[800px] md:text-[20px]">
-                Most tokens exist as smart contract state. Verus currencies are protocol primitives, validated by every node with the same security as the native blockchain coin.
+                Most tokens exist as smart contract state. Verus currencies are
+                protocol primitives, validated by every node with the same
+                security as the native blockchain coin.
               </p>
             </div>
 
@@ -272,7 +281,7 @@ export function CompareSection() {
               <div className="h-full w-full">
                 <div className="h-full p-6 md:p-8">
                   <div className="mb-5 flex items-center gap-2">
-                    <div className="rounded-lg -1.5">
+                    <div className="rounded-lg p-1.5">
                       <Image
                         src="/img/verus-icon.svg"
                         alt="Verus Icon"
@@ -314,7 +323,8 @@ export function CompareSection() {
                           Direct Validation
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
-                          Every node validates currency operations using core protocol rules, not contract interpretation.
+                          Every node validates currency operations using core
+                          protocol rules, not contract interpretation.
                         </p>
                       </div>
                     </li>
@@ -329,7 +339,9 @@ export function CompareSection() {
                           Native Security
                         </h4>
                         <p className="text-[14px] leading-relaxed text-blue-700/80 dark:text-blue-200/70 md:text-[15px]">
-                          All currencies inherit the full cryptographic security of the blockchain itself, not contract-dependent protection.
+                          All currencies inherit the full cryptographic security
+                          of the blockchain itself, not contract-dependent
+                          protection.
                         </p>
                       </div>
                     </li>
