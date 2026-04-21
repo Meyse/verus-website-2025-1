@@ -61,31 +61,44 @@ const features = [
 
 export function FeaturesGrid() {
   return (
-    <div className="relative w-screen md:max-w-[1220px]">
-      <div className="mb-2 border border-white/60 bg-white/25 bg-gradient-to-br from-white/50 via-white/25 to-white/10 shadow-[0_24px_80px_-36px_rgba(15,23,42,0.65)] backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:from-gray-950/80 dark:via-gray-900/65 dark:to-blue-950/40 md:mb-4 md:rounded-lg">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-5 gap-y-12 px-5 py-10 md:grid-cols-4 md:gap-x-8 md:gap-y-16 md:px-8 md:py-12">
-          {features.map((feature) => (
-            <article
-              key={feature.title}
-              className="flex min-h-[170px] flex-col items-center text-center"
-            >
-              <Image
-                src={feature.src}
-                alt={feature.alt}
-                width={44}
-                height={44}
-                className="mb-4 h-10 w-10 object-contain md:h-11 md:w-11"
-              />
-              <h2 className="text-[18px] font-medium leading-tight text-black dark:text-white md:text-[20px]">
-                {feature.title}
-              </h2>
-              <p className="mt-3 max-w-[230px] text-[14px] leading-relaxed text-gray-700 dark:text-gray-300 md:text-[15px]">
-                {feature.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </div>
+    <div className="grid grid-cols-2 bg-gradient-to-b from-verus-blue/20 via-white/70 to-white/90 dark:from-blue-950/50 dark:via-gray-950/60 dark:to-black/20 md:grid-cols-4">
+      {features.map((feature, index) => {
+        const isMobileRightEdge = index % 2 === 1
+        const isDesktopRightEdge = index % 4 === 3
+        const isMobileBottomRow = index >= features.length - 2
+        const isDesktopBottomRow = index >= features.length - 4
+        const borderClasses = [
+          !isMobileRightEdge && 'max-md:border-r',
+          !isMobileBottomRow && 'max-md:border-b',
+          !isDesktopRightEdge && 'md:border-r',
+          !isDesktopBottomRow && 'md:border-b',
+        ]
+          .filter(Boolean)
+          .join(' ')
+
+        return (
+          <article
+            key={feature.title}
+            className={`flex min-h-[220px] flex-col items-center justify-center border-gray-200 px-5 py-10 text-center dark:border-gray-800 md:min-h-[260px] md:px-8 md:py-12 ${
+              borderClasses
+            }`}
+          >
+            <Image
+              src={feature.src}
+              alt={feature.alt}
+              width={44}
+              height={44}
+              className="mb-4 h-10 w-10 object-contain md:h-11 md:w-11"
+            />
+            <h2 className="text-[18px] font-medium leading-tight text-black dark:text-white md:text-[20px]">
+              {feature.title}
+            </h2>
+            <p className="mt-3 max-w-[230px] text-[14px] leading-relaxed text-gray-700 dark:text-gray-300 md:text-[15px]">
+              {feature.description}
+            </p>
+          </article>
+        )
+      })}
     </div>
   )
 }
