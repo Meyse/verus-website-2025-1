@@ -60,17 +60,17 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="mb-16 w-screen overflow-hidden border border-gray-200 bg-white/90 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] backdrop-blur-sm dark:border-gray-800 dark:bg-black/30 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] md:mb-20 md:max-w-[1220px] md:rounded-lg">
+        <div className="w-screen overflow-hidden border border-gray-200 bg-white/90 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] backdrop-blur-sm dark:border-gray-800 dark:bg-black/30 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] md:max-w-[1220px] md:rounded-lg">
           <FeaturesGrid />
           <EarlyAdoptionSection />
+          <CompareSection />
+          <ProtocolSection />
+          <ParticipationSection />
+          <VerusIDSection />
+          <BridgeSection />
+          <GetStartedSection />
+          <EndSection />
         </div>
-        <CompareSection />
-        <ProtocolSection />
-        <ParticipationSection />
-        <VerusIDSection />
-        <BridgeSection />
-        <GetStartedSection />
-        <EndSection />
         <MediumArticlesSection />
       </div>
     </BgWrapper>
