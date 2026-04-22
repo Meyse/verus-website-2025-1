@@ -4,6 +4,8 @@ import type {VerusID} from '@/features/verusid_search/server/fetch_verus_id'
 
 import {ProfileContent} from './profile-content'
 
+type ProfileContentValue = Parameters<typeof ProfileContent>[0]['content']
+
 export default function ProfileTabs({
   profile,
   profileData,
@@ -19,6 +21,16 @@ export default function ProfileTabs({
     | undefined
 }) {
   const identity = profile.identity
+  let collectionContent: ProfileContentValue
+  if (
+    profileData?.collections &&
+    Object.prototype.hasOwnProperty.call(profileData.collections, 'content')
+  ) {
+    const contentCollection = profileData.collections.content as
+      | {content?: ProfileContentValue}
+      | undefined
+    collectionContent = contentCollection?.content
+  }
   console.log(profileData)
 
   return (
@@ -31,9 +43,7 @@ export default function ProfileTabs({
           </h3>
           <div className="space-y-6">
             <ContentCard>
-              <ProfileContent
-                content={profileData.collections.content.content}
-              />
+              <ProfileContent content={collectionContent} />
             </ContentCard>
           </div>
         </div>

@@ -14,7 +14,8 @@
     "ui:add": "pnpm dlx shadcn@latest add",
     "format": "prettier --write . ",
     "format:check": "prettier --check . ",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:verusid-cache": "node scripts/check-verusid-cache-contract.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

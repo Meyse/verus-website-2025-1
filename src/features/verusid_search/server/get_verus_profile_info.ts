@@ -6,10 +6,21 @@ import {unstable_cache} from 'next/cache'
 
 import {fetchVerusProfile} from './fetch_verus_profile'
 
-export const getVerusProfile = unstable_cache(
+const FIVE_MINUTES = 5 * 60
+
+const getCachedVerusProfile = unstable_cache(
   async (identity?: VerusIdentity) => {
     return await fetchVerusProfile(identity)
   },
   ['verus_profile_arweave'],
-  {revalidate: 5 * 60 * 1000, tags: ['verusId']} // 12 * 60 * 60 *1000 = 12 hours
+  {revalidate: FIVE_MINUTES, tags: ['verusId']}
 )
+
+export async function getVerusProfile(identity?: VerusIdentity) {
+  try {
+    return await getCachedVerusProfile(identity)
+  } catch (error) {
+    console.error('getVerusProfile: Failed to fetch Arweave profile', error)
+    return undefined
+  }
+}

@@ -34,7 +34,9 @@ export const queryArweaveAddress = async (address: string) => {
       const apiResult = await arweave.api.post('/graphql', query)
 
       if (!apiResult.ok) {
-        throw new Error(`API error: ${apiResult.statusText}`)
+        const status =
+          typeof apiResult.status === 'number' ? `${apiResult.status} ` : ''
+        throw new Error(`API error: ${status}${apiResult.statusText}`)
       }
       console.log(apiResult.data.data.transactions)
       const ownerResult = apiResult.data.data.transactions
@@ -105,7 +107,7 @@ export const queryArweaveAddress = async (address: string) => {
       }
     } catch (error) {
       console.error('queryArweaveAddress: Query error', error)
-      return undefined
+      throw error
     }
   }
 
