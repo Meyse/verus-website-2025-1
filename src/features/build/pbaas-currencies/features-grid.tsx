@@ -28,7 +28,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Layers className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Basket Currencies
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -47,7 +47,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Coins className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Simple Token Currencies
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -66,7 +66,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Store className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Protocol-Level DeFi
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -89,7 +89,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Settings className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Custom Economics
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -108,7 +108,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Clock className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Flexible Distribution
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -127,7 +127,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Rocket className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Crowdfunding Ready
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -148,7 +148,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Share2 className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Cross-Chain Bridge
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -167,7 +167,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Wallet className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Instant Liquidity
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -185,7 +185,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Shield className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Consensus Security
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">

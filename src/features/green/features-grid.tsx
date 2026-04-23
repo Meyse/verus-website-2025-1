@@ -26,7 +26,7 @@ export function GreenFeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-green-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-green-50 dark:border-green-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Cpu className="h-7 w-7 text-green-600/80 dark:text-green-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 CPU-Optimized Mining
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -46,7 +46,7 @@ export function GreenFeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-green-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-green-50 dark:border-green-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <GitMerge className="h-7 w-7 text-green-600/80 dark:text-green-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Efficient Merge Mining
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -65,7 +65,7 @@ export function GreenFeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-green-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-green-50 dark:border-green-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Leaf className="h-7 w-7 text-green-600/80 dark:text-green-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Sustainable Design
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -86,7 +86,7 @@ export function GreenFeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-green-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-green-50 dark:border-green-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <ShieldCheck className="h-7 w-7 text-green-600/80 dark:text-green-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Hybrid Consensus
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -104,7 +104,7 @@ export function GreenFeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-green-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-green-50 dark:border-green-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Battery className="h-7 w-7 text-green-600/80 dark:text-green-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Low-Power Mining
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -122,7 +122,7 @@ export function GreenFeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-green-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-green-50 dark:border-green-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Users className="h-7 w-7 text-green-600/80 dark:text-green-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Inclusive Staking
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -145,7 +145,7 @@ export function GreenFeaturesGrid() {
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-green-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-green-50 dark:border-green-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                   <MonitorSmartphone className="h-7 w-7 text-green-600/80 dark:text-green-400" />
                 </div>
-                <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+                <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                   Monetize Commodity Hardware
                 </h3>
                 <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">

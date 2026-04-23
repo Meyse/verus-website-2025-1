@@ -1,3 +1,5 @@
+import {Button} from '@/components/ui/button'
+
 export function ParticipationSection() {
   return (
     <div className="grid w-full grid-cols-1 border-t border-gray-200 dark:border-gray-800 md:grid-cols-2">
@@ -9,7 +11,7 @@ export function ParticipationSection() {
         <div className="relative z-10 flex h-full flex-col p-8 md:p-12">
           <div className="flex items-start">
             <div className="flex-grow">
-              <h2 className="mb-4 text-[24px] font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+              <h2 className="mb-4 font-display font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
                 Mine with mobile phone, CPU & ARM
               </h2>
               <p className="max-w-[500px] text-[15px] font-normal leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
@@ -19,26 +21,25 @@ export function ParticipationSection() {
             </div>
           </div>
           <div className="mt-auto flex">
-            <a
-              href="/mining"
-              className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-gray-300 bg-white/90 px-8 text-[14px] font-medium text-gray-800 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-gray-400 hover:bg-white hover:shadow-lg dark:border-blue-800/40 dark:bg-blue-950/40 dark:text-blue-300 dark:hover:border-blue-700/60 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
-            >
-              Start mining
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
+            <Button asChild variant="verusSecondary" size="verusWide">
+              <a href="/mining">
+                Start mining
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+            </Button>
           </div>
         </div>
       </div>
@@ -51,7 +52,7 @@ export function ParticipationSection() {
         <div className="relative z-10 flex h-full flex-col p-8 md:p-12">
           <div className="flex items-start">
             <div className="flex-grow">
-              <h2 className="mb-4 text-[24px] font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+              <h2 className="mb-4 font-display font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
                 Staking where anyone can participate
               </h2>
               <p className="max-w-[500px] text-[15px] font-normal leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
@@ -61,26 +62,25 @@ export function ParticipationSection() {
             </div>
           </div>
           <div className="mt-auto flex">
-            <a
-              href="/staking"
-              className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-gray-300 bg-white/90 px-8 text-[14px] font-medium text-gray-800 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-gray-400 hover:bg-white hover:shadow-lg dark:border-blue-800/40 dark:bg-blue-950/40 dark:text-blue-300 dark:hover:border-blue-700/60 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
-            >
-              Start staking
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
+            <Button asChild variant="verusSecondary" size="verusWide">
+              <a href="/staking">
+                Start staking
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+            </Button>
           </div>
         </div>
       </div>

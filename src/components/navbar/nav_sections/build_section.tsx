@@ -139,7 +139,7 @@ export function BuildSection() {
             className="group flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline"
           >
             <div>
-              <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white">
+              <div className="mb-1 flex items-center gap-2 text-[15px] font-semibold text-gray-800 dark:text-white">
                 Documentation
                 <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
               </div>
@@ -152,7 +152,7 @@ export function BuildSection() {
             className="group flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline"
           >
             <div>
-              <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white">
+              <div className="mb-1 flex items-center gap-2 text-[15px] font-semibold text-gray-800 dark:text-white">
                 Integration Documentation
                 <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
               </div>
@@ -165,7 +165,7 @@ export function BuildSection() {
             className="group flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline"
           >
             <div>
-              <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white">
+              <div className="mb-1 flex items-center gap-2 text-[15px] font-semibold text-gray-800 dark:text-white">
                 All API Commands
                 <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
               </div>
@@ -182,7 +182,7 @@ export function BuildSection() {
             <div className="flex items-center">
               <IoLogoDiscord className="h-9 w-9 text-white" />
               <div className="ml-4">
-                <div className="text-[17px] font-medium text-white">
+                <div className="text-[17px] font-semibold text-white">
                   Need help building with Verus?
                 </div>
                 <p className="mt-1 text-[14px] font-light text-white/90">

@@ -18,7 +18,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Database className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-black dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-black dark:text-white md:text-[18px]">
                 Your Personal Digital Database
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -36,7 +36,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Key className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-black dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-black dark:text-white md:text-[18px]">
                 True Data Ownership
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -57,7 +57,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Globe className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-black dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-black dark:text-white md:text-[18px]">
                 The Future of Digital Interaction
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -78,7 +78,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Shield className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-black dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-black dark:text-white md:text-[18px]">
                 Privacy By Design
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -96,7 +96,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Wallet className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-black dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-black dark:text-white md:text-[18px]">
                 Secure Asset Management
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">

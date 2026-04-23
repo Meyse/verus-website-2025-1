@@ -100,7 +100,7 @@ export function EarlyAdoptionSection() {
         >
           <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
           <div className="relative z-10">
-            <h3 className="mb-4 font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+            <h3 className="mb-4 font-display font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
               Build more, code less
             </h3>
             <p className="max-w-[500px] text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[17px]">

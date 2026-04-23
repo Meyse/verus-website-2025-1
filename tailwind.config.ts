@@ -1,5 +1,17 @@
 import type {Config} from 'tailwindcss'
 
+const systemSansFallback = [
+  'ui-sans-serif',
+  'system-ui',
+  '-apple-system',
+  'BlinkMacSystemFont',
+  'Segoe UI',
+  'Roboto',
+  'Helvetica Neue',
+  'Arial',
+  'sans-serif',
+]
+
 const config: Config = {
   darkMode: ['class'],
   content: [
@@ -16,7 +28,12 @@ const config: Config = {
         black: '#0F0F0F',
       },
       fontFamily: {
-        sans: ['var(--font-geomanist)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-source-sans-3)', ...systemSansFallback],
+        display: [
+          'var(--font-geomanist)',
+          'var(--font-source-sans-3)',
+          ...systemSansFallback,
+        ],
       },
       animation: {
         in: 'enter 100ms ease-out',

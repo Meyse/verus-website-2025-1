@@ -32,7 +32,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Key className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Permanent Namespace
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -50,7 +50,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Shield className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Self-Sovereign Identity
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -67,7 +67,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Network className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Blockchain Launching Pad
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -89,7 +89,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Coins className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Currency & Token Issuance
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -107,7 +107,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Database className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Data Publication & Storage
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -124,7 +124,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Lock className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Security Features
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -145,7 +145,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Scale className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Multichain Interoperability
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -163,7 +163,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Code2 className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Simple Integration
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
@@ -180,7 +180,7 @@ export function FeaturesGrid() {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-blue-100/80 bg-white/90 shadow-sm transition-colors duration-300 group-hover:bg-blue-50 dark:border-blue-900/30 dark:bg-gray-800/90 dark:group-hover:bg-gray-800">
                 <Store className="h-7 w-7 text-verus-blue/80 dark:text-blue-400" />
               </div>
-              <h3 className="mb-2 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+              <h3 className="mb-2 text-[16px] font-bold text-gray-900 dark:text-white md:text-[18px]">
                 Decentralized Marketplace
               </h3>
               <p className="text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[15px]">
