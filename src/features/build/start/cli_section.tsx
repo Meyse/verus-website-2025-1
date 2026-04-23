@@ -2,29 +2,41 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import {getCliWallets} from '@/features/wallet/server/get-cli-wallets'
+import {Download, ExternalLink} from 'lucide-react'
+
+import {cn} from '@/lib/utils'
 
 export async function CliSection() {
   const {version, assets} = await getCliWallets()
 
   return (
-    <div className="relative overflow-hidden p-10 md:p-14">
-      <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
-      <div className="relative z-10">
-        <h3 className="mb-4 bg-gradient-to-br from-blue-600 to-indigo-500 bg-clip-text text-[24px] font-medium text-gray-800 text-transparent dark:from-blue-400 dark:to-indigo-300 dark:text-white md:text-[30px]">
-          Download CLI Wallet
-        </h3>
-        <p className="mb-6 max-w-[500px] text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[17px]">
-          Get started with the Verus CLI wallet {version}. Download for your
-          operating system.
-        </p>
+    <div className="flex h-full min-h-[300px] min-w-0 flex-col p-8 md:p-10">
+      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-gray-200 bg-white text-verus-blue dark:border-gray-800 dark:bg-gray-900 dark:text-blue-400">
+        <Download className="h-6 w-6" />
+      </div>
 
-        <div className="space-y-2">
-          {Object.entries(assets).map(([os, info]) => (
+      <h3 className="mb-4 text-[24px] font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+        Download CLI wallet
+      </h3>
+      <p className="mb-6 max-w-[500px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+        Get started with the Verus CLI wallet {version}. Download the release
+        for your operating system.
+      </p>
+
+      <div className="mt-auto space-y-2">
+        {Object.entries(assets).map(([os, info]) => {
+          const isDisabled = !info.url || info.url === '#'
+
+          return (
             <Link
               key={os}
               href={info.url}
               target="_blank"
-              className={`flex items-center gap-2 rounded-lg border border-[#E9EFFC] p-3 transition-colors hover:bg-[#E9EFFC]/5 dark:border-gray-700 dark:hover:bg-white/5 ${!info.url || info.url === '#' ? 'pointer-events-none opacity-50' : ''}`}
+              rel="noopener noreferrer"
+              className={cn(
+                'group flex min-h-[64px] min-w-0 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 transition-colors hover:border-gray-300 hover:bg-white dark:border-gray-800 dark:bg-gray-900/70 dark:hover:border-gray-700 dark:hover:bg-gray-900',
+                isDisabled && 'pointer-events-none opacity-50'
+              )}
             >
               <Image
                 src={`/img/${os.toLowerCase().includes('windows') ? 'windows' : os.toLowerCase().includes('mac') ? 'apple' : 'linux'}-black.svg`}
@@ -33,17 +45,18 @@ export async function CliSection() {
                 height={20}
                 className="size-5 dark:invert"
               />
-              <div className="flex flex-col">
-                <span className="text-[14px] text-black/75 dark:text-white/75">
+              <div className="flex min-w-0 flex-col">
+                <span className="text-[14px] font-medium text-gray-800 dark:text-white">
                   {os}
                 </span>
-                <span className="text-[12px] text-black/40 dark:text-white/40">
+                <span className="text-[12px] text-gray-500 dark:text-gray-400">
                   {info.size}
                 </span>
               </div>
+              <ExternalLink className="ml-auto h-4 w-4 text-gray-400 opacity-50 transition-opacity group-hover:opacity-100 dark:text-gray-500" />
             </Link>
-          ))}
-        </div>
+          )
+        })}
       </div>
     </div>
   )

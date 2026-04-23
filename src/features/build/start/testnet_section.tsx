@@ -2,43 +2,40 @@ import Link from 'next/link'
 
 import {env} from '@/configs/env'
 import {MessageCircle} from 'lucide-react'
+import {IoLogoDiscord} from 'react-icons/io5'
+
+import {Button} from '@/components/ui/button'
 
 export function TestnetSection() {
   return (
-    <div className="relative overflow-hidden p-10 md:p-14">
-      <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
-      <div className="relative z-10">
-        <h3 className="mb-4 bg-gradient-to-br from-blue-600 to-indigo-500 bg-clip-text text-[24px] font-medium text-gray-800 text-transparent dark:from-blue-400 dark:to-indigo-300 dark:text-white md:text-[30px]">
-          Get Testnet Coins
-        </h3>
-        <p className="mb-6 max-w-[500px] text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[17px]">
-          To start developing on Verus testnet, you'll need some VRSCTEST coins.
-          Join the Discord community and ask in the #pbaas-development channel -
-          community members will help you get started.
-        </p>
+    <div className="flex h-full min-h-[300px] min-w-0 flex-col p-8 md:p-10">
+      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-gray-200 bg-white text-verus-blue dark:border-gray-800 dark:bg-gray-900 dark:text-blue-400">
+        <MessageCircle className="h-6 w-6" />
+      </div>
+
+      <h3 className="mb-4 text-[24px] font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+        Get testnet coins
+      </h3>
+      <p className="max-w-[500px] flex-1 break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+        To start developing on Verus testnet, you will need VRSCTEST coins. Join
+        Discord and ask in the #pbaas-development channel.
+      </p>
+
+      <Button
+        asChild
+        variant="verusPrimary"
+        size="verusWide"
+        className="mt-8 w-fit"
+      >
         <Link
           href={env.NEXT_PUBLIC_DISCORD}
           target="_blank"
-          className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
+          rel="noopener noreferrer"
         >
-          <MessageCircle className="mr-2 h-4 w-4" />
           Join Discord
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
+          <IoLogoDiscord className="h-5 w-5 md:h-6 md:w-6" />
         </Link>
-      </div>
+      </Button>
     </div>
   )
 }
