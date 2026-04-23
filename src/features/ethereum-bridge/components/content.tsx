@@ -230,7 +230,7 @@ function BridgeContractMetrics({metrics}: {metrics: BridgeContractMetrics}) {
           className="group inline-flex w-fit items-center gap-2 font-medium text-verus-blue transition-colors hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200"
         >
           View on Etherscan
-          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </a>
       </div>
     </>

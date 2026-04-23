@@ -97,7 +97,7 @@ export function GetStartedSections() {
 
             <Link
               href="/wallet"
-              className="group flex h-[40px] w-full items-center justify-center self-start rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:w-fit md:text-[16px]"
+              className="group flex h-[40px] w-full items-center justify-center self-start rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 md:h-[50px] md:w-fit md:text-[16px]"
             >
               Download a wallet
               <svg
@@ -229,7 +229,7 @@ export function GetStartedSections() {
 
             <Link
               href="/get-vrsc/"
-              className="group flex h-[40px] w-full items-center justify-center self-start rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:w-fit md:text-[16px]"
+              className="group flex h-[40px] w-full items-center justify-center self-start rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 md:h-[50px] md:w-fit md:text-[16px]"
             >
               View exchanges
               <svg
@@ -373,7 +373,7 @@ export function GetStartedSections() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/staking"
-                className="group flex h-[40px] w-full items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 sm:w-fit md:h-[50px] md:text-[16px]"
+                className="group flex h-[40px] w-full items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 sm:w-fit md:h-[50px] md:text-[16px]"
               >
                 Learn about staking
                 <svg
@@ -394,7 +394,7 @@ export function GetStartedSections() {
 
               <Link
                 href="/mining"
-                className="group flex h-[40px] w-full items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 sm:w-fit md:h-[50px] md:text-[16px]"
+                className="group flex h-[40px] w-full items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 sm:w-fit md:h-[50px] md:text-[16px]"
               >
                 Learn about mining
                 <svg
@@ -550,7 +550,7 @@ export function GetStartedSections() {
 
             <Link
               href="/verusid"
-              className="group flex h-[40px] w-full items-center justify-center self-start rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:w-fit md:text-[16px]"
+              className="group flex h-[40px] w-full items-center justify-center self-start rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 md:h-[50px] md:w-fit md:text-[16px]"
             >
               Learn about VerusID
               <svg
@@ -577,7 +577,7 @@ export function GetStartedSections() {
         href={env.NEXT_PUBLIC_DISCORD}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex h-[45px] w-full items-center gap-3 bg-[#444EE5] p-4 transition-all duration-300 hover:-translate-y-[1px] hover:bg-[#3942cc] hover:shadow-md md:h-[55px] md:rounded-lg md:p-6"
+        className="group flex h-[45px] w-full items-center gap-3 bg-[#444EE5] p-4 transition-all duration-300 hover:bg-[#3942cc] md:h-[55px] md:rounded-lg md:p-6"
       >
         <IoLogoDiscord className="h-5 w-5 text-white md:h-6 md:w-6" />
         <span className="text-[14px] font-medium text-white md:text-[16px]">

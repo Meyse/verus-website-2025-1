@@ -89,7 +89,7 @@ export function SearchForm({
           <button
             type="submit"
             disabled={action.isPending || !verusId.trim()}
-            className="mt-1 h-12 w-full rounded-lg bg-verus-blue px-6 py-2 font-medium text-white shadow transition-all duration-300 hover:-translate-y-[1px] hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 disabled:cursor-not-allowed disabled:opacity-50 dark:hover:shadow-blue-950/40 sm:w-auto"
+            className="mt-1 h-12 w-full rounded-lg bg-verus-blue px-6 py-2 font-medium text-white shadow transition-all duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
           >
             {action.isPending ? (
               <span className="flex items-center justify-center">

@@ -91,7 +91,7 @@ export function CommunityLinks() {
               href={env.NEXT_PUBLIC_DISCORD}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex h-[40px] items-center justify-center rounded-lg border border-blue-500 bg-blue-600 px-6 text-[14px] font-medium text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:bg-blue-700 hover:shadow-lg dark:border-white/60 dark:bg-white/90 dark:text-black dark:hover:bg-white md:h-[50px] md:text-[16px]"
+              className="group flex h-[40px] items-center justify-center rounded-lg border border-blue-500 bg-blue-600 px-6 text-[14px] font-medium text-white backdrop-blur-sm transition-all duration-300 hover:bg-blue-700 dark:border-white/60 dark:bg-white/90 dark:text-black dark:hover:bg-white md:h-[50px] md:text-[16px]"
             >
               <IoLogoDiscord className="mr-3 h-5 w-5" />
               Join Discord

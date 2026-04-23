@@ -130,7 +130,7 @@ export function MiningSteps() {
               <div className="mb-8 w-full md:mb-0 md:w-auto">
                 <a
                   href="/wallet"
-                  className="group flex h-[40px] w-full items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:w-fit md:text-[16px]"
+                  className="group flex h-[40px] w-full items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 md:h-[50px] md:w-fit md:text-[16px]"
                 >
                   Choose wallet
                   <svg
@@ -187,7 +187,7 @@ export function MiningSteps() {
               href={`${env.NEXT_PUBLIC_VERUS_DOCS}/economy/start-mining.html#mining-software`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-8 flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:text-[16px]"
+              className="group mt-8 flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
             >
               Go to mining software
               <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -206,7 +206,7 @@ export function MiningSteps() {
           href={env.NEXT_PUBLIC_DISCORD}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex h-[40px] w-full items-center gap-3 bg-[#444EE5] p-4 transition-all duration-300 hover:-translate-y-[1px] hover:bg-[#3942cc] hover:shadow-md md:h-[50px] md:rounded-lg md:p-6"
+          className="group flex h-[40px] w-full items-center gap-3 bg-[#444EE5] p-4 transition-all duration-300 hover:bg-[#3942cc] md:h-[50px] md:rounded-lg md:p-6"
         >
           <IoLogoDiscord className="h-5 w-5 text-white md:h-6 md:w-6" />
           <span className="text-[14px] font-medium text-white md:text-[16px]">
@@ -251,7 +251,7 @@ export function MiningSteps() {
               href={`${env.NEXT_PUBLIC_VERUS_DOCS}/economy/start-mining.html#mining-pools`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-8 flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:text-[16px]"
+              className="group mt-8 flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
             >
               Choose a pool
               <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

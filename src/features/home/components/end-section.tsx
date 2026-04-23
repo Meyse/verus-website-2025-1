@@ -1,6 +1,8 @@
 import {env} from '@/configs/env'
 import {FaGithub} from 'react-icons/fa'
 
+import {Button} from '@/components/ui/button'
+
 export function EndSection() {
   return (
     <div className="grid w-full grid-cols-1 border-t border-gray-200 dark:border-gray-800 md:grid-cols-2">
@@ -16,26 +18,25 @@ export function EndSection() {
             </h2>
           </div>
           <div className="mt-4 md:mt-auto">
-            <a
-              href="/milestones"
-              className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-gray-300 bg-white/90 px-8 text-[14px] font-medium text-gray-800 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-gray-400 hover:bg-white hover:shadow-lg dark:border-blue-800/40 dark:bg-blue-950/40 dark:text-blue-300 dark:hover:border-blue-700/60 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
-            >
-              See milestones
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
+            <Button asChild variant="verusSecondary" size="verusWide">
+              <a href="/milestones">
+                See milestones
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+            </Button>
           </div>
         </div>
       </div>
@@ -52,15 +53,16 @@ export function EndSection() {
             </h2>
           </div>
           <div className="mt-auto">
-            <a
-              href={env.NEXT_PUBLIC_VERUS_GITHUB}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white/90 px-8 text-[14px] font-medium text-gray-800 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-gray-400 hover:bg-white hover:shadow-lg dark:border-blue-800/40 dark:bg-blue-950/40 dark:text-blue-300 dark:hover:border-blue-700/60 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
-            >
-              Go to GitHub
-              <FaGithub className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            <Button asChild variant="verusSecondary" size="verusWide">
+              <a
+                href={env.NEXT_PUBLIC_VERUS_GITHUB}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Go to GitHub
+                <FaGithub className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </Button>
           </div>
         </div>
       </div>

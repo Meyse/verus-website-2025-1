@@ -3,6 +3,8 @@ import Image from 'next/image'
 import {env} from '@/configs/env'
 import {IoLogoDiscord} from 'react-icons/io5'
 
+import {Button} from '@/components/ui/button'
+
 export function GetStartedSection() {
   return (
     <div className="grid w-full grid-cols-1 border-t border-gray-200 dark:border-gray-800 md:grid-cols-[1fr,1fr]">
@@ -20,26 +22,25 @@ export function GetStartedSection() {
               Manage your funds and connect with the Verus protocol and other
               connected networks.
             </p>
-            <a
-              href="/wallet"
-              className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-gray-300 bg-white/90 px-8 text-[14px] font-medium text-gray-800 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-gray-400 hover:bg-white hover:shadow-lg dark:border-blue-800/40 dark:bg-blue-950/40 dark:text-blue-300 dark:hover:border-blue-700/60 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
-            >
-              Choose wallet
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
+            <Button asChild variant="verusSecondary" size="verusWide">
+              <a href="/wallet">
+                Choose wallet
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+            </Button>
           </div>
           <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center">
             <Image
@@ -66,26 +67,25 @@ export function GetStartedSection() {
               </h2>
             </div>
             <div>
-              <a
-                href="/get-vrsc"
-                className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-gray-300 bg-white/90 px-8 text-[14px] font-medium text-gray-800 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-gray-400 hover:bg-white hover:shadow-lg dark:border-blue-800/40 dark:bg-blue-950/40 dark:text-blue-300 dark:hover:border-blue-700/60 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
-              >
-                How to get VRSC
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </a>
+              <Button asChild variant="verusSecondary" size="verusWide">
+                <a href="/get-vrsc">
+                  How to get VRSC
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -101,28 +101,34 @@ export function GetStartedSection() {
               Join the Discord
             </h2>
             <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <a
-                href={env.NEXT_PUBLIC_DISCORD}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex h-[40px] w-full items-center justify-center rounded-lg border border-white/10 bg-white/90 px-8 text-[14px] font-medium text-[#5865F2] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:bg-white hover:shadow-lg hover:shadow-indigo-700/20 sm:w-fit md:h-[50px] md:text-[16px]"
+              <Button
+                asChild
+                variant="verusDiscord"
+                size="verusWide"
+                className="w-full sm:w-fit"
               >
-                Enter Discord server
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                <a
+                  href={env.NEXT_PUBLIC_DISCORD}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </a>
+                  Enter Discord server
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </a>
+              </Button>
               <span className="text-[12px] text-white/90 md:text-[14px]">
                 More than 11k joined before you!
               </span>

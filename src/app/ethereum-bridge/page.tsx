@@ -6,6 +6,7 @@ import {ETHEREUM_BRIDGE_CONTRACT_URL} from '@/features/ethereum-bridge/constants
 import {ExternalLink} from 'lucide-react'
 
 import {BgWrapper} from '@/components/bg-wrapper'
+import {Button} from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'Verus-Ethereum Bridge',
@@ -27,24 +28,31 @@ export default function EthereumBridgePage() {
         </p>
 
         <div className="mb-12 mt-8 flex flex-col gap-4 md:mb-20 md:flex-row">
-          <a
-            href={env.NEXT_PUBLIC_VERUS_BRIDGE}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex h-[40px] items-center justify-center rounded-lg border border-white/60 bg-white/90 px-6 text-[14px] font-medium text-black backdrop-blur-xl transition-all duration-300 hover:-translate-y-[1px] hover:border-white/90 hover:bg-white hover:shadow-lg md:h-[50px] md:text-[16px]"
+          <Button asChild variant="verusHeroPrimary" size="verus">
+            <a
+              href={env.NEXT_PUBLIC_VERUS_BRIDGE}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Go to the bridge website
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="verusHeroSecondary"
+            size="verus"
+            className="text-blue-200 hover:text-white"
           >
-            Go to the bridge website
-            <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-[-1px]" />
-          </a>
-          <a
-            href={ETHEREUM_BRIDGE_CONTRACT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex h-[40px] items-center justify-center rounded-lg border border-blue-800/60 bg-blue-950/40 px-6 text-[14px] font-medium text-blue-200 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-700/80 hover:text-white hover:shadow-lg md:h-[50px] md:text-[16px]"
-          >
-            View Ethereum contract
-            <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-[-1px]" />
-          </a>
+            <a
+              href={ETHEREUM_BRIDGE_CONTRACT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Ethereum contract
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          </Button>
         </div>
 
         <div className="flex w-full justify-center">

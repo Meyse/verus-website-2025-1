@@ -65,7 +65,7 @@ export function PrimaryPaper() {
             href={paper.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex h-[50px] w-full items-center justify-center rounded-lg border border-blue-500 bg-blue-600 px-6 text-[16px] font-medium text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:bg-blue-700 hover:shadow-lg dark:border-white/60 dark:bg-white/90 dark:text-black dark:hover:bg-white md:w-auto"
+            className="group flex h-[50px] w-full items-center justify-center rounded-lg border border-blue-500 bg-blue-600 px-6 text-[16px] font-medium text-white backdrop-blur-sm transition-all duration-300 hover:bg-blue-700 dark:border-white/60 dark:bg-white/90 dark:text-black dark:hover:bg-white md:w-auto"
           >
             Download Vision Paper
             <ArrowRight className="ml-2 h-4 w-4 transition-all duration-300 group-hover:translate-x-1" />
