@@ -1,8 +1,9 @@
 import {Suspense} from 'react'
 
 import {env} from '@/configs/env'
-import {ExternalLink} from 'lucide-react'
 import {FaMedium} from 'react-icons/fa'
+
+import {TextLinkButton} from '@/components/ui/text-link-button'
 
 import MediumArticlesLoading from './medium-articles-loading'
 import MediumFeed from './medium-feed'
@@ -19,20 +20,15 @@ export function MediumArticlesSection() {
             Stay up to date with the latest news and developments from the Verus
             community.
           </p>
-          <a
+          <TextLinkButton
             href={env.NEXT_PUBLIC_VERUS_MEDIUM}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group mt-3 inline-flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline"
+            className="mt-3"
+            icon={
+              <FaMedium className="h-4 w-4 text-gray-700 dark:text-gray-300" />
+            }
           >
-            <div>
-              <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white">
-                <FaMedium className="h-4 w-4 text-gray-700 dark:text-gray-300" />
-                Follow Verus on Medium
-                <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
-              </div>
-            </div>
-          </a>
+            Follow Verus on Medium
+          </TextLinkButton>
         </div>
         <Suspense fallback={<MediumArticlesLoading />}>
           <MediumFeed />

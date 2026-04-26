@@ -2,9 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import {getCliWallets} from '@/features/wallet/server/get-cli-wallets'
-import {Download, ExternalLink} from 'lucide-react'
+import {Download} from 'lucide-react'
 
 import {cn} from '@/lib/utils'
+
+import {TextLinkButton} from '@/components/ui/text-link-button'
 
 export async function CliSection() {
   const {version, assets} = await getCliWallets()
@@ -18,10 +20,22 @@ export async function CliSection() {
       <h3 className="mb-4 text-[24px] font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
         Download CLI wallet
       </h3>
-      <p className="mb-6 max-w-[500px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+      <p className="mb-4 max-w-[500px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
         Get started with the Verus CLI wallet {version}. Download the release
         for your operating system.
       </p>
+
+      <div className="mb-6 flex flex-wrap items-baseline gap-x-1.5 text-[15px] leading-6 tracking-normal text-gray-600 dark:text-gray-300">
+        <span>Need setup help?</span>
+        <TextLinkButton
+          href="https://wiki.autobb.app/developers/testnet-guide/"
+          className="p-0 align-baseline"
+          contentClassName="mb-0 items-center gap-1.5 leading-6"
+          externalIconClassName="translate-y-[0.5px]"
+        >
+          Read the testnet guide
+        </TextLinkButton>
+      </div>
 
       <div className="mt-auto space-y-2">
         {Object.entries(assets).map(([os, info]) => {
@@ -53,7 +67,7 @@ export async function CliSection() {
                   {info.size}
                 </span>
               </div>
-              <ExternalLink className="ml-auto h-4 w-4 text-gray-400 opacity-50 transition-opacity group-hover:opacity-100 dark:text-gray-500" />
+              <Download className="ml-auto h-4 w-4 text-gray-400 opacity-50 transition-opacity group-hover:opacity-100 dark:text-gray-500" />
             </Link>
           )
         })}

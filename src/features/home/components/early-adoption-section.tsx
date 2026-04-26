@@ -1,6 +1,10 @@
-import {ExternalLink} from 'lucide-react'
+import {TextLinkButton} from '@/components/ui/text-link-button'
 
-export function EarlyAdoptionSection() {
+import {getHomeProtocolStats} from '../server/get-home-protocol-stats'
+
+export async function EarlyAdoptionSection() {
+  const stats = await getHomeProtocolStats()
+
   const getCellBorders = (index: number) => {
     const isDesktopRightColumn = index % 2 === 1
     const isDesktopFirstRow = index < 2
@@ -27,7 +31,7 @@ export function EarlyAdoptionSection() {
           <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
           <div className="relative z-10">
             <span className="bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-[80px] leading-none tracking-tight text-transparent dark:from-blue-300 dark:to-blue-500 md:text-[100px] lg:text-[120px]">
-              $30M+
+              {stats.tvl}
             </span>
             <div className="mt-3">
               <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
@@ -45,7 +49,7 @@ export function EarlyAdoptionSection() {
           <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
           <div className="relative z-10">
             <span className="bg-gradient-to-br from-blue-400 to-verus-blue bg-clip-text text-[80px] leading-none tracking-tight text-transparent dark:from-blue-300 dark:to-verus-blue md:text-[100px] lg:text-[120px]">
-              41k+
+              {stats.identities}
             </span>
             <div className="mt-3">
               <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
@@ -64,11 +68,11 @@ export function EarlyAdoptionSection() {
           <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
           <div className="relative z-10">
             <span className="bg-gradient-to-br from-blue-400 to-verus-blue bg-clip-text text-[80px] leading-none tracking-tight text-transparent dark:from-blue-300 dark:to-verus-blue md:text-[100px] lg:text-[120px]">
-              $750M+
+              {stats.volumeAllTime}
             </span>
             <div className="mt-3">
               <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
-                Lifetime on-chain DeFi volume (since 2023)
+                Lifetime on-chain DeFi volume (since 2023 activation)
               </span>
             </div>
           </div>
@@ -104,24 +108,17 @@ export function EarlyAdoptionSection() {
               Build more, code less
             </h3>
             <p className="max-w-[500px] text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[17px]">
-              Use simple API calls in any language. No Solidity, gas tuning,
-              MEV protection, permission-based wallets, contract vulnerabilities
-              or audits. Nodes validate every transaction directly, making it
-              easy for developers.
+              Use simple API calls in any language. No Solidity, gas tuning, MEV
+              protection, permission-based wallets, contract vulnerabilities or
+              audits. Nodes validate every transaction directly, making it easy
+              for developers.
             </p>
-            <a
+            <TextLinkButton
               href="https://wiki.verus.io/#!faq-cli/clifaq-02_verus_commands.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group -ml-2 mt-5 inline-flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline"
+              className="-ml-2 mt-5"
             >
-              <div>
-                <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white">
-                  See all 207 API calls
-                  <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
-                </div>
-              </div>
-            </a>
+              See all 207 API calls
+            </TextLinkButton>
           </div>
         </div>
 

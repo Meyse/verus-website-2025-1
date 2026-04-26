@@ -3,7 +3,7 @@ import type {Metadata} from 'next'
 
 import {env} from '@/configs/env'
 import {ResourcesGrid, TerminalExample} from '@/features/build/start'
-import {BookOpen, Coins, ExternalLink, Info, Terminal} from 'lucide-react'
+import {ExternalLink, Info} from 'lucide-react'
 import {IoLogoDiscord} from 'react-icons/io5'
 
 import {createBuildBreadcrumbJsonLd} from '@/lib/seo/schema'
@@ -29,27 +29,6 @@ const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
   '/build/start'
 )
 
-const startSteps = [
-  {
-    title: 'Read the docs',
-    description:
-      'Start with protocol guides, API examples, and integration notes.',
-    icon: BookOpen,
-  },
-  {
-    title: 'Use testnet',
-    description:
-      'Request VRSCTEST coins before you build transactions or flows.',
-    icon: Coins,
-  },
-  {
-    title: 'Run the CLI',
-    description:
-      'Inspect identities, currencies, blocks, and DeFi calls locally.',
-    icon: Terminal,
-  },
-] as const
-
 export default function BuildStartPage() {
   return (
     <>
@@ -59,7 +38,7 @@ export default function BuildStartPage() {
           <div className="flex flex-col items-center px-0 pt-0 xl:px-4 xl:pt-[54px]">
             <div className="w-full min-w-0 max-w-full overflow-hidden border-b border-gray-200 bg-gray-50 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-950 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] xl:max-w-[1220px] xl:rounded-lg xl:border">
               <section className="border-b border-gray-200 bg-gradient-to-br from-blue-50 to-white dark:border-gray-800 dark:from-blue-950/40 dark:to-gray-950">
-                <div className="grid min-w-0 grid-cols-1 md:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
+                <div className="grid min-w-0 grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(300px,1fr)]">
                   <div className="min-w-0 px-8 py-12 md:px-14 md:py-16">
                     <p className="mb-4 text-[14px] font-medium leading-none tracking-normal text-verus-blue dark:text-blue-400">
                       Developer start
@@ -109,32 +88,21 @@ export default function BuildStartPage() {
 
                   <aside className="min-w-0 border-t border-gray-200 px-8 py-10 dark:border-gray-800 md:border-l md:border-t-0 md:px-10 md:py-16">
                     <div className="flex h-full flex-col justify-center">
-                      <ol className="space-y-6">
-                        {startSteps.map(({title, description, icon: Icon}) => (
-                          <li key={title} className="flex gap-4">
-                            <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white text-verus-blue dark:border-gray-800 dark:bg-gray-900 dark:text-blue-400">
-                              <Icon className="h-5 w-5" />
-                            </div>
-                            <div className="min-w-0">
-                              <h2 className="text-[16px] font-medium leading-tight text-gray-800 dark:text-white md:text-[17px]">
-                                {title}
-                              </h2>
-                              <p className="mt-1 break-words text-[14px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[15px]">
-                                {description}
-                              </p>
-                            </div>
-                          </li>
-                        ))}
-                      </ol>
-
-                      <div className="mt-8 flex min-w-0 items-start gap-3 border-t border-gray-200 pt-6 dark:border-gray-800">
-                        <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-verus-blue dark:text-blue-400" />
-                        <p className="min-w-0 break-words text-[14px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[15px]">
-                          The developer documentation is maintained by the
-                          community, so some sections may still be works in
-                          progress.
-                        </p>
+                      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-gray-200 bg-white text-verus-blue dark:border-gray-800 dark:bg-gray-900 dark:text-blue-400">
+                        <Info className="h-6 w-6" />
                       </div>
+                      <p className="mb-3 text-[14px] font-medium leading-none tracking-normal text-verus-blue dark:text-blue-400">
+                        Living documentation
+                      </p>
+                      <h2 className="text-[24px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+                        Docs are in progress
+                      </h2>
+                      <p className="mt-4 max-w-[460px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
+                        Verus developer docs are community-maintained and always
+                        evolving. Treat every guide as work in progress: verify
+                        commands against the current release, test on testnet,
+                        and ask in Discord when something is unclear.
+                      </p>
                     </div>
                   </aside>
                 </div>

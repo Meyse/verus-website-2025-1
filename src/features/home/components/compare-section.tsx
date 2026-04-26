@@ -1,8 +1,10 @@
 import Image from 'next/image'
 
 import {env} from '@/configs/env'
-import {AlertTriangle, ExternalLink} from 'lucide-react'
+import {AlertTriangle} from 'lucide-react'
 import {FaMedium} from 'react-icons/fa'
+
+import {TextLinkButton} from '@/components/ui/text-link-button'
 
 export function CompareSection() {
   return (
@@ -21,21 +23,15 @@ export function CompareSection() {
                 operations directly into the protocol itself, making this a
                 secure and scalable protocol.
               </p>
-              <a
+              <TextLinkButton
                 href={`${env.NEXT_PUBLIC_VERUS_MEDIUM}/verus-smart-transactions-vs-smart-contracts-f98079c00ed0`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group -ml-2 mt-5 inline-flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline"
+                className="-ml-2 mt-5"
+                icon={
+                  <FaMedium className="h-4 w-4 text-gray-700 dark:text-gray-300" />
+                }
               >
-                <div>
-                  <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white">
-                    <FaMedium className="h-4 w-4 text-gray-700 dark:text-gray-300" />
-                    The difference between smart contracts and smart
-                    transactions
-                    <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
-                  </div>
-                </div>
-              </a>
+                The difference between smart contracts and smart transactions
+              </TextLinkButton>
             </div>
           </div>
 

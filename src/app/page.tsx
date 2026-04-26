@@ -16,6 +16,8 @@ import {IoLogoDiscord} from 'react-icons/io5'
 import {BgWrapper} from '@/components/bg-wrapper'
 import {Button} from '@/components/ui/button'
 
+export const revalidate = 900
+
 export default function Home() {
   return (
     <BgWrapper>
