@@ -126,12 +126,6 @@ const sitemapRoutes = [
     priority: 0.7,
   },
   {
-    path: '/media/media-coverage',
-    lastModified: '2026-04-21',
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  },
-  {
     path: '/media/brand-assets',
     lastModified: '2026-04-21',
     changeFrequency: 'monthly',
