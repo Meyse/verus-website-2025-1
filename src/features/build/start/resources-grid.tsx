@@ -59,13 +59,9 @@ export function ResourcesGrid() {
 
       <div className="border-t border-gray-200 dark:border-gray-800">
         <div className="min-w-0 border-b border-gray-200 px-8 py-8 dark:border-gray-800 md:px-14 md:py-10">
-          <h3 className="mb-3 text-[22px] font-medium tracking-tight text-gray-800 dark:text-white md:text-[28px]">
+          <h3 className="text-[24px] font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
             Developer guides
           </h3>
-          <p className="max-w-[760px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
-            Reference the specific guide you need without leaving the setup
-            flow.
-          </p>
         </div>
 
         <ul className="divide-y divide-gray-200 dark:divide-gray-800">

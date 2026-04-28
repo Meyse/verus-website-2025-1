@@ -1,8 +1,12 @@
 import type {Metadata} from 'next'
 
+import {env} from '@/configs/env'
 import {MigrateContent} from '@/features/migrate/content'
+import {ExternalLink} from 'lucide-react'
+import {IoLogoDiscord} from 'react-icons/io5'
 
 import {BgWrapper} from '@/components/bg-wrapper'
+import {Button} from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'Migrate to Verus',
@@ -10,26 +14,65 @@ export const metadata: Metadata = {
     'Bring your token and community to a better, more secure ecosystem while maintaining full Ethereum compatibility.',
   keywords:
     'blockchain migration, token migration, crypto migration, ethereum compatibility, secure token migration, Verus migration',
+
+  alternates: {
+    canonical: '/migrate',
+  },
 }
 
 export default function MigratePage() {
+  const mappingGuideHref = `${env.NEXT_PUBLIC_VERUS_DOCS}/currencies/mapping-1:1-eth.html`
+
   return (
     <BgWrapper>
-      <div className="flex flex-col items-center px-4">
-        <div className="pt-[30px] md:pt-[70px]">
-          <div className="mx-auto max-w-[1220px] text-center">
-            <h1 className="text-center text-[32px] font-medium leading-[1.1] tracking-tight text-white md:text-[75px]">
-              Migrate to Verus
-            </h1>
-            <p className="mx-auto max-w-[400px] pt-[10px] text-center text-[16px] font-normal leading-snug tracking-tight text-white/90 dark:text-white/80 md:max-w-[900px] md:pt-[20px] md:text-[32px]">
-              Bring your token and community to a better, more secure ecosystem
-              while maintaining full Ethereum compatibility.
-            </p>
-          </div>
-        </div>
+      <div className="bg-gradient-to-b from-gray-100 via-gray-100 to-white dark:from-gray-950 dark:via-gray-950 dark:to-gray-950">
+        <div className="flex flex-col items-center px-0 pb-16 pt-0 md:pb-24 xl:px-4 xl:pt-[54px]">
+          <div className="w-full overflow-hidden border-b border-gray-200 bg-gray-50 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-950 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] xl:max-w-[1220px] xl:rounded-lg xl:border">
+            <section className="border-b border-gray-200 bg-gray-50 px-8 py-12 text-center dark:border-gray-800 dark:bg-gray-950 md:px-14 md:py-16">
+              <h1 className="mx-auto max-w-[900px] text-[32px] font-medium leading-[1.05] tracking-tight text-gray-800 dark:text-white md:text-[58px]">
+                Migrate to Verus
+              </h1>
+              <p className="mx-auto mt-4 max-w-[760px] text-[16px] font-normal leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:mt-5 md:text-[22px]">
+                Bring your token and community to a more secure ecosystem while
+                maintaining full Ethereum compatibility.
+              </p>
 
-        <div className="flex w-full justify-center">
-          <MigrateContent />
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row">
+                <Button
+                  asChild
+                  variant="verusPrimary"
+                  size="verus"
+                  className="w-full md:w-fit"
+                >
+                  <a
+                    href={mappingGuideHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open migration docs
+                    <ExternalLink className="h-4 w-4 opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="verusSecondaryDark"
+                  size="verus"
+                  className="w-full md:w-fit"
+                >
+                  <a
+                    href={env.NEXT_PUBLIC_DISCORD}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ask in Discord
+                    <IoLogoDiscord className="h-5 w-5 md:h-6 md:w-6" />
+                  </a>
+                </Button>
+              </div>
+            </section>
+
+            <MigrateContent />
+          </div>
         </div>
       </div>
     </BgWrapper>

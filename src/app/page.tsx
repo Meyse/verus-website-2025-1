@@ -13,8 +13,8 @@ import {
 } from '@/features/home/components'
 import {IoLogoDiscord} from 'react-icons/io5'
 
-import {BgWrapper} from '@/components/bg-wrapper'
 import {Button} from '@/components/ui/button'
+import {BgWrapper} from '@/components/bg-wrapper'
 
 export const revalidate = 900
 
@@ -51,7 +51,12 @@ export default function Home() {
               </svg>
             </a>
           </Button>
-          <Button asChild variant="verusHeroSecondary" size="verus">
+          <Button
+            asChild
+            variant="verusHeroSecondary"
+            size="verus"
+            className="border-blue-800/60 bg-blue-950/40 text-blue-300 backdrop-blur-sm hover:border-blue-700/80 hover:bg-blue-950/40 hover:text-blue-200 dark:border-blue-800/60 dark:bg-blue-950/40 dark:text-blue-300 dark:hover:border-blue-700/80 dark:hover:bg-blue-950/40 dark:hover:text-blue-200"
+          >
             <a
               href={env.NEXT_PUBLIC_DISCORD}
               target="_blank"
