@@ -379,23 +379,26 @@ export function Footer() {
               © {new Date().getFullYear()} The Verus Community. All rights
               reserved.
             </div>
-            <ThemeModeControl
-              variant="inverted"
-              className="max-w-[360px]"
-              controlClassName="shrink-0"
-            />
-            <div className="flex gap-2">
-              <Link
-                href="/privacy-policy"
-                className="text-[14px] text-gray-400 transition-colors hover:text-white"
-              >
-                Privacy Policy
-              </Link>
-              {env.NEXT_PUBLIC_HOST_ID !== undefined && (
-                <p className="text-[14px] text-gray-400">
-                  ({env.NEXT_PUBLIC_HOST_ID})
-                </p>
-              )}
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end sm:gap-6 lg:ml-auto">
+              <div className="flex gap-2">
+                <Link
+                  href="/privacy-policy"
+                  className="text-[14px] text-gray-400 transition-colors hover:text-white"
+                >
+                  Privacy Policy
+                </Link>
+                {env.NEXT_PUBLIC_HOST_ID !== undefined && (
+                  <p className="text-[14px] text-gray-400">
+                    ({env.NEXT_PUBLIC_HOST_ID})
+                  </p>
+                )}
+              </div>
+              <ThemeModeControl
+                variant="inverted"
+                size="sm"
+                className="w-auto justify-start gap-2 sm:justify-end"
+                controlClassName="shrink-0"
+              />
             </div>
           </div>
         </div>
