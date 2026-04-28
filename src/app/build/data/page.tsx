@@ -2,18 +2,19 @@ import type {Metadata} from 'next'
 
 import {env} from '@/configs/env'
 import {DataContent, FeaturesGrid} from '@/features/build/data'
+import {ArrowRight} from 'lucide-react'
 import {IoLogoDiscord} from 'react-icons/io5'
 
 import {createBuildBreadcrumbJsonLd} from '@/lib/seo/schema'
 
+import {Button} from '@/components/ui/button'
 import {BgWrapper} from '@/components/bg-wrapper'
 import {JsonLd} from '@/components/seo/json-ld'
-import {Button} from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'Store & Retrieve Data On-Chain',
+  title: 'Store and retrieve data on-chain',
   description:
-    'A complete on-chain database system with encryption, indexing, and flexible storage options—secured by consensus.',
+    'A complete on-chain database system with encryption, indexing, and flexible storage options, secured by consensus.',
   keywords:
     'blockchain data storage, on-chain database, encrypted data, blockchain indexing, data retrieval, Verus',
   alternates: {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 }
 
 const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
-  'Store & Retrieve Data On-Chain',
+  'Store and retrieve data on-chain',
   '/build/data'
 )
 
@@ -30,53 +31,51 @@ export default function DataPage() {
   return (
     <BgWrapper>
       <JsonLd data={breadcrumbJsonLd} />
-      <div className="flex flex-col items-center px-4 pt-[30px] md:pt-[70px]">
-        <h1 className="text-center text-[32px] font-medium tracking-tight text-white md:text-[75px]">
-          Store & Retrieve Data On-Chain
-        </h1>
-        <p className="mx-auto max-w-[400px] pt-[10px] text-center text-[16px] font-normal leading-snug tracking-tight text-white opacity-90 md:max-w-[900px] md:pt-[1px] md:text-[32px]">
-          A complete on-chain database system with encryption, indexing, and
-          flexible storage options—secured by consensus.
-        </p>
+      <div className="bg-gradient-to-b from-gray-100 via-gray-100 to-white dark:from-gray-950 dark:via-gray-950 dark:to-gray-950">
+        <div className="flex flex-col items-center px-0 pb-16 pt-0 md:pb-24 xl:px-4 xl:pt-[54px]">
+          <div className="w-full overflow-hidden border-b border-gray-200 bg-gray-50 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-950 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] xl:max-w-[1220px] xl:rounded-lg xl:border">
+            <section className="border-b border-gray-200 bg-gray-50 px-8 py-12 text-center dark:border-gray-800 dark:bg-gray-950 md:px-14 md:py-16">
+              <h1 className="mx-auto max-w-[320px] break-words text-[32px] font-medium leading-[1.05] tracking-tight text-gray-800 dark:text-white md:max-w-[900px] md:text-[58px]">
+                Store and retrieve data on-chain
+              </h1>
+              <p className="mx-auto mt-4 max-w-[320px] text-[16px] font-normal leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:mt-5 md:max-w-[760px] md:text-[22px]">
+                A complete on-chain database system with encryption, indexing,
+                and flexible storage options, secured by consensus.
+              </p>
 
-        <div className="mb-16 mt-8 flex flex-col gap-4 md:mb-32 md:flex-row">
-          <Button asChild variant="verusHeroPrimary" size="verus">
-            <a href="/build/start">
-              Get started
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
-          </Button>
-          <Button asChild variant="verusHeroSecondary" size="verus">
-            <a
-              href={env.NEXT_PUBLIC_DISCORD}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get help from the community
-              <IoLogoDiscord className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-[1px] md:h-6 md:w-6" />
-            </a>
-          </Button>
-        </div>
+              <div className="mx-auto mt-8 flex w-full max-w-[326px] flex-col items-center justify-center gap-4 md:max-w-none md:flex-row">
+                <Button
+                  asChild
+                  variant="verusPrimary"
+                  size="verus"
+                  className="w-full md:w-fit"
+                >
+                  <a href="/build/start">
+                    Get started
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="verusSecondaryDark"
+                  size="verus"
+                  className="w-full md:w-fit"
+                >
+                  <a
+                    href={env.NEXT_PUBLIC_DISCORD}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get help from the community
+                    <IoLogoDiscord className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-[1px] md:h-6 md:w-6" />
+                  </a>
+                </Button>
+              </div>
+            </section>
 
-        <div className="flex w-full justify-center">
-          <FeaturesGrid />
-        </div>
-
-        <div className="flex w-full justify-center">
-          <DataContent />
+            <FeaturesGrid />
+            <DataContent />
+          </div>
         </div>
       </div>
     </BgWrapper>
