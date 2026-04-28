@@ -1,4 +1,8 @@
+import Image from 'next/image'
+
+import {env} from '@/configs/env'
 import {
+  ArrowRight,
   Code,
   Coins,
   DollarSign,
@@ -7,199 +11,255 @@ import {
   Shield,
   Wallet,
 } from 'lucide-react'
+import type {LucideIcon} from 'lucide-react'
+import {IoLogoDiscord} from 'react-icons/io5'
 
-/*
- * Updated:
- * - Added dark mode support with appropriate colors and contrasts
- * - Maintained core functionality and content
- * - Ensured no hover effects were added
- * - Improved visual hierarchy in dark mode
- */
+import {Button} from '@/components/ui/button'
 
-const comparisons = [
+const comparisons: Array<{
+  title: string
+  icon: LucideIcon
+  vm: string[]
+  verus: string[]
+}> = [
   {
-    title: 'Core Protocol Design',
-    icon: <Server className="h-5 w-5 text-verus-blue dark:text-blue-400" />,
+    title: 'Core protocol design',
+    icon: Server,
     vm: [
-      'Uses a virtual machine (like EVM) that executes smart contracts',
-      'Only the native currency (e.g., ETH) is enforced by blockchain protocol',
-      'All other functions (tokens, identities, DeFi) are implemented through smart contracts written in languages like Solidity',
+      'Uses a virtual machine such as the EVM to execute smart contracts.',
+      'Only the native currency is enforced directly by the blockchain protocol.',
+      'Tokens, identities, and DeFi are usually reimplemented as separate contract systems.',
     ],
     verus: [
-      'Uses "smart transactions" where core functionalities are built directly into the protocol layer (L1)',
-      'Currencies, identities, and DeFi operations are verified and accounted for by miners/stakers at the consensus level',
+      'Uses smart transactions with core functionality built directly into the protocol layer.',
+      'Currencies, identities, and DeFi operations are verified and accounted for at consensus level.',
     ],
   },
   {
     title: 'Scalability',
-    icon: <Scale className="h-5 w-5 text-verus-blue dark:text-blue-400" />,
+    icon: Scale,
     vm: [
-      'Typically focuses on scaling up single chain performance',
-      'Uses Layer 2 solutions or sharding to handle increased load',
-      'Additional complexity and security considerations with each scaling layer',
+      'Usually focuses on scaling up a single chain.',
+      'Relies on Layer 2 systems or sharding as demand increases.',
+      'Each added layer brings more operational and security complexity.',
     ],
     verus: [
-      'Scales out through multiple interoperable PBaaS chains',
-      'Similar to how the internet scales through multiple servers rather than upgrading a single server',
-      'Each chain maintains full security and feature set',
+      'Scales out through multiple interoperable PBaaS chains.',
+      'Keeps the full security and feature model available across chains.',
+      'Matches the internet model of adding interoperable systems instead of upgrading one bottleneck.',
     ],
   },
   {
-    title: 'Security Model',
-    icon: <Shield className="h-5 w-5 text-verus-blue dark:text-blue-400" />,
+    title: 'Security model',
+    icon: Shield,
     vm: [
-      'Smart contracts can introduce vulnerabilities through coding errors or unexpected behaviors',
-      'Each contract reinvents currency accounting with no systemic control',
+      'Smart contracts can introduce vulnerabilities through coding errors or unexpected behaviors.',
+      'Each contract often reinvents accounting and permissions on its own.',
     ],
     verus: [
-      'Core features are protocol primitives with standardized rules enforced by consensus',
-      "Eliminates entire classes of smart contract risks since there's no need to reimplement basic functions",
+      'Core features are protocol primitives with standardized rules enforced by consensus.',
+      'Removes whole categories of contract risk by not requiring basic functions to be reimplemented.',
     ],
   },
   {
-    title: 'Development Approach',
-    icon: <Code className="h-5 w-5 text-verus-blue dark:text-blue-400" />,
+    title: 'Development approach',
+    icon: Code,
     vm: [
-      'Requires specialized developers (e.g., Solidity) to write and audit smart contracts',
-      'Each application needs its own contract implementation',
+      'Requires specialized smart contract development and audit workflows.',
+      'Each application usually ships its own contract stack.',
     ],
     verus: [
-      'No specialized programming language needed',
-      'Uses simple API commands to access protocol features',
-      'Applications can be built in any framework and interact with the protocol through QR codes or deep links',
+      'No specialized blockchain language is required for common protocol features.',
+      'Applications can call protocol functions through straightforward APIs, QR flows, or deep links.',
     ],
   },
   {
-    title: 'DeFi Implementation',
-    icon: <Scale className="h-5 w-5 text-verus-blue dark:text-blue-400" />,
+    title: 'DeFi implementation',
+    icon: Scale,
     vm: [
-      'DeFi protocols run on smart contracts',
-      'Often vulnerable to MEV (Maximal Extractable Value), front-running, and sandwich attacks due to sequential transaction processing',
+      'DeFi protocols usually run as smart contracts.',
+      'Sequential execution often exposes users to MEV, front-running, and sandwich attacks.',
     ],
     verus: [
-      'DeFi operates at protocol level with simultaneous transaction processing, making it MEV-resistant',
-      'All conversions in a block get the same price with no spread',
+      'DeFi operates at protocol level with simultaneous block processing.',
+      'All conversions in the same block get the same fair price with no spread.',
     ],
   },
   {
-    title: 'Wallet Interaction',
-    icon: <Wallet className="h-5 w-5 text-verus-blue dark:text-blue-400" />,
+    title: 'Wallet interaction',
+    icon: Wallet,
     vm: [
-      'Uses wallet approval mechanisms that can be prone to phishing',
-      'Often require users to approve unclear transaction permissions',
+      'Approval flows can be difficult for users to interpret and easy to misuse.',
+      'Many transactions ask users to authorize broad permissions.',
     ],
     verus: [
-      'Users know exactly what their wallets will execute',
-      'Clear transaction boundaries and permissions',
+      'Users know exactly what the wallet will execute.',
+      'Transaction boundaries and permissions are explicit and narrow.',
     ],
   },
   {
-    title: 'Currency Management',
-    icon: <Coins className="h-5 w-5 text-verus-blue dark:text-blue-400" />,
+    title: 'Currency management',
+    icon: Coins,
     vm: [
-      'Tokens (like ERC-20s) are managed by individual smart contracts with varying implementations',
+      'Tokens are managed by individual contracts with differing implementations and assumptions.',
     ],
     verus: [
-      'All currencies are protocol primitives',
-      'Tracked and validated by consensus rules',
-      'Ensures consistent behavior and security',
+      'Currencies are protocol primitives tracked and validated by consensus rules.',
+      'Behavior is standardized instead of depending on per-token contract quality.',
     ],
   },
   {
-    title: 'Cost Structure',
-    icon: <DollarSign className="h-5 w-5 text-verus-blue dark:text-blue-400" />,
+    title: 'Cost structure',
+    icon: DollarSign,
     vm: [
-      'Often has high gas fees due to smart contract execution costs',
-      'Fees vary based on network congestion',
+      'Gas costs rise with smart contract execution complexity.',
+      'Fees often vary sharply with network congestion.',
     ],
     verus: [
-      'Fixed low fees (0.0001 VRSC for transactions)',
-      '0.025-0.05% for conversions',
-      'Fees go directly to miners/stakers',
+      'Transactions use fixed low fees such as 0.0001 VRSC.',
+      'Reserve-to-basket conversions cost 0.025%; reserve-to-reserve conversions cost 0.05%.',
+      'Protocol fees are split 50/50 between miners and stakers and basket reserves.',
     ],
   },
 ]
 
 export function ComparisonTable() {
   return (
-    <div className="-mx-4 md:mx-0">
-      <div className="w-full overflow-hidden border border-[#EFEFEF] bg-white/50 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-900/50 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.3)] md:rounded-lg">
-        {/* Table Header */}
-        <div className="grid grid-cols-[1fr,1fr] bg-[#F8F9FB] dark:bg-gray-800/80 md:grid-cols-[300px,1fr,1fr]">
-          <div className="hidden p-6 md:block md:p-8" />
-          <div className="border-l border-[#EFEFEF] p-6 text-[16px] font-medium text-black dark:border-gray-700 dark:text-white md:p-8 md:text-[18px]">
-            VM-based Blockchains
-          </div>
-          <div className="border-l border-verus-blue p-6 text-[16px] font-medium text-black dark:border-blue-600 dark:text-white md:p-8 md:text-[18px]">
-            Verus Protocol
+    <section className="bg-gray-50 dark:bg-gray-950">
+      <div className="border-b border-gray-200 px-8 py-12 dark:border-gray-800 md:px-14 md:py-14">
+        <div className="max-w-[760px]">
+          <h2 className="mb-4 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[44px]">
+            Compare the architecture
+          </h2>
+          <p className="text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+            VM-first chains push core application features into contract code.
+            Verus moves common blockchain functions such as currencies,
+            identities, data, and DeFi into protocol primitives. That changes
+            the risk model, the cost model, and the amount of custom
+            infrastructure a team has to maintain.
+          </p>
+        </div>
+      </div>
+
+      <div className="hidden border-b border-gray-200 dark:border-gray-800 md:grid md:grid-cols-[280px_minmax(0,1fr)_minmax(0,1fr)]">
+        <div className="px-8 py-5 md:px-10" />
+        <div className="border-l border-gray-200 px-8 py-5 text-[15px] font-medium tracking-normal text-gray-800 dark:border-gray-800 dark:text-white md:px-10">
+          VM-based blockchains
+        </div>
+        <div className="border-l border-gray-200 bg-gradient-to-br from-blue-50/70 to-white px-8 py-5 text-[15px] font-medium tracking-normal text-gray-800 dark:border-gray-800 dark:from-blue-950/20 dark:to-gray-950 dark:text-white md:px-10">
+          <div className="flex items-center gap-2">
+            <Image
+              src="/img/verus-icon.svg"
+              alt=""
+              width={18}
+              height={18}
+              className="h-[18px] w-[18px]"
+              aria-hidden="true"
+            />
+            <span>Verus Protocol</span>
           </div>
         </div>
+      </div>
 
-        {/* Table Body */}
-        {comparisons.map((comparison, index) => (
-          <div
-            key={index}
-            className={`grid grid-cols-[1fr,1fr] md:grid-cols-[300px,1fr,1fr] ${index !== 0 ? 'border-t border-[#EFEFEF] dark:border-gray-800' : ''}`}
-          >
-            {/* Title Column */}
-            <div className="col-span-2 flex items-center gap-3 p-6 md:col-span-1 md:p-8">
-              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-verus-blue/10 dark:bg-blue-900/30">
-                {comparison.icon}
+      <div>
+        {comparisons.map((comparison, index) => {
+          const Icon = comparison.icon
+
+          return (
+            <div
+              key={comparison.title}
+              className={`grid grid-cols-1 md:grid-cols-[280px_minmax(0,1fr)_minmax(0,1fr)] ${index > 0 ? 'border-t border-gray-200 dark:border-gray-800' : ''}`}
+            >
+              <div className="px-8 py-8 md:px-10 md:py-10">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-gray-200 bg-white text-verus-blue dark:border-gray-800 dark:bg-gray-900 dark:text-blue-400">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mb-4 text-[24px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+                  {comparison.title}
+                </h3>
               </div>
-              <h3 className="text-[16px] font-medium text-black dark:text-white md:text-[18px]">
-                {comparison.title}
-              </h3>
-            </div>
 
-            {/* VM Content */}
-            <div
-              className={`space-y-2 border-l border-[#EFEFEF] p-6 dark:border-gray-700 md:p-8 ${index !== 0 ? 'border-t border-[#EFEFEF] dark:border-gray-800' : ''}`}
-            >
-              {comparison.vm.map((point, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <span className="mt-[1px] flex-shrink-0 text-black/75 dark:text-white/70">
-                    -
-                  </span>
-                  <p className="text-[14px] leading-relaxed text-black/75 dark:text-white/70 md:text-[15px]">
-                    {point}
-                  </p>
-                </div>
-              ))}
-            </div>
+              <div className="border-t border-gray-200 px-8 py-8 dark:border-gray-800 md:border-l md:border-t-0 md:px-10 md:py-10">
+                <p className="mb-4 text-[13px] font-medium tracking-normal text-gray-800 dark:text-white md:hidden">
+                  VM-based blockchains
+                </p>
+                <ul className="space-y-3">
+                  {comparison.vm.map(point => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-3 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300"
+                    >
+                      <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-gray-400 dark:bg-gray-500" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Verus Content */}
-            <div
-              className={`space-y-2 border-l border-verus-blue p-6 dark:border-blue-600 md:p-8 ${index !== 0 ? 'border-t border-[#EFEFEF] dark:border-gray-800' : ''}`}
-            >
-              {comparison.verus.map((point, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <span className="mt-[1px] flex-shrink-0 text-black/75 dark:text-white/70">
-                    -
-                  </span>
-                  <p className="text-[14px] leading-relaxed text-black/75 dark:text-white/70 md:text-[15px]">
-                    {point}
-                  </p>
-                </div>
-              ))}
+              <div className="border-t border-gray-200 bg-gradient-to-br from-blue-50/45 to-white px-8 py-8 dark:border-gray-800 dark:from-blue-950/15 dark:to-gray-950 md:border-l md:border-t-0 md:px-10 md:py-10">
+                <p className="mb-4 text-[13px] font-medium tracking-normal text-verus-blue dark:text-blue-400 md:hidden">
+                  Verus Protocol
+                </p>
+                <ul className="space-y-3">
+                  {comparison.verus.map(point => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-3 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300"
+                    >
+                      <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-verus-blue dark:bg-blue-400" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+          )
+        })}
+      </div>
+
+      <div className="border-t border-gray-200 bg-gradient-to-br from-blue-50/70 to-white px-8 py-12 dark:border-gray-800 dark:from-blue-950/40 dark:to-gray-950 md:px-14 md:py-14">
+        <div className="mx-auto max-w-[760px] text-center">
+          <h2 className="mb-4 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[44px]">
+            Test the difference in practice
+          </h2>
+          <p className="text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+            Verus gives you protocol-level currencies, identities, data, and
+            DeFi instead of asking every application to rebuild them in
+            contracts. If you want to evaluate that model properly, start with
+            the developer path and compare the implementation overhead
+            directly.
+          </p>
+
+          <div className="mt-8 flex flex-col justify-center gap-4 md:flex-row">
+            <Button
+              asChild
+              variant="verusPrimary"
+              size="verus"
+              className="w-full md:w-fit"
+            >
+              <a href="/build/start">
+                Get started
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="verusSecondaryDark"
+              size="verus"
+              className="w-full md:w-fit"
+            >
+              <a
+                href={env.NEXT_PUBLIC_DISCORD}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ask in Discord
+                <IoLogoDiscord className="h-5 w-5 md:h-6 md:w-6" />
+              </a>
+            </Button>
           </div>
-        ))}
+        </div>
       </div>
-
-      {/* Conclusion */}
-      <div className="mt-4 w-full border border-[#EFEFEF] bg-white/50 p-6 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-900/50 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.3)] md:mt-4 md:rounded-lg md:p-8">
-        <h2 className="mb-4 text-[18px] font-medium text-black dark:text-white md:text-[22px]">
-          Conclusion
-        </h2>
-        <p className="text-[14px] leading-relaxed text-black/75 dark:text-white/70 md:text-[15px]">
-          The fundamental architectural differences between VM-based blockchains
-          and the Verus Protocol result in Verus offering more secure,
-          predictable, and standardized operations. It remains accessible to
-          developers without requiring specialized blockchain programming
-          knowledge, while providing built-in solutions for common blockchain
-          challenges like MEV resistance and scalability.
-        </p>
-      </div>
-    </div>
+    </section>
   )
 }

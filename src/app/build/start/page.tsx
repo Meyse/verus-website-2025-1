@@ -40,11 +40,8 @@ export default function BuildStartPage() {
               <section className="border-b border-gray-200 bg-gradient-to-br from-blue-50 to-white dark:border-gray-800 dark:from-blue-950/40 dark:to-gray-950">
                 <div className="grid min-w-0 grid-cols-1 md:grid-cols-[minmax(0,2.2fr)_minmax(280px,0.8fr)]">
                   <div className="min-w-0 px-8 py-12 md:px-14 md:py-16">
-                    <p className="mb-4 text-[14px] font-medium leading-none tracking-normal text-verus-blue dark:text-blue-400">
-                      Developer start
-                    </p>
                     <h1 className="max-w-[680px] break-words text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white max-md:max-w-[calc(100vw-4rem)] md:text-[44px]">
-                      Get your Verus build stack ready
+                      Start building
                     </h1>
                     <p className="mt-4 max-w-[760px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 max-md:max-w-[calc(100vw-4rem)] md:mt-6 md:text-[17px]">
                       Use this page as a practical entry point for docs, testnet
@@ -91,9 +88,6 @@ export default function BuildStartPage() {
                       <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-gray-200 bg-white text-verus-blue dark:border-gray-800 dark:bg-gray-900 dark:text-blue-400">
                         <Info className="h-5 w-5" />
                       </div>
-                      <p className="mb-2 text-[14px] font-medium leading-none tracking-normal text-verus-blue dark:text-blue-400">
-                        Living documentation
-                      </p>
                       <h2 className="text-[22px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[26px]">
                         Docs are in progress
                       </h2>
