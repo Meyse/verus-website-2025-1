@@ -1,253 +1,245 @@
-import {Globe, History, Leaf, Scale, Shield, Zap} from 'lucide-react'
+import {
+  ArrowRight,
+  Globe,
+  History,
+  Leaf,
+  Scale,
+  Shield,
+  Zap,
+} from 'lucide-react'
+
+import {Button} from '@/components/ui/button'
+
+const proofOfWorkReasons = [
+  {
+    icon: Shield,
+    title: 'Network security',
+    description:
+      'Proof-of-work makes attacks expensive because block production is tied to real computation.',
+  },
+  {
+    icon: Scale,
+    title: 'Fair distribution',
+    description:
+      'Mining releases coins over time to people who help secure the network instead of assigning supply up front.',
+  },
+  {
+    icon: History,
+    title: 'Proven operation',
+    description:
+      'Proof-of-work has stood the test of time in public blockchains. Since Bitcoin, it has shown resilience against many attack types over more than a decade of continuous operation.',
+  },
+  {
+    icon: Globe,
+    title: 'Real-world cost',
+    description:
+      'Work performed outside the ledger gives the network an economic cost that cannot be created by software alone.',
+  },
+] as const
+
+const powerBenefits = [
+  {
+    icon: Shield,
+    title: 'Two validation paths',
+    description:
+      'Blocks are secured by both miners and stakers, reducing dependence on one participant group.',
+  },
+  {
+    icon: Leaf,
+    title: 'Less energy per block',
+    description:
+      'Half of consensus comes from staking, so the network does not rely only on continuous mining work.',
+  },
+  {
+    icon: Zap,
+    title: '51% attack resistance',
+    description:
+      'An attacker must account for both mining power and stake participation, not just one side of consensus.',
+  },
+] as const
 
 export function GreenContent() {
   return (
-    <div className="relative -mx-4 mt-8 w-screen md:mx-0 md:mt-32 md:max-w-[1220px]">
-      {/* Introduction Section */}
-      <section className="relative mb-24">
-        <div className="relative">
-          <div className="flex flex-col items-center justify-center">
-            <h2 className="mx-auto mb-4 max-w-[1000px] text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[55px]">
-              Environmentally Conscious Blockchain Technology
+    <>
+      <section className="border-t border-gray-200 bg-gradient-to-br from-blue-50 to-white dark:border-gray-800 dark:from-blue-950/40 dark:to-gray-950">
+        <div className="flex w-full flex-col items-start justify-center px-10 py-20 md:px-14 md:py-32">
+          <div className="w-full max-w-[310px] md:max-w-[760px]">
+            <h2 className="mb-4 break-words text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[44px]">
+              Lower energy use without removing proof of work
             </h2>
-            <p className="mx-auto mb-16 max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[20px]">
-              Verus combines the security of proof-of-work with the energy
-              efficiency of proof-of-stake in a hybrid approach that prioritizes
-              sustainability without compromising on decentralization or
-              security.
+            <div className="space-y-4 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+              <p>
+                Verus does not treat sustainability as a reason to remove
+                proof-of-work. It uses proof-of-work and proof-of-stake
+                together, so the network keeps the security properties of mining
+                while reducing how much work mining must carry on its own.
+              </p>
+              <p>
+                The result is a consensus model built for open participation:
+                miners, stakers, and low-power devices can all contribute to
+                network security.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid w-full grid-cols-1 border-t border-gray-200 dark:border-gray-800 md:grid-cols-2">
+          <div className="min-w-0 px-10 py-10 md:px-14 md:py-12">
+            <h3 className="mb-4 font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+              Mining still matters
+            </h3>
+            <p className="break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+              Proof-of-work gives Verus an external cost layer. Producing blocks
+              requires computation, which helps anchor security outside the
+              chain itself.
+            </p>
+          </div>
+          <div className="min-w-0 border-t border-gray-200 px-10 py-10 dark:border-gray-800 md:border-l md:border-t-0 md:px-14 md:py-12">
+            <h3 className="mb-4 font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+              Staking reduces the load
+            </h3>
+            <p className="break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+              Proof-of-stake shares the consensus work with miners. This lowers
+              the amount of energy needed compared with systems that rely only
+              on proof-of-work.
             </p>
           </div>
         </div>
       </section>
 
-      {/* The Verus Green Advantage Section */}
-      <section className="relative mb-24">
-        <div className="mx-auto w-full max-w-[1100px]">
-          <div className="relative overflow-hidden rounded-2xl border border-green-100/80 bg-gradient-to-br from-green-50/90 to-white p-8 shadow-sm backdrop-blur-sm dark:border-green-900/30 dark:from-green-950/40 dark:to-gray-950 md:p-12">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.15),transparent_50%)]"></div>
-            <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-green-400/10 blur-xl dark:bg-green-400/20"></div>
-
-            <div className="relative">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 text-green-600 shadow-sm dark:bg-gray-800/90 dark:text-green-400">
-                  <Leaf className="h-6 w-6" />
-                </div>
-                <h3 className="text-[24px] font-medium text-gray-900 dark:text-white md:text-[32px]">
-                  The Verus Green Advantage
-                </h3>
-              </div>
-
-              <p className="mb-6 max-w-4xl text-[16px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[18px]">
-                As the world grows increasingly concerned about the
-                environmental impact of blockchain technology, Verus stands
-                apart with its approach that drastically reduces energy
-                consumption while maintaining the highest standards of security
-                and decentralization.
-              </p>
-            </div>
+      <section className="border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+        <div className="flex w-full flex-col items-start justify-center px-10 py-20 md:px-14 md:py-32">
+          <div className="w-full max-w-[310px] md:max-w-[760px]">
+            <h2 className="mb-4 break-words text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[44px]">
+              Why proof of work remains part of Verus
+            </h2>
+            <p className="text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+              Verus keeps proof-of-work because it adds security, distribution,
+              and a cost model that pure proof-of-stake systems do not provide
+              in the same way.
+            </p>
           </div>
         </div>
-      </section>
 
-      {/* Why Proof of Work Is Essential Section */}
-      <section className="relative mb-24">
-        <h2 className="mb-4 text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-10 md:text-[45px]">
-          Why Proof of Work Is Essential
-        </h2>
+        <div className="grid w-full grid-cols-1 border-t border-gray-200 dark:border-gray-800 md:grid-cols-2">
+          {proofOfWorkReasons.map((reason, index) => {
+            const Icon = reason.icon
 
-        <p className="mx-auto mb-16 max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[18px]">
-          While Verus is committed to environmental sustainability, the protocol
-          also recognizes the critical importance of maintaining a proof-of-work
-          component in the consensus mechanism.
-        </p>
-
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
-          {/* Decentralized Security */}
-          <div className="relative flex-1 overflow-hidden rounded-2xl border border-green-100/80 bg-white/70 p-8 shadow-sm backdrop-blur-sm dark:border-green-900/30 dark:bg-gray-900/50">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.15),transparent_50%)]"></div>
-            <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-green-400/10 blur-xl dark:bg-green-400/20"></div>
-
-            <div className="relative">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-green-100/80 bg-white/90 text-green-600 shadow-sm dark:border-green-900/30 dark:bg-gray-800/90 dark:text-green-400">
-                  <Shield className="h-6 w-6" />
-                </div>
-                <h3 className="text-[20px] font-medium text-gray-900 dark:text-white md:text-[24px]">
-                  Decentralized Security
-                </h3>
-              </div>
-
-              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[16px]">
-                Proof-of-work (PoW) provides a level of security that is
-                difficult to match with other consensus mechanisms. By requiring
-                computational work to validate transactions, PoW ensures that no
-                single entity can control the network without investing
-                substantial resources, making attacks prohibitively expensive.
-              </p>
-            </div>
-          </div>
-
-          {/* Fair Distribution */}
-          <div className="relative flex-1 overflow-hidden rounded-2xl border border-green-100/80 bg-gradient-to-br from-green-50/70 to-white p-8 shadow-sm backdrop-blur-sm dark:border-green-900/30 dark:from-green-950/40 dark:to-gray-950">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.15),transparent_50%)]"></div>
-            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-green-400/10 blur-2xl dark:bg-green-400/20"></div>
-
-            <div className="relative">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-green-100/80 bg-white/90 text-green-600 shadow-sm dark:border-green-900/30 dark:bg-gray-800/90 dark:text-green-400">
-                  <Scale className="h-6 w-6" />
-                </div>
-                <h3 className="text-[20px] font-medium text-gray-900 dark:text-white md:text-[24px]">
-                  Fair Distribution
-                </h3>
-              </div>
-
-              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[16px]">
-                Unlike many cryptocurrency projects that launch with pre-mines
-                or ICOs, PoW allows for a fair distribution of tokens over time
-                to those who contribute computational resources to secure the
-                network. This creates a more equitable foundation for the
-                cryptocurrency ecosystem.
-              </p>
-            </div>
-          </div>
-
-          {/* Proven Reliability */}
-          <div className="relative flex-1 overflow-hidden rounded-2xl border border-green-100/80 bg-white/70 p-8 shadow-sm backdrop-blur-sm dark:border-green-900/30 dark:bg-gray-900/50">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.15),transparent_50%)]"></div>
-            <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-green-400/10 blur-xl dark:bg-green-400/20"></div>
-
-            <div className="relative">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-green-100/80 bg-white/90 text-green-600 shadow-sm dark:border-green-900/30 dark:bg-gray-800/90 dark:text-green-400">
-                  <History className="h-6 w-6" />
-                </div>
-                <h3 className="text-[20px] font-medium text-gray-900 dark:text-white md:text-[24px]">
-                  Proven Reliability
-                </h3>
-              </div>
-
-              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[16px]">
-                PoW has stood the test of time as the most battle-tested
-                consensus mechanism in the cryptocurrency space. First
-                implemented by Bitcoin, it has demonstrated its resilience
-                against various types of attacks over more than a decade of
-                continuous operation.
-              </p>
-            </div>
-          </div>
-
-          {/* Real-World Cost Anchoring */}
-          <div className="relative flex-1 overflow-hidden rounded-2xl border border-green-100/80 bg-gradient-to-br from-green-50/70 to-white p-8 shadow-sm backdrop-blur-sm dark:border-green-900/30 dark:from-green-950/40 dark:to-gray-950">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.15),transparent_50%)]"></div>
-            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-green-400/10 blur-2xl dark:bg-green-400/20"></div>
-
-            <div className="relative">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-green-100/80 bg-white/90 text-green-600 shadow-sm dark:border-green-900/30 dark:bg-gray-800/90 dark:text-green-400">
-                  <Globe className="h-6 w-6" />
-                </div>
-                <h3 className="text-[20px] font-medium text-gray-900 dark:text-white md:text-[24px]">
-                  Real-World Cost Anchoring
-                </h3>
-              </div>
-
-              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[16px]">
-                By tying blockchain validation to real-world resources
-                (computation and energy), PoW creates an economic bridge between
-                digital assets and physical reality. This provides a fundamental
-                value anchor that purely virtual consensus mechanisms cannot
-                replicate.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quote Section */}
-      <section className="relative mb-24">
-        <div className="mx-auto w-full max-w-[1100px]">
-          <div className="relative overflow-hidden rounded-2xl border border-green-100/80 bg-gradient-to-br from-green-50/90 to-white p-8 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] backdrop-blur-sm dark:border-green-900/30 dark:from-green-950/40 dark:to-gray-950 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.3)] md:p-12">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.15),transparent_50%)]"></div>
-            <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-green-400/10 blur-xl dark:bg-green-400/20"></div>
-
-            <div className="relative">
-              <div className="mb-4 font-serif text-5xl text-green-600 dark:text-green-400">
-                "
-              </div>
-              <p className="mb-6 max-w-4xl text-[18px] font-light italic leading-relaxed text-gray-700 dark:text-gray-200 md:text-[24px]">
-                Verus Proof of Power combines the best of both worlds—the proven
-                security of proof-of-work with the energy efficiency of
-                proof-of-stake—creating a hybrid system that is both
-                environmentally conscious and reliably secure.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Best of Both Worlds Section */}
-      <section className="relative mb-24">
-        <div className="mx-auto w-full max-w-[1100px]">
-          <h2 className="mb-6 text-center text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-10 md:text-[45px]">
-            The Best of Both Worlds
-          </h2>
-
-          <p className="mx-auto mb-12 max-w-3xl text-center text-[16px] text-gray-600 dark:text-gray-300 md:text-[18px]">
-            By combining proof-of-work with proof-of-stake in a hybrid approach,
-            Verus achieves robust security while significantly reducing
-            environmental impact.
-          </p>
-
-          <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: <Shield className="h-5 w-5" />,
-                title: 'Enhanced Security',
-                description: 'Through dual validation methods',
-                detail: '',
-              },
-              {
-                icon: <Leaf className="h-5 w-5" />,
-                title: 'Reduced Energy Usage',
-                description: 'Compared to pure PoW systems',
-                detail: '',
-              },
-              {
-                icon: <Zap className="h-5 w-5" />,
-                title: '51% Attack Resistance',
-                description: 'Via innovative Proof of Power consensus',
-                detail: '',
-              },
-            ].map((benefit, index) => (
-              <div
-                key={index}
-                className="rounded-xl border border-green-100/60 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 dark:border-green-900/20 dark:bg-gray-800/30"
+            return (
+              <article
+                key={reason.title}
+                className={[
+                  'min-w-0 border-gray-200 px-10 py-10 dark:border-gray-800 md:px-14 md:py-12',
+                  index > 0 ? 'max-md:border-t' : '',
+                  index % 2 === 1 ? 'md:border-l' : '',
+                  index < proofOfWorkReasons.length - 2 ? 'md:border-b' : '',
+                ].join(' ')}
               >
-                <div className="mb-4 flex items-start gap-3">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400">
-                    {benefit.icon}
+                <div className="mb-4 flex items-center gap-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                    <Icon className="h-5 w-5 text-green-600 dark:text-green-400" />
                   </div>
-                  <div>
-                    <h3 className="text-[18px] font-medium text-gray-900 dark:text-white">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-[15px] text-gray-600 dark:text-gray-300">
-                      {benefit.description}
-                    </p>
-                  </div>
+                  <h3 className="text-[16px] font-medium text-gray-800 dark:text-white md:text-[18px]">
+                    {reason.title}
+                  </h3>
                 </div>
+                <p className="break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[16px]">
+                  {reason.description}
+                </p>
+              </article>
+            )
+          })}
+        </div>
+      </section>
 
-                <div className="pl-[52px]">
-                  <p className="text-[14px] text-gray-600 dark:text-gray-300">
-                    {benefit.detail}
-                  </p>
+      <section className="border-t border-gray-200 bg-gradient-to-br from-blue-50 to-white dark:border-gray-800 dark:from-blue-950/40 dark:to-gray-950">
+        <div className="flex w-full flex-col items-start justify-center px-10 py-20 md:px-14 md:py-32">
+          <div className="w-full max-w-[310px] md:max-w-[760px]">
+            <h2 className="mb-4 break-words text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[44px]">
+              Proof of Power combines both systems
+            </h2>
+            <p className="text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+              Verus Proof of Power uses miners and stakers together. That keeps
+              participation broad while avoiding the energy profile of pure
+              proof-of-work.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid w-full grid-cols-1 border-t border-gray-200 dark:border-gray-800 md:grid-cols-3">
+          {powerBenefits.map((benefit, index) => {
+            const Icon = benefit.icon
+
+            return (
+              <article
+                key={benefit.title}
+                className={[
+                  'min-w-0 border-gray-200 px-10 py-10 dark:border-gray-800 md:px-14 md:py-12',
+                  index > 0 ? 'max-md:border-t md:border-l' : '',
+                ].join(' ')}
+              >
+                <div className="mb-4 flex items-center gap-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                    <Icon className="h-5 w-5 text-green-600 dark:text-green-400" />
+                  </div>
+                  <h3 className="text-[16px] font-medium text-gray-800 dark:text-white md:text-[18px]">
+                    {benefit.title}
+                  </h3>
                 </div>
-              </div>
-            ))}
+                <p className="break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[16px]">
+                  {benefit.description}
+                </p>
+              </article>
+            )
+          })}
+        </div>
+      </section>
+
+      <section className="border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+        <div className="grid w-full grid-cols-1 md:grid-cols-2">
+          <div className="min-w-0 px-10 py-12 md:px-14 md:py-16">
+            <h2 className="mb-4 font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+              Mine with regular devices
+            </h2>
+            <p className="break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+              Use CPUs, ARM devices, and other general-purpose hardware to take
+              part in network security.
+            </p>
+            <Button
+              asChild
+              variant="verusPrimary"
+              size="verusWide"
+              className="mt-8 w-full md:w-fit"
+            >
+              <a href="/mining">
+                Start mining
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </Button>
+          </div>
+
+          <div className="min-w-0 border-t border-gray-200 px-10 py-12 dark:border-gray-800 md:border-l md:border-t-0 md:px-14 md:py-16">
+            <h2 className="mb-4 font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+              Stake with any amount
+            </h2>
+            <p className="break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+              Help secure the network through staking while keeping funds under
+              your own control.
+            </p>
+            <Button
+              asChild
+              variant="verusPrimary"
+              size="verusWide"
+              className="mt-8 w-full md:w-fit"
+            >
+              <a href="/staking">
+                Start staking
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }
