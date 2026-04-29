@@ -1,4 +1,3 @@
-// Component to display community members in a grid
 type CommunityMember = {
   name: string
 }
@@ -9,23 +8,30 @@ export type CommunityListProps = {
 
 export function CommunityList({members}: CommunityListProps) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-blue-100/80 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-blue-900/30 dark:bg-gray-900/50 md:p-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15),transparent_50%)]"></div>
+    <div className="grid grid-cols-2 border-gray-200 dark:border-gray-800 md:grid-cols-3 lg:grid-cols-4">
+      {members.map((member, index) => {
+        const isMdLeftColumn = index % 3 === 0
+        const isLgLeftColumn = index % 4 === 0
 
-      <div className="relative">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {members.map((member, index) => (
-            <div
-              key={index}
-              className="rounded-xl border border-blue-100/60 bg-white/80 p-3 backdrop-blur-sm dark:border-blue-900/20 dark:bg-gray-800/50"
-            >
-              <p className="truncate text-[14px] text-gray-700 dark:text-gray-300 md:text-[15px]">
-                {member.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+        return (
+          <div
+            key={`${member.name}-${index}`}
+            className={[
+              'min-w-0 border-gray-200 px-4 py-4 dark:border-gray-800 md:px-6',
+              index > 1 ? 'border-t' : '',
+              index % 2 !== 0 ? 'border-l' : '',
+              index >= 3 ? 'md:border-t' : 'md:border-t-0',
+              !isMdLeftColumn ? 'md:border-l' : 'md:border-l-0',
+              index >= 4 ? 'lg:border-t' : 'lg:border-t-0',
+              !isLgLeftColumn ? 'lg:border-l' : 'lg:border-l-0',
+            ].join(' ')}
+          >
+            <p className="truncate text-[14px] font-medium text-gray-700 dark:text-gray-300 md:text-[15px]">
+              {member.name}
+            </p>
+          </div>
+        )
+      })}
     </div>
   )
 }

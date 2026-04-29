@@ -42,6 +42,8 @@ const config: Config = {
         'fade-out': 'fade-out 100ms ease-in',
         'zoom-in-90': 'zoom-in-90 100ms ease-out',
         'zoom-out-95': 'zoom-out-95 100ms ease-in',
+        'gallery-ltr': 'gallery-ltr 55s linear infinite',
+        'gallery-rtl': 'gallery-rtl 58s linear infinite',
         'marquee-ltr': 'marquee-ltr 60s linear infinite',
         'marquee-rtl': 'marquee-rtl 60s linear infinite',
         'scroll-down': 'scroll-down 35s linear infinite',
@@ -59,6 +61,22 @@ const config: Config = {
         'marquee-rtl': {
           '0%': {
             transform: 'translateX(-100%)',
+          },
+          '100%': {
+            transform: 'translateX(0)',
+          },
+        },
+        'gallery-ltr': {
+          '0%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(-50%)',
+          },
+        },
+        'gallery-rtl': {
+          '0%': {
+            transform: 'translateX(-50%)',
           },
           '100%': {
             transform: 'translateX(0)',

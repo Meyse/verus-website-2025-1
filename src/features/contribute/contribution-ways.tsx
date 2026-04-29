@@ -1,15 +1,17 @@
+import type {ReactNode} from 'react'
+
 import {Code, DollarSign, Users} from 'lucide-react'
 
-// Main ways to contribute to Verus
 interface ContributionWay {
   title: string
   description: string
-  icon: React.ReactNode
+  icon: ReactNode
   examples: string[]
 }
+
 export const contributionWays: ContributionWay[] = [
   {
-    title: 'Technical Contributions',
+    title: 'Technical contributions',
     description: 'Help improve the code, documentation, and infrastructure.',
     icon: <Code className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
     examples: [
@@ -20,7 +22,7 @@ export const contributionWays: ContributionWay[] = [
     ],
   },
   {
-    title: 'Community Support',
+    title: 'Community support',
     description: 'Join discussions and help others learn about Verus.',
     icon: <Users className="h-6 w-6 text-purple-600 dark:text-purple-400" />,
     examples: [
@@ -31,7 +33,7 @@ export const contributionWays: ContributionWay[] = [
     ],
   },
   {
-    title: 'Financial Support',
+    title: 'Financial support',
     description: 'Donate to help fund ongoing development and operations.',
     icon: (
       <DollarSign className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />

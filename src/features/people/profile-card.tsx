@@ -1,9 +1,9 @@
-// Profile card component for team members
-
 import Link from 'next/link'
 
 import {env} from '@/configs/env'
 import {FaXTwitter} from 'react-icons/fa6'
+
+import {cn} from '@/lib/utils'
 
 export type ProfileCardProps = {
   name: string
@@ -11,6 +11,7 @@ export type ProfileCardProps = {
   description: string
 
   twitterHandle?: string
+  index?: number
 }
 
 export function ProfileCard({
@@ -19,40 +20,47 @@ export function ProfileCard({
   description,
 
   twitterHandle,
+  index = 0,
 }: ProfileCardProps) {
+  const isMdLeftColumn = index % 2 === 0
+  const isLgLeftColumn = index % 3 === 0
+
   return (
-    <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-blue-100/80 bg-white/70 p-8 shadow-sm backdrop-blur-sm transition-all duration-300 dark:border-blue-900/30 dark:bg-gray-900/50">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15),transparent_50%)]"></div>
-
-      <div className="relative flex flex-1 flex-col">
-        {/* Name and title */}
-        <div className="mb-4">
-          <h3 className="mb-2 text-[20px] font-medium text-gray-900 dark:text-white md:text-[24px]">
-            {name}
-          </h3>
-          <p className="text-[15px] text-verus-blue dark:text-blue-400 md:text-[17px]">
-            {title}
-          </p>
-        </div>
-
-        {/* Description */}
-        <p className="mb-6 flex-grow text-[14px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[16px]">
-          {description}
+    <article
+      className={cn(
+        'flex h-full min-w-0 flex-col border-gray-200 px-8 py-8 dark:border-gray-800 md:px-10 md:py-10',
+        index > 0 && 'max-md:border-t',
+        index >= 2 && 'md:border-t',
+        index === 2 && 'lg:border-t-0',
+        !isMdLeftColumn && 'md:border-l',
+        isLgLeftColumn && 'lg:border-l-0',
+        !isLgLeftColumn && 'lg:border-l'
+      )}
+    >
+      <div className="mb-4">
+        <h3 className="mb-2 font-display text-[24px] font-medium leading-[1.15] tracking-tight text-gray-800 dark:text-white md:text-[26px]">
+          {name}
+        </h3>
+        <p className="text-[15px] font-medium leading-relaxed tracking-normal text-verus-blue dark:text-blue-400 md:text-[17px]">
+          {title}
         </p>
-
-        {/* Twitter link */}
-        {twitterHandle && (
-          <Link
-            href={`${env.NEXT_PUBLIC_TWITTER}/${twitterHandle}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group mt-auto flex items-center text-gray-600 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
-          >
-            <FaXTwitter className="mr-2 h-4 w-4" />
-            <span className="text-[14px]">@{twitterHandle}</span>
-          </Link>
-        )}
       </div>
-    </div>
+
+      <p className="mb-6 flex-grow text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[16px]">
+        {description}
+      </p>
+
+      {twitterHandle && (
+        <Link
+          href={`${env.NEXT_PUBLIC_TWITTER}/${twitterHandle}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-auto inline-flex w-fit items-center gap-2 rounded-lg text-[14px] font-medium text-gray-600 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
+        >
+          <span>@{twitterHandle}</span>
+          <FaXTwitter className="h-4 w-4" />
+        </Link>
+      )}
+    </article>
   )
 }
