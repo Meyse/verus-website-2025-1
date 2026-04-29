@@ -90,6 +90,7 @@ body {
   h1,
   h2[class~='text-[28px]'],
   h2[class~='text-[32px]'],
+  h2[class~='md:text-[30px]'],
   h2[class~='md:text-[32px]'],
   h2[class~='md:text-[36px]'],
   h2[class~='md:text-[40px]'],

@@ -29,23 +29,23 @@ export function TextLinkButton({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'group inline-flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline',
+        'group inline-flex min-w-0 max-w-full items-start rounded-lg p-2 transition-colors [&>div>div>span]:hover:underline',
         className
       )}
     >
-      <div>
+      <div className="min-w-0">
         <div
           className={cn(
-            'mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white',
+            'mb-1 flex min-w-0 items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white',
             contentClassName
           )}
         >
-          {icon}
-          {children}
+          {icon && <span className="shrink-0">{icon}</span>}
+          <span className="min-w-0 flex-1 break-words">{children}</span>
           {showExternalIcon && (
             <ExternalLink
               className={cn(
-                'h-4 w-4 opacity-50 group-hover:opacity-100',
+                'h-4 w-4 shrink-0 opacity-50 group-hover:opacity-100',
                 externalIconClassName
               )}
             />
