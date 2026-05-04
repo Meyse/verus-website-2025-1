@@ -9,6 +9,7 @@ export const getMiningInfo = async () => {
 
     return {
       blockHeight: data.blocks || 'N/A',
+      blockHeightValue: data.blocksValue ?? null,
       hashRate: data.hashRate || 'N/A',
       stakingAmount: data.stakingSupply || 'N/A',
     }
@@ -16,6 +17,7 @@ export const getMiningInfo = async () => {
     console.error('Error fetching mining info:', error)
     return {
       blockHeight: 'N/A',
+      blockHeightValue: null,
       hashRate: 'N/A',
       stakingAmount: 'N/A',
     }

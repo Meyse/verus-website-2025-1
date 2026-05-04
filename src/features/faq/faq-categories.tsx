@@ -1,21 +1,28 @@
+function getCategoryId(category: string) {
+  return category.toLowerCase().replace(/\s+/g, '-')
+}
+
 export function FaqCategories({categories}: {categories: string[]}) {
   return (
-    <div className="sticky top-24">
-      <h3 className="mb-6 text-[16px] font-medium text-gray-900 dark:text-white md:text-[18px]">
+    <nav className="md:sticky md:top-24" aria-label="FAQ categories">
+      <h2 className="mb-4 text-[16px] font-medium text-gray-800 dark:text-white md:text-[18px]">
         Categories
-      </h3>
-      <ul className="space-y-3">
-        {categories.map((cat, index) => (
-          <li key={index}>
+      </h2>
+      <ul className="grid grid-cols-1 border border-gray-200 dark:border-gray-800 md:block md:space-y-2 md:border-0">
+        {categories.map((cat) => (
+          <li
+            key={cat}
+            className="border-b border-gray-200 last:border-b-0 dark:border-gray-800 md:border-b-0"
+          >
             <a
-              href={`#${cat.toLowerCase().replace(/\s+/g, '-')}`}
-              className="text-[15px] text-gray-700 transition-colors hover:text-verus-blue dark:text-gray-300 dark:hover:text-blue-400"
+              href={`#${getCategoryId(cat)}`}
+              className="flex px-4 py-3 text-[15px] font-[450] text-gray-600 transition-colors hover:text-verus-blue hover:underline dark:text-gray-300 dark:hover:text-blue-400 md:inline-flex md:px-0 md:py-1"
             >
               {cat}
             </a>
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   )
 }

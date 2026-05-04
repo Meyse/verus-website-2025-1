@@ -15,9 +15,9 @@ import {JsonLd} from '@/components/seo/json-ld'
 export const metadata: Metadata = {
   title: {absolute: 'Build on Verus | Developer Documentation'},
   description:
-    'Get started with Verus developer resources and documentation. Learn about VerusID, VDXF, DeFi, and more.',
+    'Get started with Verus developer resources, documentation, and protocol libraries. Learn about VerusID, VDXF, DeFi, and more.',
   keywords:
-    'Verus development, VerusID, VDXF, blockchain development, DeFi development, Verus documentation',
+    'Verus development, VerusID, VDXF, blockchain development, DeFi development, Verus documentation, Verus TypeScript libraries',
 
   alternates: {
     canonical: '/build/start',
@@ -45,8 +45,9 @@ export default function BuildStartPage() {
                     </h1>
                     <p className="mt-4 max-w-[760px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 max-md:max-w-[calc(100vw-4rem)] md:mt-6 md:text-[17px]">
                       Use this page as a practical entry point for docs, testnet
-                      access, CLI downloads, and the core guides for building
-                      with VerusID, VDXF, currencies, DeFi, and data.
+                      access, CLI downloads, protocol libraries, and the core
+                      guides for building with VerusID, VDXF, currencies, DeFi,
+                      and data.
                     </p>
 
                     <div className="mt-8 flex max-w-full flex-col gap-4 max-md:max-w-[calc(100vw-4rem)] md:flex-row">

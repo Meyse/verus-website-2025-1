@@ -7,6 +7,7 @@ import {developerResources} from '@/data/resource-list'
 import {cn} from '@/lib/utils'
 
 import {CliSection} from './cli_section'
+import {ProtocolLibrariesSection} from './protocol_libraries_section'
 import {ResourceCard} from './resource_card'
 import {TestnetSection} from './testnet_section'
 
@@ -56,6 +57,8 @@ export function ResourcesGrid() {
           </ResourceCell>
         ))}
       </div>
+
+      <ProtocolLibrariesSection />
 
       <div className="border-t border-gray-200 dark:border-gray-800">
         <div className="min-w-0 border-b border-gray-200 px-8 py-8 dark:border-gray-800 md:px-14 md:py-10">
