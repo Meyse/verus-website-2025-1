@@ -6,113 +6,17 @@ import type {
 import {Suspense} from 'react'
 import Image from 'next/image'
 
-import {env} from '@/configs/env'
 import {ExternalLink} from 'lucide-react'
 
 import {TextLinkButton} from '@/components/ui/text-link-button'
 import {cn} from '@/lib/utils'
 
 import {
-  BRIDGE_LAUNCH_ARTICLE_URL,
   ETHEREUM_BRIDGE_CONTRACT_ADDRESS,
   ETHEREUM_BRIDGE_CONTRACT_URL,
-  VIP_ARTICLE_URL,
 } from '../constants'
 import {getBridgeContractMetrics} from '../server/get-bridge-contract-metrics'
 import {ContractCopyButton} from './contract-copy-button'
-
-type TextItem = {
-  title: string
-  description: string
-}
-
-type ResourceLink = TextItem & {
-  href: string
-}
-
-const capabilities: TextItem[] = [
-  {
-    title: 'Verus currencies to ERC-20',
-    description: 'Launch on Verus, export to Ethereum.',
-  },
-  {
-    title: 'Ethereum tokens to Verus',
-    description: 'Bring ERC-20 assets into Verus DeFi.',
-  },
-  {
-    title: 'ERC-721 and ERC-1155',
-    description: 'Move collectible and multi-token standards across.',
-  },
-  {
-    title: 'Built on VIP',
-    description: 'The same protocol used for PBaaS cross-chain communication.',
-  },
-]
-
-const advantages: TextItem[] = [
-  {
-    title: 'MEV-resistant DeFi',
-    description: 'Conversions are handled at protocol level.',
-  },
-  {
-    title: 'Collaborative liquidity',
-    description: 'Assets can share liquidity across multicurrency baskets.',
-  },
-  {
-    title: 'Marketplace utility',
-    description: 'Use bridged assets in atomic sales, swaps, and auctions.',
-  },
-  {
-    title: 'Verus Vault',
-    description: 'VerusID-controlled assets can use Vault protections.',
-  },
-]
-
-const resources: ResourceLink[] = [
-  {
-    title: 'Use the bridge',
-    description: 'Move assets between Ethereum and Verus.',
-    href: env.NEXT_PUBLIC_VERUS_BRIDGE,
-  },
-  {
-    title: 'Ethereum to Verus guide',
-    description: 'Step-by-step documentation.',
-    href: `${env.NEXT_PUBLIC_VERUS_DOCS}/eth-bridge/ethereum-to-verus.html`,
-  },
-  {
-    title: 'VIP article',
-    description: 'Technical bridge background.',
-    href: VIP_ARTICLE_URL,
-  },
-  {
-    title: 'Bridge launch article',
-    description: 'Architecture and launch context.',
-    href: BRIDGE_LAUNCH_ARTICLE_URL,
-  },
-]
-
-const bridgeVethReserves = [
-  {
-    symbol: 'VRSC',
-    name: 'Verus',
-    icon: '/img/bridge-tokens/vrsc.svg',
-  },
-  {
-    symbol: 'ETH',
-    name: 'Ethereum via vETH',
-    icon: '/img/bridge-tokens/eth.svg',
-  },
-  {
-    symbol: 'DAI',
-    name: 'Dai via DAI.vETH',
-    icon: '/img/bridge-tokens/dai.svg',
-  },
-  {
-    symbol: 'MKR',
-    name: 'Maker via MKR.vETH',
-    icon: '/img/bridge-tokens/mkr.svg',
-  },
-] as const
 
 const tokenIconBySymbol: Record<string, string> = {
   BAT: '/img/bridge-tokens/bat.svg',
@@ -477,135 +381,52 @@ function ContractAndTrustSection() {
   )
 }
 
-function TagList({items}: {items: TextItem[]}) {
-  return (
-    <div className="flex flex-col items-start gap-2 md:ml-auto md:items-end">
-      {items.map((item) => (
-        <div
-          key={item.title}
-          className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 dark:border-gray-800 dark:bg-gray-900 md:max-w-[300px]"
-        >
-          <p className="text-[14px] font-medium leading-tight text-gray-800 dark:text-white">
-            {item.title}
-          </p>
-          <p className="mt-1 text-[13px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
-            {item.description}
-          </p>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function ReserveList() {
-  return (
-    <div className="grid gap-0 overflow-hidden border-y border-gray-200 dark:border-gray-800 md:ml-auto md:w-full md:max-w-[320px]">
-      {bridgeVethReserves.map((reserve, index) => (
-        <div
-          key={reserve.symbol}
-          className={cn(
-            'flex items-center gap-3 border-gray-200 py-4 dark:border-gray-800',
-            index > 0 && 'border-t'
-          )}
-        >
-          <Image
-            src={reserve.icon}
-            alt=""
-            width={32}
-            height={32}
-            className="h-8 w-8 shrink-0"
-          />
-          <div>
-            <p className="text-[16px] font-medium text-gray-800 dark:text-white">
-              {reserve.symbol}
-            </p>
-            <p className="mt-1 text-[13px] text-gray-500 dark:text-gray-400">
-              {reserve.name}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
 function BridgeDetailsSection() {
-  const rows = [
+  const sections = [
     {
-      heading: 'What can cross the bridge',
-      description:
-        'Verus currencies, Ethereum ERC-20 assets, and NFT standards can move through the same proof-based bridge stack.',
-      side: <TagList items={capabilities} />,
+      heading: 'Verus Internet Protocol (VIP) secure bridging',
+      paragraphs: [
+        'The Verus-Ethereum Bridge uses the Verus Internet Protocol (VIP) for cross-chain communication. It relies on cryptographic proofs, with witnesses validating notarizations created by network validators, the miners and stakers of Verus.',
+        'The bridge ensures non-custodial, decentralized, secure, and transparent cross-chain transactions between Verus and Ethereum.',
+      ],
     },
     {
-      heading: 'Why bridge into Verus',
-      description:
-        'After crossing, assets can use Verus DeFi, marketplace flows, VerusID controls, and protocol-level conversions without custom contract custody.',
-      side: <TagList items={advantages} />,
-    },
-    {
-      heading: 'Liquidity for fees and conversions',
-      description:
-        'Bridge.vETH is a 100% backed currency and AMM with VRSC, ETH, DAI, and MKR in reserve. It helps route conversions and fee handling from either side of the bridge.',
-      side: <ReserveList />,
+      heading: 'The bridge has its own currency with liquidity pool',
+      paragraphs: [
+        "Bridge.vETH is a 100% backed currency with 4 currencies in its reserves: VRSC, ETH, DAI, and MKR. It's also an automated market maker (AMM) with which you can convert all four currencies in all directions, and also convert them into Bridge.vETH.",
+        'The Bridge.vETH currency function is to make the bridging of assets simple. From either side of the bridge, it converts the fees that you need seamlessly.',
+        'The value of Bridge.vETH increases relative to its reserves when fees or interest from the Dai Savings Rate are added to the reserves without new Bridge.vETH being minted.',
+      ],
     },
   ]
 
   return (
     <section className="border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
-      {rows.map((row, index) => (
+      {sections.map((section, index) => (
         <article
-          key={row.heading}
+          key={section.heading}
           className={cn(
-            'grid grid-cols-1 border-gray-200 dark:border-gray-800 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]',
+            'border-gray-200 px-8 py-12 dark:border-gray-800 md:px-14 md:py-16',
             index > 0 && 'border-t'
           )}
         >
-          <div className="px-8 py-12 md:px-14 md:py-16">
-            <div className="max-w-[760px]">
-              <h2 className="text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[44px]">
-                {row.heading}
-              </h2>
-              <p className="mt-5 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
-                {row.description}
-              </p>
+          <div className="max-w-[760px]">
+            <h2 className="mb-4 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[44px]">
+              {section.heading}
+            </h2>
+            <div className="space-y-4">
+              {section.paragraphs.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]"
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
-          </div>
-
-          <div className="border-t border-gray-200 px-8 py-10 dark:border-gray-800 md:border-l md:border-t-0 md:px-8 md:py-16">
-            {row.side}
           </div>
         </article>
       ))}
-    </section>
-  )
-}
-
-function ResourcesSection() {
-  return (
-    <section className="border-t border-gray-200 bg-gradient-to-b from-gray-50 via-gray-50 to-white px-8 py-12 dark:border-gray-800 dark:from-gray-950 dark:via-gray-950 dark:to-gray-950 md:px-14 md:py-14">
-      <div className="mb-8 max-w-[760px]">
-        <h2 className="text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[44px]">
-          Use, inspect, and learn
-        </h2>
-      </div>
-
-      <div className="grid gap-x-8 gap-y-5 border-y border-gray-200 py-6 dark:border-gray-800 md:grid-cols-2">
-        {resources.map((resource) => (
-          <div key={resource.title}>
-            <TextLinkButton
-              href={resource.href}
-              className="-ml-2"
-              contentClassName="mb-0"
-            >
-              {resource.title}
-            </TextLinkButton>
-            <p className="mt-1 text-[14px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
-              {resource.description}
-            </p>
-          </div>
-        ))}
-      </div>
     </section>
   )
 }
@@ -615,7 +436,6 @@ export function BridgeContent() {
     <div className="w-full">
       <ContractAndTrustSection />
       <BridgeDetailsSection />
-      <ResourcesSection />
     </div>
   )
 }
