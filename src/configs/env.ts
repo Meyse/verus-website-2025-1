@@ -120,6 +120,10 @@ export const env = createEnv({
       .string()
       .url({message: 'Invalid url'})
       .startsWith('https://', {message: 'Must provide secure URL'}),
+    NEXT_PUBLIC_AUTOBB_WIKI: z
+      .string()
+      .url({message: 'Invalid url'})
+      .startsWith('https://', {message: 'Must provide secure URL'}),
     NEXT_PUBLIC_GOOGLE_PLAYSTORE: z
       .string()
       .url({message: 'Invalid url'})
@@ -161,6 +165,7 @@ export const env = createEnv({
     NEXT_PUBLIC_VERUS_YOUTUBE: process.env.NEXT_PUBLIC_VERUS_YOUTUBE,
     NEXT_PUBLIC_CRYPTO_DASHBOARD: process.env.NEXT_PUBLIC_CRYPTO_DASHBOARD,
     NEXT_PUBLIC_MONKINS_GITHUB: process.env.NEXT_PUBLIC_MONKINS_GITHUB,
+    NEXT_PUBLIC_AUTOBB_WIKI: process.env.NEXT_PUBLIC_AUTOBB_WIKI,
     NEXT_PUBLIC_GOOGLE_PLAYSTORE: process.env.NEXT_PUBLIC_GOOGLE_PLAYSTORE,
     NEXT_PUBLIC_APPLE_STORE: process.env.NEXT_PUBLIC_APPLE_STORE,
     NEXT_PUBLIC_HOST_ID: process.env.NEXT_PUBLIC_HOST_ID,

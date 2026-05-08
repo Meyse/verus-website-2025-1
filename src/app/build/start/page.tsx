@@ -3,12 +3,13 @@ import type {Metadata} from 'next'
 
 import {env} from '@/configs/env'
 import {ResourcesGrid} from '@/features/build/start'
-import {ExternalLink, Info} from 'lucide-react'
+import {ChevronDown, ExternalLink, Info} from 'lucide-react'
 import {IoLogoDiscord} from 'react-icons/io5'
 
 import {createBuildBreadcrumbJsonLd} from '@/lib/seo/schema'
+import {cn} from '@/lib/utils'
 
-import {Button} from '@/components/ui/button'
+import {Button, buttonVariants} from '@/components/ui/button'
 import {BgWrapper} from '@/components/bg-wrapper'
 import {JsonLd} from '@/components/seo/json-ld'
 
@@ -28,6 +29,57 @@ const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
   'Build on Verus',
   '/build/start'
 )
+
+const developerDocLinks = [
+  {
+    title: 'docs.verus.io',
+    href: env.NEXT_PUBLIC_VERUS_DOCS,
+  },
+  {
+    title: 'monkins1010.github.io',
+    href: env.NEXT_PUBLIC_MONKINS_GITHUB,
+  },
+  {
+    title: 'wiki.autobb.app',
+    href: env.NEXT_PUBLIC_AUTOBB_WIKI,
+  },
+]
+
+function DeveloperDocsMenu() {
+  return (
+    <details className="group/docs relative w-full md:w-fit">
+      <summary
+        className={cn(
+          buttonVariants({variant: 'verusPrimary', size: 'verusWide'}),
+          'w-full max-w-full cursor-pointer list-none select-none md:w-fit [&::-webkit-details-marker]:hidden'
+        )}
+      >
+        Open developer docs
+        <ChevronDown className="h-4 w-4 transition-transform duration-300 group-open/docs:rotate-180" />
+      </summary>
+
+      <div className="absolute left-0 top-full z-30 mt-2 w-full min-w-0 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-[0_12px_36px_-18px_rgba(0,0,0,0.35)] dark:border-gray-800 dark:bg-gray-950 md:w-[360px]">
+        <ul className="divide-y divide-gray-200 dark:divide-gray-800">
+          {developerDocLinks.map((link) => (
+            <li key={link.title}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/link flex min-w-0 items-center gap-3 px-4 py-3 transition-colors hover:bg-gray-50 dark:hover:bg-gray-900/70"
+              >
+                <span className="flex min-w-0 flex-1 items-center gap-2 text-[15px] font-medium leading-tight text-gray-800 dark:text-white">
+                  <span className="min-w-0 break-words">{link.title}</span>
+                  <ExternalLink className="h-4 w-4 shrink-0 opacity-50 group-hover/link:opacity-100" />
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  )
+}
 
 export default function BuildStartPage() {
   return (
@@ -51,21 +103,7 @@ export default function BuildStartPage() {
                     </p>
 
                     <div className="mt-8 flex max-w-full flex-col gap-4 max-md:max-w-[calc(100vw-4rem)] md:flex-row">
-                      <Button
-                        asChild
-                        variant="verusPrimary"
-                        size="verusWide"
-                        className="w-full max-w-full md:w-fit"
-                      >
-                        <a
-                          href={env.NEXT_PUBLIC_VERUS_DOCS}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Open developer docs
-                          <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-[1px]" />
-                        </a>
-                      </Button>
+                      <DeveloperDocsMenu />
                       <Button
                         asChild
                         variant="verusSecondaryDark"

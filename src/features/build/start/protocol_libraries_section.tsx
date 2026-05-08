@@ -6,29 +6,25 @@ interface ProtocolLibrary {
   description: string
   href: string
   name: string
-  packageName?: string
 }
 
 const readLibraries: ProtocolLibrary[] = [
   {
     name: 'verus-typescript-primitives',
-    packageName: 'verus-typescript-primitives',
     description:
-      'Typed Verus data structures, serialization, VDXF objects, invoices, and RPC request and response shapes.',
+      'Typed Verus structures for RPC shapes, VDXF serialization, generic requests, VerusPay invoices, and wallet deeplinks.',
     href: 'https://github.com/VerusCoin/verus-typescript-primitives',
   },
   {
     name: 'verusd-rpc-ts-client',
-    packageName: 'verusd-rpc-ts-client',
     description:
-      'TypeScript client for Verus RPC endpoints, including address, block, VDXF, currency, and identity calls.',
+      'RPC transport client for reading chain, identity, currency, VDXF, marketplace, and transaction data from verusd.',
     href: 'https://github.com/VerusCoin/verusd-rpc-ts-client',
   },
   {
     name: 'verusid-ts-client',
-    packageName: 'verusid-ts-client',
     description:
-      'Lite client for VerusID signatures, login consents, VerusPay invoices, and identity verification flows.',
+      'VerusID helper client for signatures and generic request flows such as authentication, invoices, identity updates, provisioning, and app encryption.',
     href: 'https://github.com/VerusCoin/verusid-ts-client',
   },
 ]
@@ -36,7 +32,6 @@ const readLibraries: ProtocolLibrary[] = [
 const writeLibraries: ProtocolLibrary[] = [
   {
     name: 'BitGoJS Verus UTXO library',
-    packageName: '@bitgo/utxo-lib',
     description:
       'Verus-enabled UTXO transaction library for constructing and signing client-side transaction flows.',
     href: 'https://github.com/VerusCoin/BitGoJS/tree/utxo-lib-verus',
@@ -59,11 +54,6 @@ function LibraryRow({library}: {library: ProtocolLibrary}) {
           <span className="block min-w-0 break-words text-[16px] font-medium leading-tight text-gray-800 dark:text-white md:text-[17px]">
             {library.name}
           </span>
-          {library.packageName && (
-            <span className="mt-1 block min-w-0 break-words font-mono text-[12px] leading-relaxed tracking-normal text-gray-500 dark:text-gray-400 md:text-[13px]">
-              {library.packageName}
-            </span>
-          )}
           <span className="mt-2 block max-w-[760px] break-words text-[14px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[15px]">
             {library.description}
           </span>
@@ -123,16 +113,16 @@ export function ProtocolLibrariesSection() {
         </h2>
         <p className="max-w-[760px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
           Use these libraries as the core TypeScript stack for Verus apps. Start
-          with read-focused clients for chain data and identity flows, then add
-          the Verus UTXO library when your app needs to construct or sign write
-          transactions.
+          with chain reads, typed protocol objects, and generic request payloads
+          that wallets can present to users. Add the Verus UTXO library when
+          your app needs to construct or sign write transactions.
         </p>
       </div>
 
       <div className="grid min-w-0 grid-cols-1 md:grid-cols-2">
         <LibraryGroup
-          title="Read and query"
-          description="Use these libraries to read chain data, call verusd RPC endpoints, parse Verus protocol objects, and work with VerusID flows."
+          title="Read, query, and request"
+          description="Use these libraries to query chain data and create or verify app requests that wallets can expose to users, including authentication, VerusPay invoices, identity updates, identity provisioning, and app encryption requests."
           icon="read"
           libraries={readLibraries}
         />

@@ -1,4 +1,6 @@
-import {TextLinkButton} from '@/components/ui/text-link-button'
+import {ArrowRight} from 'lucide-react'
+
+import {Button} from '@/components/ui/button'
 
 import {getHomeProtocolStats} from '../server/get-home-protocol-stats'
 
@@ -113,12 +115,17 @@ export async function EarlyAdoptionSection() {
               audits. Nodes validate every transaction directly, making it easy
               for developers.
             </p>
-            <TextLinkButton
-              href="https://wiki.verus.io/#!faq-cli/clifaq-02_verus_commands.md"
-              className="-ml-2 mt-5"
+            <Button
+              asChild
+              variant="verusPrimary"
+              size="verus"
+              className="mt-6 w-full md:w-fit"
             >
-              See all 207 API calls
-            </TextLinkButton>
+              <a href="/build/start">
+                Start building
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </Button>
           </div>
         </div>
 
@@ -139,6 +146,27 @@ export async function EarlyAdoptionSection() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex flex-col gap-6 border-t border-gray-200 px-10 py-8 dark:border-gray-800 md:flex-row md:items-center md:justify-between md:px-14 md:py-10">
+        <div className="max-w-[620px]">
+          <h3 className="mb-3 font-display font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
+            Explore live protocol statistics
+          </h3>
+          <p className="text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+            View price, supply, chain, and ecosystem data in one place.
+          </p>
+        </div>
+        <Button
+          asChild
+          variant="verusSecondary"
+          size="verus"
+          className="w-full md:w-fit"
+        >
+          <a href="/statistics">
+            View statistics
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </Button>
       </div>
     </div>
   )

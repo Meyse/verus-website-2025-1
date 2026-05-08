@@ -13,6 +13,7 @@ export type ScanProtocolStats = {
   tradesAllTime: number
   tvl: number
   updatedAt?: string
+  volumeToday: number
   volume30d: number
   volumeAllTime: number
   vrscInPools: number
@@ -36,6 +37,7 @@ const fallbackScanProtocolStats: ParsedScanProtocolStats = {
   trades30d: 120689,
   tradesAllTime: 2250198,
   tvl: 27191107,
+  volumeToday: 112973,
   volume30d: 3713290,
   volumeAllTime: 727079024,
   vrscInPools: 12577382,
@@ -73,6 +75,7 @@ function parseScanProtocolStats(value: unknown): ParsedScanProtocolStats {
     tradesAllTime: readProtocolMetric(body, 'tradesAllTime'),
     tvl: readProtocolMetric(body, 'tvl'),
     updatedAt: typeof updatedAt === 'string' ? updatedAt : undefined,
+    volumeToday: readProtocolMetric(body, 'volumeToday'),
     volume30d: readProtocolMetric(body, 'volume30d'),
     volumeAllTime: readProtocolMetric(body, 'volumeAllTime'),
     vrscInPools: readProtocolMetric(body, 'vrscInPools'),
@@ -99,7 +102,7 @@ async function fetchScanProtocolStats() {
 
 const getCachedScanProtocolStats = unstable_cache(
   fetchScanProtocolStats,
-  ['scan-protocol-stats'],
+  ['scan-protocol-stats-v2'],
   {
     revalidate: SCAN_PROTOCOL_STATS_REVALIDATE_SECONDS,
     tags: ['scan-protocol-stats'],

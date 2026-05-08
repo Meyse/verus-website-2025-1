@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import {env} from '@/configs/env'
 import {getCliWallets} from '@/features/wallet/server/get-cli-wallets'
 import {Download} from 'lucide-react'
 
@@ -28,7 +29,7 @@ export async function CliSection() {
       <div className="mb-6 flex flex-wrap items-baseline gap-x-1.5 text-[15px] leading-6 tracking-normal text-gray-600 dark:text-gray-300">
         <span>Need setup help?</span>
         <TextLinkButton
-          href="https://wiki.autobb.app/developers/testnet-guide/"
+          href={`${env.NEXT_PUBLIC_AUTOBB_WIKI}/developers/testnet-guide/`}
           className="p-0 align-baseline"
           contentClassName="mb-0 items-center gap-1.5 leading-6"
           externalIconClassName="translate-y-[0.5px]"
