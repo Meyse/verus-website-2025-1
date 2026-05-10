@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     'As a no-ICO, no premine, and no dev-fee project, Verus relies on community donations to fund development and marketing efforts. Your contributions help maintain and advance the technology.',
   keywords:
     'donate crypto, Verus donation, blockchain funding, community support, cryptocurrency donation',
+  alternates: {
+    canonical: '/donate',
+  },
 }
 
 export default function DonatePage() {

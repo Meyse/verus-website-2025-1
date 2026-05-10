@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+
 import Link from 'next/link'
 
 import {env} from '@/configs/env'
@@ -6,8 +7,8 @@ import {EventGallery} from '@/features/community/event-gallery'
 import {CommunityLinks} from '@/features/community/links'
 import {IoLogoDiscord} from 'react-icons/io5'
 
-import {BgWrapper} from '@/components/bg-wrapper'
 import {Button} from '@/components/ui/button'
+import {BgWrapper} from '@/components/bg-wrapper'
 
 export const metadata: Metadata = {
   title: 'Verus community',
@@ -15,6 +16,9 @@ export const metadata: Metadata = {
     'Connect with the Verus community across Discord, Telegram, X, Reddit, YouTube, Medium, Facebook, and GitHub.',
   keywords:
     'Verus community, blockchain community, discord, social media, collaboration, contribute',
+  alternates: {
+    canonical: '/community',
+  },
 }
 
 export default function CommunityPage() {

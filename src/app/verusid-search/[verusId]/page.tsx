@@ -1,3 +1,5 @@
+import type {Metadata} from 'next'
+
 import {Suspense} from 'react'
 import {permanentRedirect} from 'next/navigation'
 
@@ -7,6 +9,13 @@ import {SearchForm} from '@/features/verusid_search/components/search-form'
 import {validateVerusId} from '@/features/verusid_search/server/validate-verusId'
 
 export const dynamic = 'force-dynamic'
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
+
 type Params = Promise<{verusId: string}>
 // type SearchParams = Promise<{[key: string]: string | undefined}>
 export default async function VerusIdPage(props: {

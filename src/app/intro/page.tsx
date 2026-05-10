@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     'Verus is uniquely positioned to empower individuals, communities and developers around the world, sustainably.',
   keywords:
     'blockchain protocol, Web3 technology, cryptocurrency, sustainable blockchain, scalable protocol, Verus introduction',
+  alternates: {
+    canonical: '/intro',
+  },
 }
 
 export default function IntroPage() {

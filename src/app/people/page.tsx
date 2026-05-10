@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     'Meet the developers, contributors, and community members building the Verus ecosystem.',
   keywords:
     'Verus contributors, blockchain developers, cryptocurrency community, blockchain contributors, open source contributors',
+  alternates: {
+    canonical: '/people',
+  },
 }
 
 const peopleJsonLd = createCollectionPageJsonLd({

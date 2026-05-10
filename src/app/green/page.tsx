@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     'Combining proof-of-work security with proof-of-stake efficiency in one protocol.',
   keywords:
     'sustainable blockchain, green cryptocurrency, energy efficient blockchain, eco-friendly crypto, environmental blockchain, Verus green',
+  alternates: {
+    canonical: '/green',
+  },
 }
 
 export default function GreenPage() {
