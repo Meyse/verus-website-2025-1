@@ -11,13 +11,9 @@
 !.yarn/releases
 !.yarn/versions
 
-#package lock files
+# non-pnpm lockfiles
 package-lock.json
-pnpm-lock.yaml
 yarn.lock
-
-#pnpm workspace
-pnpm-workspace.yaml
 
 # testing
 /coverage

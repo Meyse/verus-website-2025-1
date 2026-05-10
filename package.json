@@ -5,6 +5,7 @@
     "node": ">=20.9.0"
   },
   "private": true,
+  "packageManager": "pnpm@10.29.2",
   "scripts": {
     "clean": "git clean -xdf .next node_modules",
     "dev": "next dev",
