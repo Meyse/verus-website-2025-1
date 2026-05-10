@@ -21,43 +21,32 @@ export function WalletDownloads() {
       </div>
 
       {/* Download Sections */}
-      <div className="relative w-full overflow-hidden shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.3)] md:rounded-lg">
-        {/* Background gradient and pattern */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-50/70 to-white dark:from-blue-950/40 dark:to-gray-950"></div>
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15),transparent_50%)]"></div>
-
-        {/* Decorative elements */}
-        <div className="absolute right-6 top-6 z-0 h-14 w-14 rounded-full bg-blue-400/5 backdrop-blur-xl dark:bg-blue-400/10 md:right-10 md:top-10 md:h-20 md:w-20"></div>
-        <div className="bg-blue-500/3 absolute -bottom-10 -left-10 z-0 h-40 w-40 rounded-full blur-[60px] dark:bg-blue-500/5"></div>
-        <div className="absolute bottom-20 right-20 z-0 h-24 w-24 rounded-full bg-blue-400/5 blur-[30px] dark:bg-blue-400/10"></div>
-
-        {/* Content with border */}
-        <div className="relative z-10 border border-blue-100/80 p-8 dark:border-blue-900/30 md:p-16">
-          <div className="relative flex flex-col gap-8 md:grid md:grid-cols-[1fr,1fr] md:gap-0">
+      <div className="w-full overflow-hidden border border-gray-200 bg-white/90 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-950 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] md:rounded-lg">
+        <div className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/40 dark:to-gray-950">
+          <div className="flex flex-col md:grid md:grid-cols-[1fr,1fr]">
             {/* Mobile Section - Shows first on mobile */}
-            <div className="border-b border-blue-100/80 pb-8 dark:border-blue-900/30 md:hidden">
+            <div className="border-b border-gray-200 p-8 dark:border-gray-800 md:hidden">
               <MobileDownloads />
             </div>
 
             {/* Left Column - Desktop */}
-            <div className="md:pr-16">
+            <div className="p-8 md:p-14">
               <DownloadSection />
             </div>
 
             {/* Right Column - Mobile & CLI */}
-            <div className="space-y-0 md:border-l md:border-blue-100/80 md:pl-16 dark:md:border-blue-900/30">
+            <div className="border-t border-gray-200 dark:border-gray-800 md:border-l md:border-t-0">
               {/* Mobile Section */}
-              <div className="hidden border-b border-blue-100/80 pb-8 dark:border-blue-900/30 md:block md:pb-16">
+              <div className="hidden border-b border-gray-200 p-8 dark:border-gray-800 md:block md:p-14">
                 <MobileDownloads />
               </div>
 
               {/* CLI Section */}
-              {/* Mobile-only divider before CLI section */}
-              <div className="my-8 h-px w-full bg-blue-100/80 dark:bg-blue-900/30 md:hidden" />
-
-              <Suspense fallback={<CliDownloadsSkeleton />}>
-                <CliDownloads />
-              </Suspense>
+              <div className="p-8 md:p-14">
+                <Suspense fallback={<CliDownloadsSkeleton />}>
+                  <CliDownloads />
+                </Suspense>
+              </div>
             </div>
           </div>
         </div>

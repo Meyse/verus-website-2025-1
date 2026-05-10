@@ -9,7 +9,7 @@ export function DownloadSectionSkeleton() {
         <div className="h-[50px] animate-pulse rounded-lg bg-gray-200 dark:bg-gray-700" />
       </div>
       <div className="mt-3 flex items-center">
-        <div className="mr-3 text-sm font-medium text-black dark:text-white">
+        <div className="mr-3 text-sm font-medium text-gray-800 dark:text-white">
           Version:{' '}
         </div>
 

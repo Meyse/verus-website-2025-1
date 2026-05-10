@@ -36,7 +36,7 @@ export async function OsSelector() {
           />
         </TabsContent>
         <div className="mt-3 flex items-center">
-          <div className="mr-3 text-sm font-medium text-black dark:text-white">
+          <div className="mr-3 text-sm font-medium text-gray-800 dark:text-white">
             Version:{' '}
           </div>
 

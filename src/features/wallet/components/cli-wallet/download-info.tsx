@@ -13,17 +13,17 @@ export const CliDownloadInfo = async () => {
   const isGitHubError = !!error && !!error.includes('GitHub')
   return (
     <>
-      <div className="mb-8 flex items-center gap-8 text-[14px] text-black/60 dark:text-white/60 md:text-[16px]">
+      <div className="mb-8 flex items-center gap-8 text-[14px] text-gray-600 dark:text-gray-300 md:text-[16px]">
         <span>
           Version:{' '}
-          <span className="font-medium text-black dark:text-white">
+          <span className="font-medium text-gray-800 dark:text-white">
             {version}
           </span>
         </span>
         {releaseDate && (
           <span>
             Date:{' '}
-            <span className="font-medium text-black dark:text-white">
+            <span className="font-medium text-gray-800 dark:text-white">
               {releaseDate}
             </span>
           </span>
@@ -75,7 +75,7 @@ const AssetCard = ({
     <a
       href={asset?.url}
       className={cn(
-        'flex items-center gap-2 rounded-lg border border-[#E9EFFC] p-3 transition-colors hover:bg-[#E9EFFC]/5 dark:border-gray-700 dark:hover:bg-white/5',
+        'flex items-center gap-2 rounded-lg border border-gray-200 p-3 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-white/5',
         !asset?.url || asset.url === '#' ? 'pointer-events-none opacity-50' : ''
       )}
     >
@@ -87,10 +87,10 @@ const AssetCard = ({
         className="size-5 dark:invert"
       />
       <div className="flex flex-col">
-        <span className="text-[14px] text-black/75 dark:text-white/75">
+        <span className="text-[14px] text-gray-600 dark:text-gray-300">
           {os}
         </span>
-        <span className="text-[12px] text-black/40 dark:text-white/40">
+        <span className="text-[12px] text-gray-500 dark:text-gray-400">
           {asset?.size || 'N/A'}
         </span>
       </div>
