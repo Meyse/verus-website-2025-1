@@ -10,10 +10,10 @@ export default function VerificationIcons() {
       {getVerificationIcon(verify_type)}
       <h3 className="text-[18px] font-medium text-gray-900 dark:text-white">
         {verify_type === 'file'
-          ? 'File Verification'
+          ? 'File verification'
           : verify_type === 'message'
-            ? 'Message Verification'
-            : 'Hash Verification'}
+            ? 'Message verification'
+            : 'Hash verification'}
       </h3>
     </div>
   )

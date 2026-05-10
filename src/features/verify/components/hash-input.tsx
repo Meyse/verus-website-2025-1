@@ -29,12 +29,12 @@ export function FormHashField() {
             <input
               autoComplete="off"
               placeholder="Enter the hash to verify (hex format)"
-              className="w-full rounded-lg border border-blue-200/70 p-3 shadow-sm backdrop-blur-sm focus:border-verus-blue focus:ring-verus-blue dark:border-blue-800/30 dark:bg-gray-800/50 dark:text-white"
+              className="w-full rounded-lg border border-gray-300 bg-white p-3 shadow-sm focus:border-verus-blue focus:ring-verus-blue dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               {...field}
             />
           </FormControl>
           <FormDescription className="text-xs text-gray-500 dark:text-gray-400">
-            Enter the cryptographic hash that was signed (e.g., SHA-256 hash)
+            Enter the cryptographic hash that was signed (e.g., SHA-256 hash).
           </FormDescription>
         </FormItem>
       )}

@@ -9,56 +9,45 @@ export function VerifyTypeSelector({
   reset: (tab: 'message' | 'hash' | 'file') => void
 }) {
   const {verify_type} = useFormValues()
+  const tabs = [
+    {value: 'message', label: 'Message', icon: MessageSquare},
+    {value: 'file', label: 'File', icon: Upload},
+    {value: 'hash', label: 'Hash', icon: FileText},
+  ] as const
 
   return (
-    <div className="mb-8 flex flex-wrap justify-between gap-4">
-      <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={() => reset('message')}
-          className={`flex items-center gap-2 rounded-md px-4 py-2 text-[14px] font-medium transition-colors ${
-            verify_type === 'message'
-              ? 'bg-verus-blue text-white dark:bg-blue-700'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
-          }`}
-        >
-          <MessageSquare className="h-4 w-4" />
-          Message
-        </button>
-        <button
-          type="button"
-          onClick={() => reset('file')}
-          className={`flex items-center gap-2 rounded-md px-4 py-2 text-[14px] font-medium transition-colors ${
-            verify_type === 'file'
-              ? 'bg-verus-blue text-white dark:bg-blue-700'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
-          }`}
-        >
-          <Upload className="h-4 w-4" />
-          File
-        </button>
-        <button
-          type="button"
-          onClick={() => reset('hash')}
-          className={`flex items-center gap-2 rounded-md px-4 py-2 text-[14px] font-medium transition-colors ${
-            verify_type === 'hash'
-              ? 'bg-verus-blue text-white dark:bg-blue-700'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
-          }`}
-        >
-          <FileText className="h-4 w-4" />
-          Hash
-        </button>
-      </div>
+    <div className="border-b border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+      <div className="flex flex-col justify-between gap-0 md:flex-row md:items-center">
+        <div className="scrollbar-hide flex overflow-x-auto">
+          {tabs.map(({value, label, icon: Icon}) => (
+            <button
+              key={value}
+              type="button"
+              onClick={() => reset(value)}
+              className={`inline-flex whitespace-nowrap border-b-2 px-5 py-4 text-[14px] font-medium tracking-normal transition-colors md:px-8 md:text-[16px] ${
+                verify_type === value
+                  ? 'border-verus-blue text-verus-blue dark:border-blue-400 dark:text-blue-400'
+                  : 'border-transparent text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'
+              }`}
+            >
+              <span className="inline-flex items-center gap-2">
+                <Icon className="h-4 w-4" />
+                {label}
+              </span>
+            </button>
+          ))}
+        </div>
 
-      <a
-        href="/wallet"
-        rel="noopener noreferrer"
-        className="group flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-blue-200 bg-white/80 px-4 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200"
-      >
-        Download wallet to create signatures
-        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-      </a>
+        <div className="px-5 pb-4 md:px-8 md:pb-0">
+          <a
+            href="/wallet"
+            className="group flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white/90 px-4 text-[14px] font-medium text-gray-800 transition-all duration-300 hover:border-gray-400 hover:bg-white dark:border-gray-700 dark:bg-gray-900/80 dark:text-white dark:hover:border-gray-600"
+          >
+            Download wallet to create signatures
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
     </div>
   )
 }

@@ -36,21 +36,21 @@ export function Footer() {
         {/* Centered Text and Button */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-8">
           <h2 className="max-w-[700px] text-center text-[32px] font-medium leading-[1.1] tracking-tight text-white [text-shadow:_0_1px_20px_rgb(8_32_84_/_100%)] dark:[text-shadow:_0_1px_20px_rgb(0_0_0_/_60%)] md:text-[75px] md:[text-shadow:_0_1px_35px_rgb(8_32_84_/_100%)] dark:md:[text-shadow:_0_1px_35px_rgb(0_0_0_/_60%)]">
-            Start Building
+            Start building
             <br />
             the Internet of Value
             <br />
-            Right Now
+            right now
           </h2>
 
           <a
             href={env.NEXT_PUBLIC_DISCORD}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-[40px] items-center justify-center gap-2 rounded-lg bg-white px-6 text-[14px] font-medium text-black transition-colors hover:bg-gray-100 md:h-[50px] md:text-[16px]"
+            className="flex h-[40px] items-center justify-center gap-2 rounded-lg border border-white/70 bg-white/10 px-6 text-[14px] font-medium text-white backdrop-blur-sm transition-colors hover:border-white hover:bg-white/15 md:h-[50px] md:text-[16px]"
           >
-            Join the worldwide community
-            <IoLogoDiscord className="h-5 w-5 text-black md:h-6 md:w-6" />
+            Join the community
+            <IoLogoDiscord className="h-5 w-5 text-white md:h-6 md:w-6" />
           </a>
         </div>
       </div>

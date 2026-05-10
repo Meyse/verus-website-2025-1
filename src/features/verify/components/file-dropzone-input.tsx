@@ -47,11 +47,11 @@ export function FileDropZoneInput() {
     <div className="space-y-4">
       <div
         {...getRootProps()}
-        className="rounded-lg border-2 border-dashed border-blue-200/50 bg-blue-50/30 p-6 text-center backdrop-blur-sm dark:border-blue-800/30 dark:bg-blue-950/20"
+        className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-6 text-center dark:border-gray-700 dark:bg-gray-900"
       >
         <input {...getInputProps()} />
         <div className="flex flex-col items-center justify-center">
-          <Upload className="mx-auto h-12 w-12 text-blue-400 dark:text-blue-500" />
+          <Upload className="mx-auto h-12 w-12 text-verus-blue dark:text-blue-400" />
           {fileName ? (
             <div className="mt-2 space-y-3">
               <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -84,7 +84,7 @@ export function FileDropZoneInput() {
               ) : (
                 <div>
                   <h4 className="mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
-                    File Hash (SHA-256)
+                    File hash (SHA-256)
                   </h4>
                   <p className="max-w-full break-all rounded border border-gray-200 bg-gray-100 p-3 font-mono text-xs text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-blue-100">
                     {fileHash?.length > 0
@@ -98,7 +98,7 @@ export function FileDropZoneInput() {
             <>
               {isDragActive ? (
                 <p className="mt-2 text-sm font-medium text-gray-600 dark:text-gray-300">
-                  Drop the file here ...
+                  Drop the file here
                 </p>
               ) : (
                 <p className="mt-2 text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -107,7 +107,7 @@ export function FileDropZoneInput() {
               )}
 
               <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                Any file type is supported
+                Any file type is supported.
               </p>
             </>
           )}
