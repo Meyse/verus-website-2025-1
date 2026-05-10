@@ -1,7 +1,7 @@
 export function CliDownloadsSkeleton() {
   return (
     <>
-      <div className="mb-8 flex items-center gap-8 text-[14px] text-black/60 dark:text-white/60 md:text-[16px]">
+      <div className="mb-8 flex items-center gap-8 text-[14px] text-gray-600 dark:text-gray-300 md:text-[16px]">
         <div className="h-6 w-32 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
         <div className="h-6 w-48 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
       </div>

@@ -39,8 +39,15 @@ export async function fetchMiningInfo() {
       throw new Error('Invalid API response: missing result property')
     }
 
+    const blocks =
+      typeof json.result.blocks === 'number' &&
+      Number.isFinite(json.result.blocks)
+        ? json.result.blocks
+        : null
+
     return {
-      blocks: formatNumber(json.result.blocks),
+      blocks: blocks === null ? 'N/A' : formatNumber(blocks),
+      blocksValue: blocks,
       hashRate: formatHashRate(json.result.networkhashps),
       stakingSupply: `${formatNumber(Math.round(json.result.stakingsupply))} VRSC`,
       timestamp: Date.now(),
@@ -51,6 +58,7 @@ export async function fetchMiningInfo() {
     return {
       error: 'Failed to retrieve mining info',
       blocks: 'N/A',
+      blocksValue: null,
       hashRate: 'N/A',
       stakingSupply: 'N/A',
     }

@@ -1,159 +1,90 @@
 import Image from 'next/image'
 
+import {cn} from '@/lib/utils'
+
+const features = [
+  {
+    src: '/img/build/rapid.svg',
+    alt: 'Rapid development',
+    title: 'Simple APIs',
+    description:
+      'Integrate with familiar API calls instead of chain-specific languages.',
+  },
+  {
+    src: '/img/build/security.svg',
+    alt: 'Security',
+    title: 'Layer-1 security',
+    description:
+      'Protocol rules are validated by the network, not custom contracts.',
+  },
+  {
+    src: '/img/build/data.svg',
+    alt: 'Data storage',
+    title: 'On-chain data',
+    description:
+      'Store structured data with user-controlled encryption options.',
+  },
+  {
+    src: '/img/hero/scale.svg',
+    alt: 'Scale for world demand',
+    title: 'Horizontal scaling',
+    description:
+      'Add interoperable chains as demand grows.',
+  },
+  {
+    src: '/img/build/access.svg',
+    alt: 'API access',
+    title: 'Standard integration',
+    description:
+      'Call blockchain features from existing app stacks.',
+  },
+  {
+    src: '/img/build/build.svg',
+    alt: 'Technology stack freedom',
+    title: 'Any stack',
+    description:
+      'Build with the frameworks and languages you prefer.',
+  },
+] as const
+
 export function FeaturesGrid() {
   return (
-    <div className="-mx-4 w-screen md:mx-0 md:max-w-[1220px]">
-      <div className="mb-2 border border-white/50 bg-white/40 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] backdrop-blur-sm dark:border-gray-800/50 dark:bg-gray-900/40 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.3)] md:mb-4 md:rounded-lg">
-        <div className="flex flex-col py-8 md:py-12">
-          {/* First Row - 2 Features */}
-          <div className="grid grid-cols-1 divide-gray-200/70 px-6 dark:divide-gray-700/30 md:grid-cols-2 md:divide-x md:px-12">
-            {/* Low-cost, rapid & easy deployment */}
-            <div className="flex flex-col p-6 md:p-8 md:pr-12">
-              <div className="mb-4 flex items-center gap-4">
-                <Image
-                  src="/img/build/rapid.svg"
-                  alt="Rapid Development"
-                  width={40}
-                  height={40}
-                  className="size-10 flex-shrink-0 dark:opacity-80 dark:invert"
-                />
-                <h3 className="text-[16px] font-medium text-gray-900 dark:text-white md:text-[20px]">
-                  Simplified Development Path
-                </h3>
-              </div>
-              <p className="text-[14px] leading-relaxed text-gray-700 dark:text-gray-300 md:text-[15px]">
-                Reduce blockchain development costs and complexity with
-                API-based integration instead of specialized languages.
-                Eliminate the need for specialized blockchain developers while
-                maintaining full protocol capabilities.
+    <section className="bg-gray-50 dark:bg-gray-950">
+      <div className="grid grid-cols-2 md:grid-cols-3">
+        {features.map((feature, index) => {
+          const isMobileLeftColumn = index % 2 === 0
+          const isDesktopFirstColumn = index % 3 === 0
+          const isMobileBottomRow = index >= features.length - 2
+          const isDesktopBottomRow = index >= features.length - 3
+
+          return (
+            <article
+              key={feature.title}
+              className={cn(
+                'flex min-h-[190px] flex-col items-center justify-center border-gray-200 px-5 py-9 text-center dark:border-gray-800 md:min-h-[220px] md:px-8 md:py-10',
+                !isMobileLeftColumn && 'max-md:border-l',
+                !isMobileBottomRow && 'max-md:border-b',
+                !isDesktopFirstColumn && 'md:border-l',
+                !isDesktopBottomRow && 'md:border-b'
+              )}
+            >
+              <Image
+                src={feature.src}
+                alt={feature.alt}
+                width={44}
+                height={44}
+                className="mb-4 h-9 w-9 object-contain dark:opacity-80 dark:invert md:h-10 md:w-10"
+              />
+              <h3 className="text-[18px] font-bold leading-tight text-gray-800 dark:text-white md:text-[20px]">
+                {feature.title}
+              </h3>
+              <p className="mt-2 max-w-[220px] text-[14px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[15px]">
+                {feature.description}
               </p>
-            </div>
-
-            {/* Layer-1 security */}
-            <div className="flex flex-col p-6 md:p-8 md:pl-12">
-              <div className="mb-4 flex items-center gap-4">
-                <Image
-                  src="/img/build/security.svg"
-                  alt="Security"
-                  width={40}
-                  height={40}
-                  className="size-10 flex-shrink-0 dark:opacity-80 dark:invert"
-                />
-                <h3 className="text-[16px] font-medium text-gray-900 dark:text-white md:text-[20px]">
-                  Security Without the Audits
-                </h3>
-              </div>
-              <p className="text-[14px] leading-relaxed text-gray-700 dark:text-gray-300 md:text-[15px]">
-                Stop paying for expensive smart contract audits and still sleep
-                at night. Verus layer-1 protocol security means your app's core
-                functions are validated by the entire network, not just your
-                code.
-              </p>
-            </div>
-          </div>
-
-          {/* Horizontal divider */}
-          <div className="w-full px-6 py-4 md:px-12 md:py-6">
-            <div className="h-px w-full bg-gray-200/70 dark:bg-gray-700/30"></div>
-          </div>
-
-          {/* Second Row - 2 Features */}
-          <div className="grid grid-cols-1 divide-gray-200/70 px-6 dark:divide-gray-700/30 md:grid-cols-2 md:divide-x md:px-12">
-            {/* Publish & store data on-chain */}
-            <div className="flex flex-col p-6 md:p-8 md:pr-12">
-              <div className="mb-4 flex items-center gap-4">
-                <Image
-                  src="/img/build/data.svg"
-                  alt="Data Storage"
-                  width={40}
-                  height={40}
-                  className="size-10 flex-shrink-0 dark:opacity-80 dark:invert"
-                />
-                <h3 className="text-[16px] font-medium text-gray-900 dark:text-white md:text-[20px]">
-                  Structured On-Chain Data Storage
-                </h3>
-              </div>
-              <p className="text-[14px] leading-relaxed text-gray-700 dark:text-gray-300 md:text-[15px]">
-                Store application data directly on the blockchain with an
-                organized structure and encryption options. Create nested data
-                relationships with a controlled public storage system that users
-                own.
-              </p>
-            </div>
-
-            {/* Scale for world demand */}
-            <div className="flex flex-col p-6 md:p-8 md:pl-12">
-              <div className="mb-4 flex items-center gap-4">
-                <Image
-                  src="/img/hero/scale.svg"
-                  alt="Scale for world demand"
-                  width={40}
-                  height={40}
-                  className="size-10 flex-shrink-0 dark:opacity-80 dark:invert"
-                />
-                <h3 className="text-[16px] font-medium text-gray-900 dark:text-white md:text-[20px]">
-                  Horizontal Blockchain Scaling
-                </h3>
-              </div>
-              <p className="text-[14px] leading-relaxed text-gray-700 dark:text-gray-300 md:text-[15px]">
-                Add blockchain capacity by launching additional interoperable
-                chains when needed. Maintain consistent performance regardless
-                of network usage by distributing load across multiple chains.
-              </p>
-            </div>
-          </div>
-
-          {/* Horizontal divider */}
-          <div className="w-full px-6 py-4 md:px-12 md:py-6">
-            <div className="h-px w-full bg-gray-200/70 dark:bg-gray-700/30"></div>
-          </div>
-
-          {/* Third Row - 2 Features */}
-          <div className="grid grid-cols-1 divide-gray-200/70 px-6 dark:divide-gray-700/30 md:grid-cols-2 md:divide-x md:px-12">
-            {/* Full access with API calls */}
-            <div className="flex flex-col p-6 md:p-8 md:pr-12">
-              <div className="mb-4 flex items-center gap-4">
-                <Image
-                  src="/img/build/access.svg"
-                  alt="API Access"
-                  width={40}
-                  height={40}
-                  className="size-10 flex-shrink-0 dark:opacity-80 dark:invert"
-                />
-                <h3 className="text-[16px] font-medium text-gray-900 dark:text-white md:text-[20px]">
-                  Standard API Integration
-                </h3>
-              </div>
-              <p className="text-[14px] leading-relaxed text-gray-700 dark:text-gray-300 md:text-[15px]">
-                Access blockchain functionality through familiar API calls
-                rather than specialized languages. Interact with the blockchain
-                using the same methods you use for other web services.
-              </p>
-            </div>
-
-            {/* Build in any framework */}
-            <div className="flex flex-col p-6 md:p-8 md:pl-12">
-              <div className="mb-4 flex items-center gap-4">
-                <Image
-                  src="/img/build/build.svg"
-                  alt="Build Framework"
-                  width={40}
-                  height={40}
-                  className="size-10 flex-shrink-0 dark:opacity-80 dark:invert"
-                />
-                <h3 className="text-[16px] font-medium text-gray-900 dark:text-white md:text-[20px]">
-                  Technology Stack Freedom
-                </h3>
-              </div>
-              <p className="text-[14px] leading-relaxed text-gray-700 dark:text-gray-300 md:text-[15px]">
-                Implement blockchain features with whatever frontend and backend
-                technologies suit your project. Avoid being locked into
-                blockchain-specific frameworks or technologies
-              </p>
-            </div>
-          </div>
-        </div>
+            </article>
+          )
+        })}
       </div>
-    </div>
+    </section>
   )
 }

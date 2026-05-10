@@ -2,7 +2,7 @@
 
 import {useState} from 'react'
 
-import {Copy} from 'lucide-react'
+import {Check, Copy} from 'lucide-react'
 
 export function ContributeCopyButton() {
   const [copied, setCopied] = useState(false)
@@ -14,26 +14,19 @@ export function ContributeCopyButton() {
   }
 
   return (
-    <div className="mt-4 flex items-center">
-      <div className="relative flex-grow">
-        <div className="flex items-center justify-between rounded-lg border border-gray-300 bg-gray-50 p-3 pl-4 dark:border-gray-700 dark:bg-gray-800">
-          <span className="text-[16px] font-medium text-gray-800 dark:text-gray-200 md:text-[18px]">
-            Verus Coin Foundation@
-          </span>
-          <button
-            onClick={handleCopy}
-            className="ml-2 rounded-md p-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
-          >
-            {copied ? (
-              <div className="text-sm font-medium text-green-600 dark:text-green-400">
-                Copied!
-              </div>
-            ) : (
-              <Copy className="h-5 w-5 text-gray-600 dark:text-gray-400" />
-            )}
-          </button>
-        </div>
-      </div>
+    <div className="flex max-w-full items-center gap-2 rounded-lg border border-gray-200 bg-white p-2 pl-3 dark:border-gray-800 dark:bg-gray-900">
+      <span className="min-w-0 flex-1 select-all truncate font-mono text-[12px] text-gray-700 dark:text-gray-300 md:text-[13px]">
+        Verus Coin Foundation@
+      </span>
+      <button
+        type="button"
+        aria-label="Copy VerusID referral"
+        title={copied ? 'Copied' : 'Copy VerusID referral'}
+        onClick={handleCopy}
+        className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-white text-gray-600 transition-colors hover:border-blue-200 hover:text-verus-blue dark:border-blue-900/40 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-blue-700 dark:hover:text-blue-300"
+      >
+        {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+      </button>
     </div>
   )
 }

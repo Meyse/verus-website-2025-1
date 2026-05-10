@@ -25,6 +25,14 @@ type WebApplicationSchema = {
   codeRepository?: string | string[]
 }
 
+type WebPageSchema = {
+  path: string
+  name: string
+  description: string
+  mainEntity?: Record<string, unknown>
+  relatedLink?: string | string[]
+}
+
 const baseUrl = env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
 
 export const siteUrl = baseUrl.trim().replace(/\/$/, '')
@@ -132,6 +140,35 @@ export function createCollectionPageJsonLd({
       '@id': verusEntityId,
     },
     mainEntity,
+  }
+}
+
+export function createWebPageJsonLd({
+  path,
+  name,
+  description,
+  mainEntity,
+  relatedLink,
+}: WebPageSchema) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${absoluteUrl(path)}#webpage`,
+    url: absoluteUrl(path),
+    name,
+    description,
+    inLanguage: 'en-US',
+    isPartOf: {
+      '@id': websiteId,
+    },
+    about: {
+      '@id': verusEntityId,
+    },
+    publisher: {
+      '@id': verusEntityId,
+    },
+    mainEntity,
+    relatedLink,
   }
 }
 

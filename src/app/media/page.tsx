@@ -1,13 +1,18 @@
+import type {Metadata} from 'next'
+
 import {PressKit, TabBar} from '@/features/media/components'
 
-//default is PressKit
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/media',
+  },
+}
+
 export default function DefaultPage() {
   return (
-    <div>
+    <>
       <TabBar activeTab="press-kit" />
-      <div className="py-8">
-        <PressKit />
-      </div>
-    </div>
+      <PressKit />
+    </>
   )
 }

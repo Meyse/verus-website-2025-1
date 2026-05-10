@@ -7,7 +7,7 @@ const maxSupply = 83_540_184
 export async function CirculatingSupplyDisplay() {
   const {circulatingSupply, isEstimate} = await getSupply()
 
-  // Safety check - should never happen with our fallback
+  // Safety check, should never happen with our fallback.
   if (circulatingSupply === null) {
     return <SupplySkeleton />
   }
@@ -19,10 +19,10 @@ export async function CirculatingSupplyDisplay() {
   }
 
   return (
-    <div className="mb-12">
+    <div>
       <div className="mb-8">
-        <h3 className="mb-2 text-[14px] text-black/50 dark:text-white/50">
-          Circulating supply{isEstimate ? ' (estimate)' : ''}:
+        <h3 className="mb-2 text-[14px] text-gray-600 dark:text-gray-300">
+          Circulating supply{isEstimate ? ' (estimate)' : ''}
         </h3>
         <div className="text-[22px] font-medium text-verus-blue dark:text-white md:text-[26px]">
           {circulatingSupply.toLocaleString()} VRSC
@@ -31,7 +31,7 @@ export async function CirculatingSupplyDisplay() {
 
       {/* Progress Bar */}
       <div className="space-y-2">
-        <div className="relative h-4 overflow-hidden rounded-full border border-verus-blue bg-[#E9EFFC] transition-all duration-300">
+        <div className="relative h-4 overflow-hidden rounded-full border border-verus-blue/40 bg-[#E9EFFC] transition-all duration-300 dark:bg-blue-950/40">
           <div
             className="absolute left-0 top-0 h-full rounded-full bg-verus-blue"
             style={progressBarStyles.filled}
@@ -41,7 +41,7 @@ export async function CirculatingSupplyDisplay() {
             style={progressBarStyles.remaining}
           />
         </div>
-        <div className="flex items-center justify-end text-[12px] text-black/50 dark:text-white/70">
+        <div className="flex items-center justify-end text-[12px] text-gray-600 dark:text-gray-300">
           <span>Max supply: {maxSupply.toLocaleString()} VRSC</span>
         </div>
       </div>

@@ -17,46 +17,34 @@ export const metadata: Metadata = {
     'Verus is uniquely positioned to empower individuals, communities and developers around the world, sustainably.',
   keywords:
     'blockchain protocol, Web3 technology, cryptocurrency, sustainable blockchain, scalable protocol, Verus introduction',
+  alternates: {
+    canonical: '/intro',
+  },
 }
 
 export default function IntroPage() {
   return (
     <BgWrapper>
-      <div className="flex flex-col items-center px-4">
-        <div className="pt-[30px] md:pt-[70px]">
-          <div className="mx-auto max-w-[1220px] text-center">
-            <h1 className="text-center text-[32px] font-medium leading-[1.1] tracking-tight text-white md:text-[75px]">
-              The Protocol for Everyone
-            </h1>
-            <p className="mx-auto max-w-[400px] pt-[10px] text-center text-[16px] font-normal leading-snug tracking-tight text-white/90 dark:text-white/80 md:max-w-[900px] md:pt-[20px] md:text-[32px]">
-              Verus is uniquely positioned to empower individuals, communities
-              and developers around the world, sustainably.
-            </p>
+      <div className="bg-gradient-to-b from-gray-100 via-gray-100 to-white dark:from-gray-950 dark:via-gray-950 dark:to-gray-950">
+        <div className="flex flex-col items-center px-0 pb-16 pt-0 md:pb-24 xl:px-4 xl:pt-[54px]">
+          <div className="w-full min-w-0 max-w-full overflow-hidden border-b border-gray-200 bg-gray-50 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-950 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] xl:max-w-[1220px] xl:rounded-lg xl:border">
+            <section className="border-b border-gray-200 bg-gray-50 px-8 py-12 text-center dark:border-gray-800 dark:bg-gray-950 md:px-14 md:py-16">
+              <h1 className="mx-auto max-w-[320px] break-words text-[32px] font-medium leading-[1.05] tracking-tight text-gray-800 dark:text-white md:max-w-[900px] md:text-[58px]">
+                The protocol for everyone
+              </h1>
+              <p className="mx-auto mt-4 max-w-[320px] break-words text-[16px] font-normal leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:mt-5 md:max-w-[760px] md:text-[22px]">
+                Verus is uniquely positioned to empower individuals, communities
+                and developers around the world, sustainably.
+              </p>
+            </section>
+
+            <VisionMissionSection />
+            <TokenomicsSection />
+            <ScalingSection />
+            <ConsensusSection />
+            <PrivacySection />
+            <SmartTransactionsSection />
           </div>
-        </div>
-
-        <div className="flex w-full justify-center">
-          <VisionMissionSection />
-        </div>
-
-        <div className="flex w-full justify-center">
-          <TokenomicsSection />
-        </div>
-
-        <div className="flex w-full justify-center">
-          <ScalingSection />
-        </div>
-
-        <div className="flex w-full justify-center">
-          <ConsensusSection />
-        </div>
-
-        <div className="flex w-full justify-center">
-          <PrivacySection />
-        </div>
-
-        <div className="flex w-full justify-center">
-          <SmartTransactionsSection />
         </div>
       </div>
     </BgWrapper>

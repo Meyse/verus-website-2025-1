@@ -33,7 +33,7 @@ export function NavLink({
           {icon}
         </div>
         <div className="ml-3">
-          <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 group-hover:underline dark:text-white">
+          <div className="mb-1 flex items-center gap-2 text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
             {title}
             {isExternal && (
               <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />

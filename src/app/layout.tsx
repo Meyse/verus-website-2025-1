@@ -13,7 +13,7 @@ import {ThemeProvider} from '@/components/providers/next_theme_provider'
 import TanstackProvider from '@/components/providers/tanstack-query-provider'
 import {JsonLd} from '@/components/seo/json-ld'
 
-import {geomanist} from './fonts'
+import {geomanist, sourceSans} from './fonts'
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
@@ -45,10 +45,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html
       lang="en"
-      className={`${geomanist.variable}`}
+      className={`${geomanist.variable} ${sourceSans.variable}`}
       suppressHydrationWarning
     >
-      <body className={`${geomanist.className} antialiased`}>
+      <body className={`${sourceSans.className} antialiased`}>
         <JsonLd data={createSiteJsonLd()} />
         <NextTopLoader showSpinner={false} />
         <ThemeProvider

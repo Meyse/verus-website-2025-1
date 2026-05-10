@@ -1,7 +1,7 @@
 // Static FAQ data can be server-side rendered
 export const faqData = [
   {
-    title: 'Basic Understanding',
+    title: 'Basic understanding',
     questions: [
       {
         q: 'What is Verus?',
@@ -22,7 +22,7 @@ export const faqData = [
     ],
   },
   {
-    title: 'Technical Architecture',
+    title: 'Technical architecture',
     questions: [
       {
         q: 'What are Smart Transactions?',
@@ -43,7 +43,7 @@ export const faqData = [
     ],
   },
   {
-    title: 'Scalability & Performance',
+    title: 'Scalability and performance',
     questions: [
       {
         q: 'How does Verus scale?',
@@ -64,7 +64,7 @@ export const faqData = [
     ],
   },
   {
-    title: 'Mining & Staking',
+    title: 'Mining and staking',
     questions: [
       {
         q: 'Can I mine Verus?',
@@ -89,7 +89,7 @@ export const faqData = [
     ],
   },
   {
-    title: 'Privacy & Security',
+    title: 'Privacy and security',
     questions: [
       {
         q: 'How does Verus ensure privacy?',
@@ -110,7 +110,7 @@ export const faqData = [
     ],
   },
   {
-    title: 'Development & Usage',
+    title: 'Development and usage',
     questions: [
       {
         q: 'Can I build applications without knowing smart contracts?',
@@ -131,7 +131,7 @@ export const faqData = [
     ],
   },
   {
-    title: 'Economic Model',
+    title: 'Economic model',
     questions: [
       {
         q: 'What are the protocol fees used for?',
@@ -152,7 +152,7 @@ export const faqData = [
     ],
   },
   {
-    title: 'Community & Governance',
+    title: 'Community and governance',
     questions: [
       {
         q: 'Who controls Verus development?',

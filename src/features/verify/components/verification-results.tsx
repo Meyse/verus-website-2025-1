@@ -80,7 +80,7 @@ export default function VerificationResult({
               (errorList[0] as string)
             )
           ) : (
-            `${verificationType} signature successfully verified!`
+            `${verificationType} signature successfully verified.`
           )}
         </p>
         {/* Message signature succesfully verified! */}

@@ -1,43 +1,46 @@
 import Link from 'next/link'
 
+import {ExternalLink, FileText} from 'lucide-react'
+
 export interface ResourceCardProps {
   title: string
   description: string
   link: string
 }
+
+function getLinkHost(link: string) {
+  return new URL(link).hostname.replace(/^www\./, '')
+}
+
 export function ResourceCard({title, description, link}: ResourceCardProps) {
+  const linkHost = getLinkHost(link)
+
   return (
-    <div className="relative overflow-hidden p-10 md:p-14">
-      <div className="absolute right-0 top-0 z-0 h-[250px] w-[250px] -translate-y-1/3 translate-x-1/3 transform rounded-full bg-blue-500/5 blur-[60px] dark:bg-blue-500/10"></div>
-      <div className="relative z-10">
-        <h3 className="mb-4 bg-gradient-to-br from-blue-600 to-indigo-500 bg-clip-text text-[24px] font-medium text-gray-800 text-transparent dark:from-blue-400 dark:to-indigo-300 dark:text-white md:text-[30px]">
-          {title}
-        </h3>
-        <p className="mb-6 max-w-[500px] text-[15px] leading-relaxed text-gray-600 dark:text-gray-300 md:text-[17px]">
-          {description}
-        </p>
-        <Link
-          href={link}
-          target="_blank"
-          className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:text-[16px]"
-        >
-          Get Started
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
-        </Link>
-      </div>
-    </div>
+    <li>
+      <Link
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex min-w-0 items-start gap-4 px-8 py-5 transition-colors hover:bg-white dark:hover:bg-gray-900/50 md:px-10 md:py-6"
+      >
+        <span className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white text-verus-blue dark:border-gray-800 dark:bg-gray-900 dark:text-blue-400">
+          <FileText className="h-4 w-4" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="block min-w-0 break-words text-[16px] font-medium leading-tight text-gray-800 dark:text-white md:text-[17px]">
+            {title}
+          </span>
+          <span className="mt-1 block max-w-[760px] break-words text-[14px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[15px]">
+            {description}
+          </span>
+        </span>
+        <span className="ml-auto mt-1 flex min-w-0 flex-shrink-0 items-center justify-end gap-3 text-right text-gray-400 transition-colors group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300">
+          <span className="hidden max-w-[220px] truncate text-[12px] font-medium leading-tight tracking-normal text-gray-500 dark:text-gray-400 md:block">
+            {linkHost}
+          </span>
+          <ExternalLink className="h-4 w-4" />
+        </span>
+      </Link>
+    </li>
   )
 }

@@ -1,4 +1,20 @@
+import {Source_Sans_3} from 'next/font/google'
 import localFont from 'next/font/local'
+
+export const sourceSans = Source_Sans_3({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-source-sans-3',
+  fallback: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif',
+  ],
+})
 
 export const geomanist = localFont({
   src: [

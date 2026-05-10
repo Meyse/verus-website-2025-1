@@ -6,6 +6,8 @@ import Link from 'next/link'
 import {env} from '@/configs/env'
 import {ChevronDown, ChevronUp, Globe2} from 'lucide-react'
 
+import {Button} from '@/components/ui/button'
+
 const telegramChannels = [
   {
     language: 'Main (English)',
@@ -26,73 +28,83 @@ const telegramChannels = [
 
 export const TelegramCard = () => {
   const [telegramExpanded, setTelegramExpanded] = useState(false)
+
   return (
     <div className="space-y-3">
-      <Link
-        href={telegramChannels[0].url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 rounded-xl border border-blue-100/60 bg-white/80 px-4 py-3 backdrop-blur-sm dark:border-blue-900/20 dark:bg-gray-800/50"
+      <Button
+        asChild
+        variant="verusSecondaryDark"
+        size="verusCompact"
+        className="h-[40px] w-full justify-start px-4 py-0 text-[14px]"
       >
-        <span className="mr-1 text-xl">{telegramChannels[0].flag}</span>
-        <span className="text-[14px] text-gray-700 dark:text-gray-300">
-          {telegramChannels[0].language}
-        </span>
-      </Link>
+        <Link
+          href={telegramChannels[0].url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="mr-1 text-lg">{telegramChannels[0].flag}</span>
+          <span>{telegramChannels[0].language}</span>
+        </Link>
+      </Button>
 
       {telegramExpanded && (
-        <div className="space-y-2 pt-2">
-          {telegramChannels.slice(1).map((channel, index) => (
-            <Link
-              key={index}
-              href={channel.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-xl border border-blue-100/60 bg-white/80 px-4 py-2 backdrop-blur-sm dark:border-blue-900/20 dark:bg-gray-800/50"
+        <div className="space-y-2">
+          {telegramChannels.slice(1).map((channel) => (
+            <Button
+              key={channel.language}
+              asChild
+              variant="verusSecondaryDark"
+              size="verusCompact"
+              className="h-[38px] w-full justify-start px-4 py-0 text-[13px]"
             >
-              <span className="mr-1 text-xl">{channel.flag}</span>
-              <span className="text-[13px] text-gray-700 dark:text-gray-300">
-                {channel.language}
-              </span>
-            </Link>
+              <Link
+                href={channel.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="mr-1 text-lg">{channel.flag}</span>
+                <span>{channel.language}</span>
+              </Link>
+            </Button>
           ))}
         </div>
       )}
 
-      <button
+      <Button
+        type="button"
+        variant="verusSecondaryDark"
+        size="verusCompact"
         onClick={() => setTelegramExpanded(!telegramExpanded)}
-        className="flex w-full items-center justify-center gap-1 rounded-xl border border-blue-100/60 bg-white/80 px-4 py-2 text-[14px] text-verus-blue backdrop-blur-sm dark:border-blue-900/20 dark:bg-gray-800/50 dark:text-white"
+        className="h-[38px] w-full px-4 py-0 text-[14px]"
       >
         {telegramExpanded ? (
           <>
-            <span>Show Less</span>
+            <span>Show less</span>
             <ChevronUp className="h-4 w-4" />
           </>
         ) : (
           <>
-            <span>Show More Languages</span>
+            <span>Show more languages</span>
             <ChevronDown className="h-4 w-4" />
           </>
         )}
-      </button>
+      </Button>
 
-      <div className="mt-4 border-t border-blue-100/40 pt-4 dark:border-blue-900/20">
-        <p className="flex items-start gap-2 text-[13px] text-gray-500 dark:text-gray-400">
-          <Globe2 className="mt-0.5 h-4 w-4 flex-shrink-0" />
-          <span>
-            Want to create a channel for your language? Let us know in the
-            <Link
-              href={env.NEXT_PUBLIC_DISCORD}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mx-1 text-verus-blue hover:underline dark:text-blue-300"
-            >
-              #marketing
-            </Link>
-            channel on Discord.
-          </span>
-        </p>
-      </div>
+      <p className="flex items-start gap-2 border-t border-gray-200 pt-4 text-[13px] leading-relaxed text-gray-500 dark:border-gray-800 dark:text-gray-400">
+        <Globe2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-verus-blue dark:text-blue-400" />
+        <span>
+          Want to create a channel for your language? Let us know in the
+          <Link
+            href={env.NEXT_PUBLIC_DISCORD}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mx-1 text-verus-blue hover:underline dark:text-blue-300"
+          >
+            #marketing
+          </Link>
+          channel on Discord.
+        </span>
+      </p>
     </div>
   )
 }

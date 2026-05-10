@@ -82,7 +82,7 @@ export function CommunitySection() {
             rel="noopener noreferrer"
           >
             <IoLogoDiscord className="mr-2 h-5 w-5 text-[#5865F2]" />
-            <span className="text-[15px] font-[450] text-gray-800 group-hover:underline dark:text-white">
+            <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               Discord
             </span>
           </Link>
@@ -93,7 +93,7 @@ export function CommunitySection() {
             rel="noopener noreferrer"
           >
             <FaXTwitter className="mr-2 h-5 w-5 text-black dark:text-white" />
-            <span className="text-[15px] font-[450] text-gray-800 group-hover:underline dark:text-white">
+            <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               X.com
             </span>
           </Link>
@@ -104,7 +104,7 @@ export function CommunitySection() {
             rel="noopener noreferrer"
           >
             <FaTelegram className="mr-2 h-5 w-5 text-[#0088cc]" />
-            <span className="text-[15px] font-[450] text-gray-800 group-hover:underline dark:text-white">
+            <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               Telegram
             </span>
           </Link>
@@ -115,7 +115,7 @@ export function CommunitySection() {
             rel="noopener noreferrer"
           >
             <FaReddit className="mr-2 h-5 w-5 text-[#FF4500]" />
-            <span className="text-[15px] font-[450] text-gray-800 group-hover:underline dark:text-white">
+            <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               Reddit
             </span>
           </Link>
@@ -126,7 +126,7 @@ export function CommunitySection() {
             rel="noopener noreferrer"
           >
             <FaFacebook className="mr-2 h-5 w-5 text-[#1877F2]" />
-            <span className="text-[15px] font-[450] text-gray-800 group-hover:underline dark:text-white">
+            <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               Facebook
             </span>
           </Link>
@@ -137,7 +137,7 @@ export function CommunitySection() {
             rel="noopener noreferrer"
           >
             <FaYoutube className="mr-2 h-5 w-5 text-[#FF0000]" />
-            <span className="text-[15px] font-[450] text-gray-800 group-hover:underline dark:text-white">
+            <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               YouTube
             </span>
           </Link>

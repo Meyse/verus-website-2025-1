@@ -49,18 +49,18 @@ export default async function VerifyPage({
     <>
       <JsonLd data={verifyJsonLd} />
       <BgWrapper size="small">
-        <div className="flex flex-col">
-          <div className="flex-grow py-8 md:py-16">
-            <div className="mx-auto max-w-[1220px] md:px-8">
-              <div className="mb-8 px-4 md:mb-16 md:px-0">
-                <h1 className="text-[22px] font-medium leading-snug tracking-tight text-verus-blue dark:text-blue-400 md:text-[40px]">
-                  Verify signatures for files, messages, and hashes.
+        <div className="bg-gradient-to-b from-gray-100 via-gray-100 to-white dark:from-gray-950 dark:via-gray-950 dark:to-gray-950">
+          <div className="flex flex-col items-center px-0 pb-16 pt-0 md:pb-24 xl:px-4 xl:pt-[54px]">
+            <div className="w-full overflow-hidden border-b border-gray-200 bg-gray-50 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-950 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] xl:max-w-[1220px] xl:rounded-lg xl:border">
+              <section className="border-b border-gray-200 bg-gray-50 px-8 py-12 dark:border-gray-800 dark:bg-gray-950 md:px-14 md:py-16">
+                <h1 className="max-w-[860px] text-[32px] font-medium leading-[1.08] tracking-tight text-gray-800 dark:text-white md:text-[48px]">
+                  Verify signature
                 </h1>
-                <p className="mt-4 max-w-[800px] text-[16px] text-gray-700 dark:text-gray-300 md:text-[20px]">
+                <p className="mt-4 max-w-[760px] text-[16px] font-normal leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:mt-5 md:text-[22px]">
                   Confirm the authenticity of digital signatures using VerusIDs
                   to ensure data integrity and origin verification.
                 </p>
-              </div>
+              </section>
 
               <VerificationForm formInfo={updatedFormInfo} />
             </div>

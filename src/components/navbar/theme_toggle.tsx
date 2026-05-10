@@ -12,6 +12,7 @@ type ThemeModeControlProps = {
   className?: string
   labelClassName?: string
   controlClassName?: string
+  size?: 'default' | 'sm'
   variant?: 'default' | 'inverted'
 }
 
@@ -33,6 +34,7 @@ export function ThemeModeControl({
   className,
   labelClassName,
   controlClassName,
+  size = 'default',
   variant = 'default',
 }: ThemeModeControlProps) {
   const mounted = useIsMounted()
@@ -41,18 +43,21 @@ export function ThemeModeControl({
   const activeTheme: ThemeMode =
     mounted && isThemeMode(theme) ? theme : 'system'
   const isInverted = variant === 'inverted'
+  const isSmall = size === 'sm'
 
   return (
     <div
       className={cn(
-        'flex w-full items-center justify-between gap-4',
+        'flex w-full items-center justify-between',
+        isSmall ? 'gap-2' : 'gap-4',
         className
       )}
       suppressHydrationWarning
     >
       <span
         className={cn(
-          'text-[15px] font-medium',
+          'font-medium',
+          isSmall ? 'text-[13px]' : 'text-[15px]',
           isInverted ? 'text-gray-300' : 'text-gray-700 dark:text-gray-300',
           labelClassName
         )}
@@ -63,7 +68,8 @@ export function ThemeModeControl({
         role="group"
         aria-label="Theme"
         className={cn(
-          'flex h-10 items-center rounded-full border p-1',
+          'flex items-center rounded-full border p-1',
+          isSmall ? 'h-9' : 'h-10',
           isInverted
             ? 'border-gray-700 bg-[#151515]'
             : 'border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-900',
@@ -82,8 +88,15 @@ export function ThemeModeControl({
               disabled={!mounted}
               onClick={() => setTheme(value)}
               className={cn(
-                'flex h-8 items-center justify-center rounded-full text-[14px] font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-verus-blue focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-default dark:focus-visible:ring-offset-gray-950',
-                Icon ? 'w-12' : 'min-w-[82px] px-4',
+                'flex items-center justify-center rounded-full font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-verus-blue focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-default dark:focus-visible:ring-offset-gray-950',
+                isSmall ? 'h-7 text-[13px]' : 'h-8 text-[14px]',
+                Icon
+                  ? isSmall
+                    ? 'w-10'
+                    : 'w-12'
+                  : isSmall
+                    ? 'min-w-[64px] px-3'
+                    : 'min-w-[82px] px-4',
                 isInverted
                   ? cn(
                       'focus-visible:ring-offset-[#010101]',
@@ -98,7 +111,10 @@ export function ThemeModeControl({
             >
               {Icon ? (
                 <>
-                  <Icon className="h-5 w-5" aria-hidden="true" />
+                  <Icon
+                    className={cn(isSmall ? 'h-4 w-4' : 'h-5 w-5')}
+                    aria-hidden="true"
+                  />
                   <span className="sr-only">{label}</span>
                 </>
               ) : (

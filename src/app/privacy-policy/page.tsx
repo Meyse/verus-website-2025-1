@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description: "Verus privacy policy - we don't track you, we mean it.",
   keywords:
     'Verus privacy policy, no tracking, no cookies, privacy focused, blockchain privacy',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 }
 
 export default function PrivacyPolicyPage() {

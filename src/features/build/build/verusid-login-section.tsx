@@ -1,77 +1,60 @@
 import Image from 'next/image'
 
 import {env} from '@/configs/env'
-import {ExternalLink} from 'lucide-react'
+import {ArrowRight, ExternalLink} from 'lucide-react'
+
+import {Button} from '@/components/ui/button'
 
 export function VerusIDLoginSection() {
   return (
-    <div className="-mx-4 mt-4 w-screen md:mx-0 md:mt-4 md:max-w-[1220px]">
-      <div className="relative flex w-full flex-col items-center gap-8 overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800 p-8 pb-16 pt-16 shadow-[0_4px_40px_-12px_rgba(30,64,175,0.3)] dark:from-blue-950 dark:to-blue-900 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.5)] md:flex-row md:gap-16 md:rounded-lg md:p-8 md:pl-16 md:pr-8">
-        {/* Decorative elements */}
-        <div className="absolute left-[-10%] top-0 z-0 h-[300px] w-[300px] rounded-full bg-white/5 blur-[60px] dark:bg-white/10"></div>
-        <div className="absolute bottom-0 right-0 z-0 h-[200px] w-[200px] rounded-full bg-blue-500/20 blur-[50px] dark:bg-blue-400/10"></div>
-
-        {/* Left Content */}
-        <div className="relative z-10 w-full pl-4 md:w-1/2 md:pl-0">
+    <section className="border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="px-8 py-12 md:px-12 md:py-14">
           <Image
-            src="/img/verusid-logo-white.svg"
-            alt="VerusID Logo"
+            src="/img/verusid-logo.svg"
+            alt="VerusID"
             height={24}
-            width={100}
-            className="mb-8 h-6 w-auto md:mb-8"
+            width={118}
+            className="mb-8 h-6 w-auto"
           />
-          <h2 className="mb-4 text-[22px] font-medium leading-[1.1] tracking-tight text-white md:text-[40px]">
-            Introduce password-free login to your users.
+          <h2 className="mb-4 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[44px]">
+            Introduce password-free login to your users
           </h2>
-          <p className="mb-8 text-[14px] leading-[1.8] tracking-tight text-white/90 dark:text-white/80 md:text-[15px]">
-            Let your users login with their VerusID. No more passwords, no more
-            data breaches, no more forgotten credentials. Just scan a QR code
-            and you're in.
+          <p className="max-w-[760px] text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+            Let your users log in with their VerusID. No more passwords, no
+            more data breaches, no more forgotten credentials. Just scan a QR
+            code and you're in.
           </p>
-          <div className="flex flex-col gap-4 md:flex-row">
-            <a
-              href={`${env.NEXT_PUBLIC_MONKINS_GITHUB}/veruslogin/`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-white/10 bg-white/90 px-8 text-[14px] font-medium text-black backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:bg-white hover:shadow-lg hover:shadow-blue-700/20 dark:bg-white/95 dark:hover:shadow-blue-900/20 md:h-[50px] md:text-[16px]"
-            >
-              Integrate VerusID
-              <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-            <a
-              href="/build/verusid"
-              className="group flex h-[40px] w-fit items-center justify-center rounded-lg border border-white/20 bg-white/10 px-8 text-[14px] font-medium text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-white/30 hover:bg-white/20 hover:shadow-lg hover:shadow-blue-900/20 md:h-[50px] md:text-[16px]"
-            >
-              What is VerusID?
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+          <div className="mt-8 flex flex-col gap-4 md:flex-row">
+            <Button asChild variant="verusPrimary" size="verusWide">
+              <a
+                href={`${env.NEXT_PUBLIC_MONKINS_GITHUB}/veruslogin/`}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 12h14m-7-7l7 7-7 7"
-                />
-              </svg>
-            </a>
+                Integrate VerusID
+                <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </Button>
+            <Button asChild variant="verusSecondaryDark" size="verusWide">
+              <a href="/build/verusid">
+                What is VerusID?
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </Button>
           </div>
         </div>
 
-        {/* Right Image */}
-        <div className="z-10 flex w-full justify-center md:relative md:w-1/2 md:justify-end">
+        <div className="flex items-center justify-center border-t border-gray-200 px-8 py-10 dark:border-gray-800 md:border-l md:border-t-0 md:px-12 md:py-14">
           <Image
             src="/img/login-verusid.png"
-            alt="VerusID Login"
-            width={300}
-            height={300}
-            className="h-auto w-[300px] dark:opacity-90 md:w-[450px] md:translate-x-[20px]"
+            alt="VerusID login"
+            width={450}
+            height={450}
+            className="h-auto w-full max-w-[320px] dark:opacity-90 md:max-w-[450px]"
           />
         </div>
       </div>
-    </div>
+    </section>
   )
 }

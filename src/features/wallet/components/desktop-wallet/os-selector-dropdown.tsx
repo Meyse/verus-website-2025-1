@@ -36,7 +36,7 @@ export const OsSelectorDropdown = ({
       <div className="relative mt-4">
         <button
           onClick={() => setOpen(!open)}
-          className="group flex h-[40px] w-full items-center justify-between rounded-lg border border-blue-200 bg-white/80 px-8 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:border-blue-300 hover:text-blue-600 hover:shadow-lg dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 dark:hover:shadow-blue-950/50 md:h-[50px] md:text-[16px]"
+          className="group flex h-[40px] w-full items-center justify-between rounded-lg border border-gray-300 bg-white/90 px-8 text-[14px] font-medium text-gray-800 backdrop-blur-sm transition-all duration-300 hover:border-gray-400 hover:bg-white dark:border-gray-700 dark:bg-gray-900/80 dark:text-white dark:hover:border-gray-600 md:h-[50px] md:text-[16px]"
         >
           <span>Other downloads{isTestnet ? ' (Testnet)' : ''}</span>
           <ChevronDown
@@ -92,7 +92,7 @@ export const OsSelectorDropdown = ({
                         href={url}
                         className="group flex items-center justify-between px-6 py-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700"
                       >
-                        <span className="flex items-center gap-2 text-[14px] text-black dark:text-white md:text-[16px]">
+                        <span className="flex items-center gap-2 text-[14px] text-gray-800 dark:text-white md:text-[16px]">
                           <Image
                             src={osInfo.src}
                             alt={osInfo.alt}
@@ -107,7 +107,7 @@ export const OsSelectorDropdown = ({
                             </span>
                           )}
                         </span>
-                        <span className="text-black/60 dark:text-white/60">
+                        <span className="text-gray-600 dark:text-gray-300">
                           {size}
                         </span>
                       </a>

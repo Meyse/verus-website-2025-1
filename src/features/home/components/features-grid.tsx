@@ -90,7 +90,7 @@ export function FeaturesGrid() {
               height={44}
               className="mb-4 h-10 w-10 object-contain md:h-11 md:w-11"
             />
-            <h2 className="text-[18px] font-medium leading-tight text-black dark:text-white md:text-[20px]">
+            <h2 className="text-[18px] font-bold leading-tight text-black dark:text-white md:text-[20px]">
               {feature.title}
             </h2>
             <p className="mt-3 max-w-[230px] text-[14px] leading-relaxed text-gray-700 dark:text-gray-300 md:text-[15px]">

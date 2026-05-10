@@ -4,6 +4,7 @@ import type {NetWallet} from '@/features/wallet/utils/types'
 import Image from 'next/image'
 
 import {env} from '@/configs/env'
+import {MonitorDown} from 'lucide-react'
 
 import {cn} from '@/lib/utils'
 
@@ -32,44 +33,47 @@ export const OsSelectorTabContent = ({
 
   const asset = getCurrentAsset()
   const isGitHubError = gitHubError && gitHubError.includes('GitHub')
+  const isKnownOS = currentOS !== 'Unknown'
+  const isDownloadAvailable = isKnownOS && !!asset?.url && !gitHubError
+  const downloadLabel = isKnownOS
+    ? `Download for ${currentOS}`
+    : 'Choose desktop download'
+  const statusLabel = isGitHubError
+    ? 'Unavailable'
+    : isKnownOS
+      ? asset?.size || 'Unavailable'
+      : 'Select below'
+
   return (
     <>
       {/* Main Download Button */}
       <a
-        href={currentOS === 'Unknown' || gitHubError ? '#' : asset?.url || '#'}
+        href={isDownloadAvailable ? asset.url : '#'}
         className={cn(
-          'group flex h-[40px] items-center justify-between rounded-none border border-blue-500 bg-blue-600 px-6 text-[14px] font-medium text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:bg-blue-700 hover:shadow-lg dark:border-white/60 dark:bg-white/90 dark:text-black dark:hover:bg-white md:h-[50px] md:rounded-lg md:text-[16px]',
-          currentOS === 'Unknown' || !asset?.url || !!gitHubError
-            ? 'pointer-events-none cursor-default opacity-75'
-            : ''
+          'group flex h-[40px] items-center justify-between rounded-lg border border-verus-blue bg-verus-blue px-6 text-[14px] font-medium text-white backdrop-blur-sm transition-all duration-300 hover:bg-verus-blue/90 dark:border-verus-blue dark:bg-verus-blue dark:text-white dark:hover:bg-verus-blue/90 md:h-[50px] md:text-[16px]',
+          !isDownloadAvailable && 'pointer-events-none cursor-default opacity-75'
         )}
       >
         <span className="flex items-center gap-2">
-          {/* Use white icons in light mode and black icons in dark mode */}
-          <Image
-            src={`/img/${currentOS === 'macOS' ? 'apple' : currentOS === 'Linux' || currentOS === 'Linux ARM' ? 'linux' : 'windows'}.svg`}
-            alt={currentOS}
-            width={24}
-            height={24}
-            className="size-6 dark:hidden"
-          />
-          <Image
-            src={`/img/${currentOS === 'macOS' ? 'apple' : currentOS === 'Linux' || currentOS === 'Linux ARM' ? 'linux' : 'windows'}-black.svg`}
-            alt={currentOS}
-            width={24}
-            height={24}
-            className="hidden size-6 dark:block"
-          />
-          {`Download for ${currentOS}`}
+          {isKnownOS ? (
+            <Image
+              src={`/img/${currentOS === 'macOS' ? 'apple' : currentOS === 'Linux' || currentOS === 'Linux ARM' ? 'linux' : 'windows'}.svg`}
+              alt={currentOS}
+              width={24}
+              height={24}
+              className="size-6"
+            />
+          ) : (
+            <MonitorDown className="size-6" aria-hidden />
+          )}
+          {downloadLabel}
           {isTestnet && (
             <span className="ml-1 rounded-sm bg-amber-500 px-1.5 py-0.5 text-xs text-black">
               TESTNET
             </span>
           )}
         </span>
-        <span className="text-white/80 dark:text-black/80">
-          {gitHubError ? 'Unavailable' : asset?.size || 'Loading...'}
-        </span>
+        <span className="text-white/80">{statusLabel}</span>
       </a>
       {/* Error Message */}
       {isGitHubError && (

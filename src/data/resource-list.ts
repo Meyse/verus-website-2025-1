@@ -9,40 +9,40 @@ export const developerResources: ResourceCardProps[] = [
     link: `${env.NEXT_PUBLIC_MONKINS_GITHUB}/verusid/`,
   },
   {
-    title: 'Using VDXF Keys',
+    title: 'Using VDXF keys',
     description:
       'Understand how to work with VDXF keys in the Verus ecosystem.',
     link: `${env.NEXT_PUBLIC_MONKINS_GITHUB}/verusvdxf/getting-started-copy/`,
   },
   {
-    title: 'Storing Data in VerusID',
+    title: 'Storing data in VerusID',
     description: 'Explore how to store and manage data on a VerusID.',
     link: `${env.NEXT_PUBLIC_MONKINS_GITHUB}/verusstorage/getting-started/`,
   },
   {
-    title: 'VerusID Login Client',
+    title: 'VerusID login client',
     description: 'Implement decentralized authentication using VerusID.',
     link: `${env.NEXT_PUBLIC_MONKINS_GITHUB}/veruslogin/`,
   },
   {
-    title: 'Storing Files on Chain',
+    title: 'Storing files on chain',
     description:
       'Learn how to store and manage files directly on Verus or PBaaS chains.',
     link: `${env.NEXT_PUBLIC_MONKINS_GITHUB}/verusstorage/storing-files/`,
   },
   {
-    title: 'VerusID Login Template',
+    title: 'VerusID login template',
     description:
       'Get started quickly with this VerusID login integration template.',
     link: `${env.NEXT_PUBLIC_MONKINS_GITHUB}/veruslogin/login-template/`,
   },
   {
-    title: 'Create Attestations',
+    title: 'Create attestations',
     description: 'Build and manage attestations using VerusID.',
     link: `${env.NEXT_PUBLIC_MONKINS_GITHUB}/attestations/getting-started/`,
   },
   {
-    title: 'Launch Currencies',
+    title: 'Launch currencies',
     description: 'Create currencies on the Verus network.',
     link: `${env.NEXT_PUBLIC_VERUS_DOCS}/currencies/`,
   },
@@ -52,7 +52,7 @@ export const developerResources: ResourceCardProps[] = [
     link: `${env.NEXT_PUBLIC_VERUS_DOCS}/sendcurrency/`,
   },
   {
-    title: 'DeFi API Commands',
+    title: 'DeFi API commands',
     description: 'Explore the DeFi API commands for building transactions.',
     link: `${env.NEXT_PUBLIC_VERUS_DOCS}/sendcurrency/sendcurrency-examples.html`,
   },

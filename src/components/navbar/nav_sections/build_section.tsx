@@ -139,7 +139,7 @@ export function BuildSection() {
             className="group flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline"
           >
             <div>
-              <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white">
+              <div className="mb-1 flex items-center gap-2 text-[15px] font-semibold text-gray-800 dark:text-white">
                 Documentation
                 <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
               </div>
@@ -152,7 +152,7 @@ export function BuildSection() {
             className="group flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline"
           >
             <div>
-              <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white">
+              <div className="mb-1 flex items-center gap-2 text-[15px] font-semibold text-gray-800 dark:text-white">
                 Integration Documentation
                 <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
               </div>
@@ -165,7 +165,7 @@ export function BuildSection() {
             className="group flex items-start rounded-lg p-2 transition-colors [&>div>div]:hover:underline"
           >
             <div>
-              <div className="mb-1 flex items-center gap-2 text-[15px] font-[450] text-gray-800 dark:text-white">
+              <div className="mb-1 flex items-center gap-2 text-[15px] font-semibold text-gray-800 dark:text-white">
                 All API Commands
                 <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
               </div>
@@ -177,38 +177,19 @@ export function BuildSection() {
             href={env.NEXT_PUBLIC_DISCORD}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-8 block rounded-lg bg-gradient-to-br from-[#5865F2] to-[#404EED] p-5 transition-all hover:shadow-lg hover:shadow-[#5865F2]/20"
+            className="group mt-8 flex items-start rounded-lg border border-[#5865F2] bg-[#5865F2] p-4 transition-colors hover:border-[#4f5be8] hover:bg-[#4f5be8]"
           >
-            <div className="flex items-center">
-              <IoLogoDiscord className="h-9 w-9 text-white" />
-              <div className="ml-4">
-                <div className="text-[17px] font-medium text-white">
-                  Need help building with Verus?
-                </div>
-                <p className="mt-1 text-[14px] font-light text-white/90">
-                  Join the Discord for developer support
-                </p>
-              </div>
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/15 text-white transition-colors group-hover:bg-white/20">
+              <IoLogoDiscord className="h-6 w-6" />
             </div>
-            <div className="mt-3 flex items-center justify-between rounded-md bg-white/10 px-3 py-2 text-[13px] text-white/90 backdrop-blur-sm transition-colors group-hover:bg-white/20">
-              <span>Ask questions, share ideas, collaborate</span>
-              <span className="flex items-center text-white/80 transition-colors group-hover:text-white">
-                Join now
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="ml-1 h-4 w-4 transition-all duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </span>
+            <div className="ml-3">
+              <div className="mb-1 flex items-center gap-2 text-[15px] font-semibold text-white group-hover:underline">
+                Need help building with Verus?
+                <ExternalLink className="h-4 w-4 opacity-70 group-hover:opacity-100" />
+              </div>
+              <p className="text-sm text-white/85">
+                Join Discord for developer support.
+              </p>
             </div>
           </Link>
         </div>

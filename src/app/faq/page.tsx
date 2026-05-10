@@ -3,8 +3,7 @@ import type {Metadata} from 'next'
 import {faqData} from '@/data/faq'
 import {FaqContent} from '@/features/faq/content'
 
-import {BodyBgSmallImages} from '@/components/background-images'
-import {Footer} from '@/components/footer'
+import {BgWrapper} from '@/components/bg-wrapper'
 import {JsonLd} from '@/components/seo/json-ld'
 
 export const metadata: Metadata = {
@@ -13,6 +12,9 @@ export const metadata: Metadata = {
     'Find answers to common questions about Verus technology, protocol features, and how to get involved in the ecosystem.',
   keywords:
     'Verus FAQ, blockchain FAQ, cryptocurrency questions, Verus help, Verus information',
+  alternates: {
+    canonical: '/faq',
+  },
 }
 
 const faqJsonLd = {
@@ -34,23 +36,25 @@ export default function FaqPage() {
   return (
     <>
       <JsonLd data={faqJsonLd} />
-      <main className="relative mt-[50px] h-[calc(100vh-50px)] w-screen md:mt-[70px] md:h-[calc(100vh-70px)]">
-        <BodyBgSmallImages />
-
-        <div className="relative z-10 flex min-h-[calc(100vh-50px)] flex-col md:min-h-[calc(100vh-70px)]">
-          <div className="flex-grow py-8 md:py-16">
-            <div className="mx-auto max-w-[1220px] md:px-8">
-              <h1 className="mb-8 px-4 text-[22px] font-medium leading-snug tracking-tight text-verus-blue dark:text-blue-400 md:mb-16 md:px-0 md:text-[40px]">
-                Frequently asked questions.
-              </h1>
+      <BgWrapper>
+        <div className="bg-gradient-to-b from-gray-100 via-gray-100 to-white dark:from-gray-950 dark:via-gray-950 dark:to-gray-950">
+          <div className="flex flex-col items-center px-0 pb-16 pt-0 md:pb-24 xl:px-4 xl:pt-[54px]">
+            <div className="w-full min-w-0 max-w-full overflow-hidden border-b border-gray-200 bg-gray-50 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-950 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] xl:max-w-[1220px] xl:rounded-lg xl:border">
+              <section className="border-b border-gray-200 bg-gray-50 px-8 py-12 text-center dark:border-gray-800 dark:bg-gray-950 md:px-14 md:py-16">
+                <h1 className="mx-auto max-w-[320px] break-words text-[32px] font-medium leading-[1.05] tracking-tight text-gray-800 dark:text-white md:max-w-[900px] md:text-[58px]">
+                  Frequently asked questions
+                </h1>
+                <p className="mx-auto mt-4 max-w-[320px] break-words text-[16px] font-normal leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:mt-5 md:max-w-[760px] md:text-[22px]">
+                  Find answers about Verus technology, protocol features, and
+                  how to get involved.
+                </p>
+              </section>
 
               <FaqContent />
             </div>
           </div>
-
-          <Footer />
         </div>
-      </main>
+      </BgWrapper>
     </>
   )
 }
