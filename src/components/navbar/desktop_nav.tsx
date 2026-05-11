@@ -1,3 +1,8 @@
+'use client'
+
+import {useState} from 'react'
+import {usePathname} from 'next/navigation'
+
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -10,9 +15,17 @@ import {LearnSection} from './nav_sections/learn_section'
 import {UseSection} from './nav_sections/use_section'
 
 export function DesktopNav() {
+  const pathname = usePathname()
+  const [menuState, setMenuState] = useState({pathname, value: ''})
+  const activeMenu = menuState.pathname === pathname ? menuState.value : ''
+
   return (
     <nav className="ml-12 hidden items-center md:flex">
-      <NavigationMenu delayDuration={0}>
+      <NavigationMenu
+        delayDuration={0}
+        value={activeMenu}
+        onValueChange={(value) => setMenuState({pathname, value})}
+      >
         <NavigationMenuList className="gap-4">
           {/* Use Verus */}
           <NavMenuItem title="Use & Wallet">
