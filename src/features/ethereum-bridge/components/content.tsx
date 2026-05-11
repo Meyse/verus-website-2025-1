@@ -336,7 +336,7 @@ function BridgeContractMetrics({metrics}: {metrics: BridgeContractMetrics}) {
 
       <div className="flex flex-col border-t border-gray-200 dark:border-gray-800 md:border-l md:border-t-0">
         <div className="border-b border-gray-200 px-8 py-12 dark:border-gray-800 md:px-10 md:py-16">
-          <h3 className="text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[34px]">
+          <h3 className="text-[30px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white">
             Tokens and balances
           </h3>
           <p className="mt-4 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">

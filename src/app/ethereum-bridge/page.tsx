@@ -11,6 +11,8 @@ import {Button} from '@/components/ui/button'
 import {BgWrapper} from '@/components/bg-wrapper'
 import {JsonLd} from '@/components/seo/json-ld'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Verus-Ethereum Bridge',
   description:
