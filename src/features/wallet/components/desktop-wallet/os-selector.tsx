@@ -36,14 +36,14 @@ export async function OsSelector() {
           />
         </TabsContent>
         <div className="mt-3 flex items-center">
-          <div className="mr-3 text-sm font-medium text-black dark:text-white">
+          <div className="mr-3 text-sm font-medium text-gray-800 dark:text-white">
             Version:{' '}
           </div>
 
           <TabsList className="h-auto overflow-hidden border border-gray-300 p-0 dark:border-gray-600">
             <TabsTrigger
               value="mainnet"
-              className="px-4 text-white transition-colors data-[state=active]:bg-blue-600 data-[state=active]:dark:bg-blue-700"
+              className="px-4 text-gray-700 transition-colors hover:bg-gray-100 data-[state=active]:bg-gray-200 data-[state=active]:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 data-[state=active]:dark:bg-gray-700 data-[state=active]:dark:text-white"
             >
               Mainnet
             </TabsTrigger>

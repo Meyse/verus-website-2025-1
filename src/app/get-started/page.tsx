@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     'Your guide to joining the Verus ecosystem, from setting up your first wallet to participating in the network.',
   keywords:
     'get started blockchain, Verus wallet, cryptocurrency tutorial, Verus setup, blockchain beginners',
+  alternates: {
+    canonical: '/get-started',
+  },
 }
 
 export default function GetStartedPage() {

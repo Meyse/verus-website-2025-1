@@ -11,16 +11,19 @@ import {JsonLd} from '@/components/seo/json-ld'
 export const metadata: Metadata = {
   title: 'The Verus Wallet',
   description:
-    'Your ultimate crypto wallet and self-sovereign identity solution.',
+    'Download Verus Desktop, Verus Mobile, and command-line wallets for managing VRSC, ecosystem currencies, and VerusID.',
   keywords:
     'crypto wallet, blockchain wallet, self-sovereign identity, Verus wallet, identity wallet, digital wallet',
+  alternates: {
+    canonical: '/wallet',
+  },
 }
 
 const walletJsonLd = createSoftwareApplicationJsonLd({
   name: 'Verus Wallet',
   path: '/wallet',
   description:
-    'A crypto wallet and self-sovereign identity solution for Verus and ecosystem currencies.',
+    'Desktop, mobile, and command-line wallet software for managing VRSC, ecosystem currencies, and VerusID self-sovereign identity.',
   applicationCategory: 'FinanceApplication',
   operatingSystem: ['Windows', 'macOS', 'Linux', 'iOS', 'Android'],
   featureList: [

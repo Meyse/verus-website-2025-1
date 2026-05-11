@@ -9,12 +9,12 @@ import {OsSelector} from './os-selector'
 export function DownloadSection() {
   return (
     <>
-      <h2 className="mb-4 text-[22px] font-medium leading-[1.1] tracking-tight text-black dark:text-white md:text-[32px]">
+      <h2 className="mb-4 text-[22px] font-medium leading-[1.1] tracking-tight text-gray-800 dark:text-white md:text-[32px]">
         Download Verus Desktop
       </h2>
       <Suspense
         fallback={
-          <div className="mb-8 flex items-center gap-8 text-[14px] text-black/60 dark:text-white/60 md:text-[16px]">
+          <div className="mb-8 flex items-center gap-8 text-[14px] text-gray-600 dark:text-gray-300 md:text-[16px]">
             <div className="h-6 w-32 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
             <div className="h-6 w-48 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
           </div>
@@ -33,7 +33,7 @@ export function DownloadSection() {
         </Suspense>
       </div>
       <div className="mt-8">
-        <p className="mt-8 text-[14px] text-black/60 dark:text-white/60 md:text-[15px]">
+        <p className="mt-8 text-[14px] text-gray-600 dark:text-gray-300 md:text-[15px]">
           Verus Desktop is open source. View the source code on{' '}
           <a
             href={`${env.NEXT_PUBLIC_VERUS_GITHUB}/Verus-Desktop`}

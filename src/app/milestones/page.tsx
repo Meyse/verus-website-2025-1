@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     'Tracking the evolution of Verus from genesis to a comprehensive blockchain ecosystem.',
   keywords:
     'blockchain history, Verus timeline, cryptocurrency development, blockchain milestones, Verus evolution',
+  alternates: {
+    canonical: '/milestones',
+  },
 }
 
 export default function MilestonesPage() {

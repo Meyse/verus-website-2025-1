@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     'Help shape the future of blockchain technology by contributing to Verus in various ways—from code and marketing to community support and financial backing.',
   keywords:
     'contribute blockchain, Verus contribution, open source contribution, blockchain development, community support',
+  alternates: {
+    canonical: '/contribute',
+  },
 }
 
 export default function ContributePage() {

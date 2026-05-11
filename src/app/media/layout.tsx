@@ -10,10 +10,6 @@ export const metadata: Metadata = {
     'Everything you need to tell the Verus story accurately, including press kit details and official brand assets.',
   keywords:
     'Verus press kit, blockchain media, cryptocurrency press, brand assets, Verus media',
-
-  alternates: {
-    canonical: '/media',
-  },
 }
 
 export default function MediaLayout({children}: {children: React.ReactNode}) {

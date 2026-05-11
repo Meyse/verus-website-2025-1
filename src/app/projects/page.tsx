@@ -20,11 +20,14 @@ import {Button} from '@/components/ui/button'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Projects Built with Verus',
+  title: 'Projects built with Verus',
   description:
     'Explore wallets, applications, dashboards, and tools built with or around the Verus Protocol.',
   keywords:
     'Verus projects, Verus ecosystem, blockchain applications, cryptocurrency projects, Web3 applications, dApps',
+  alternates: {
+    canonical: '/projects',
+  },
 }
 
 export default async function ProjectsPage() {

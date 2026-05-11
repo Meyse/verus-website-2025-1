@@ -14,6 +14,7 @@ import {zodResolver} from '@hookform/resolvers/zod'
 import {useHookFormAction} from '@next-safe-action/adapter-react-hook-form/hooks'
 
 import {Form} from '@/components/ui/form'
+import {Button} from '@/components/ui/button'
 
 import {AutoVerification} from './auto-verified'
 import {FileDropZoneInput} from './file-dropzone-input'
@@ -103,45 +104,36 @@ export function VerificationForm({formInfo}: {formInfo: VerificationFormType}) {
   }, [action.isIdle, auto, form, formInfo.error])
 
   return (
-    <div className="relative w-full overflow-hidden border border-blue-100/80 bg-white/80 p-6 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] backdrop-blur-sm dark:border-blue-900/30 dark:bg-gray-900/50 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.3)] md:rounded-lg">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15),transparent_50%)]"></div>
-
-      <div className="relative">
-        <Form {...form}>
-          {/* Auto-verification notification */}
+    <section className="bg-white dark:bg-gray-950">
+      <Form {...form}>
+        <VerifyTypeSelector reset={resetForm} />
+        <div className="px-8 py-10 md:px-14 md:py-14">
+          <div className="max-w-[820px]">
           <AutoVerification />
-          <VerifyTypeSelector reset={resetForm} />
           <form onSubmit={handleSubmitWithAction} className="space-y-6">
-            {/* Current verification type header */}
             <VerificationIcons />
-            {/* Verification result - moved to top of form */}
-            {
-              <VerificationResult
-                status={{
-                  isPending: action.isPending,
-                  isIdle: action.isIdle,
-                  hasSucceeded: action.hasSucceeded,
-                  hasErrored: action.hasErrored,
-                }}
-                valid={valid}
-              />
-            }
-            {/* Verification content based on selected type */}
+            <VerificationResult
+              status={{
+                isPending: action.isPending,
+                isIdle: action.isIdle,
+                hasSucceeded: action.hasSucceeded,
+                hasErrored: action.hasErrored,
+              }}
+              valid={valid}
+            />
             <FormMessageField />
             <FileDropZoneInput />
             <FormHashField />
-            {/* VerusID input */}
             <FormVerusIdField />
-            {/* Signature input */}
             <FormSignatureField />
-            {/* Submit button */}
 
             <div className="mt-8">
-              <button
+              <Button
                 type="submit"
                 disabled={action.isPending}
-                className="h-[46px] rounded-lg bg-verus-blue px-6 py-2 font-medium text-white shadow transition-all duration-300 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+                variant="verusPrimary"
+                size="verus"
+                className="w-full md:w-fit"
               >
                 {action.isPending ? (
                   <span className="flex items-center justify-center">
@@ -165,16 +157,17 @@ export function VerificationForm({formInfo}: {formInfo: VerificationFormType}) {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    Verifying...
+                    Verifying
                   </span>
                 ) : (
                   'Verify signature'
                 )}
-              </button>
+              </Button>
             </div>
           </form>
-        </Form>
-      </div>
-    </div>
+          </div>
+        </div>
+      </Form>
+    </section>
   )
 }

@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     'Learn about the technical foundations and innovations behind the Verus Protocol.',
   keywords:
     'blockchain whitepaper, Verus technical documents, cryptocurrency research, blockchain technology papers, Verus documentation',
+  alternates: {
+    canonical: '/papers',
+  },
 }
 
 const papersJsonLd = createCollectionPageJsonLd({

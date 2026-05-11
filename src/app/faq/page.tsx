@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     'Find answers to common questions about Verus technology, protocol features, and how to get involved in the ecosystem.',
   keywords:
     'Verus FAQ, blockchain FAQ, cryptocurrency questions, Verus help, Verus information',
+  alternates: {
+    canonical: '/faq',
+  },
 }
 
 const faqJsonLd = {

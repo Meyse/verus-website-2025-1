@@ -7,13 +7,16 @@ import {Suspense} from 'react'
 import Image from 'next/image'
 
 import {ExternalLink} from 'lucide-react'
+import {FaMedium} from 'react-icons/fa'
 
 import {TextLinkButton} from '@/components/ui/text-link-button'
 import {cn} from '@/lib/utils'
 
 import {
+  BRIDGE_LAUNCH_ARTICLE_URL,
   ETHEREUM_BRIDGE_CONTRACT_ADDRESS,
   ETHEREUM_BRIDGE_CONTRACT_URL,
+  VIP_ARTICLE_URL,
 } from '../constants'
 import {getBridgeContractMetrics} from '../server/get-bridge-contract-metrics'
 import {ContractCopyButton} from './contract-copy-button'
@@ -333,7 +336,7 @@ function BridgeContractMetrics({metrics}: {metrics: BridgeContractMetrics}) {
 
       <div className="flex flex-col border-t border-gray-200 dark:border-gray-800 md:border-l md:border-t-0">
         <div className="border-b border-gray-200 px-8 py-12 dark:border-gray-800 md:px-10 md:py-16">
-          <h3 className="text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[34px]">
+          <h3 className="text-[30px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white">
             Tokens and balances
           </h3>
           <p className="mt-4 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
@@ -384,11 +387,16 @@ function ContractAndTrustSection() {
 function BridgeDetailsSection() {
   const sections = [
     {
-      heading: 'Verus Internet Protocol (VIP) secure bridging',
+      heading: 'Secure bridging with Verus Internet Protocol (VIP)',
       paragraphs: [
         'The Verus-Ethereum Bridge uses the Verus Internet Protocol (VIP) for cross-chain communication. It relies on cryptographic proofs, with witnesses validating notarizations created by network validators, the miners and stakers of Verus.',
         'The bridge ensures non-custodial, decentralized, secure, and transparent cross-chain transactions between Verus and Ethereum.',
       ],
+      link: {
+        href: VIP_ARTICLE_URL,
+        label:
+          'Verus Internet Protocol (VIP): provable, decentralized cross-chain communication',
+      },
     },
     {
       heading: 'The bridge has its own currency with liquidity pool',
@@ -397,6 +405,10 @@ function BridgeDetailsSection() {
         'The Bridge.vETH currency function is to make the bridging of assets simple. From either side of the bridge, it converts the fees that you need seamlessly.',
         'The value of Bridge.vETH increases relative to its reserves when fees or interest from the Dai Savings Rate are added to the reserves without new Bridge.vETH being minted.',
       ],
+      link: {
+        href: BRIDGE_LAUNCH_ARTICLE_URL,
+        label: 'Bridging done right: Verus-Ethereum Bridge launches now',
+      },
     },
   ]
 
@@ -424,6 +436,17 @@ function BridgeDetailsSection() {
                 </p>
               ))}
             </div>
+            {'link' in section && (
+              <TextLinkButton
+                href={section.link.href}
+                className="-ml-2 mt-5"
+                icon={
+                  <FaMedium className="h-4 w-4 text-gray-700 dark:text-gray-300" />
+                }
+              >
+                {section.link.label}
+              </TextLinkButton>
+            )}
           </div>
         </article>
       ))}
