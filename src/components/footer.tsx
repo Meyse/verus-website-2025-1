@@ -17,7 +17,7 @@ import {ThemeModeControl} from '@/components/navbar'
 
 export function Footer() {
   return (
-    <footer className="-mx-4 mt-16 w-screen md:mx-0 md:mt-0">
+    <footer className="mt-16 w-full overflow-hidden md:mt-0">
       <div className="relative">
         <Image
           src="/img/bg-footer.webp"
