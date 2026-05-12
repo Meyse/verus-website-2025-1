@@ -37,7 +37,7 @@ function FeaturedProjectCard({project}: {project: Project}) {
       className="group block overflow-hidden rounded-lg border border-gray-200 bg-white transition-all duration-300 hover:border-gray-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700"
       href={`/projects/${project.slug}`}
     >
-      <div className="relative aspect-[3/1] w-full overflow-hidden bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/40 dark:to-gray-950">
+      <div className="relative aspect-[8/3] w-full overflow-hidden bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/40 dark:to-gray-950">
         {featuredImageSrc ? (
           <Image
             alt={`${project.name} featured image`}

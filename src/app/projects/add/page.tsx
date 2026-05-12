@@ -49,8 +49,8 @@ verusFeatures:
 # Optional images go next to this file. Featured images are optional. Wallets,
 # apps, and dashboards with one are eligible for the random 24-hour Featured
 # rotation on verus.io.
-# - logo.png/logo.jpg/logo.webp: 512x512px square
-# - featured.png/featured.jpg/featured.webp: 1200x400px, 3:1 aspect ratio
+# - logo.png/logo.jpg/logo.webp: 128x128px square
+# - featured.png/featured.jpg/featured.webp: 800x300px, 8:3 aspect ratio
 # - screenshot1.png through screenshot6.png: at least 1200px wide`
 
 const registryRepoUrl = 'https://github.com/Meyse/verus-projects'
@@ -148,7 +148,7 @@ export default function AddProjectPage() {
                               logo.png
                             </code>
                             <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                              Optional. Use a square 512x512px image.
+                              Optional. Use a square 128x128px image.
                             </p>
                           </div>
                           <div className="p-4">
@@ -171,7 +171,7 @@ export default function AddProjectPage() {
                               featured.png
                             </code>
                             <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                              Optional. Use 1200x400px. Wallets, apps, and
+                              Optional. Use 800x300px. Wallets, apps, and
                               dashboards can rotate every 24 hours, with up to 3
                               shown.
                             </p>
