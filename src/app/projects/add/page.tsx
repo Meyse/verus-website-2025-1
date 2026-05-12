@@ -32,11 +32,14 @@ repoUrl: "https://github.com/your-org/your-repo"
 websiteUrl: "https://your-project.example"
 docsUrl: "https://docs.your-project.example"
 verusFeatures:
-  - VerusID`
+  - VerusID
+
+# Optional images go next to this file:
+# - logo.png/logo.jpg/logo.webp: 512x512px square
+# - featured.png/featured.jpg/featured.webp: 1200x400px, 3:1 aspect ratio
+# - screenshot1.png through screenshot6.png: at least 1200px wide`
 
 const registryRepoUrl = 'https://github.com/Meyse/verus-projects'
-const registryNewIssueUrl =
-  'https://github.com/Meyse/verus-projects/issues/new/choose'
 
 export default function AddProjectPage() {
   return (
@@ -90,19 +93,20 @@ export default function AddProjectPage() {
                     <code className="rounded-md border border-gray-200 bg-white px-1.5 py-0.5 text-[14px] text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
                       projects/your-project-slug/
                     </code>
-                    . Use <code>logo.png</code>, <code>screenshot1.png</code>{' '}
-                    through <code>screenshot6.png</code>, and{' '}
-                    <code>featured.png</code> when the project should be
-                    eligible for the Featured section.
+                    . Use a square <code>512x512px</code> logo named{' '}
+                    <code>logo.png</code>, a <code>1200x400px</code> featured
+                    image named <code>featured.png</code>, and screenshots named{' '}
+                    <code>screenshot1.png</code> through{' '}
+                    <code>screenshot6.png</code>. PNG, JPG, and WebP are
+                    supported.
                   </li>
                   <li>
                     <span className="font-medium text-gray-800 dark:text-white">
                       3. Submit for review
                     </span>
                     <br />
-                    Open a pull request in the registry repo. If that is not
-                    convenient, use the project submission issue form or ask for
-                    help in the #marketing channel in Discord.
+                    Open a pull request in the registry repo. If you need help
+                    preparing the PR, ask in the #marketing channel in Discord.
                   </li>
                 </ol>
 
@@ -114,16 +118,6 @@ export default function AddProjectPage() {
                       target="_blank"
                     >
                       Open registry repo
-                      <ExternalLink className="h-4 w-4 opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
-                    </a>
-                  </Button>
-                  <Button asChild size="verus" variant="verusSecondary">
-                    <a
-                      href={registryNewIssueUrl}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      Use issue form
                       <ExternalLink className="h-4 w-4 opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
                     </a>
                   </Button>
