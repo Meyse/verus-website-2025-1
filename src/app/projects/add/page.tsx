@@ -34,7 +34,8 @@ docsUrl: "https://docs.your-project.example"
 verusFeatures:
   - VerusID
 
-# Optional images go next to this file:
+# Optional images go next to this file. Featured images are optional; projects
+# with one are eligible for the random 24-hour Featured rotation on verus.io.
 # - logo.png/logo.jpg/logo.webp: 512x512px square
 # - featured.png/featured.jpg/featured.webp: 1200x400px, 3:1 aspect ratio
 # - screenshot1.png through screenshot6.png: at least 1200px wide`
@@ -94,11 +95,14 @@ export default function AddProjectPage() {
                       projects/your-project-slug/
                     </code>
                     . Use a square <code>512x512px</code> logo named{' '}
-                    <code>logo.png</code>, a <code>1200x400px</code> featured
-                    image named <code>featured.png</code>, and screenshots named{' '}
+                    <code>logo.png</code>, screenshots named{' '}
                     <code>screenshot1.png</code> through{' '}
-                    <code>screenshot6.png</code>. PNG, JPG, and WebP are
-                    supported.
+                    <code>screenshot6.png</code>, and optionally a{' '}
+                    <code>1200x400px</code> featured image named{' '}
+                    <code>featured.png</code>. Projects with a featured image
+                    are eligible for the random 24-hour Featured rotation on the
+                    projects page, where up to 3 are shown at a time. PNG, JPG,
+                    and WebP are supported.
                   </li>
                   <li>
                     <span className="font-medium text-gray-800 dark:text-white">
