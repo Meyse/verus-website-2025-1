@@ -1,6 +1,7 @@
 'use client'
 
 import {useMemo, useState} from 'react'
+
 import {Check, Copy, Download} from 'lucide-react'
 
 import {Button} from '@/components/ui/button'
@@ -32,7 +33,7 @@ export function ProjectTemplateActions({template}: {template: string}) {
       </Button>
 
       <Button asChild className="px-5" size="verus" variant="verusSecondary">
-        <a download="project-template.yaml" href={downloadHref}>
+        <a download="project.yaml" href={downloadHref}>
           <Download className="h-4 w-4" />
           Download YAML
         </a>
@@ -40,4 +41,3 @@ export function ProjectTemplateActions({template}: {template: string}) {
     </div>
   )
 }
-

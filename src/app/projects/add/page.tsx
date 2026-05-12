@@ -20,22 +20,35 @@ const yamlTemplate = `name: "Your project name"
 slug: "your-project-slug"
 description: "Short one-line description"
 longDescription: |
-  Describe what the project does and how it uses Verus.
+  Describe what the project does and how it uses Verus. Markdown is supported.
 
   ## Features
 
   - Feature one
   - Feature two
 
+# wallet | app | dashboard | tool | other
 category: "app"
-repoUrl: "https://github.com/your-org/your-repo"
-websiteUrl: "https://your-project.example"
-docsUrl: "https://docs.your-project.example"
+
+# Optional project maintainer. Defaults to the GitHub repository owner when
+# repoUrl is provided, otherwise "Verus community".
+# maintainer: "Your name or organization"
+
+# Optional, but recommended when the project is open source.
+# repoUrl: "https://github.com/your-org/your-repo"
+
+# Optional project links. Delete unused fields.
+# websiteUrl: "https://your-project.example"
+# docsUrl: "https://docs.your-project.example"
+
+# VerusID, Currencies, DeFi, Cross-chain, Zero-knowledge privacy,
+# Marketplace, Data, PBaaS-chain, Staking, Mining
 verusFeatures:
   - VerusID
 
-# Optional images go next to this file. Featured images are optional; projects
-# with one are eligible for the random 24-hour Featured rotation on verus.io.
+# Optional images go next to this file. Featured images are optional. Wallets,
+# apps, and dashboards with one are eligible for the random 24-hour Featured
+# rotation on verus.io.
 # - logo.png/logo.jpg/logo.webp: 512x512px square
 # - featured.png/featured.jpg/featured.webp: 1200x400px, 3:1 aspect ratio
 # - screenshot1.png through screenshot6.png: at least 1200px wide`
@@ -73,44 +86,119 @@ export default function AddProjectPage() {
                 <h2 className="mb-4 font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
                   How to submit
                 </h2>
-                <ol className="space-y-5 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
-                  <li>
-                    <span className="font-medium text-gray-800 dark:text-white">
-                      1. Create a project file
+                <ol className="divide-y divide-gray-200 border-y border-gray-200 dark:divide-gray-800 dark:border-gray-800">
+                  <li className="grid gap-4 py-6 md:grid-cols-[2.25rem_1fr]">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-sm font-medium text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200">
+                      1
                     </span>
-                    <br />
-                    In the registry repo, add a YAML file at{' '}
-                    <code className="rounded-md border border-gray-200 bg-white px-1.5 py-0.5 text-[14px] text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
-                      projects/your-project-slug/project.yaml
-                    </code>
-                    .
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-medium tracking-tight text-gray-800 dark:text-white">
+                        Fork the registry repo
+                      </h3>
+                      <p className="mt-2 max-w-2xl text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+                        Project submissions happen through pull requests so the
+                        registry can validate them before publishing.
+                      </p>
+                    </div>
                   </li>
-                  <li>
-                    <span className="font-medium text-gray-800 dark:text-white">
-                      2. Add optional images
+                  <li className="grid gap-4 py-6 md:grid-cols-[2.25rem_1fr]">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-sm font-medium text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200">
+                      2
                     </span>
-                    <br />
-                    Add project images next to the YAML file under{' '}
-                    <code className="rounded-md border border-gray-200 bg-white px-1.5 py-0.5 text-[14px] text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
-                      projects/your-project-slug/
-                    </code>
-                    . Use a square <code>512x512px</code> logo named{' '}
-                    <code>logo.png</code>, screenshots named{' '}
-                    <code>screenshot1.png</code> through{' '}
-                    <code>screenshot6.png</code>, and optionally a{' '}
-                    <code>1200x400px</code> featured image named{' '}
-                    <code>featured.png</code>. Projects with a featured image
-                    are eligible for the random 24-hour Featured rotation on the
-                    projects page, where up to 3 are shown at a time. PNG, JPG,
-                    and WebP are supported.
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-medium tracking-tight text-gray-800 dark:text-white">
+                        Create a project file
+                      </h3>
+                      <p className="mt-2 max-w-2xl text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+                        Add one YAML file for the project. Delete optional URL
+                        fields you do not use.
+                      </p>
+                      <div className="mt-3 overflow-x-auto">
+                        <code className="inline-flex max-w-full rounded-md border border-gray-200 bg-white px-2 py-1 text-[14px] text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
+                          projects/your-project-slug/project.yaml
+                        </code>
+                      </div>
+                    </div>
                   </li>
-                  <li>
-                    <span className="font-medium text-gray-800 dark:text-white">
-                      3. Submit for review
+                  <li className="grid gap-4 py-6 md:grid-cols-[2.25rem_1fr]">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-sm font-medium text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200">
+                      3
                     </span>
-                    <br />
-                    Open a pull request in the registry repo. If you need help
-                    preparing the PR, ask in the #marketing channel in Discord.
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-medium tracking-tight text-gray-800 dark:text-white">
+                        Add optional images
+                      </h3>
+                      <p className="mt-2 max-w-2xl text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+                        Put images next to the YAML file in the project folder.
+                        PNG, JPG, and WebP are supported.
+                      </p>
+                      <div className="mt-3 overflow-x-auto">
+                        <code className="inline-flex max-w-full rounded-md border border-gray-200 bg-white px-2 py-1 text-[14px] text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
+                          projects/your-project-slug/
+                        </code>
+                      </div>
+
+                      <div className="mt-5 overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                        <div className="divide-y divide-gray-200 dark:divide-gray-800 md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
+                          <div className="p-4">
+                            <div className="text-xs font-medium uppercase tracking-normal text-gray-500 dark:text-gray-400">
+                              Logo
+                            </div>
+                            <code className="mt-2 block text-[14px] text-gray-800 dark:text-white">
+                              logo.png
+                            </code>
+                            <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                              Optional. Use a square 512x512px image.
+                            </p>
+                          </div>
+                          <div className="p-4">
+                            <div className="text-xs font-medium uppercase tracking-normal text-gray-500 dark:text-gray-400">
+                              Screenshots
+                            </div>
+                            <code className="mt-2 block text-[14px] text-gray-800 dark:text-white">
+                              screenshot1.png
+                            </code>
+                            <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                              Optional. Use up to 6 images, at least 1200px
+                              wide.
+                            </p>
+                          </div>
+                          <div className="p-4">
+                            <div className="text-xs font-medium uppercase tracking-normal text-gray-500 dark:text-gray-400">
+                              Featured
+                            </div>
+                            <code className="mt-2 block text-[14px] text-gray-800 dark:text-white">
+                              featured.png
+                            </code>
+                            <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                              Optional. Use 1200x400px. Wallets, apps, and
+                              dashboards can rotate every 24 hours, with up to 3
+                              shown.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="grid gap-4 py-6 md:grid-cols-[2.25rem_1fr]">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-sm font-medium text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200">
+                      4
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-medium tracking-tight text-gray-800 dark:text-white">
+                        Submit for review
+                      </h3>
+                      <p className="mt-2 max-w-2xl text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+                        Open a pull request in the registry repo. If you need
+                        help preparing the PR, ask in the #marketing channel in
+                        Discord.
+                      </p>
+                      <p className="mt-2 max-w-2xl text-sm leading-relaxed tracking-normal text-gray-500 dark:text-gray-400">
+                        After merge, the registry republishes automatically and
+                        the website can take up to 24 hours to show the new
+                        project.
+                      </p>
+                    </div>
                   </li>
                 </ol>
 
