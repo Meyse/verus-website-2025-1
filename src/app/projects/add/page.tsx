@@ -51,7 +51,7 @@ verusFeatures:
 # rotation on verus.io.
 # - logo.png/logo.jpg/logo.webp: 128x128px square
 # - featured.png/featured.jpg/featured.webp: 800x300px, 8:3 aspect ratio
-# - screenshot1.png through screenshot6.png: at least 1200px wide`
+# - screenshot1.png through screenshot6.png: aim for at least 1200px on the longest edge`
 
 const registryRepoUrl = 'https://github.com/Meyse/verus-projects'
 
@@ -159,8 +159,9 @@ export default function AddProjectPage() {
                               screenshot1.png
                             </code>
                             <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                              Optional. Use up to 6 images, at least 1200px
-                              wide.
+                              Optional. Use up to 6 native-resolution images,
+                              portrait or landscape. Aim for at least 1200px on
+                              the longest edge.
                             </p>
                           </div>
                           <div className="p-4">
