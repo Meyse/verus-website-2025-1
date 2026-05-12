@@ -1,14 +1,14 @@
 import type {Metadata} from 'next'
 
 import Link from 'next/link'
-import {ArrowLeft} from 'lucide-react'
-import {IoLogoDiscord} from 'react-icons/io5'
 
 import {env} from '@/configs/env'
 import {ProjectTemplateActions} from '@/features/projects/project-template-actions'
+import {ArrowLeft, ExternalLink} from 'lucide-react'
+import {IoLogoDiscord} from 'react-icons/io5'
 
-import {BgWrapper} from '@/components/bg-wrapper'
 import {Button} from '@/components/ui/button'
+import {BgWrapper} from '@/components/bg-wrapper'
 
 export const metadata: Metadata = {
   title: 'Add a Project | Verus projects',
@@ -34,6 +34,10 @@ docsUrl: "https://docs.your-project.example"
 verusFeatures:
   - VerusID`
 
+const registryRepoUrl = 'https://github.com/Meyse/verus-projects'
+const registryNewIssueUrl =
+  'https://github.com/Meyse/verus-projects/issues/new/choose'
+
 export default function AddProjectPage() {
   return (
     <BgWrapper>
@@ -53,9 +57,9 @@ export default function AddProjectPage() {
                   Add a project
                 </h1>
                 <p className="mt-4 max-w-[760px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 max-md:max-w-[calc(100vw-4rem)] md:mt-6 md:text-[17px]">
-                  Projects are listed from YAML files in the website
-                  repository. Add one file for the project and an optional logo,
-                  then submit it for review.
+                  Projects are listed from a small community registry repo. Add
+                  one YAML file and optional images there, then submit it for
+                  review.
                 </p>
               </div>
             </section>
@@ -71,37 +75,59 @@ export default function AddProjectPage() {
                       1. Create a project file
                     </span>
                     <br />
-                    Add a YAML file at{' '}
+                    In the registry repo, add a YAML file at{' '}
                     <code className="rounded-md border border-gray-200 bg-white px-1.5 py-0.5 text-[14px] text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
-                      data/projects/your-project-slug.yaml
+                      projects/your-project-slug/project.yaml
                     </code>
                     .
                   </li>
                   <li>
                     <span className="font-medium text-gray-800 dark:text-white">
-                      2. Add an optional logo
+                      2. Add optional images
                     </span>
                     <br />
-                    Add a project logo under{' '}
+                    Add project images next to the YAML file under{' '}
                     <code className="rounded-md border border-gray-200 bg-white px-1.5 py-0.5 text-[14px] text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
-                      public/img/projects/your-project-slug/
+                      projects/your-project-slug/
                     </code>
-                    . Use <code>logo.png</code>, <code>logo.jpg</code>, or{' '}
-                    <code>logo.webp</code>. Screenshots are not used on this
-                    page.
+                    . Use <code>logo.png</code>, <code>screenshot1.png</code>{' '}
+                    through <code>screenshot6.png</code>, and{' '}
+                    <code>featured.png</code> when the project should be
+                    eligible for the Featured section.
                   </li>
                   <li>
                     <span className="font-medium text-gray-800 dark:text-white">
                       3. Submit for review
                     </span>
                     <br />
-                    Open a pull request, or ask for help in the #marketing
-                    channel in Discord if you need help preparing the listing.
+                    Open a pull request in the registry repo. If that is not
+                    convenient, use the project submission issue form or ask for
+                    help in the #marketing channel in Discord.
                   </li>
                 </ol>
 
-                <div className="mt-8">
+                <div className="mt-8 flex flex-wrap gap-3">
                   <Button asChild size="verus" variant="verusPrimary">
+                    <a
+                      href={registryRepoUrl}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Open registry repo
+                      <ExternalLink className="h-4 w-4 opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
+                    </a>
+                  </Button>
+                  <Button asChild size="verus" variant="verusSecondary">
+                    <a
+                      href={registryNewIssueUrl}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Use issue form
+                      <ExternalLink className="h-4 w-4 opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
+                    </a>
+                  </Button>
+                  <Button asChild size="verus" variant="verusSecondary">
                     <a
                       href={env.NEXT_PUBLIC_DISCORD}
                       rel="noopener noreferrer"

@@ -1,92 +1,178 @@
 import 'server-only'
 
-import fs from 'fs'
-import path from 'path'
+import type {Project, ProjectCategory} from '../types'
 
-import {parse} from 'yaml'
+import {env} from '@/configs/env'
 
-import type {Project} from '../types'
+import {ProjectYAMLSchema, validateSlug} from '../validation'
 
-import {fetchGitHubData, parseGitHubUrl} from '../github'
-import {validateProjectYAML, validateSlug} from '../validation'
+const DEFAULT_PROJECTS_REGISTRY_URL =
+  'https://meyse.github.io/verus-projects/projects.json'
+const PROJECTS_REGISTRY_URL =
+  env.PROJECTS_REGISTRY_URL || DEFAULT_PROJECTS_REGISTRY_URL
+const REGISTRY_REVALIDATE_SECONDS = 86400
+const FEATURED_ELIGIBLE_CATEGORIES: ProjectCategory[] = [
+  'app',
+  'dashboard',
+  'wallet',
+]
 
-const PROJECTS_DIR = path.join(process.cwd(), 'data', 'projects')
-const PROJECT_IMAGES_DIR = path.join(process.cwd(), 'public', 'img', 'projects')
-
-function getProjectImageDir(slug: string) {
-  return path.join(PROJECT_IMAGES_DIR, slug)
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value)
 }
 
-function getProjectLogo(slug: string) {
-  const projectDir = getProjectImageDir(slug)
-  if (!fs.existsSync(projectDir)) return undefined
-
-  if (fs.existsSync(path.join(projectDir, 'logo.png'))) return 'logo.png'
-  if (fs.existsSync(path.join(projectDir, 'logo.jpg'))) return 'logo.jpg'
-  if (fs.existsSync(path.join(projectDir, 'logo.webp'))) return 'logo.webp'
-
-  return undefined
+function getOptionalString(value: unknown) {
+  return typeof value === 'string' && value.length > 0 ? value : undefined
 }
 
-function parseProjectFile(filePath: string, filename: string) {
-  const content = fs.readFileSync(filePath, 'utf-8')
-  const parsed = parse(content)
+function resolveRegistryAssetBaseUrl(
+  registryUrl: string,
+  project: Project,
+  assetPath: unknown
+) {
+  const rawPath = getOptionalString(assetPath) || `projects/${project.slug}`
+  const normalizedPath = rawPath.endsWith('/') ? rawPath : `${rawPath}/`
 
-  return validateProjectYAML(parsed, filename)
+  return new URL(normalizedPath, registryUrl).toString().replace(/\/$/, '')
 }
 
-async function hydrateProject(
-  filePath: string,
-  filename: string
-): Promise<Project | null> {
-  try {
-    const project = parseProjectFile(filePath, filename)
-    const github = await fetchGitHubData(project.repoUrl)
-    const parsedRepo = project.repoUrl ? parseGitHubUrl(project.repoUrl) : null
-    const maintainer =
-      project.maintainer || parsedRepo?.owner || 'Verus community'
+function normalizeRegistryProject(
+  item: unknown,
+  registryUrl: string
+): Project | null {
+  if (!isRecord(item)) return null
 
-    return {
-      ...project,
-      github,
-      logo: getProjectLogo(project.slug),
-      maintainer,
-    } satisfies Project
-  } catch (error) {
-    console.error(
-      `Failed to parse project file ${filename}:`,
-      error instanceof Error ? error.message : error
-    )
+  const parsed = ProjectYAMLSchema.safeParse(item)
+  if (!parsed.success) return null
 
-    return null
+  const github = isRecord(item.github)
+    ? {
+        forks: typeof item.github.forks === 'number' ? item.github.forks : 0,
+        languages: Array.isArray(item.github.languages)
+          ? item.github.languages.filter(
+              (language): language is string => typeof language === 'string'
+            )
+          : [],
+        lastCommit:
+          typeof item.github.lastCommit === 'string'
+            ? item.github.lastCommit
+            : '',
+        license:
+          typeof item.github.license === 'string' ? item.github.license : null,
+        stars: typeof item.github.stars === 'number' ? item.github.stars : 0,
+      }
+    : null
+
+  const project: Project = {
+    ...parsed.data,
+    featuredImage: getOptionalString(item.featuredImage) || null,
+    github,
+    logo: getOptionalString(item.logo),
+    maintainer: parsed.data.maintainer || 'Verus community',
+    screenshots: parsed.data.screenshots || [],
+  }
+
+  return {
+    ...project,
+    assetBaseUrl: resolveRegistryAssetBaseUrl(
+      registryUrl,
+      project,
+      item.assetPath
+    ),
   }
 }
 
+async function fetchRegistryProjects() {
+  try {
+    const response = await fetch(PROJECTS_REGISTRY_URL, {
+      next: {revalidate: REGISTRY_REVALIDATE_SECONDS},
+    })
+
+    if (!response.ok) {
+      throw new Error(`Registry request failed with ${response.status}`)
+    }
+
+    const registry = await response.json()
+
+    if (!isRecord(registry) || !Array.isArray(registry.projects)) {
+      throw new Error('Registry response is missing projects array')
+    }
+
+    const projects = registry.projects
+      .map((project) =>
+        normalizeRegistryProject(project, PROJECTS_REGISTRY_URL)
+      )
+      .filter((project): project is Project => project !== null)
+      .sort((a, b) => a.name.localeCompare(b.name))
+
+    return projects
+  } catch (error) {
+    console.error(
+      'Failed to load remote projects registry:',
+      error instanceof Error ? error.message : error
+    )
+
+    return []
+  }
+}
+
+function seededRandom(seed: number) {
+  return function random() {
+    seed += 0x6d2b79f5
+    let value = seed
+    value = Math.imul(value ^ (value >>> 15), value | 1)
+    value ^= value + Math.imul(value ^ (value >>> 7), value | 61)
+
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+function getDailySeed() {
+  const now = new Date()
+  const dateString = `${now.getUTCFullYear()}-${now.getUTCMonth()}-${now.getUTCDate()}`
+
+  return Array.from(dateString).reduce(
+    (hash, character) => Math.abs((hash << 5) - hash + character.charCodeAt(0)),
+    0
+  )
+}
+
+function seededShuffle<T>(items: T[], seed: number) {
+  const result = [...items]
+  const random = seededRandom(seed)
+
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(random() * (index + 1))
+    const currentItem = result[index]
+    result[index] = result[swapIndex]
+    result[swapIndex] = currentItem
+  }
+
+  return result
+}
+
 export async function getAllProjects() {
-  if (!fs.existsSync(PROJECTS_DIR)) return []
+  return fetchRegistryProjects()
+}
 
-  const files = fs
-    .readdirSync(PROJECTS_DIR)
-    .filter((file) => file.endsWith('.yaml') && !file.startsWith('_'))
-
-  const projects = await Promise.all(
-    files.map((file) => hydrateProject(path.join(PROJECTS_DIR, file), file))
+export function getFeaturedProjects(projects: Project[]) {
+  const eligibleProjects = projects.filter(
+    (project) =>
+      FEATURED_ELIGIBLE_CATEGORIES.includes(project.category) &&
+      project.featuredImage
   )
 
-  return projects
-    .filter((project): project is Project => project !== null)
-    .sort((a, b) => a.name.localeCompare(b.name))
+  return seededShuffle(eligibleProjects, getDailySeed()).slice(0, 3)
 }
 
 export async function getProjectBySlug(slug: string) {
   const validSlug = validateSlug(slug)
   if (!validSlug) return null
 
-  const filePath = path.join(PROJECTS_DIR, `${validSlug}.yaml`)
-  const resolvedPath = path.resolve(filePath)
+  const registryProjects = await fetchRegistryProjects()
+  const registryProject = registryProjects.find(
+    (project) => project.slug === validSlug
+  )
 
-  if (!resolvedPath.startsWith(path.resolve(PROJECTS_DIR))) return null
-  if (!fs.existsSync(filePath)) return null
-
-  return hydrateProject(filePath, `${validSlug}.yaml`)
+  return registryProject || null
 }

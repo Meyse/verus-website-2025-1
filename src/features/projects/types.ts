@@ -39,13 +39,17 @@ export interface ProjectYAML {
   maintainer?: string
   name: string
   repoUrl?: string
+  screenshots?: string[]
   slug: string
   verusFeatures: VerusFeature[]
   websiteUrl?: string
 }
 
 export interface Project extends ProjectYAML {
+  assetBaseUrl?: string
+  featuredImage?: string | null
   github: GitHubData | null
   logo?: string
   maintainer: string
+  screenshots: string[]
 }

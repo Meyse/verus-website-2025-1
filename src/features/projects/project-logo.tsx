@@ -1,7 +1,8 @@
-import Image from 'next/image'
-
 import type {Project} from './types'
 
+import Image from 'next/image'
+
+import {getProjectAssetSrc} from './project-assets'
 import {getInitials, stringToColor} from './utils'
 
 export function ProjectLogo({
@@ -11,7 +12,11 @@ export function ProjectLogo({
   className?: string
   project: Project
 }) {
-  if (project.logo) {
+  const logoSrc = project.logo
+    ? getProjectAssetSrc(project, project.logo)
+    : null
+
+  if (logoSrc) {
     return (
       <Image
         alt=""
@@ -19,7 +24,7 @@ export function ProjectLogo({
         height={96}
         loading="eager"
         sizes="96px"
-        src={`/img/projects/${project.slug}/${project.logo}`}
+        src={logoSrc}
         width={96}
       />
     )

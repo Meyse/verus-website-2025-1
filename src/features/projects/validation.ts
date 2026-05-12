@@ -3,7 +3,12 @@ import {z} from 'zod'
 import {PROJECT_CATEGORIES, VERUS_FEATURES} from './types'
 
 const allowedProtocols = ['https:', 'http:']
-const blockedUrlPatterns = [/^javascript:/i, /^data:/i, /^vbscript:/i, /^file:/i]
+const blockedUrlPatterns = [
+  /^javascript:/i,
+  /^data:/i,
+  /^vbscript:/i,
+  /^file:/i,
+]
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
 export function validateExternalUrl(url: string | undefined | null) {
@@ -81,6 +86,12 @@ export const ProjectYAMLSchema = z.object({
     .min(1, 'Name is required')
     .max(80, 'Name must be 80 characters or less'),
   repoUrl: GitHubUrlSchema.optional(),
+  screenshots: z
+    .array(
+      z.string().max(100, 'Screenshot filename must be 100 characters or less')
+    )
+    .max(6, 'Maximum 6 screenshots allowed')
+    .optional(),
   slug: z
     .string()
     .min(1, 'Slug is required')
@@ -120,4 +131,3 @@ export function validateSlug(slug: string) {
 
   return normalized
 }
-

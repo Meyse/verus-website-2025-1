@@ -2,7 +2,7 @@ import {NextResponse} from 'next/server'
 
 import {getAllProjects} from '@/features/projects/server/projects'
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 export async function GET() {
   const projects = await getAllProjects()
@@ -12,4 +12,3 @@ export async function GET() {
     projects,
   })
 }
-
