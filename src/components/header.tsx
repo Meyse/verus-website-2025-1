@@ -1,5 +1,6 @@
 // This file provides the header component with navigation for the Verus website
 
+import {DreamAnnouncementBar} from './dream-announcement-bar'
 import {DesktopNav, Logo, MobileNav, SocialIcons} from './navbar'
 
 export function Header() {
@@ -16,6 +17,7 @@ export function Header() {
         </div>
         <MobileNav />
       </div>
+      <DreamAnnouncementBar />
     </header>
   )
 }

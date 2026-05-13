@@ -9,6 +9,7 @@ import type {AnchorHTMLAttributes, ReactNode} from 'react'
 
 import {createContext, useContext, useEffect, useRef, useState} from 'react'
 import Link from 'next/link'
+import {usePathname} from 'next/navigation'
 
 import {env} from '@/configs/env'
 import {ChevronRight, ExternalLink} from 'lucide-react'
@@ -112,8 +113,10 @@ function MenuLink({href, children, className, ...props}: MenuLinkProps) {
 }
 
 export function MobileNav() {
+  const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [openSection, setOpenSection] = useState<string | null>(null)
+  const menuTopClass = pathname === '/' ? 'top-[107px]' : 'top-[50px]'
 
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section)
@@ -157,7 +160,8 @@ export function MobileNav() {
       {/* Mobile Menu with improved styling but no animations */}
       <div
         className={cn(
-          'fixed inset-x-0 bottom-0 top-[50px] z-40 overflow-y-auto bg-white shadow-2xl transition-transform duration-300 dark:bg-gray-950 dark:shadow-[0_0_20px_rgba(0,0,0,0.5)] md:top-[70px] md:hidden',
+          'fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white shadow-2xl transition-transform duration-300 dark:bg-gray-950 dark:shadow-[0_0_20px_rgba(0,0,0,0.5)] md:hidden',
+          menuTopClass,
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >

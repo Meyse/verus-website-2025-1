@@ -2,15 +2,26 @@ import type {ReactNode} from 'react'
 
 import Image from 'next/image'
 
+import {cn} from '@/lib/utils'
+
 import {Footer} from './footer'
 
 export function BgWrapper({
   children,
+  hasAnnouncement = false,
   size = 'large',
 }: {
   children: ReactNode
+  hasAnnouncement?: boolean
   size?: 'small' | 'large'
 }) {
+  const topOffset = hasAnnouncement
+    ? 'mt-[107px] md:mt-[137px]'
+    : 'mt-[50px] md:mt-[70px]'
+  const viewportHeight = hasAnnouncement
+    ? 'h-[calc(100dvh-107px)] md:h-[calc(100dvh-137px)]'
+    : 'h-[calc(100dvh-50px)] md:h-[calc(100dvh-70px)]'
+
   return (
     <>
       {/* Background images - one for light mode, one for dark mode */}
@@ -18,7 +29,11 @@ export function BgWrapper({
         <>
           <Image
             src="/img/hero-bg2-2.webp"
-            className="absolute -z-10 mt-[50px] h-[calc(100dvh-50px)] w-full object-cover dark:hidden md:mt-[70px] md:h-[calc(100dvh-70px)]"
+            className={cn(
+              'absolute -z-10 w-full object-cover dark:hidden',
+              topOffset,
+              viewportHeight
+            )}
             width={500}
             height={500}
             alt="Hero background - light"
@@ -29,7 +44,11 @@ export function BgWrapper({
             width={500}
             height={500}
             priority
-            className="absolute -z-10 mt-[50px] hidden h-[calc(100dvh-50px)] w-full object-cover dark:block md:mt-[70px] md:h-[calc(100dvh-70px)]"
+            className={cn(
+              'absolute -z-10 hidden w-full object-cover dark:block',
+              topOffset,
+              viewportHeight
+            )}
             alt="Hero background - dark"
           />
         </>
@@ -41,7 +60,10 @@ export function BgWrapper({
             width={500}
             height={500}
             priority
-            className="absolute -z-10 mt-[50px] h-4/5 w-full -translate-y-[300px] object-cover dark:hidden md:mt-[70px] md:-translate-y-[50px]"
+            className={cn(
+              'absolute -z-10 h-4/5 w-full -translate-y-[300px] object-cover dark:hidden md:-translate-y-[50px]',
+              topOffset
+            )}
           />
           <Image
             src="/img/bg-small-dark.webp"
@@ -49,11 +71,14 @@ export function BgWrapper({
             width={500}
             height={500}
             priority
-            className="absolute -z-10 mt-[50px] hidden h-4/5 w-full -translate-y-[300px] object-cover dark:block md:mt-[70px] md:-translate-y-[50px]"
+            className={cn(
+              'absolute -z-10 hidden h-4/5 w-full -translate-y-[300px] object-cover dark:block md:-translate-y-[50px]',
+              topOffset
+            )}
           />
         </>
       )}
-      <main className="mt-[50px] md:mt-[70px]">{children}</main>
+      <main className={topOffset}>{children}</main>
       <Footer />
     </>
   )
