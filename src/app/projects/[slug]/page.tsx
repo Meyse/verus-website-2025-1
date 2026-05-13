@@ -90,6 +90,8 @@ export default async function ProjectPage(props: {params: Params}) {
   const primaryLanguage = project.github?.languages[0] ?? ''
   const showLanguageBadge =
     project.category === 'tool' && primaryLanguage !== ''
+  const showMaintainer =
+    project.maintainer !== 'Verus community' || Boolean(project.repoUrl)
 
   return (
     <>
@@ -335,11 +337,13 @@ export default async function ProjectPage(props: {params: Params}) {
                       </div>
                     </SidebarSection>
 
-                    <SidebarSection title="Maintainer">
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        {project.maintainer}
-                      </p>
-                    </SidebarSection>
+                    {showMaintainer && (
+                      <SidebarSection title="Maintainer">
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          {project.maintainer}
+                        </p>
+                      </SidebarSection>
+                    )}
                   </aside>
                 </div>
               </section>

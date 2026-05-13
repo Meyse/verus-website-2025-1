@@ -1,7 +1,9 @@
 import type {Metadata} from 'next'
+import type {Project} from '@/features/projects/types'
 
 import {Suspense} from 'react'
 import Link from 'next/link'
+import {connection} from 'next/server'
 
 import {FeaturedProjects} from '@/features/projects/featured-projects'
 import {ProjectIndex} from '@/features/projects/project-index'
@@ -38,7 +40,6 @@ export const metadata: Metadata = {
 
 export default async function ProjectsPage() {
   const projects = await getAllProjects()
-  const featuredProjects = getFeaturedProjects(projects)
   const projectsJsonLd = createCollectionPageJsonLd({
     path: '/projects',
     name: 'Projects built with Verus',
@@ -78,6 +79,10 @@ export default async function ProjectsPage() {
                 <div className="flex min-w-0 flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
                   <div className="min-w-0 flex-1">
                     <ProjectSearch projects={projects} />
+                    <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                      Community projects are listed for discovery and are not
+                      endorsed, audited, or guaranteed by Verus.
+                    </p>
                   </div>
 
                   <div className="flex shrink-0 flex-col items-start gap-1 lg:items-end">
@@ -103,7 +108,9 @@ export default async function ProjectsPage() {
                 </div>
               </section>
 
-              <FeaturedProjects projects={featuredProjects} />
+              <Suspense fallback={null}>
+                <RequestRandomFeaturedProjects projects={projects} />
+              </Suspense>
 
               <section
                 className="bg-gray-50 px-6 py-8 dark:bg-gray-950 md:px-10 md:py-10"
@@ -124,6 +131,13 @@ export default async function ProjectsPage() {
       </BgWrapper>
     </>
   )
+}
+
+async function RequestRandomFeaturedProjects({projects}: {projects: Project[]}) {
+  await connection()
+  const featuredProjects = getFeaturedProjects(projects)
+
+  return <FeaturedProjects projects={featuredProjects} />
 }
 
 function ProjectIndexFallback() {

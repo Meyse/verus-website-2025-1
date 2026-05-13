@@ -116,33 +116,11 @@ async function fetchRegistryProjects() {
   }
 }
 
-function seededRandom(seed: number) {
-  return function random() {
-    seed += 0x6d2b79f5
-    let value = seed
-    value = Math.imul(value ^ (value >>> 15), value | 1)
-    value ^= value + Math.imul(value ^ (value >>> 7), value | 61)
-
-    return ((value ^ (value >>> 14)) >>> 0) / 4294967296
-  }
-}
-
-function getDailySeed() {
-  const now = new Date()
-  const dateString = `${now.getUTCFullYear()}-${now.getUTCMonth()}-${now.getUTCDate()}`
-
-  return Array.from(dateString).reduce(
-    (hash, character) => Math.abs((hash << 5) - hash + character.charCodeAt(0)),
-    0
-  )
-}
-
-function seededShuffle<T>(items: T[], seed: number) {
+function randomShuffle<T>(items: T[]) {
   const result = [...items]
-  const random = seededRandom(seed)
 
   for (let index = result.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(random() * (index + 1))
+    const swapIndex = Math.floor(Math.random() * (index + 1))
     const currentItem = result[index]
     result[index] = result[swapIndex]
     result[swapIndex] = currentItem
@@ -162,7 +140,7 @@ export function getFeaturedProjects(projects: Project[]) {
       project.featuredImage
   )
 
-  return seededShuffle(eligibleProjects, getDailySeed()).slice(0, 3)
+  return randomShuffle(eligibleProjects).slice(0, 3)
 }
 
 export async function getProjectBySlug(slug: string) {

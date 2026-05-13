@@ -16,9 +16,10 @@ export function FeaturedProjects({projects}: FeaturedProjectsProps) {
   return (
     <section className="border-b border-gray-200 bg-gray-50 px-6 py-8 dark:border-gray-800 dark:bg-gray-950 md:px-10 md:py-10">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mb-6">
-          Featured
-        </h2>
+        <h2 className="sr-only">Featured projects</h2>
+        <p className="mb-4 max-w-2xl text-sm leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 sm:mb-6">
+          Featured projects are randomly selected on each page load.
+        </p>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-6">
           {projects.map((project) => (
             <FeaturedProjectCard key={project.slug} project={project} />
@@ -52,12 +53,9 @@ function FeaturedProjectCard({project}: {project: Project}) {
           </div>
         )}
         {featuredImageSrc && (
-          <>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-            <div className="absolute right-2 top-2">
-              <ProjectLogo className="h-8 w-8" project={project} />
-            </div>
-          </>
+          <div className="absolute right-2 top-2">
+            <ProjectLogo className="h-8 w-8" project={project} />
+          </div>
         )}
       </div>
 
