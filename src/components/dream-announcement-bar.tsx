@@ -19,8 +19,9 @@ export function DreamAnnouncementBar() {
       <div className="mx-auto flex h-[56px] w-full max-w-[1400px] items-center justify-between gap-3 px-4 md:h-[66px] md:px-8">
         <p className="min-w-0 truncate text-[15px] font-normal leading-tight tracking-normal md:text-[17px]">
           <span className="font-semibold">Introducing DREAM</span>
+          <span className="sm:hidden">: a new application model</span>
           <span className="hidden sm:inline">
-            : a new application model for user-owned data
+            : a new application model for user-owned identity, data, and money
           </span>
         </p>
         <Button

@@ -21,7 +21,7 @@ import {JsonLd} from '@/components/seo/json-ld'
 
 import {DreamAcronymTabs} from './dream-acronym-tabs'
 
-const pageTitle = 'DREAM: a new application model for user-owned data'
+const pageTitle = 'DREAM: A New Application Model'
 const pageDescription =
   'DREAM is the Decentralized, Rights-preserving, Encrypted Application Model on Verus, bringing identity, payments, authentication, and encrypted app data into one user-approved flow.'
 
@@ -116,7 +116,7 @@ export default function DreamPage() {
                 </span>
               </h1>
               <p className="mx-auto mt-5 max-w-[780px] text-center text-[18px] leading-relaxed tracking-normal text-gray-800 dark:text-white md:mt-6 md:text-[24px]">
-                A new application model for user-owned data
+                A new application model for user-owned identity, data, and money
               </p>
             </header>
 
@@ -173,6 +173,34 @@ export default function DreamPage() {
                   relationship changes. The user signs, proves, pays, decrypts,
                   and carries their data forward, while the app verifies what it
                   needs and leaves the rest alone.
+                </p>
+              </div>
+            </div>
+
+            <div className="mx-auto mt-20 max-w-[620px] rounded-lg bg-gray-200/70 px-6 py-8 dark:bg-white/[0.04] md:mt-28 md:px-10 md:py-10">
+              <h2 className="mb-5 font-display text-[30px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white">
+                An early example: encrypted notes
+              </h2>
+              <div className="space-y-5 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
+                <p>
+                  A note-taking app shows what DREAM changes in practice. The
+                  app can ask the user's wallet for two things in one request:
+                  authenticate with a VerusID and approve app-specific
+                  encryption material.
+                </p>
+                <p>
+                  After the wallet shows the request and the user approves it,
+                  the app receives a signed response it can verify. Notes can
+                  sync through normal infrastructure while the server stores
+                  only encrypted blobs and minimal metadata.
+                </p>
+                <p>
+                  When the user installs the app on another device, they connect
+                  the same wallet identity, approve the same app-encryption
+                  request, and unlock the same notes again. This flow is usable
+                  today with Verus Mobile builds distributed through TestFlight
+                  and APK download, and is planned for the official wallet
+                  releases.
                 </p>
               </div>
             </div>
