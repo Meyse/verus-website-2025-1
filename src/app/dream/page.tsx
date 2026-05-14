@@ -75,6 +75,12 @@ const coreModelSteps: ModelStep[] = [
   },
 ]
 
+const dreamHighlights = [
+  'You bring your identity with you. Apps can recognize your VerusID without owning your account or recovery.',
+  'Your private data stays private. Apps can store and sync encrypted information without the server being able to read it.',
+  'Your wallet becomes the approval screen. Before an app signs you in, takes a payment, or unlocks data, you see the request and choose what happens.',
+]
+
 const comparisonRows = [
   {
     layer: 'Identity',
@@ -138,6 +144,18 @@ export default function DreamPage() {
                 priority
               />
             </div>
+
+            <ul className="mx-auto mt-20 max-w-[620px] space-y-5 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:mt-24 md:space-y-6 md:text-[17px]">
+              {dreamHighlights.map((highlight) => (
+                <li key={highlight} className="flex gap-3">
+                  <span
+                    className="mt-[0.65em] h-1.5 w-1.5 shrink-0 rounded-full bg-verus-blue"
+                    aria-hidden="true"
+                  />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="mx-auto mt-24 max-w-[620px] md:mt-32">
               <h2 className="mb-4 font-display text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[44px]">
