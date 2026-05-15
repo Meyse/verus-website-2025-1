@@ -1,5 +1,7 @@
 'use client'
 
+import type {MouseEvent} from 'react'
+
 import {useState} from 'react'
 import {usePathname} from 'next/navigation'
 
@@ -19,8 +21,17 @@ export function DesktopNav() {
   const [menuState, setMenuState] = useState({pathname, value: ''})
   const activeMenu = menuState.pathname === pathname ? menuState.value : ''
 
+  const closeMenuOnLinkClick = (event: MouseEvent<HTMLElement>) => {
+    if (event.target instanceof Element && event.target.closest('a')) {
+      setMenuState({pathname, value: ''})
+    }
+  }
+
   return (
-    <nav className="ml-12 hidden items-center md:flex">
+    <nav
+      className="ml-12 hidden items-center md:flex"
+      onClick={closeMenuOnLinkClick}
+    >
       <NavigationMenu
         delayDuration={0}
         value={activeMenu}
