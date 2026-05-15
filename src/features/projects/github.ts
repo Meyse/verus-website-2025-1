@@ -16,12 +16,20 @@ function getGitHubHeaders(): HeadersInit {
 }
 
 export function parseGitHubUrl(url: string) {
-  const match = url.match(/github\.com\/([^/]+)\/([^/]+)/)
-  if (!match) return null
+  try {
+    const parsed = new URL(url)
+    const [owner, repo] = parsed.pathname.split('/').filter(Boolean)
+    const isGithubHost =
+      parsed.hostname === 'github.com' || parsed.hostname === 'www.github.com'
 
-  return {
-    owner: match[1],
-    repo: match[2].replace(/\.git$/, ''),
+    if (!isGithubHost || !owner || !repo) return null
+
+    return {
+      owner,
+      repo: repo.replace(/\.git$/, ''),
+    }
+  } catch {
+    return null
   }
 }
 

@@ -1,15 +1,18 @@
 import {z} from 'zod'
 
+import {
+  PROJECT_SLUG_PATTERN,
+  validateProjectAssetFilename,
+} from './asset-validation'
 import {PROJECT_CATEGORIES, VERUS_FEATURES} from './types'
 
-const allowedProtocols = ['https:', 'http:']
+const allowedProtocols = ['https:']
 const blockedUrlPatterns = [
   /^javascript:/i,
   /^data:/i,
   /^vbscript:/i,
   /^file:/i,
 ]
-const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
 export function validateExternalUrl(url: string | undefined | null) {
   if (!url) return null
@@ -88,7 +91,16 @@ export const ProjectYAMLSchema = z.object({
   repoUrl: GitHubUrlSchema.optional(),
   screenshots: z
     .array(
-      z.string().max(100, 'Screenshot filename must be 100 characters or less')
+      z
+        .string()
+        .max(100, 'Screenshot filename must be 100 characters or less')
+        .refine(
+          (filename) =>
+            validateProjectAssetFilename(filename, 'screenshot') !== null,
+          {
+            message: 'Invalid screenshot filename',
+          }
+        )
     )
     .max(6, 'Maximum 6 screenshots allowed')
     .optional(),
@@ -96,7 +108,10 @@ export const ProjectYAMLSchema = z.object({
     .string()
     .min(1, 'Slug is required')
     .max(60, 'Slug must be 60 characters or less')
-    .regex(slugPattern, 'Slug must be lowercase alphanumeric with hyphens'),
+    .regex(
+      PROJECT_SLUG_PATTERN,
+      'Slug must be lowercase alphanumeric with hyphens'
+    ),
   verusFeatures: z.array(z.enum(VERUS_FEATURES)).min(1),
   websiteUrl: SafeUrlSchema.optional(),
 })
@@ -121,7 +136,7 @@ export function validateSlug(slug: string) {
   const normalized = slug.toLowerCase().trim()
 
   if (
-    !slugPattern.test(normalized) ||
+    !PROJECT_SLUG_PATTERN.test(normalized) ||
     normalized.includes('..') ||
     normalized.includes('/') ||
     normalized.includes('\\')

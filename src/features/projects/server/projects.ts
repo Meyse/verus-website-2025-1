@@ -2,6 +2,10 @@ import 'server-only'
 
 import type {Project, ProjectCategory} from '../types'
 
+import {
+  validateProjectAssetFilename,
+  validateProjectAssetPath,
+} from '../asset-validation'
 import {ProjectYAMLSchema, validateSlug} from '../validation'
 import {PROJECTS_REGISTRY_URL} from './config'
 
@@ -25,10 +29,13 @@ function resolveRegistryAssetBaseUrl(
   project: Project,
   assetPath: unknown
 ) {
-  const rawPath = getOptionalString(assetPath) || `projects/${project.slug}`
-  const normalizedPath = rawPath.endsWith('/') ? rawPath : `${rawPath}/`
+  const safeAssetPath = validateProjectAssetPath(
+    getOptionalString(assetPath),
+    project.slug
+  )
+  if (!safeAssetPath) return undefined
 
-  return new URL(normalizedPath, registryUrl).toString().replace(/\/$/, '')
+  return new URL(`${safeAssetPath}/`, registryUrl).toString().replace(/\/$/, '')
 }
 
 function normalizeRegistryProject(
@@ -58,13 +65,29 @@ function normalizeRegistryProject(
       }
     : null
 
+  const featuredImage = validateProjectAssetFilename(
+    getOptionalString(item.featuredImage),
+    'featured'
+  )
+  const logo = validateProjectAssetFilename(getOptionalString(item.logo), 'logo')
+  const screenshots = Array.isArray(item.screenshots)
+    ? item.screenshots
+        .map((screenshot) =>
+          validateProjectAssetFilename(
+            getOptionalString(screenshot),
+            'screenshot'
+          )
+        )
+        .filter((screenshot): screenshot is string => screenshot !== null)
+    : []
+
   const project: Project = {
     ...parsed.data,
-    featuredImage: getOptionalString(item.featuredImage) || null,
+    featuredImage,
     github,
-    logo: getOptionalString(item.logo),
+    logo: logo || undefined,
     maintainer: parsed.data.maintainer || 'Verus community',
-    screenshots: parsed.data.screenshots || [],
+    screenshots,
   }
 
   return {
