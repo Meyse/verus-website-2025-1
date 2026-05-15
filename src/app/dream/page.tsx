@@ -40,7 +40,6 @@ export const metadata: Metadata = {
     canonical: '/dream',
   },
   openGraph: {
-    title: pageTitle,
     description: pageDescription,
     url: '/dream',
     images: [
@@ -53,7 +52,6 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: pageTitle,
     description: pageDescription,
     images: [
       {
