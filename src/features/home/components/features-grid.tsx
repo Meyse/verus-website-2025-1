@@ -34,7 +34,7 @@ const features = [
     alt: 'Interoperability',
     title: 'Interoperability',
     description:
-      'Provable cross-chain bridges connect Verus with other blockchains without custodians.',
+      'Provable bridges connect Verus with all ecosystem chains and Ethereum without custodians.',
   },
   {
     src: '/img/hero/privacy.svg',

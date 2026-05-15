@@ -140,8 +140,10 @@ export async function EarlyAdoptionSection() {
               60+
             </span>
             <div className="mt-3">
-              <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400 md:text-[17px]">
-                Verus-specific API calls to build decentralized apps
+              <span className="block text-[15px] font-medium leading-relaxed text-gray-600 dark:text-gray-400 md:text-[17px]">
+                Verus-specific API calls for identities,
+                <br />
+                currencies, chains, data, encryption, and DeFi
               </span>
             </div>
           </div>
