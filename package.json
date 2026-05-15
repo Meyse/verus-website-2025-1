@@ -6,6 +6,11 @@
   },
   "private": true,
   "packageManager": "pnpm@10.29.2",
+  "pnpm": {
+    "overrides": {
+      "postcss": "8.5.14"
+    }
+  },
   "scripts": {
     "clean": "git clean -xdf .next node_modules",
     "dev": "next dev",
@@ -29,7 +34,6 @@
     "@t3-oss/env-nextjs": "^0.13.10",
     "@tanstack/react-query": "^5.90.16",
     "arweave": "^1.15.7",
-    "bitcoinjs-message": "^2.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "he": "^1.2.0",
