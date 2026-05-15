@@ -25,6 +25,9 @@ import {HorizontalScrollFade} from './horizontal-scroll-fade'
 const pageTitle = 'DREAM: A New Application Model'
 const pageDescription =
   'DREAM is the Decentralized, Rights-preserving, Encrypted Application Model on Verus, bringing identity, payments, authentication, and encrypted app data into one user-approved flow.'
+const pageOgImage = '/img/dream/og-image-dream.png'
+const pageOgImageAlt =
+  'DREAM: A new application model for user-owned identity, data, and money'
 const verusidTsClientHref = `${env.NEXT_PUBLIC_VERUS_GITHUB}/verusid-ts-client`
 const verusTypescriptPrimitivesHref = `${env.NEXT_PUBLIC_VERUS_GITHUB}/verus-typescript-primitives`
 
@@ -35,6 +38,29 @@ export const metadata: Metadata = {
     'DREAM, Verus, decentralized applications, encrypted data, VerusID, privacy, user-owned data, Generic Request',
   alternates: {
     canonical: '/dream',
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: '/dream',
+    images: [
+      {
+        url: pageOgImage,
+        width: 1200,
+        height: 630,
+        alt: pageOgImageAlt,
+      },
+    ],
+  },
+  twitter: {
+    title: pageTitle,
+    description: pageDescription,
+    images: [
+      {
+        url: pageOgImage,
+        alt: pageOgImageAlt,
+      },
+    ],
   },
 }
 
@@ -89,7 +115,7 @@ const dreamHighlights = [
   },
   {
     title: 'You approve what apps can do.',
-    body: 'Your wallet shows requests for sign-in, payments, or data access before anything happens.',
+    body: 'Your wallet shows requests for sign-in, identity updates, payments, or data access before anything happens.',
   },
   {
     title: 'An Internet of Value you can trust.',
@@ -133,7 +159,7 @@ export default function DreamPage() {
                 <span className="block translate-x-[0.05em] bg-gradient-to-br from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-[16px] font-normal italic text-transparent opacity-70 dark:from-gray-200 dark:via-gray-300 dark:to-gray-500 dark:opacity-90 md:text-[20px]">
                   Realize your
                 </span>
-                <span className="mt-1 block bg-gradient-to-br from-[#6ec6ff] via-verus-blue to-[#173b9b] bg-clip-text text-center text-[64px] font-medium tracking-[0.05em] text-transparent dark:from-[#86d7ff] dark:via-[#4d83f1] dark:to-[#1f4fbe] md:text-[168px]">
+                <span className="mt-1 block bg-[linear-gradient(180deg,#3165D4_0%,#3165D4_52%,#2457CB_74%,#083EB1_100%)] bg-clip-text text-center text-[64px] font-medium tracking-[0.05em] text-transparent md:text-[168px]">
                   DREAM
                 </span>
               </h1>
