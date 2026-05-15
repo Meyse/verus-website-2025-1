@@ -220,24 +220,25 @@ export default function DreamPage() {
               </h2>
               <div className="space-y-5 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
                 <p>
-                  A note-taking app shows what DREAM changes in practice. The
-                  app can ask the user's wallet for two things in one request:
-                  authenticate with a VerusID and approve app-specific
-                  encryption material.
+                  A note-taking app shows what DREAM changes in practice.
+                  Imagine an app that asks the user's wallet for two things in
+                  one request: authenticate with a VerusID and approve
+                  app-specific encryption material.
                 </p>
                 <p>
                   After the wallet shows the request and the user approves it,
-                  the app receives a signed response it can verify. Notes can
+                  the app receives a signed response it can verify. Notes could
                   sync through normal infrastructure while the server stores
                   only encrypted blobs and minimal metadata.
                 </p>
                 <p>
-                  When the user installs the app on another device, they connect
+                  Install the app on another device, connect
                   the same wallet identity, approve the same app-encryption
-                  request, and unlock the same notes again. This flow is usable
-                  today with Verus Mobile builds distributed through TestFlight
-                  and APK download, and is planned for the official wallet
-                  releases.
+                  request, and the same notes can unlock again. This is the kind
+                  of app DREAM is designed to make possible. The wallet-side
+                  pieces are already usable in Verus Mobile builds distributed
+                  through TestFlight and APK download, with official wallet
+                  releases planned.
                 </p>
               </div>
             </div>
