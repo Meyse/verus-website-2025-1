@@ -20,6 +20,7 @@ import {BgWrapper} from '@/components/bg-wrapper'
 import {JsonLd} from '@/components/seo/json-ld'
 
 import {DreamAcronymTabs} from './dream-acronym-tabs'
+import {HorizontalScrollFade} from './horizontal-scroll-fade'
 
 const pageTitle = 'DREAM: A New Application Model'
 const pageDescription =
@@ -70,15 +71,28 @@ const coreModelSteps: ModelStep[] = [
   },
   {
     icon: BadgeCheck,
-    title: 'Verify without custody',
-    body: 'The app checks the signed response and stores encrypted state without owning the private record.',
+    title: 'Verify and serve',
+    body: 'The app verifies the signed response, completes the action, and keeps serving the user without taking custody of their identity, funds, or private data.',
   },
 ]
 
 const dreamHighlights = [
-  'You bring your identity with you. Apps can recognize your VerusID without owning your account or recovery.',
-  'Your private data stays private. Apps can store and sync encrypted information without the server being able to read it.',
-  'Your wallet becomes the approval screen. Before an app signs you in, takes a payment, or unlocks data, you see the request and choose what happens.',
+  {
+    title: 'Your identity travels with you.',
+    body: 'Instead of making a new account for every app, you use a VerusID: a digital identity you control.',
+  },
+  {
+    title: 'Your private data stays private.',
+    body: 'Apps can store and sync encrypted notes, messages, or any other type of private record without their servers being able to read them.',
+  },
+  {
+    title: 'You approve what apps can do.',
+    body: 'Your wallet shows requests for sign-in, payments, or data access before anything happens.',
+  },
+  {
+    title: 'An Internet of Value you can trust.',
+    body: 'Apps can work with identity, money, permissions, and all kinds of private data without building central databases of readable user information. The app stays useful, while control stays with the user.',
+  },
 ]
 
 const comparisonRows = [
@@ -147,12 +161,17 @@ export default function DreamPage() {
 
             <ul className="mx-auto mt-20 max-w-[620px] space-y-5 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:mt-24 md:space-y-6 md:text-[17px]">
               {dreamHighlights.map((highlight) => (
-                <li key={highlight} className="flex gap-3">
+                <li key={highlight.title} className="flex gap-3">
                   <span
                     className="mt-[0.65em] h-1.5 w-1.5 shrink-0 rounded-full bg-verus-blue"
                     aria-hidden="true"
                   />
-                  <span>{highlight}</span>
+                  <span>
+                    <strong className="font-semibold text-gray-800 dark:text-white">
+                      {highlight.title}
+                    </strong>{' '}
+                    {highlight.body}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -225,7 +244,7 @@ export default function DreamPage() {
 
             <div className="mx-auto mt-36 max-w-[1320px] md:mt-44">
               <h2 className="text-center font-display text-[30px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white">
-                How the core model works
+                The model in three steps
               </h2>
 
               <div className="mt-14 grid gap-6 md:mt-20 md:grid-cols-3">
@@ -268,7 +287,43 @@ export default function DreamPage() {
                     the user without changing what an app can do.
                   </p>
                 </div>
-                <div className="overflow-x-auto">
+                <div className="md:hidden">
+                  <div className="border-y border-gray-200 dark:border-gray-800">
+                    {comparisonRows.map((row) => (
+                      <section
+                        key={row.layer}
+                        className="border-b border-gray-200 py-6 last:border-b-0 dark:border-gray-800"
+                      >
+                        <h3 className="text-[17px] font-bold leading-tight tracking-normal text-gray-900 dark:text-white">
+                          {row.layer}
+                        </h3>
+                        <div className="mt-4 space-y-4 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
+                          <div>
+                            <p className="text-[13px] font-bold leading-tight tracking-normal text-gray-900 dark:text-white">
+                              Regular app model
+                            </p>
+                            <p className="mt-1.5">{row.regular}</p>
+                          </div>
+                          <div>
+                            <p className="flex items-center gap-2 text-[13px] font-bold leading-tight tracking-normal text-verus-blue dark:text-blue-300">
+                              <Image
+                                src="/img/verus-icon.svg"
+                                alt=""
+                                width={15}
+                                height={15}
+                                className="h-[15px] w-[15px]"
+                                aria-hidden="true"
+                              />
+                              <span>DREAM app model</span>
+                            </p>
+                            <p className="mt-1.5">{row.dream}</p>
+                          </div>
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                </div>
+                <div className="hidden overflow-x-auto md:block">
                   <table className="w-full min-w-[760px] border-y border-gray-200 text-left dark:border-gray-800">
                     <thead>
                       <tr className="border-b border-gray-200 text-[17px] font-bold leading-tight tracking-normal text-gray-900 dark:border-gray-800 dark:text-white">
@@ -327,11 +382,13 @@ export default function DreamPage() {
                   and lets the wallet become the place where approval, proof,
                   payment, and encryption come together.
                 </p>
-                <div className="overflow-x-auto">
+                <HorizontalScrollFade>
                   <table className="w-full min-w-[560px] border-y border-gray-200 text-left dark:border-gray-800">
                     <thead>
                       <tr className="border-b border-gray-200 text-[15px] font-bold leading-tight tracking-normal text-gray-900 dark:border-gray-800 dark:text-white">
-                        <th className="w-[42%] py-4 pr-5 align-top">Library</th>
+                        <th className="w-[42%] py-4 pr-5 align-top">
+                          Library
+                        </th>
                         <th className="w-[58%] py-4 align-top">
                           What it gives builders
                         </th>
@@ -375,12 +432,13 @@ export default function DreamPage() {
                       </tr>
                     </tbody>
                   </table>
-                </div>
+                </HorizontalScrollFade>
                 <p>
                   Treat those libraries as source material for an AI coding
-                  agent. Ask it to trace GenericRequest, GenericResponse, and
-                  the ordinal detail classes, then generate the smallest working
-                  request flow for the app you want to build.
+                  agent. Ask it to map the GenericRequest details, explain what
+                  wallet-approved actions are possible, and explore product
+                  ideas that combine identity, payments, encryption, data flows,
+                  and user consent.
                 </p>
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">

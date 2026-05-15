@@ -8,27 +8,27 @@ const acronymItems = [
   {
     letter: 'D',
     title: 'Decentralized',
-    body: 'Identity, value, and application permissions resolve through protocol rules instead of platform accounts.',
+    body: 'Identity, value, and permissions are anchored in protocol rules, so apps do not need to become the user’s account provider, payment intermediary, or data custodian.',
   },
   {
     letter: 'R',
     title: 'Rights-preserving',
-    body: 'The user approves what an app can request, prove, read, or receive before the wallet signs a response.',
+    body: 'The user sees what an app is asking for and chooses what to share, sign, pay, prove, or unlock before the wallet signs a response.',
   },
   {
     letter: 'E',
     title: 'Encrypted',
-    body: 'Application data can live anywhere as ciphertext, with keys derived by the user wallet rather than the server.',
+    body: 'Anything the user wants private can be stored and moved as ciphertext, with keys controlled through the user wallet rather than the server.',
   },
   {
     letter: 'A',
     title: 'Application',
-    body: 'The same request pattern can support login, payments, credentials, subscriptions, notes, messaging, and groups.',
+    body: 'The same request pattern can support accounts, payments, private records, credentials, commerce, communities, AI agents, and other workflows that need user approval.',
   },
   {
     letter: 'M',
     title: 'Model',
-    body: 'DREAM is a repeatable structure for products that should feel familiar without turning user data into platform custody.',
+    body: 'DREAM is a repeatable structure for products that feel familiar while the user keeps control of identity, money, permissions, and private data.',
   },
 ]
 
