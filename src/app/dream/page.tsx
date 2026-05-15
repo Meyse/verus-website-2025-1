@@ -25,6 +25,8 @@ import {HorizontalScrollFade} from './horizontal-scroll-fade'
 const pageTitle = 'DREAM: A New Application Model'
 const pageDescription =
   'DREAM is the Decentralized, Rights-preserving, Encrypted Application Model on Verus, bringing identity, payments, authentication, and encrypted app data into one user-approved flow.'
+const verusidTsClientHref = `${env.NEXT_PUBLIC_VERUS_GITHUB}/verusid-ts-client`
+const verusTypescriptPrimitivesHref = `${env.NEXT_PUBLIC_VERUS_GITHUB}/verus-typescript-primitives`
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -41,9 +43,9 @@ const dreamJsonLd = createWebPageJsonLd({
   name: pageTitle,
   description: pageDescription,
   relatedLink: [
-    'https://docs.verus.io',
-    'https://github.com/VerusCoin/verusid-ts-client',
-    'https://github.com/VerusCoin/verus-typescript-primitives',
+    env.NEXT_PUBLIC_VERUS_DOCS,
+    verusidTsClientHref,
+    verusTypescriptPrimitivesHref,
   ],
 })
 
@@ -399,7 +401,7 @@ export default function DreamPage() {
                       <tr className="border-b border-gray-200 dark:border-gray-800">
                         <th className="py-5 pr-5 text-left align-top font-[450] text-gray-800 dark:text-white">
                           <a
-                            href="https://github.com/VerusCoin/verusid-ts-client"
+                            href={verusidTsClientHref}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group inline-flex items-center gap-1 rounded-lg transition-colors hover:underline"
@@ -416,7 +418,7 @@ export default function DreamPage() {
                       <tr>
                         <th className="py-5 pr-5 text-left align-top font-[450] text-gray-800 dark:text-white">
                           <a
-                            href="https://github.com/VerusCoin/verus-typescript-primitives"
+                            href={verusTypescriptPrimitivesHref}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group inline-flex items-center gap-1 rounded-lg transition-colors hover:underline"
