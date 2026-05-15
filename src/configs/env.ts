@@ -47,6 +47,16 @@ export const env = createEnv({
       .url({message: 'Invalid url'})
       .startsWith('https://', {message: 'Must provide secure URL'}),
     ALCHEMY_API_KEY: z.string().min(1).optional(),
+    GITHUB_TOKEN: z.string().min(1).optional(),
+    PROJECTS_REGISTRY_URL: z
+      .string()
+      .url({message: 'Invalid url'})
+      .startsWith('https://', {message: 'Must provide secure URL'}),
+    PROJECTS_REGISTRY_REPO_URL: z
+      .string()
+      .url({message: 'Invalid url'})
+      .startsWith('https://', {message: 'Must provide secure URL'}),
+    PROJECTS_REGISTRY_BRANCH: z.string().min(1),
 
     // DATABASE_URL: z.string(),
   },
@@ -146,6 +156,10 @@ export const env = createEnv({
     MEDIUM_FEED_URL: process.env.MEDIUM_FEED_URL,
     COINPAPRIKA_URL: process.env.COINPAPRIKA_URL,
     ALCHEMY_API_KEY: process.env.ALCHEMY_API_KEY,
+    GITHUB_TOKEN: process.env.GITHUB_TOKEN,
+    PROJECTS_REGISTRY_URL: process.env.PROJECTS_REGISTRY_URL,
+    PROJECTS_REGISTRY_REPO_URL: process.env.PROJECTS_REGISTRY_REPO_URL,
+    PROJECTS_REGISTRY_BRANCH: process.env.PROJECTS_REGISTRY_BRANCH,
     NODE_ENV: process.env.NODE_ENV,
 
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,

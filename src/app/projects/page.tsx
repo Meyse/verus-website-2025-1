@@ -1,98 +1,157 @@
-// Projects Page - Showcase of projects using Verus technology
 import type {Metadata} from 'next'
+import type {Project} from '@/features/projects/types'
 
+import {Suspense} from 'react'
 import Link from 'next/link'
+import {connection} from 'next/server'
 
-import {env} from '@/configs/env'
-import {projects} from '@/data/projects'
-import {ProjectList} from '@/features/projects/project-list'
-import {IoLogoDiscord} from 'react-icons/io5'
+import {FeaturedProjects} from '@/features/projects/featured-projects'
+import {ProjectIndex} from '@/features/projects/project-index'
+import {ProjectSearch} from '@/features/projects/project-search'
+import {
+  getAllProjects,
+  getFeaturedProjects,
+} from '@/features/projects/server/projects'
+import {Plus} from 'lucide-react'
 
-import {absoluteUrl, createCollectionPageJsonLd} from '@/lib/seo/schema'
+import {
+  absoluteUrl,
+  createCollectionPageJsonLd,
+  verusEntityId,
+} from '@/lib/seo/schema'
 
+import {Button} from '@/components/ui/button'
+import {TextLinkButton} from '@/components/ui/text-link-button'
 import {BgWrapper} from '@/components/bg-wrapper'
 import {JsonLd} from '@/components/seo/json-ld'
+
+export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: 'Projects built with Verus',
   description:
-    'Explore applications, wallets, dashboards, and other projects leveraging the Verus Protocol and its ecosystem.',
+    'Explore wallets, applications, dashboards, and tools built with or around the Verus Protocol.',
   keywords:
-    'Verus projects, blockchain applications, cryptocurrency projects, Web3 applications, dApps, blockchain ecosystem',
+    'Verus projects, Verus ecosystem, blockchain applications, cryptocurrency projects, Web3 applications, dApps',
   alternates: {
     canonical: '/projects',
   },
 }
 
-const projectsJsonLd = createCollectionPageJsonLd({
-  path: '/projects',
-  name: 'Projects built with Verus',
-  description:
-    'Applications, wallets, dashboards, and other ecosystem projects built with or around the Verus Protocol.',
-  mainEntity: {
-    '@type': 'ItemList',
-    name: 'Verus ecosystem projects',
-    itemListElement: projects.map((project, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@type': 'SoftwareApplication',
-        name: project.name,
-        description: project.description,
-        applicationCategory: project.category,
-        url: absoluteUrl(project.url),
-      },
-    })),
-  },
-})
+export default async function ProjectsPage() {
+  const projects = await getAllProjects()
+  const projectsJsonLd = createCollectionPageJsonLd({
+    path: '/projects',
+    name: 'Projects built with Verus',
+    description:
+      'Wallets, applications, dashboards, and tools built with or around the Verus Protocol.',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: projects.map((project, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'SoftwareApplication',
+          '@id': `${absoluteUrl(`/projects/${project.slug}`)}#project`,
+          name: project.name,
+          description: project.description,
+          url: absoluteUrl(`/projects/${project.slug}`),
+          applicationCategory: project.category,
+          codeRepository: project.repoUrl,
+          sameAs: project.websiteUrl ? [project.websiteUrl] : undefined,
+          about: {
+            '@id': verusEntityId,
+          },
+        },
+      })),
+    },
+  })
 
-export default function ProjectsPage() {
   return (
     <>
       <JsonLd data={projectsJsonLd} />
-      <BgWrapper size="small">
-        <div className="flex flex-col">
-          <div className="flex-grow py-8 md:py-16">
-            <div className="mx-auto max-w-[1220px] md:px-8">
-              <div className="mb-8 px-4 md:mb-16 md:px-0">
-                <h1 className="text-[22px] font-medium leading-snug tracking-tight text-verus-blue dark:text-blue-400 md:text-[40px]">
-                  Projects built with Verus
-                </h1>
-                <p className="mt-4 max-w-[800px] text-[16px] text-gray-700 dark:text-gray-300 md:text-[20px]">
-                  Explore applications, wallets, dashboards, and other projects
-                  leveraging the Verus Protocol and its ecosystem.
-                </p>
-              </div>
+      <BgWrapper>
+        <div className="bg-gradient-to-b from-gray-100 via-gray-100 to-white dark:from-gray-950 dark:via-gray-950 dark:to-gray-950">
+          <div className="flex flex-col items-center px-0 pb-16 pt-0 md:pb-24 xl:px-4 xl:pt-[54px]">
+            <div className="w-full min-w-0 max-w-full overflow-hidden border-b border-gray-200 bg-gray-50 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] dark:border-gray-800 dark:bg-gray-950 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.2)] xl:max-w-[1220px] xl:rounded-lg xl:border">
+              <section className="border-b border-gray-200 bg-gray-50 px-6 py-8 dark:border-gray-800 dark:bg-gray-950 md:px-10 md:py-10">
+                <h1 className="sr-only">Projects built with Verus</h1>
+                <div className="flex min-w-0 flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="min-w-0 flex-1">
+                    <ProjectSearch projects={projects} />
+                    <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                      Community projects are listed for discovery and are not
+                      endorsed, audited, or guaranteed by Verus.
+                    </p>
+                  </div>
 
-              <ProjectList />
-
-              {/* Project submission info section */}
-              <div className="mt-16 px-4 md:px-0">
-                <div className="border border-blue-100/80 bg-white/80 p-6 shadow-[0_4px_40px_-12px_rgba(0,0,0,0.1)] backdrop-blur-sm dark:border-blue-900/30 dark:bg-gray-900/50 dark:shadow-[0_4px_40px_-12px_rgba(0,0,0,0.3)] md:rounded-lg md:p-8">
-                  <h2 className="mb-3 text-[18px] font-medium text-gray-900 dark:text-white md:text-[24px]">
-                    Want your project listed here?
-                  </h2>
-                  <p className="mb-4 text-[14px] text-gray-600 dark:text-gray-300 md:text-[16px]">
-                    If you have built a project using Verus technology and would
-                    like to have it considered for listing on this page, please
-                    visit our Discord community and reach out in the #marketing
-                    channel to discuss your project with the community.
-                  </p>
-                  <Link
-                    href={env.NEXT_PUBLIC_DISCORD}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex h-[40px] w-fit items-center justify-center gap-2 rounded-lg border border-blue-200 bg-white/80 px-6 text-[14px] font-medium text-verus-blue backdrop-blur-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 dark:border-blue-800/60 dark:bg-blue-950/80 dark:text-blue-300 dark:hover:border-blue-700 dark:hover:text-blue-200 md:h-[50px] md:text-[16px]"
-                  >
-                    Join Discord
-                    <IoLogoDiscord className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-[1px] md:h-6 md:w-6" />
-                  </Link>
+                  <div className="flex shrink-0 flex-col items-start gap-1 lg:items-end">
+                    <Button
+                      asChild
+                      className="px-4"
+                      size="verus"
+                      variant="verusPrimary"
+                    >
+                      <Link href="/projects/add">
+                        <Plus className="h-4 w-4" />
+                        Add my project
+                      </Link>
+                    </Button>
+                    <TextLinkButton
+                      className="-ml-2"
+                      contentClassName="mb-0 text-[14px]"
+                      href="/api/projects.json"
+                    >
+                      Download JSON
+                    </TextLinkButton>
+                  </div>
                 </div>
-              </div>
+              </section>
+
+              <Suspense fallback={null}>
+                <RequestRandomFeaturedProjects projects={projects} />
+              </Suspense>
+
+              <section
+                className="bg-gray-50 px-6 py-8 dark:bg-gray-950 md:px-10 md:py-10"
+                id="projects"
+              >
+                <div className="mx-auto max-w-4xl">
+                  <h2 className="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mb-6">
+                    All projects
+                  </h2>
+                  <Suspense fallback={<ProjectIndexFallback />}>
+                    <ProjectIndex projects={projects} />
+                  </Suspense>
+                </div>
+              </section>
             </div>
           </div>
         </div>
       </BgWrapper>
     </>
+  )
+}
+
+async function RequestRandomFeaturedProjects({projects}: {projects: Project[]}) {
+  await connection()
+  const featuredProjects = getFeaturedProjects(projects)
+
+  return <FeaturedProjects projects={featuredProjects} />
+}
+
+function ProjectIndexFallback() {
+  return (
+    <div className="w-full animate-pulse">
+      <div className="mb-4 h-9 w-64 max-w-sm rounded-lg border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-gray-900" />
+      <div className="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800">
+        {Array.from({length: 4}).map((_, index) => (
+          <div
+            className="h-20 border-b border-gray-200 bg-white last:border-b-0 dark:border-gray-800 dark:bg-gray-900"
+            key={index}
+          />
+        ))}
+      </div>
+    </div>
   )
 }
