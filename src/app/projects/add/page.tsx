@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import {env} from '@/configs/env'
 import {ProjectTemplateActions} from '@/features/projects/project-template-actions'
+import {PROJECTS_REGISTRY_REPO_URL} from '@/features/projects/server/config'
 import {ArrowLeft, ExternalLink} from 'lucide-react'
 import {IoLogoDiscord} from 'react-icons/io5'
 
@@ -52,8 +53,6 @@ verusFeatures:
 # - logo.png/logo.jpg/logo.webp: 128x128px square
 # - featured.png/featured.jpg/featured.webp: 800x300px, 8:3 aspect ratio
 # - screenshot1.png through screenshot6.png: aim for at least 1200px on the longest edge`
-
-const registryRepoUrl = 'https://github.com/Meyse/verus-projects'
 
 export default function AddProjectPage() {
   return (
@@ -206,7 +205,7 @@ export default function AddProjectPage() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button asChild size="verus" variant="verusPrimary">
                     <a
-                      href={registryRepoUrl}
+                      href={PROJECTS_REGISTRY_REPO_URL}
                       rel="noopener noreferrer"
                       target="_blank"
                     >

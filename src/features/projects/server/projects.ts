@@ -2,14 +2,9 @@ import 'server-only'
 
 import type {Project, ProjectCategory} from '../types'
 
-import {env} from '@/configs/env'
-
 import {ProjectYAMLSchema, validateSlug} from '../validation'
+import {PROJECTS_REGISTRY_URL} from './config'
 
-const DEFAULT_PROJECTS_REGISTRY_URL =
-  'https://meyse.github.io/verus-projects/projects.json'
-const PROJECTS_REGISTRY_URL =
-  env.PROJECTS_REGISTRY_URL || DEFAULT_PROJECTS_REGISTRY_URL
 const REGISTRY_REVALIDATE_SECONDS = 86400
 const FEATURED_ELIGIBLE_CATEGORIES: ProjectCategory[] = [
   'app',

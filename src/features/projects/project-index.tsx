@@ -8,11 +8,11 @@ import Link from 'next/link'
 import {useRouter, useSearchParams} from 'next/navigation'
 
 import {
-  ChevronDown,
   GitFork,
   Grid2X2,
   List,
   Search,
+  SlidersHorizontal,
   Star,
   X,
 } from 'lucide-react'
@@ -69,11 +69,7 @@ export function ProjectIndex({projects}: ProjectIndexProps) {
   )
   const [sort, setSort] = useState<SortOption>(getSortParam(searchParams))
   const [viewMode, setViewMode] = useState<ViewMode>(getViewParam(searchParams))
-  const [sectionsOpen, setSectionsOpen] = useState({
-    categories: true,
-    features: selectedFeatures.length > 0,
-    languages: selectedLanguages.length > 0,
-  })
+  const [filtersOpen, setFiltersOpen] = useState(false)
 
   const languages = useMemo(() => {
     const languageSet = new Set<string>()
@@ -174,18 +170,28 @@ export function ProjectIndex({projects}: ProjectIndexProps) {
     sort,
   ])
 
-  const hasActiveFilters =
-    search ||
-    selectedCategories.length > 0 ||
-    selectedFeatures.length > 0 ||
-    selectedLanguages.length > 0
+  const activeFacetCount =
+    selectedCategories.length +
+    selectedFeatures.length +
+    selectedLanguages.length
 
-  function toggleSection(section: keyof typeof sectionsOpen) {
-    setSectionsOpen((previous) => ({
-      ...previous,
-      [section]: !previous[section],
-    }))
-  }
+  const activeFilterChips = [
+    ...selectedCategories.map((category) => ({
+      key: `category-${category}`,
+      label: formatCategory(category),
+      onRemove: () => toggleCategory(category),
+    })),
+    ...selectedFeatures.map((feature) => ({
+      key: `feature-${feature}`,
+      label: feature,
+      onRemove: () => toggleFeature(feature),
+    })),
+    ...selectedLanguages.map((language) => ({
+      key: `language-${language}`,
+      label: language,
+      onRemove: () => toggleLanguage(language),
+    })),
+  ]
 
   function toggleCategory(category: ProjectCategory) {
     setSelectedCategories((previous) =>
@@ -234,110 +240,86 @@ export function ProjectIndex({projects}: ProjectIndexProps) {
 
   return (
     <div className="w-full">
-      <div className="mb-6 flex flex-col gap-4 sm:mb-8">
-        <div className="relative w-full max-w-sm">
-          <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
-            <Search className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-          </div>
-          <input
-            className="h-9 w-full rounded-lg border border-gray-300 bg-white pl-9 pr-9 text-sm text-gray-800 outline-none transition-colors placeholder:text-gray-400 focus:border-gray-400 dark:border-gray-800 dark:bg-gray-900 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-gray-700"
-            onChange={(event) => setSearch(event.target.value)}
-            placeholder="Filter projects..."
-            type="text"
-            value={search}
-          />
-          {search && (
-            <button
-              aria-label="Clear search"
-              className="absolute inset-y-0 right-2 flex items-center text-gray-500 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
-              onClick={() => setSearch('')}
-              type="button"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
-
-        <div className="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800">
-          <FilterSection
-            activeCount={selectedCategories.length}
-            isOpen={sectionsOpen.categories}
-            onToggle={() => toggleSection('categories')}
-            title="Categories"
-          >
-            <div className="flex flex-wrap gap-1.5 px-3">
-              {PROJECT_CATEGORIES.map((category) => (
-                <FilterButton
-                  isSelected={selectedCategories.includes(category)}
-                  key={category}
-                  onClick={() => toggleCategory(category)}
-                >
-                  {formatCategory(category)}
-                </FilterButton>
-              ))}
-            </div>
-          </FilterSection>
-
-          <FilterSection
-            activeCount={selectedFeatures.length}
-            isOpen={sectionsOpen.features}
-            onToggle={() => toggleSection('features')}
-            title="Features"
-          >
-            <div className="flex flex-wrap gap-1.5 px-3">
-              {VERUS_FEATURES.map((feature) => (
-                <FilterButton
-                  isSelected={selectedFeatures.includes(feature)}
-                  key={feature}
-                  onClick={() => toggleFeature(feature)}
-                >
-                  {feature}
-                </FilterButton>
-              ))}
-            </div>
-          </FilterSection>
-
-          {languages.length > 0 && (
-            <FilterSection
-              activeCount={selectedLanguages.length}
-              isOpen={sectionsOpen.languages}
-              onToggle={() => toggleSection('languages')}
-              title="Languages"
-            >
-              <div className="flex flex-wrap gap-1.5 px-3">
-                {languages.slice(0, 12).map((language) => (
-                  <FilterButton
-                    isSelected={selectedLanguages.includes(language)}
-                    key={language}
-                    onClick={() => toggleLanguage(language)}
-                    variant="blue"
-                  >
-                    {language}
-                  </FilterButton>
-                ))}
+      <div className="mb-6 flex flex-col gap-3 sm:mb-8">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center">
+            <div className="relative w-full sm:w-64 md:w-72">
+              <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
+                <Search className="h-4 w-4 text-gray-500 dark:text-gray-400" />
               </div>
-            </FilterSection>
-          )}
-        </div>
-
-        <div className="flex items-center justify-between gap-3 pt-1">
-          <div className="flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-gray-500 dark:text-gray-400">
-                Sort:
-              </span>
-              <select
-                className="h-7 cursor-pointer rounded-md border border-gray-200 bg-white px-2 text-xs text-gray-700 outline-none transition-colors focus:border-gray-400 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-gray-700"
-                onChange={(event) => setSort(event.target.value as SortOption)}
-                value={sort}
-              >
-                <option value="updated">Recently updated</option>
-                <option value="stars">Most stars</option>
-                <option value="name">Name A-Z</option>
-              </select>
+              <input
+                className="h-9 w-full rounded-lg border border-gray-300 bg-white pl-9 pr-9 text-sm text-gray-800 outline-none transition-colors placeholder:text-gray-400 focus:border-gray-400 dark:border-gray-800 dark:bg-gray-900 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-gray-700"
+                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Filter projects..."
+                type="text"
+                value={search}
+              />
+              {search && (
+                <button
+                  aria-label="Clear search"
+                  className="absolute inset-y-0 right-2 flex items-center text-gray-500 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
+                  onClick={() => setSearch('')}
+                  type="button"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
 
-            <div className="flex items-center gap-1 rounded-md border border-gray-200 p-0.5 dark:border-gray-800">
+            <div className="relative shrink-0">
+              <button
+                aria-expanded={filtersOpen}
+                aria-haspopup="dialog"
+                className={cn(
+                  'inline-flex h-9 w-full items-center justify-center gap-2 rounded-lg border px-3 text-sm font-medium transition-colors sm:w-auto',
+                  filtersOpen || activeFacetCount > 0
+                    ? 'border-verus-blue bg-verus-blue text-white hover:bg-verus-blue/90'
+                    : 'border-gray-300 bg-white/90 text-gray-800 hover:border-gray-400 hover:bg-white dark:border-gray-800 dark:bg-gray-900 dark:text-white dark:hover:border-gray-700'
+                )}
+                onClick={() => setFiltersOpen((open) => !open)}
+                type="button"
+              >
+                <SlidersHorizontal className="h-4 w-4" />
+                Filters
+                {activeFacetCount > 0 && (
+                  <span className="rounded-full bg-white/20 px-1.5 py-0.5 text-[10px] font-medium leading-none text-white">
+                    {activeFacetCount}
+                  </span>
+                )}
+              </button>
+
+              {filtersOpen && (
+                <FilterPanel
+                  activeFacetCount={activeFacetCount}
+                  filteredCount={filteredProjects.length}
+                  languages={languages}
+                  onClearAll={clearAllFilters}
+                  onClose={() => setFiltersOpen(false)}
+                  onToggleCategory={toggleCategory}
+                  onToggleFeature={toggleFeature}
+                  onToggleLanguage={toggleLanguage}
+                  projectCount={projects.length}
+                  selectedCategories={selectedCategories}
+                  selectedFeatures={selectedFeatures}
+                  selectedLanguages={selectedLanguages}
+                />
+              )}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <select
+              aria-label="Sort projects"
+              className="h-9 cursor-pointer rounded-lg border border-gray-200 bg-white px-2.5 text-xs text-gray-700 outline-none transition-colors focus:border-gray-400 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-gray-700"
+              onChange={(event) => setSort(event.target.value as SortOption)}
+              value={sort}
+            >
+              <option value="updated">Recently updated</option>
+              <option value="stars">Most stars</option>
+              <option value="name">Name A-Z</option>
+            </select>
+
+            <div className="flex h-9 items-center gap-1 rounded-lg border border-gray-200 p-0.5 dark:border-gray-800">
               <ViewButton
                 icon={<Grid2X2 className="h-4 w-4" />}
                 isSelected={viewMode === 'card'}
@@ -352,17 +334,28 @@ export function ProjectIndex({projects}: ProjectIndexProps) {
               />
             </div>
           </div>
+        </div>
 
-          {hasActiveFilters && (
+        {activeFilterChips.length > 0 && (
+          <div className="flex flex-col gap-2 border-t border-gray-200 pt-3 dark:border-gray-800 sm:flex-row sm:items-start sm:justify-between">
+            <div className="flex min-w-0 flex-1 flex-wrap gap-1.5">
+              {activeFilterChips.map((chip) => (
+                <ActiveFilterChip
+                  key={chip.key}
+                  label={chip.label}
+                  onRemove={chip.onRemove}
+                />
+              ))}
+            </div>
             <button
-              className="text-xs text-gray-500 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
+              className="w-fit text-xs text-gray-500 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
               onClick={clearAllFilters}
               type="button"
             >
               Clear all
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       {filteredProjects.length === 0 ? (
@@ -434,45 +427,178 @@ export function ProjectIndex({projects}: ProjectIndexProps) {
   )
 }
 
-function FilterSection({
+function FilterPanel({
+  activeFacetCount,
+  filteredCount,
+  languages,
+  onClearAll,
+  onClose,
+  onToggleCategory,
+  onToggleFeature,
+  onToggleLanguage,
+  projectCount,
+  selectedCategories,
+  selectedFeatures,
+  selectedLanguages,
+}: {
+  activeFacetCount: number
+  filteredCount: number
+  languages: string[]
+  onClearAll: () => void
+  onClose: () => void
+  onToggleCategory: (category: ProjectCategory) => void
+  onToggleFeature: (feature: VerusFeature) => void
+  onToggleLanguage: (language: string) => void
+  projectCount: number
+  selectedCategories: ProjectCategory[]
+  selectedFeatures: VerusFeature[]
+  selectedLanguages: string[]
+}) {
+  return (
+    <>
+      <button
+        aria-label="Close filters"
+        className="fixed inset-0 z-40 bg-black/20 sm:bg-transparent"
+        onClick={onClose}
+        type="button"
+      />
+
+      <div
+        aria-label="Project filters"
+        className="fixed inset-x-3 top-24 z-50 flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-2xl dark:border-gray-800 dark:bg-gray-950 sm:absolute sm:left-0 sm:right-auto sm:top-full sm:mt-2 sm:w-[420px] sm:max-w-[calc(100vw-3rem)] sm:shadow-xl"
+        role="dialog"
+      >
+        <div className="flex items-start justify-between gap-4 border-b border-gray-200 px-4 py-3 dark:border-gray-800">
+          <div>
+            <h3 className="text-sm font-medium text-gray-800 dark:text-white">
+              Filter projects
+            </h3>
+            <span className="mt-0.5 block text-xs text-gray-500 dark:text-gray-400">
+              {filteredCount} of {projectCount} shown
+            </span>
+          </div>
+          <button
+            aria-label="Close filters"
+            className="-mr-1 rounded-md p-1 text-gray-500 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
+            onClick={onClose}
+            type="button"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+
+        <div className="flex-1 space-y-4 overflow-y-auto p-4">
+          <FilterGroup activeCount={selectedCategories.length} title="Category">
+            <div className="flex flex-wrap gap-1.5">
+              {PROJECT_CATEGORIES.map((category) => (
+                <FilterButton
+                  isSelected={selectedCategories.includes(category)}
+                  key={category}
+                  onClick={() => onToggleCategory(category)}
+                >
+                  {formatCategory(category)}
+                </FilterButton>
+              ))}
+            </div>
+          </FilterGroup>
+
+          <FilterGroup activeCount={selectedFeatures.length} title="Features">
+            <div className="flex flex-wrap gap-1.5">
+              {VERUS_FEATURES.map((feature) => (
+                <FilterButton
+                  isSelected={selectedFeatures.includes(feature)}
+                  key={feature}
+                  onClick={() => onToggleFeature(feature)}
+                >
+                  {feature}
+                </FilterButton>
+              ))}
+            </div>
+          </FilterGroup>
+
+          {languages.length > 0 && (
+            <FilterGroup
+              activeCount={selectedLanguages.length}
+              title="Languages"
+            >
+              <div className="flex flex-wrap gap-1.5">
+                {languages.slice(0, 12).map((language) => (
+                  <FilterButton
+                    isSelected={selectedLanguages.includes(language)}
+                    key={language}
+                    onClick={() => onToggleLanguage(language)}
+                    variant="blue"
+                  >
+                    {language}
+                  </FilterButton>
+                ))}
+              </div>
+            </FilterGroup>
+          )}
+        </div>
+
+        {activeFacetCount > 0 && (
+          <div className="flex items-center justify-between gap-3 border-t border-gray-200 px-4 py-3 dark:border-gray-800">
+            <span className="text-xs text-gray-500 dark:text-gray-400">
+              {activeFacetCount} active
+            </span>
+            <button
+              className="text-xs font-medium text-gray-700 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+              onClick={onClearAll}
+              type="button"
+            >
+              Clear all
+            </button>
+          </div>
+        )}
+      </div>
+    </>
+  )
+}
+
+function FilterGroup({
   activeCount,
   children,
-  isOpen,
-  onToggle,
   title,
 }: {
   activeCount: number
   children: ReactNode
-  isOpen: boolean
-  onToggle: () => void
   title: string
 }) {
   return (
-    <div className="border-b border-gray-200 last:border-b-0 dark:border-gray-800">
-      <button
-        className="group flex w-full items-center justify-between px-3 py-2.5 text-left transition-colors hover:bg-gray-100 dark:hover:bg-gray-900"
-        onClick={onToggle}
-        type="button"
-      >
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-medium text-gray-500 transition-colors group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-200">
-            {title}
+    <section className="border-b border-gray-200 pb-4 last:border-b-0 last:pb-0 dark:border-gray-800">
+      <div className="mb-2 flex items-center gap-2">
+        <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400">
+          {title}
+        </h4>
+        {activeCount > 0 && (
+          <span className="rounded-full bg-verus-blue px-1.5 py-0.5 text-[10px] font-medium leading-none text-white">
+            {activeCount}
           </span>
-          {activeCount > 0 && (
-            <span className="rounded-full bg-verus-blue px-1.5 py-0.5 text-[10px] font-medium leading-none text-white">
-              {activeCount}
-            </span>
-          )}
-        </div>
-        <ChevronDown
-          className={cn(
-            'h-4 w-4 text-gray-500 transition-transform dark:text-gray-400',
-            isOpen && 'rotate-180'
-          )}
-        />
-      </button>
-      {isOpen && <div className="pb-3">{children}</div>}
-    </div>
+        )}
+      </div>
+      {children}
+    </section>
+  )
+}
+
+function ActiveFilterChip({
+  label,
+  onRemove,
+}: {
+  label: string
+  onRemove: () => void
+}) {
+  return (
+    <button
+      aria-label={`Remove ${label} filter`}
+      className="inline-flex max-w-full items-center gap-1 rounded-md border border-gray-200 bg-white px-2 py-1 text-xs font-medium text-gray-700 transition-colors hover:border-gray-300 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-700"
+      onClick={onRemove}
+      type="button"
+    >
+      <span className="truncate">{label}</span>
+      <X className="h-3.5 w-3.5 shrink-0 text-gray-400" />
+    </button>
   )
 }
 
@@ -489,6 +615,7 @@ function FilterButton({
 }) {
   return (
     <button
+      aria-pressed={isSelected}
       className={cn(
         'rounded-md border px-2.5 py-1 text-xs font-medium transition-colors',
         isSelected

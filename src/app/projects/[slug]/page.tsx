@@ -8,6 +8,7 @@ import {ProjectFeatureTag} from '@/features/projects/project-feature-tag'
 import {ProjectLogo} from '@/features/projects/project-logo'
 import {ProjectMarkdown} from '@/features/projects/project-markdown'
 import {ProjectScreenshotGallery} from '@/features/projects/project-screenshot-gallery'
+import {getProjectYamlSourceUrl} from '@/features/projects/server/config'
 import {
   getAllProjects,
   getProjectBySlug,
@@ -92,6 +93,7 @@ export default async function ProjectPage(props: {params: Params}) {
     project.category === 'tool' && primaryLanguage !== ''
   const showMaintainer =
     project.maintainer !== 'Verus community' || Boolean(project.repoUrl)
+  const projectYamlSourceUrl = getProjectYamlSourceUrl(project.slug)
 
   return (
     <>
@@ -329,9 +331,7 @@ export default async function ProjectPage(props: {params: Params}) {
                         >
                           Download JSON
                         </SidebarLink>
-                        <SidebarLink
-                          href={`https://github.com/Meyse/verus-projects/blob/main/projects/${project.slug}/project.yaml`}
-                        >
+                        <SidebarLink href={projectYamlSourceUrl}>
                           View YAML source
                         </SidebarLink>
                       </div>

@@ -1,5 +1,8 @@
+'use client'
+
 import type {Project} from './types'
 
+import {useState} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -11,7 +14,9 @@ interface FeaturedProjectsProps {
 }
 
 export function FeaturedProjects({projects}: FeaturedProjectsProps) {
-  if (projects.length === 0) return null
+  const [featuredProjects] = useState(projects)
+
+  if (featuredProjects.length === 0) return null
 
   return (
     <section className="border-b border-gray-200 bg-gray-50 px-6 py-8 dark:border-gray-800 dark:bg-gray-950 md:px-10 md:py-10">
@@ -21,7 +26,7 @@ export function FeaturedProjects({projects}: FeaturedProjectsProps) {
           Featured projects are randomly selected on each page load.
         </p>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-6">
-          {projects.map((project) => (
+          {featuredProjects.map((project) => (
             <FeaturedProjectCard key={project.slug} project={project} />
           ))}
         </div>
