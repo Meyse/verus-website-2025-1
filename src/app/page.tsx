@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <>
       <JsonLd data={homeJsonLd} />
-      <BgWrapper>
+      <BgWrapper hasAnnouncement>
         <div className="flex flex-col items-center px-4 pt-[30px] md:pt-[70px]">
           <h1 className="text-center text-[32px] font-medium tracking-tight text-white md:text-[75px]">
             The Internet of Value

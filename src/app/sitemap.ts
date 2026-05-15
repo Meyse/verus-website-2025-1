@@ -78,6 +78,12 @@ const sitemapRoutes = [
     priority: 0.7,
   },
   {
+    path: '/dream',
+    lastModified: '2026-05-13',
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  {
     path: '/ethereum-bridge',
     lastModified: '2026-05-10',
     changeFrequency: 'monthly',
