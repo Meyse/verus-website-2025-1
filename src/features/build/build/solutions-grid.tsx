@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 import {cn} from '@/lib/utils'
 import {Button} from '@/components/ui/button'
+import {VerusIDIcon} from '@/components/icons/verusid-icon'
 import {
   ArrowRight,
   ArrowUpDown,
@@ -113,7 +113,7 @@ const solutions = [
 ] as const
 
 function SolutionIcon({icon}: {icon: (typeof solutions)[number]['icon']}) {
-  const iconClass = 'h-7 w-7 text-verus-blue dark:text-blue-400'
+  const iconClass = 'h-7 w-7 text-verus-blue dark:text-[#60A5FA]'
 
   if (icon === 'network') return <Network className={iconClass} />
   if (icon === 'coins') return <Coins className={iconClass} />
@@ -121,15 +121,7 @@ function SolutionIcon({icon}: {icon: (typeof solutions)[number]['icon']}) {
   if (icon === 'store') return <Store className={iconClass} />
   if (icon === 'database') return <Database className={iconClass} />
 
-  return (
-    <Image
-      src="/img/at-full-black.svg"
-      alt=""
-      width={28}
-      height={28}
-      className="h-7 w-7 [filter:invert(31%)_sepia(93%)_saturate(1352%)_hue-rotate(213deg)_brightness(97%)_contrast(87%)] dark:[filter:invert(67%)_sepia(12%)_saturate(1352%)_hue-rotate(183deg)_brightness(100%)_contrast(97%)]"
-    />
-  )
+  return <VerusIDIcon className={iconClass} />
 }
 
 export function SolutionsGrid() {

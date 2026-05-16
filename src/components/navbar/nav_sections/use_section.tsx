@@ -2,8 +2,6 @@
  * File updated: reordered items so "Wallet" appears before "Get Started"
  * in the Use & Wallet section of the desktop navigation.
  */
-import Image from 'next/image'
-
 import {env} from '@/configs/env'
 import {Coins, Search} from 'lucide-react'
 import {
@@ -15,6 +13,8 @@ import {
   LuPercent,
   LuWallet,
 } from 'react-icons/lu'
+
+import {VerusIDIcon} from '@/components/icons/verusid-icon'
 
 import {NavLink} from '../nav_link'
 
@@ -45,15 +45,7 @@ export function UseSection() {
           <NavLink
             href="/verusid"
             icon={
-              <div className="relative">
-                <Image
-                  src="/img/at-full-black.svg"
-                  alt="VerusID Icon"
-                  width={5}
-                  height={5}
-                  className="size-5 opacity-50 transition-all group-hover:opacity-100 group-hover:[filter:invert(31%)_sepia(93%)_saturate(1352%)_hue-rotate(213deg)_brightness(97%)_contrast(87%)] dark:[filter:invert(100%)]"
-                />
-              </div>
+              <VerusIDIcon className="h-5 w-5 text-gray-500 transition-colors group-hover:text-verus-blue" />
             }
             title="VerusID"
             description="Be self-sovereign"

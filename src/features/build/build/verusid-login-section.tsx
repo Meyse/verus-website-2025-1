@@ -10,13 +10,22 @@ export function VerusIDLoginSection() {
     <section className="border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="px-8 py-12 md:px-12 md:py-14">
-          <Image
-            src="/img/verusid-logo.svg"
-            alt="VerusID"
-            height={24}
-            width={118}
-            className="mb-8 h-6 w-auto"
-          />
+          <div className="mb-8">
+            <Image
+              src="/img/verusid-logo.svg"
+              alt="VerusID"
+              height={24}
+              width={118}
+              className="h-6 w-auto dark:hidden"
+            />
+            <Image
+              src="/img/verusid-logo-white.svg"
+              alt="VerusID"
+              height={21}
+              width={92}
+              className="hidden h-6 w-auto dark:block"
+            />
+          </div>
           <h2 className="mb-4 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[44px]">
             Introduce password-free login to your users
           </h2>

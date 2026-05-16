@@ -100,4 +100,14 @@ export const milestones = [
       href: '/build/data',
     },
   },
+  {
+    date: 'APR 2026',
+    title: 'DREAM application model',
+    description:
+      'DREAM became possible as wallet-side GenericRequest and app-encryption work became available in Verus Mobile. Apps can now ask users to approve identity, payment, and encrypted data flows directly from the wallet.',
+    cta: {
+      text: 'Explore DREAM',
+      href: '/dream',
+    },
+  },
 ] as const
