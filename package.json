@@ -8,7 +8,7 @@
   "packageManager": "pnpm@10.29.2",
   "pnpm": {
     "overrides": {
-      "postcss": "8.5.14"
+      "postcss": "8.5.25"
     }
   },
   "scripts": {
