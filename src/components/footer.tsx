@@ -18,20 +18,20 @@ import {ThemeModeControl} from '@/components/navbar'
 export function Footer() {
   return (
     <footer className="mt-16 w-full overflow-hidden md:mt-0">
-      <div className="relative">
+      <div className="relative h-[420px] md:h-[min(80svh,760px)]">
         <Image
           src="/img/bg-footer.webp"
           alt=""
-          width={500}
-          height={500}
-          className="h-auto w-full scale-y-[-1] object-cover dark:hidden"
+          fill
+          sizes="100vw"
+          className="scale-y-[-1] object-fill dark:hidden"
         />
         <Image
           src="/img/bg-darkmode.webp"
           alt=""
-          width={500}
-          height={500}
-          className="hidden h-auto w-full scale-y-[-1] object-cover dark:block"
+          fill
+          sizes="100vw"
+          className="hidden scale-y-[-1] object-fill dark:block"
         />
         {/* Centered Text and Button */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-8">
@@ -56,7 +56,7 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="bg-[#010101] text-white">
+      <div className="-mt-px bg-[#010101] text-white">
         {/* Desktop Footer */}
         <div className="mx-auto hidden max-w-[1220px] px-8 py-16 md:block">
           <div className="grid grid-cols-6 gap-8">
