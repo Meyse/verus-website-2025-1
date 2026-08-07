@@ -556,18 +556,20 @@ export default function DreamPage() {
                       />
                       <span
                         aria-hidden="true"
-                        className="absolute inset-0 bg-white/20 dark:bg-gray-950/10"
+                        className="absolute inset-0 bg-white/25 dark:bg-white/15"
                       />
+                      <div className="absolute inset-0 z-10 px-6 py-7 md:px-8 md:py-8">
+                        <p className="text-[13px] font-semibold leading-tight text-gray-800/80 dark:text-gray-800/80">
+                          {library.role}
+                        </p>
+                        <h3 className="mt-2 break-words font-display text-[22px] font-medium leading-[1.15] tracking-tight text-gray-900 md:text-[26px]">
+                          {library.title}
+                        </h3>
+                      </div>
                     </div>
 
                     <div className="px-6 py-7 md:px-8 md:py-8">
-                      <p className="text-[13px] font-semibold leading-tight text-verus-blue dark:text-blue-300">
-                        {library.role}
-                      </p>
-                      <h3 className="mt-2 break-words font-display text-[24px] font-medium leading-[1.15] tracking-tight text-gray-800 dark:text-white md:text-[26px]">
-                        {library.title}
-                      </h3>
-                      <p className="mt-4 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
+                      <p className="text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
                         {library.description}
                       </p>
 
