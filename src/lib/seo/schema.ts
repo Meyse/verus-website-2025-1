@@ -57,7 +57,7 @@ export function createSiteJsonLd() {
         name: 'Verus',
         url: absoluteUrl('/'),
         description:
-          'The protocol where you own your identity, data, and money. Ownership, not just access.',
+          'The protocol where you own your identity, data, and money.',
         inLanguage: 'en-US',
         publisher: {
           '@id': verusEntityId,

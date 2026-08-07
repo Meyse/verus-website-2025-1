@@ -130,7 +130,7 @@ export function GetStartedSection() {
                 </a>
               </Button>
               <span className="text-[12px] text-white/90 md:text-[14px]">
-                More than 11k joined before you!
+                More than 11,000 people have joined
               </span>
             </div>
           </div>

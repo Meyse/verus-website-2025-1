@@ -55,7 +55,6 @@ export default function Home() {
             Where you own your <span className="font-medium">identity</span>,{' '}
             <span className="font-medium">data</span>, and{' '}
             <span className="font-medium">money</span>.
-            <br className="hidden md:block" /> Ownership, not just access.
           </p>
           <div className="mb-16 mt-8 flex flex-col gap-4 md:mb-32 md:flex-row">
             <Button asChild variant="verusPrimary" size="verus">

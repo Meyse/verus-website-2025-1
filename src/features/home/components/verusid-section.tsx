@@ -6,10 +6,10 @@ export function VerusIDSection() {
       <div className="flex w-full flex-col items-start justify-center px-10 py-20 md:px-14 md:py-32">
         <div className="max-w-[760px]">
           <h2 className="mb-4 text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:mb-8 md:text-[44px]">
-            Experience true self-sovereignty with VerusID
+            Manage identity and data with VerusID
           </h2>
           <p className="text-[15px] font-normal leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
-            Your identity, your keys, your data—all in one place.
+            VerusID links identity and data to keys the user controls.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 md:flex-row">

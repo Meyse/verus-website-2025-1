@@ -11,9 +11,9 @@ export function ProtocolSection() {
             Horizontal scalability: multi-chain architecture
           </h2>
           <p className="text-[15px] font-normal leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
-            Scale out, not up. Launch interoperable blockchains as needed
-            rather than overloading a single chain. Think millions of servers,
-            not one super-server.
+            Verus scales horizontally by adding interoperable blockchains. Each
+            PBaaS chain processes its own transactions while communicating
+            through the Verus protocol.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 md:flex-row">
