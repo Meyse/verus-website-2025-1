@@ -81,7 +81,7 @@ export function CommunitySection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IoLogoDiscord className="mr-2 h-5 w-5 text-[#5865F2]" />
+            <IoLogoDiscord className="mr-2 h-5 w-5 text-[#5865F2] transition-colors dark:text-white/70 dark:group-hover:text-white dark:group-focus-visible:text-white" />
             <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               Discord
             </span>
@@ -92,7 +92,7 @@ export function CommunitySection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaXTwitter className="mr-2 h-5 w-5 text-black dark:text-white" />
+            <FaXTwitter className="mr-2 h-5 w-5 text-black transition-colors dark:text-white/70 dark:group-hover:text-white dark:group-focus-visible:text-white" />
             <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               X.com
             </span>
@@ -103,7 +103,7 @@ export function CommunitySection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaTelegram className="mr-2 h-5 w-5 text-[#0088cc]" />
+            <FaTelegram className="mr-2 h-5 w-5 text-[#0088cc] transition-colors dark:text-white/70 dark:group-hover:text-white dark:group-focus-visible:text-white" />
             <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               Telegram
             </span>
@@ -114,7 +114,7 @@ export function CommunitySection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaReddit className="mr-2 h-5 w-5 text-[#FF4500]" />
+            <FaReddit className="mr-2 h-5 w-5 text-[#FF4500] transition-colors dark:text-white/70 dark:group-hover:text-white dark:group-focus-visible:text-white" />
             <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               Reddit
             </span>
@@ -125,7 +125,7 @@ export function CommunitySection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebook className="mr-2 h-5 w-5 text-[#1877F2]" />
+            <FaFacebook className="mr-2 h-5 w-5 text-[#1877F2] transition-colors dark:text-white/70 dark:group-hover:text-white dark:group-focus-visible:text-white" />
             <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               Facebook
             </span>
@@ -136,7 +136,7 @@ export function CommunitySection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaYoutube className="mr-2 h-5 w-5 text-[#FF0000]" />
+            <FaYoutube className="mr-2 h-5 w-5 text-[#FF0000] transition-colors dark:text-white/70 dark:group-hover:text-white dark:group-focus-visible:text-white" />
             <span className="text-[15px] font-semibold text-gray-800 group-hover:underline dark:text-white">
               YouTube
             </span>
