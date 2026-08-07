@@ -32,16 +32,27 @@ const breadcrumbJsonLd = createBuildBreadcrumbJsonLd(
 
 const developerDocLinks = [
   {
-    title: 'docs.verus.io',
-    href: env.NEXT_PUBLIC_VERUS_DOCS,
+    title: 'Verus Wiki',
+    description:
+      'Broad command reference and guides, with machine-readable resources for AI agents.',
+    domain: 'wiki.autobb.app',
+    href: env.NEXT_PUBLIC_AUTOBB_WIKI,
+    badge: 'AI-ready',
   },
   {
-    title: 'monkins1010.github.io',
+    title: 'Integration guides',
+    description:
+      'Practical tutorials for VerusID, VDXF, storage, login, and testnet.',
+    domain: 'monkins1010.github.io',
     href: env.NEXT_PUBLIC_MONKINS_GITHUB,
   },
   {
-    title: 'wiki.autobb.app',
-    href: env.NEXT_PUBLIC_AUTOBB_WIKI,
+    title: 'Verus PBaaS docs',
+    description:
+      'Useful foundational documentation; some sections may not reflect current releases.',
+    domain: 'docs.verus.io',
+    href: env.NEXT_PUBLIC_VERUS_DOCS,
+    badge: 'Older reference',
   },
 ]
 
@@ -58,7 +69,7 @@ function DeveloperDocsMenu() {
         <ChevronDown className="h-4 w-4 transition-transform duration-300 group-open/docs:rotate-180" />
       </summary>
 
-      <div className="absolute left-0 top-full z-30 mt-2 w-full min-w-0 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-[0_12px_36px_-18px_rgba(0,0,0,0.35)] dark:border-gray-800 dark:bg-gray-950 md:w-[360px]">
+      <div className="absolute left-0 top-full z-30 mt-2 w-full min-w-0 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-[0_12px_36px_-18px_rgba(0,0,0,0.35)] dark:border-gray-800 dark:bg-gray-950 md:w-[420px]">
         <ul className="divide-y divide-gray-200 dark:divide-gray-800">
           {developerDocLinks.map((link) => (
             <li key={link.title}>
@@ -66,12 +77,27 @@ function DeveloperDocsMenu() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/link flex min-w-0 items-center gap-3 px-4 py-3 transition-colors hover:bg-gray-50 dark:hover:bg-gray-900/70"
+                className="group/link flex min-w-0 items-start gap-3 px-4 py-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-900/70"
               >
-                <span className="flex min-w-0 flex-1 items-center gap-2 text-[15px] font-medium leading-tight text-gray-800 dark:text-white">
-                  <span className="min-w-0 break-words">{link.title}</span>
-                  <ExternalLink className="h-4 w-4 shrink-0 opacity-50 group-hover/link:opacity-100" />
-                </span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-[15px] font-medium leading-tight text-gray-800 dark:text-white">
+                      {link.title}
+                    </span>
+                    {link.badge && (
+                      <span className="rounded-full border border-gray-200 bg-gray-50 px-2 py-0.5 text-[11px] font-medium leading-tight text-gray-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300">
+                        {link.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-gray-600 dark:text-gray-300">
+                    {link.description}
+                  </p>
+                  <span className="mt-1 block text-[12px] leading-tight text-gray-500 dark:text-gray-400">
+                    {link.domain}
+                  </span>
+                </div>
+                <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-gray-500 opacity-50 group-hover/link:opacity-100 dark:text-gray-400" />
               </a>
             </li>
           ))}
