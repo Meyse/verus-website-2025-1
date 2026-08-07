@@ -1,9 +1,19 @@
+import type {MouseEventHandler} from 'react'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
-export function Logo() {
+type LogoProps = {
+  onClick?: MouseEventHandler<HTMLAnchorElement>
+}
+
+export function Logo({onClick}: LogoProps) {
   return (
-    <Link href="/" className="flex items-center gap-2 md:gap-3">
+    <Link
+      href="/"
+      className="flex items-center gap-2 md:gap-3"
+      onClick={onClick}
+    >
       <div className="relative">
         <Image
           src="/img/verus-logo-blue.svg"

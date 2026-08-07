@@ -42,39 +42,28 @@ function MobileSection({title, isOpen, toggleSection, children}: SectionProps) {
 
   return (
     <div className="border-b border-gray-100 dark:border-gray-800">
-      <div
-        className={cn(
-          '-mx-6 rounded-lg transition-colors duration-300',
-          isOpen
-            ? 'bg-blue-50/70 dark:bg-blue-950/30'
-            : 'hover:bg-gray-50/70 dark:hover:bg-gray-800/30'
-        )}
-      >
+      <div className="-mx-6">
         <div className="px-6">
           <button
             onClick={() => toggleSection(title.toLowerCase())}
-            className="group flex w-full items-center justify-between py-4"
+            className="flex w-full items-center justify-between py-4"
           >
-            <span className="text-[15px] font-semibold text-gray-700 transition-colors group-hover:text-verus-blue dark:text-gray-300 dark:group-hover:text-blue-400">
-              {title}
-            </span>
-            <div
+            <span
               className={cn(
-                'flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300',
-                isOpen
-                  ? 'bg-verus-blue'
-                  : 'bg-gray-100 group-hover:bg-verus-blue/20 dark:bg-gray-700 dark:group-hover:bg-verus-blue/30'
+                'text-[15px] font-semibold text-gray-700 dark:text-gray-300',
+                isOpen && 'dark:text-white'
               )}
             >
-              <ChevronRight
-                className={cn(
-                  'h-4 w-4 transition-transform duration-300',
-                  isOpen
-                    ? 'rotate-90 text-white'
-                    : 'text-gray-500 group-hover:text-verus-blue dark:text-gray-400 dark:group-hover:text-blue-400'
-                )}
-              />
-            </div>
+              {title}
+            </span>
+            <ChevronRight
+              className={cn(
+                'h-4 w-4 transition-transform duration-300',
+                isOpen
+                  ? 'rotate-90 text-verus-blue dark:text-white'
+                  : 'text-gray-500 dark:text-gray-400'
+              )}
+            />
           </button>
         </div>
       </div>
@@ -112,9 +101,13 @@ function MenuLink({href, children, className, ...props}: MenuLinkProps) {
   )
 }
 
-export function MobileNav() {
+type MobileNavProps = {
+  isOpen: boolean
+  onOpenChange: (isOpen: boolean) => void
+}
+
+export function MobileNav({isOpen, onOpenChange}: MobileNavProps) {
   const pathname = usePathname()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [openSection, setOpenSection] = useState<string | null>(null)
   const menuTopClass = pathname === '/' ? 'top-[107px]' : 'top-[50px]'
 
@@ -124,34 +117,34 @@ export function MobileNav() {
 
   // Function to close the mobile menu
   const closeMenu = () => {
-    setIsMobileMenuOpen(false)
+    onOpenChange(false)
   }
 
   return (
     <MobileMenuCloseContext.Provider value={closeMenu}>
       {/* Mobile Menu Button */}
       <button
-        className="relative z-50 flex h-8 w-8 items-center justify-center rounded-md transition-colors hover:bg-gray-100/50 dark:hover:bg-gray-800/50 md:hidden"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+        className="relative z-50 flex h-8 w-8 items-center justify-center md:hidden"
+        onClick={() => onOpenChange(!isOpen)}
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
       >
         <div className="relative h-5 w-5">
           <span
             className={cn(
               'absolute left-0 top-1 h-[2px] w-5 bg-gray-600 transition-all duration-300 dark:bg-gray-400',
-              isMobileMenuOpen ? 'top-[9px] rotate-45' : 'rotate-0'
+              isOpen ? 'top-[9px] rotate-45' : 'rotate-0'
             )}
           />
           <span
             className={cn(
               'absolute left-0 h-[2px] w-5 bg-gray-600 transition-all duration-300 dark:bg-gray-400',
-              isMobileMenuOpen ? 'opacity-0' : 'top-[9px] opacity-100'
+              isOpen ? 'opacity-0' : 'top-[9px] opacity-100'
             )}
           />
           <span
             className={cn(
               'absolute bottom-1 left-0 h-[2px] w-5 bg-gray-600 transition-all duration-300 dark:bg-gray-400',
-              isMobileMenuOpen ? 'bottom-[9px] -rotate-45' : 'rotate-0'
+              isOpen ? 'bottom-[9px] -rotate-45' : 'rotate-0'
             )}
           />
         </div>
@@ -160,9 +153,9 @@ export function MobileNav() {
       {/* Mobile Menu with improved styling but no animations */}
       <div
         className={cn(
-          'fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white shadow-2xl transition-transform duration-300 dark:bg-gray-950 dark:shadow-[0_0_20px_rgba(0,0,0,0.5)] md:hidden',
+          'fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white transition-transform duration-300 dark:bg-gray-950 md:hidden',
           menuTopClass,
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
         <div className="absolute left-0 top-0 h-full w-1/2 bg-blue-50/20 opacity-30 dark:bg-blue-950/20" />
@@ -514,12 +507,12 @@ export function MobileNav() {
                 href={env.NEXT_PUBLIC_DISCORD}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 rounded-md px-3 py-2 transition-colors hover:bg-verus-blue/10"
+                className="flex items-center gap-2 px-3 py-2"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#5865F2]/10">
-                  <IoLogoDiscord className="h-4 w-4 text-[#5865F2]" />
+                <div className="flex h-8 w-8 items-center justify-center">
+                  <IoLogoDiscord className="h-4 w-4 text-[#5865F2] dark:text-white" />
                 </div>
-                <span className="text-[15px] font-semibold text-gray-700 transition-colors group-hover:text-verus-blue dark:text-gray-300 dark:group-hover:text-blue-400">
+                <span className="text-[15px] font-semibold text-gray-700 dark:text-gray-300">
                   Discord
                 </span>
               </MenuLink>
@@ -527,12 +520,12 @@ export function MobileNav() {
                 href={env.NEXT_PUBLIC_VERUS_TWITTER}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 rounded-md px-3 py-2 transition-colors hover:bg-verus-blue/10"
+                className="flex items-center gap-2 px-3 py-2"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black/10 dark:bg-white/10">
+                <div className="flex h-8 w-8 items-center justify-center">
                   <FaXTwitter className="h-4 w-4 text-black dark:text-white" />
                 </div>
-                <span className="text-[15px] font-semibold text-gray-700 transition-colors group-hover:text-verus-blue dark:text-gray-300 dark:group-hover:text-blue-400">
+                <span className="text-[15px] font-semibold text-gray-700 dark:text-gray-300">
                   X
                 </span>
               </MenuLink>
@@ -540,12 +533,12 @@ export function MobileNav() {
                 href={env.NEXT_PUBLIC_VERUS_TELEGRAM}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 rounded-md px-3 py-2 transition-colors hover:bg-verus-blue/10"
+                className="flex items-center gap-2 px-3 py-2"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0088cc]/10">
-                  <FaTelegram className="h-4 w-4 text-[#0088cc]" />
+                <div className="flex h-8 w-8 items-center justify-center">
+                  <FaTelegram className="h-4 w-4 text-[#0088cc] dark:text-white" />
                 </div>
-                <span className="text-[15px] font-semibold text-gray-700 transition-colors group-hover:text-verus-blue dark:text-gray-300 dark:group-hover:text-blue-400">
+                <span className="text-[15px] font-semibold text-gray-700 dark:text-gray-300">
                   Telegram
                 </span>
               </MenuLink>
@@ -553,12 +546,12 @@ export function MobileNav() {
                 href={env.NEXT_PUBLIC_VERUS_REDDIT}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 rounded-md px-3 py-2 transition-colors hover:bg-verus-blue/10"
+                className="flex items-center gap-2 px-3 py-2"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF4500]/10">
-                  <FaReddit className="h-4 w-4 text-[#FF4500]" />
+                <div className="flex h-8 w-8 items-center justify-center">
+                  <FaReddit className="h-4 w-4 text-[#FF4500] dark:text-white" />
                 </div>
-                <span className="text-[15px] font-semibold text-gray-700 transition-colors group-hover:text-verus-blue dark:text-gray-300 dark:group-hover:text-blue-400">
+                <span className="text-[15px] font-semibold text-gray-700 dark:text-gray-300">
                   Reddit
                 </span>
               </MenuLink>
@@ -566,12 +559,12 @@ export function MobileNav() {
                 href={env.NEXT_PUBLIC_VERUS_FACEBOOK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 rounded-md px-3 py-2 transition-colors hover:bg-verus-blue/10"
+                className="flex items-center gap-2 px-3 py-2"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1877F2]/10">
-                  <FaFacebook className="h-4 w-4 text-[#1877F2]" />
+                <div className="flex h-8 w-8 items-center justify-center">
+                  <FaFacebook className="h-4 w-4 text-[#1877F2] dark:text-white" />
                 </div>
-                <span className="text-[15px] font-semibold text-gray-700 transition-colors group-hover:text-verus-blue dark:text-gray-300 dark:group-hover:text-blue-400">
+                <span className="text-[15px] font-semibold text-gray-700 dark:text-gray-300">
                   Facebook
                 </span>
               </MenuLink>
@@ -579,12 +572,12 @@ export function MobileNav() {
                 href={env.NEXT_PUBLIC_VERUS_YOUTUBE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 rounded-md px-3 py-2 transition-colors hover:bg-verus-blue/10"
+                className="flex items-center gap-2 px-3 py-2"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF0000]/10">
-                  <FaYoutube className="h-4 w-4 text-[#FF0000]" />
+                <div className="flex h-8 w-8 items-center justify-center">
+                  <FaYoutube className="h-4 w-4 text-[#FF0000] dark:text-white" />
                 </div>
-                <span className="text-[15px] font-semibold text-gray-700 transition-colors group-hover:text-verus-blue dark:text-gray-300 dark:group-hover:text-blue-400">
+                <span className="text-[15px] font-semibold text-gray-700 dark:text-gray-300">
                   YouTube
                 </span>
               </MenuLink>
@@ -593,13 +586,13 @@ export function MobileNav() {
 
           {/* Media - non-collapsable */}
           <div className="border-b border-gray-100 dark:border-gray-800">
-            <div className="-mx-6 rounded-lg transition-colors duration-300 hover:bg-gray-50/70 dark:hover:bg-gray-800/30">
+            <div className="-mx-6">
               <div className="px-6">
                 <MenuLink
                   href="/media"
-                  className="group flex w-full items-center justify-between py-4"
+                  className="flex w-full items-center justify-between py-4"
                 >
-                  <span className="text-[15px] font-semibold text-gray-700 transition-colors group-hover:text-verus-blue dark:text-gray-300 dark:group-hover:text-blue-400">
+                  <span className="text-[15px] font-semibold text-gray-700 dark:text-gray-300">
                     Media
                   </span>
                 </MenuLink>
@@ -609,13 +602,13 @@ export function MobileNav() {
 
           {/* Donate - non-collapsable */}
           <div className="border-b border-gray-100 dark:border-gray-800">
-            <div className="-mx-6 rounded-lg transition-colors duration-300 hover:bg-gray-50/70 dark:hover:bg-gray-800/30">
+            <div className="-mx-6">
               <div className="px-6">
                 <MenuLink
                   href="/donate"
-                  className="group flex w-full items-center justify-between py-4"
+                  className="flex w-full items-center justify-between py-4"
                 >
-                  <span className="text-[15px] font-semibold text-gray-700 transition-colors group-hover:text-verus-blue dark:text-gray-300 dark:group-hover:text-blue-400">
+                  <span className="text-[15px] font-semibold text-gray-700 dark:text-gray-300">
                     Donate
                   </span>
                 </MenuLink>
@@ -623,41 +616,45 @@ export function MobileNav() {
             </div>
           </div>
 
-          <div className="border-b border-gray-100 py-5 dark:border-gray-800">
-            <ThemeModeControl controlClassName="shrink-0" />
-          </div>
+          <div className="flex items-center justify-between pb-4 pt-5">
+            <div className="flex items-center gap-2">
+              <MenuLink
+                href={env.NEXT_PUBLIC_VERUS_TWITTER}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center"
+                aria-label="X (Twitter)"
+              >
+                <FaXTwitter className="h-5 w-5 text-black dark:text-white" />
+              </MenuLink>
 
-          {/* Social Media Icons */}
-          <div className="flex justify-center gap-5 pb-4 pt-6">
-            <MenuLink
-              href={env.NEXT_PUBLIC_VERUS_TWITTER}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-black/5 transition-colors hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20"
-              aria-label="X (Twitter)"
-            >
-              <FaXTwitter className="h-5 w-5 text-black dark:text-white" />
-            </MenuLink>
+              <MenuLink
+                href={env.NEXT_PUBLIC_DISCORD}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center"
+                aria-label="Discord"
+              >
+                <IoLogoDiscord className="h-5 w-5 text-[#5865F2] dark:text-white" />
+              </MenuLink>
 
-            <MenuLink
-              href={env.NEXT_PUBLIC_DISCORD}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#5865F2]/10 transition-colors hover:bg-[#5865F2]/20"
-              aria-label="Discord"
-            >
-              <IoLogoDiscord className="h-5 w-5 text-[#5865F2]" />
-            </MenuLink>
+              <MenuLink
+                href={env.NEXT_PUBLIC_VERUS_GITHUB}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center"
+                aria-label="GitHub"
+              >
+                <IoLogoGithub className="h-5 w-5 text-gray-800 dark:text-white" />
+              </MenuLink>
+            </div>
 
-            <MenuLink
-              href={env.NEXT_PUBLIC_VERUS_GITHUB}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/10 transition-colors hover:bg-gray-800/20 dark:bg-gray-300/10 dark:hover:bg-gray-300/20"
-              aria-label="GitHub"
-            >
-              <IoLogoGithub className="h-5 w-5 text-gray-800 dark:text-gray-300" />
-            </MenuLink>
+            <ThemeModeControl
+              size="sm"
+              className="w-auto"
+              labelClassName="sr-only"
+              controlClassName="shrink-0 [&>button]:w-9 [&>button]:min-w-0 [&>button]:px-0 [&>button:first-child]:w-12"
+            />
           </div>
         </nav>
       </div>
