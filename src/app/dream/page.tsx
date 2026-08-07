@@ -283,17 +283,26 @@ export default function DreamPage() {
                   What DREAM applications can look like
                 </h2>
                 <p className="text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
-                  Verus community members are putting the model into practice.
-                  The two applications below are in development, but they
-                  already show how the same wallet-based approach can support
-                  very different products: a social app with identity and
-                  payments, and a private notes app with encrypted sync.
+                  The Verus community is putting the model into practice. The
+                  two applications below are in development, but they already
+                  show how the same wallet-based approach can support very
+                  different products: a social app with identity and payments,
+                  and a private notes app with encrypted sync.
                 </p>
               </div>
 
               <div className="mt-10 overflow-hidden rounded-lg bg-gray-200/70 dark:bg-white/[0.04] md:mt-14">
                 <div className="grid lg:grid-cols-2">
                   <section className="flex min-w-0 flex-col overflow-hidden px-6 pt-8 md:px-10 md:pt-10 lg:px-12">
+                    <div className="mb-7 h-16 w-16 overflow-hidden rounded-[22%] border border-white/60 bg-white shadow-[0_8px_24px_rgba(15,23,42,0.12)] dark:border-white/15 dark:bg-gray-900 dark:shadow-[0_8px_24px_rgba(0,0,0,0.35)] md:h-[72px] md:w-[72px]">
+                      <Image
+                        src="/img/dream/verus-sky-icon.png"
+                        alt=""
+                        width={400}
+                        height={400}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
                     <h3 className="mb-5 font-display text-[30px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white">
                       VerusSky: social identity and payments in one app
                     </h3>
@@ -326,20 +335,29 @@ export default function DreamPage() {
                     </div>
 
                     <div className="mt-auto pt-10 md:pt-16">
-                      <div className="aspect-[3/1] overflow-hidden">
+                      <div className="flex aspect-[11/6] justify-center overflow-hidden md:aspect-[3/1] lg:aspect-auto lg:h-[min(282px,calc((100vw-304px)/4))] lg:overflow-visible">
                         <Image
-                          src="/img/dream/verus-sky-app.png"
+                          src="/img/dream/verus-sky-app-no-top-line.png"
                           alt="VerusSky donation interface"
                           width={4064}
                           height={2280}
-                          sizes="(min-width: 1024px) 430px, (min-width: 768px) 505px, calc(77vw - 56px)"
-                          className="mx-auto h-auto w-[77%] rounded-t-lg"
+                          sizes="(min-width: 1432px) 597px, (min-width: 1024px) calc(52.917vw - 161px), (min-width: 768px) 505px, calc(106vw - 119px)"
+                          className="h-auto w-[106%] max-w-none shrink-0 self-start rounded-t-lg md:w-[77%] lg:w-[105.833%]"
                         />
                       </div>
                     </div>
                   </section>
 
-                  <section className="flex min-w-0 flex-col overflow-hidden border-t border-gray-200 px-6 pt-8 dark:border-gray-800 md:px-10 md:pt-10 lg:border-l lg:border-t-0 lg:px-12">
+                  <section className="flex min-w-0 flex-col overflow-hidden border-t border-gray-300 px-6 pt-16 dark:border-gray-800 md:px-10 md:pt-10 lg:border-l lg:border-t-0 lg:px-12">
+                    <div className="mb-7 flex h-16 w-16 items-center justify-center md:h-[72px] md:w-[72px]">
+                      <Image
+                        src="/img/dream/verus-notes-icon.png"
+                        alt=""
+                        width={1024}
+                        height={1024}
+                        className="h-[123%] w-[123%] max-w-none shrink-0 object-contain drop-shadow-[0_8px_16px_rgba(15,23,42,0.15)] dark:drop-shadow-[0_8px_16px_rgba(0,0,0,0.35)]"
+                      />
+                    </div>
                     <h3 className="mb-5 font-display text-[30px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white">
                       Verus Notes: encrypted notes unlocked with your wallet
                     </h3>
@@ -369,14 +387,14 @@ export default function DreamPage() {
                     </div>
 
                     <div className="mt-auto pt-10 md:pt-16">
-                      <div className="aspect-[3/1] overflow-hidden">
+                      <div className="flex aspect-[3/2] justify-center overflow-hidden md:aspect-[3/1] lg:aspect-auto lg:h-[min(282px,calc((100vw-304px)/4))] lg:overflow-visible">
                         <Image
                           src="/img/dream/verus-notes-app.png"
                           alt="Verus Notes encrypted note editor"
                           width={2424}
                           height={1664}
-                          sizes="(min-width: 1024px) 430px, (min-width: 768px) 505px, calc(77vw - 56px)"
-                          className="mx-auto h-auto w-[77%] rounded-t-lg"
+                          sizes="(min-width: 1432px) 621px, (min-width: 1024px) calc(55.091vw - 167px), (min-width: 768px) 505px, calc(110vw - 123px)"
+                          className="h-auto w-[110%] max-w-none shrink-0 self-start rounded-t-lg md:w-[77%] lg:w-[110.182%] lg:-translate-y-[1.95%]"
                         />
                       </div>
                     </div>
