@@ -1,5 +1,5 @@
-npm install
-npx next dev
+pnpm install
+pnpm dev
 
 ## robots.txt
 

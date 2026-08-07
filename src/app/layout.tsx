@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     default: 'The Internet of Value | Verus',
   },
   description:
-    'The protocol where you own your identity, data, and money. Ownership, not just access.',
+    'The protocol where you own your identity, data, and money.',
   keywords:
     'Verus, blockchain, Web3, cryptocurrency, decentralization, DeFi, identity, privacy, interoperability, scalability',
   openGraph: {

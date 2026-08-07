@@ -12,7 +12,7 @@ import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 
 import {env} from '@/configs/env'
-import {ChevronRight, ExternalLink} from 'lucide-react'
+import {ArrowRight, ChevronRight, ExternalLink} from 'lucide-react'
 import {FaFacebook, FaReddit} from 'react-icons/fa'
 import {FaTelegram, FaXTwitter, FaYoutube} from 'react-icons/fa6'
 import {IoLogoDiscord, IoLogoGithub} from 'react-icons/io5'
@@ -357,6 +357,38 @@ export function MobileNav() {
               >
                 All API Commands
                 <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100" />
+              </MenuLink>
+              <MenuLink
+                href={env.NEXT_PUBLIC_DISCORD}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-4 flex items-start rounded-lg bg-[#5865F2] p-4 text-white transition-colors hover:bg-[#4f5be8]"
+              >
+                <IoLogoDiscord className="h-8 w-8 shrink-0" />
+                <span className="ml-3">
+                  <span className="mb-1 flex items-center gap-2 text-[15px] font-semibold group-hover:underline">
+                    Need help building with Verus?
+                    <ExternalLink className="h-4 w-4 shrink-0 opacity-70 group-hover:opacity-100" />
+                  </span>
+                  <span className="block text-sm text-white/85">
+                    Join Discord for developer support.
+                  </span>
+                </span>
+              </MenuLink>
+              <MenuLink
+                href="/dream"
+                className="group relative flex items-center justify-between overflow-hidden rounded-lg bg-[url('/img/dream/dream-announcement-wave.png')] bg-cover bg-center p-4 text-white before:absolute before:inset-0 before:bg-blue-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70"
+              >
+                <span className="relative pr-4">
+                  <span className="block text-[17px] font-semibold">
+                    Introducing DREAM
+                  </span>
+                  <span className="mt-1 block text-sm leading-relaxed text-white/85">
+                    A new application model for user-owned identity, data, and
+                    money.
+                  </span>
+                </span>
+                <ArrowRight className="relative h-4 w-4 opacity-70 transition-transform group-hover:translate-x-1 group-hover:opacity-100" />
               </MenuLink>
             </div>
           </MobileSection>

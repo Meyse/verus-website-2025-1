@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import {env} from '@/configs/env'
-import {ExternalLink} from 'lucide-react'
+import {ArrowRight, ExternalLink} from 'lucide-react'
 import {IoLogoDiscord} from 'react-icons/io5'
 import {
   LuArrowUpDown,
@@ -172,9 +172,7 @@ export function BuildSection() {
             rel="noopener noreferrer"
             className="group mt-8 flex items-start rounded-lg border border-[#5865F2] bg-[#5865F2] p-4 transition-colors hover:border-[#4f5be8] hover:bg-[#4f5be8]"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/15 text-white transition-colors group-hover:bg-white/20">
-              <IoLogoDiscord className="h-6 w-6" />
-            </div>
+            <IoLogoDiscord className="h-8 w-8 shrink-0 text-white" />
             <div className="ml-3">
               <div className="mb-1 flex items-center gap-2 text-[15px] font-semibold text-white group-hover:underline">
                 Need help building with Verus?
@@ -182,6 +180,23 @@ export function BuildSection() {
               </div>
               <p className="text-sm text-white/85">
                 Join Discord for developer support.
+              </p>
+            </div>
+          </Link>
+
+          {/* DREAM Section */}
+          <Link
+            href="/dream"
+            className="group relative flex min-h-[160px] items-center overflow-hidden rounded-lg bg-[url('/img/dream/dream-announcement-wave.png')] bg-cover bg-center p-6 text-white before:absolute before:inset-0 before:bg-blue-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70"
+          >
+            <div className="relative">
+              <div className="mb-2 flex items-center gap-2 text-[20px] font-semibold text-white group-hover:underline">
+                Introducing DREAM
+                <ArrowRight className="h-4 w-4 opacity-70 transition-transform group-hover:translate-x-1 group-hover:opacity-100" />
+              </div>
+              <p className="text-[15px] leading-relaxed text-white/85">
+                A new application model for user-owned identity, data, and
+                money.
               </p>
             </div>
           </Link>

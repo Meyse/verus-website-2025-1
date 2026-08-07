@@ -160,7 +160,7 @@ export async function ProtocolStatistics() {
 
   return (
     <div className="bg-gray-50 dark:bg-gray-950">
-      <section className="border-b border-gray-200 dark:border-gray-800">
+      <section className="border-b border-gray-200 dark:border-gray-800 xl:border-x">
         <div className="grid grid-cols-1 md:grid-cols-3">
           <Cell index={0} mdColumns={3}>
             <Stat
@@ -197,7 +197,7 @@ export async function ProtocolStatistics() {
         <SectionHeading description="Market and on-chain conversion metrics.">
           Market and DeFi
         </SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 border-gray-200 dark:border-gray-800 md:grid-cols-2 xl:border-x">
           <Cell index={0} mdColumns={2}>
             <Stat
               label="VRSC price"
@@ -237,7 +237,7 @@ export async function ProtocolStatistics() {
         <SectionHeading description="Network health, supply, and consensus metrics.">
           Network
         </SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-3">
+        <div className="grid grid-cols-1 border-gray-200 dark:border-gray-800 md:grid-cols-3 xl:border-x">
           <Cell index={0} mdColumns={3}>
             <CurrentBlockHeightStat
               initialBlockHeightValue={currentBlockHeightValue}
@@ -289,18 +289,20 @@ export async function ProtocolStatistics() {
 
       <section className="border-b border-gray-200 dark:border-gray-800">
         <SectionHeading>Halving schedule</SectionHeading>
-        <HalvingScheduleStats
-          initialBlockHeight={currentBlockHeight}
-          initialBlockHeightValue={currentBlockHeightValue}
-          initialTimestamp={generatedAt}
-        />
+        <div className="border-gray-200 dark:border-gray-800 xl:border-x">
+          <HalvingScheduleStats
+            initialBlockHeight={currentBlockHeight}
+            initialBlockHeightValue={currentBlockHeightValue}
+            initialTimestamp={generatedAt}
+          />
+        </div>
       </section>
 
       <section>
         <SectionHeading description="Core counts for identities, currencies, baskets, and chains.">
           Ecosystem
         </SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-3">
+        <div className="grid grid-cols-1 border-gray-200 dark:border-gray-800 md:grid-cols-3 xl:border-x">
           <Cell index={0} mdColumns={3}>
             <Stat
               label="VerusID registrations"

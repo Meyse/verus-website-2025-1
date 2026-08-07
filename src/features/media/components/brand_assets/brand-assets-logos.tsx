@@ -72,7 +72,7 @@ function LogoAssetCell({asset, index}: {asset: AssetProps; index: number}) {
           'mb-6 flex min-h-[180px] items-center justify-center rounded-lg px-6 py-8',
           asset.color === 'white' || asset.color === 'dark'
             ? 'bg-gray-800'
-            : 'bg-gray-100 dark:bg-gray-900'
+            : 'bg-gray-100 dark:bg-white'
         )}
       >
         <div
