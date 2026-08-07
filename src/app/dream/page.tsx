@@ -300,11 +300,12 @@ export default function DreamPage() {
                     <div className="space-y-5 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
                       <p>
                         VerusSky is a social app in development by Mike
-                        Toutonghi, lead developer of the Verus Protocol. Built
-                        from the open-source Bluesky application, it keeps
-                        familiar features such as profiles, posts, follows and
-                        conversations, while adding VerusID and direct payments
-                        to the experience.
+                        Toutonghi, lead developer of the Verus Protocol. It is a
+                        Verus-enabled layer on top of Bluesky rather than a
+                        separate network. People can continue using their
+                        existing Bluesky account, profile, posts, follows and
+                        conversations, while VerusSky adds VerusID and direct
+                        payments.
                       </p>
                       <p>
                         Users can approve sign-in through a Verus wallet and
