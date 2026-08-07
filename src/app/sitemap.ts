@@ -4,10 +4,12 @@ import {env} from '@/configs/env'
 
 const baseUrl = env.NEXT_PUBLIC_BASE_URL
 
+export const revalidate = 86400
+
 const sitemapRoutes = [
   {
     path: '/',
-    lastModified: '2026-05-10',
+    lastModified: '2026-08-07',
     changeFrequency: 'weekly',
     priority: 1,
   },
@@ -19,7 +21,7 @@ const sitemapRoutes = [
   },
   {
     path: '/build/start',
-    lastModified: '2026-05-10',
+    lastModified: '2026-08-07',
     changeFrequency: 'monthly',
     priority: 0.7,
   },
@@ -79,7 +81,7 @@ const sitemapRoutes = [
   },
   {
     path: '/dream',
-    lastModified: '2026-05-13',
+    lastModified: '2026-08-07',
     changeFrequency: 'monthly',
     priority: 0.7,
   },
@@ -115,7 +117,7 @@ const sitemapRoutes = [
   },
   {
     path: '/intro',
-    lastModified: '2026-05-10',
+    lastModified: '2026-08-07',
     changeFrequency: 'monthly',
     priority: 0.7,
   },
