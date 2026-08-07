@@ -5,20 +5,16 @@ import {getScanProtocolStats} from '@/features/protocol/server/get-scan-protocol
 type HomeProtocolMarketStats = {
   identities: number
   status: 'ok' | 'stale' | 'fallback'
-  tvl: number
   updatedAt?: string
-  volumeAllTime: number
 }
 
 export type HomeProtocolStats = {
   identities: string
   status: 'ok' | 'stale' | 'fallback'
-  tvl: string
   updatedAt?: string
-  volumeAllTime: string
 }
 
-function formatCompactMetric(value: number, prefix = '') {
+function formatCompactMetric(value: number) {
   const wholeValue = Math.floor(value)
   const units = [
     {value: 1_000_000_000, suffix: 'B'},
@@ -28,10 +24,10 @@ function formatCompactMetric(value: number, prefix = '') {
   const unit = units.find((item) => wholeValue >= item.value)
 
   if (!unit) {
-    return `${prefix}${wholeValue.toLocaleString('en-US')}+`
+    return `${wholeValue.toLocaleString('en-US')}+`
   }
 
-  return `${prefix}${Math.floor(wholeValue / unit.value).toLocaleString(
+  return `${Math.floor(wholeValue / unit.value).toLocaleString(
     'en-US'
   )}${unit.suffix}+`
 }
@@ -42,9 +38,7 @@ function formatHomeProtocolStats(
   return {
     identities: formatCompactMetric(stats.identities),
     status: stats.status,
-    tvl: formatCompactMetric(stats.tvl, '$'),
     updatedAt: stats.updatedAt,
-    volumeAllTime: formatCompactMetric(stats.volumeAllTime, '$'),
   }
 }
 
