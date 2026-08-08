@@ -79,7 +79,7 @@ export function FeaturesGrid() {
         return (
           <article
             key={feature.title}
-            className={`flex min-h-[220px] flex-col items-center justify-center border-gray-200 px-5 py-10 text-center dark:border-gray-800 md:min-h-[260px] md:px-8 md:py-12 ${
+            className={`flex min-h-[220px] flex-col items-center justify-start border-gray-200 px-5 py-10 text-center dark:border-gray-800 md:min-h-[260px] md:px-8 md:py-12 ${
               borderClasses
             }`}
           >
