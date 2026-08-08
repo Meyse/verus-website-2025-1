@@ -111,6 +111,14 @@ export function MobileNav({isOpen, onOpenChange}: MobileNavProps) {
   const [openSection, setOpenSection] = useState<string | null>(null)
   const menuTopClass = pathname === '/' ? 'top-[107px]' : 'top-[50px]'
 
+  useEffect(() => {
+    document.documentElement.classList.toggle('mobile-menu-open', isOpen)
+
+    return () => {
+      document.documentElement.classList.remove('mobile-menu-open')
+    }
+  }, [isOpen])
+
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section)
   }

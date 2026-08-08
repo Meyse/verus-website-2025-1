@@ -81,6 +81,13 @@ body {
   scrollbar-width: thin;
 }
 
+@media (max-width: 767px) {
+  html.mobile-menu-open,
+  html.mobile-menu-open body {
+    overflow: hidden;
+  }
+}
+
 @layer base {
   html,
   body {
