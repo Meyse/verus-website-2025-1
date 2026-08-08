@@ -1,6 +1,6 @@
 import './globals.css'
 
-import type {Metadata} from 'next'
+import type {Metadata, Viewport} from 'next'
 
 import {env} from '@/configs/env'
 import NextTopLoader from 'nextjs-toploader'
@@ -39,6 +39,13 @@ export const metadata: Metadata = {
     // description: provided by metadata,
     // twitter-image.png is already in the app directory
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    {media: '(prefers-color-scheme: light)', color: '#ffffff'},
+    {media: '(prefers-color-scheme: dark)', color: '#030712'},
+  ],
 }
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
