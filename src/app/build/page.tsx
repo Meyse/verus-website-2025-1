@@ -6,6 +6,7 @@ import {
   SolutionsGrid,
   VerusIDLoginSection,
 } from '@/features/build/build'
+import {ArrowRight} from 'lucide-react'
 import {IoLogoDiscord} from 'react-icons/io5'
 
 import {BgWrapper} from '@/components/bg-wrapper'
@@ -75,6 +76,26 @@ export default function BuildPage() {
                   >
                     Get help from the community
                     <IoLogoDiscord className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-[1px] md:h-6 md:w-6" />
+                  </a>
+                </Button>
+              </div>
+            </section>
+
+            <section className="relative overflow-hidden border-b border-blue-400/30 bg-[url('/img/dream/dream-announcement-wave.png')] bg-cover bg-center text-white before:absolute before:inset-0 before:bg-blue-950/25">
+              <div className="relative grid grid-cols-1 items-center gap-8 px-8 py-12 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 md:px-14 md:py-14">
+                <h2 className="max-w-[840px] text-[24px] font-medium leading-[1.2] tracking-tight text-white md:text-[30px]">
+                  Build decentralized applications with the DREAM model
+                </h2>
+
+                <Button
+                  asChild
+                  variant="verusSecondary"
+                  size="verusWide"
+                  className="border-white/70 bg-white/10 text-white hover:border-white hover:bg-white/20 hover:text-white dark:border-white/70 dark:bg-white/10 dark:text-white dark:hover:border-white dark:hover:bg-white/20 dark:hover:text-white md:justify-self-end"
+                >
+                  <a href="/dream">
+                    Explore DREAM
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </a>
                 </Button>
               </div>
