@@ -166,9 +166,6 @@ export function MobileNav({isOpen, onOpenChange}: MobileNavProps) {
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        <div className="absolute left-0 top-0 h-full w-1/2 bg-blue-50/20 opacity-30 dark:bg-blue-950/20" />
-        <div className="absolute right-0 top-0 h-full w-[25%] bg-gradient-to-l from-verus-blue/5 to-transparent" />
-
         <nav className="relative p-6">
           {/* Use Verus Section */}
           <MobileSection
