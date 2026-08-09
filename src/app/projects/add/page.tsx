@@ -21,7 +21,9 @@ const yamlTemplate = `name: "Your project name"
 slug: "your-project-slug"
 description: "Short one-line description"
 longDescription: |
-  Describe what the project does and how it uses Verus. Markdown is supported.
+  Describe what the project does and how it uses Verus. Text formatting such as
+  headings, lists and emphasis is supported. Links and embedded images are not
+  rendered; use the reviewed URL fields below instead.
 
   ## Features
 
@@ -52,7 +54,10 @@ verusFeatures:
 # rotation on verus.io.
 # - logo.png/logo.jpg/logo.webp: 128x128px square
 # - featured.png/featured.jpg/featured.webp: 800x300px, 8:3 aspect ratio
-# - screenshot1.png through screenshot6.png: aim for at least 1200px on the longest edge`
+# - screenshot1.png through screenshot6.png: aim for at least 1200px on the longest edge
+# Images must be PNG, JPEG or WebP; each file is limited to 5 MiB, 40 megapixels
+# and 8192px on either edge. Published images are decoded, stripped of metadata
+# and re-encoded during registry publication.`
 
 export default function AddProjectPage() {
   return (
@@ -129,7 +134,8 @@ export default function AddProjectPage() {
                       </h3>
                       <p className="mt-2 max-w-2xl text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
                         Put images next to the YAML file in the project folder.
-                        PNG, JPG, and WebP are supported.
+                        PNG, JPG, and WebP are supported. Each image is limited
+                        to 5 MiB and is sanitized before publication.
                       </p>
                       <div className="mt-3 overflow-x-auto">
                         <code className="inline-flex max-w-full rounded-md border border-gray-200 bg-white px-2 py-1 text-[14px] text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-white">

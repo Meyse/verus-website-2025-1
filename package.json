@@ -7,6 +7,10 @@
   "private": true,
   "packageManager": "pnpm@10.29.2",
   "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver"
+    ],
     "overrides": {
       "postcss": "8.5.25"
     }
@@ -21,6 +25,7 @@
     "format": "prettier --write . ",
     "format:check": "prettier --check . ",
     "lint": "eslint .",
+    "test:projects-security": "tsx --test src/features/projects/project-markdown.test.tsx src/features/projects/server/registry.test.ts",
     "test:verusid-cache": "node scripts/check-verusid-cache-contract.js"
   },
   "dependencies": {
@@ -77,6 +82,7 @@
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^3.4.17",
+    "tsx": "4.23.11",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.51.0"
   }
