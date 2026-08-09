@@ -84,7 +84,7 @@ export default function BuildPage() {
             <section className="relative overflow-hidden border-b border-blue-400/30 bg-[url('/img/dream/dream-announcement-wave.png')] bg-cover bg-center text-white before:absolute before:inset-0 before:bg-blue-950/25">
               <div className="relative grid grid-cols-1 items-center gap-8 px-8 py-12 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 md:px-14 md:py-14">
                 <h2 className="max-w-[840px] text-[24px] font-medium leading-[1.2] tracking-tight text-white md:text-[30px]">
-                  Build decentralized applications with the DREAM model
+                  Build apps where users own their identity, data, and money
                 </h2>
 
                 <Button
