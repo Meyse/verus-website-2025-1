@@ -6,6 +6,8 @@ import {
 } from './asset-validation'
 import {PROJECT_CATEGORIES, VERUS_FEATURES} from './types'
 
+export const PROJECT_URL_MAX_LENGTH = 2048
+
 const allowedProtocols = ['https:']
 const blockedUrlPatterns = [
   /^javascript:/i,
@@ -18,7 +20,7 @@ export function validateExternalUrl(url: string | undefined | null) {
   if (!url) return null
 
   const trimmed = url.trim()
-  if (!trimmed) return null
+  if (!trimmed || trimmed.length > PROJECT_URL_MAX_LENGTH) return null
 
   if (blockedUrlPatterns.some((pattern) => pattern.test(trimmed))) {
     return null
@@ -27,7 +29,13 @@ export function validateExternalUrl(url: string | undefined | null) {
   try {
     const parsed = new URL(trimmed)
 
-    if (!allowedProtocols.includes(parsed.protocol) || !parsed.hostname) {
+    if (
+      !allowedProtocols.includes(parsed.protocol) ||
+      !parsed.hostname ||
+      parsed.username ||
+      parsed.password ||
+      parsed.port
+    ) {
       return null
     }
 
@@ -47,7 +55,12 @@ export function validateGitHubUrl(url: string | undefined | null) {
     const isGithubHost =
       parsed.hostname === 'github.com' || parsed.hostname === 'www.github.com'
 
-    if (!isGithubHost || pathParts.length < 2) {
+    if (
+      !isGithubHost ||
+      pathParts.length !== 2 ||
+      parsed.search ||
+      parsed.hash
+    ) {
       return null
     }
 
@@ -59,62 +72,74 @@ export function validateGitHubUrl(url: string | undefined | null) {
 
 const SafeUrlSchema = z
   .string()
+  .trim()
+  .max(PROJECT_URL_MAX_LENGTH, 'URL is too long')
   .refine((url) => validateExternalUrl(url) !== null, {
     message: 'Invalid or unsafe URL',
   })
 
 const GitHubUrlSchema = z
   .string()
+  .trim()
+  .max(PROJECT_URL_MAX_LENGTH, 'URL is too long')
   .refine((url) => validateGitHubUrl(url) !== null, {
     message: 'Invalid GitHub repository URL',
   })
 
-export const ProjectYAMLSchema = z.object({
-  category: z.enum(PROJECT_CATEGORIES),
-  description: z
-    .string()
-    .min(1, 'Description is required')
-    .max(220, 'Description must be 220 characters or less'),
-  docsUrl: SafeUrlSchema.optional(),
-  longDescription: z
-    .string()
-    .min(1, 'Long description is required')
-    .max(10000, 'Long description must be 10000 characters or less'),
-  maintainer: z
-    .string()
-    .max(100, 'Maintainer must be 100 characters or less')
-    .optional(),
-  name: z
-    .string()
-    .min(1, 'Name is required')
-    .max(80, 'Name must be 80 characters or less'),
-  repoUrl: GitHubUrlSchema.optional(),
-  screenshots: z
-    .array(
-      z
-        .string()
-        .max(100, 'Screenshot filename must be 100 characters or less')
-        .refine(
-          (filename) =>
-            validateProjectAssetFilename(filename, 'screenshot') !== null,
-          {
-            message: 'Invalid screenshot filename',
-          }
-        )
-    )
-    .max(6, 'Maximum 6 screenshots allowed')
-    .optional(),
-  slug: z
-    .string()
-    .min(1, 'Slug is required')
-    .max(60, 'Slug must be 60 characters or less')
-    .regex(
-      PROJECT_SLUG_PATTERN,
-      'Slug must be lowercase alphanumeric with hyphens'
-    ),
-  verusFeatures: z.array(z.enum(VERUS_FEATURES)).min(1),
-  websiteUrl: SafeUrlSchema.optional(),
-})
+export const ProjectYAMLSchema = z
+  .object({
+    category: z.enum(PROJECT_CATEGORIES),
+    description: z
+      .string()
+      .min(1, 'Description is required')
+      .max(220, 'Description must be 220 characters or less'),
+    docsUrl: SafeUrlSchema.optional(),
+    longDescription: z
+      .string()
+      .min(1, 'Long description is required')
+      .max(10000, 'Long description must be 10000 characters or less'),
+    maintainer: z
+      .string()
+      .max(100, 'Maintainer must be 100 characters or less')
+      .optional(),
+    name: z
+      .string()
+      .min(1, 'Name is required')
+      .max(80, 'Name must be 80 characters or less'),
+    repoUrl: GitHubUrlSchema.optional(),
+    screenshots: z
+      .array(
+        z
+          .string()
+          .max(100, 'Screenshot filename must be 100 characters or less')
+          .refine(
+            (filename) =>
+              validateProjectAssetFilename(filename, 'screenshot') !== null,
+            {
+              message: 'Invalid screenshot filename',
+            }
+          )
+      )
+      .max(6, 'Maximum 6 screenshots allowed')
+      .optional(),
+    slug: z
+      .string()
+      .min(1, 'Slug is required')
+      .max(60, 'Slug must be 60 characters or less')
+      .regex(
+        PROJECT_SLUG_PATTERN,
+        'Slug must be lowercase alphanumeric with hyphens'
+      ),
+    verusFeatures: z
+      .array(z.enum(VERUS_FEATURES))
+      .min(1)
+      .max(VERUS_FEATURES.length)
+      .refine((features) => new Set(features).size === features.length, {
+        message: 'Features must be unique',
+      }),
+    websiteUrl: SafeUrlSchema.optional(),
+  })
+  .strict()
 
 export type ValidatedProjectYAML = z.infer<typeof ProjectYAMLSchema>
 

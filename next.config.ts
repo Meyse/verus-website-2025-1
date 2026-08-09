@@ -1,5 +1,6 @@
 import type {NextConfig} from 'next'
 
+import {CONTENT_SECURITY_POLICY} from '@/configs/content-security-policy'
 import {env} from '@/configs/env'
 
 const _env = env
@@ -35,6 +36,22 @@ const nextConfig: NextConfig = {
     serverActions: {
       allowedOrigins: ['verus.io', '*.verus.io'],
     },
+  },
+
+  async headers() {
+    if (_env.NODE_ENV !== 'production') return []
+
+    return [
+      {
+        headers: [
+          {
+            key: 'Content-Security-Policy-Report-Only',
+            value: `${CONTENT_SECURITY_POLICY};`,
+          },
+        ],
+        source: '/:path*',
+      },
+    ]
   },
 
   async redirects() {
