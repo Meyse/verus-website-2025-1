@@ -5,6 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  nanoid: 3.3.18
   postcss: 8.5.25
 
 importers:
@@ -16,7 +17,7 @@ importers:
         version: 5.2.2(react-hook-form@7.75.0(react@19.2.6))
       '@next-safe-action/adapter-react-hook-form':
         specifier: ^2.0.0
-        version: 2.0.6(@hookform/resolvers@5.2.2(react-hook-form@7.75.0(react@19.2.6)))(next-safe-action@8.5.2(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react-hook-form@7.75.0(react@19.2.6))(react@19.2.6)
+        version: 2.0.6(@hookform/resolvers@5.2.2(react-hook-form@7.75.0(react@19.2.6)))(next-safe-action@8.6.0(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react-hook-form@7.75.0(react@19.2.6))(react@19.2.6)
       '@radix-ui/react-label':
         specifier: ^2.1.8
         version: 2.1.8(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -60,8 +61,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0(@types/react@19.2.14)(react@19.2.6)
       next-safe-action:
-        specifier: ^8.0.11
-        version: 8.5.2(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^8.6.0
+        version: 8.6.0(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -1866,10 +1867,6 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
-  deepmerge-ts@7.1.5:
-    resolution: {integrity: sha512-HOJkrhaYsweh+W+e74Yn7YStZOilkoPb6fycpwNLKzSPtruFs48nYis0zy5yJz1+ktUhHxoRDJ27RQAWLIJVJw==}
-    engines: {node: '>=16.0.0'}
-
   define-data-property@1.1.4:
     resolution: {integrity: sha512-rBMvIzlpA8v6E+SJZoo++HAYqsLrkg7MSfIinMPFhmkorw7X+dOXVJQs+QT69zGkzMyfDnIMN2Wid1+NbL3T+A==}
     engines: {node: '>= 0.4'}
@@ -2748,8 +2745,8 @@ packages:
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
 
-  nanoid@3.3.17:
-    resolution: {integrity: sha512-xQLf0A3HOMlgHq0n247/LRuAOYmB7dXJ/DvAxGvsSBij45XtBSmQycu+F8ODbHwns/XyFZagyL1+J0Offw1E0g==}
+  nanoid@3.3.18:
+    resolution: {integrity: sha512-DTg4MJbGMWkfi6VZFdNt2/caMbQy4Ou+Op/hJQvGEWcnVfoA1QA+xzRKAzw9jD6+GVOOeYr/mIcuDSdug6F6+w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -2767,8 +2764,8 @@ packages:
     peerDependencies:
       react: '>=16'
 
-  next-safe-action@8.5.2:
-    resolution: {integrity: sha512-M127lWo8FwbeIz8dO7h/hjCxIDe1hFZIo1Dw0tTqtR3xlRnxCA0Df1DojxFLB94/jPn/0AtdOp6wpckjvyyA3g==}
+  next-safe-action@8.6.0:
+    resolution: {integrity: sha512-aS6e5XhLEmHIJp4wtfLOTSapcnjGZdVMmQIEOq8YCQ95Ej5WbZc+qfn9fP7zyLu33H/cigMZeWTP5NItirJYfg==}
     engines: {node: '>=18.17'}
     peerDependencies:
       next: '>= 14.0.0'
@@ -4255,11 +4252,11 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@next-safe-action/adapter-react-hook-form@2.0.6(@hookform/resolvers@5.2.2(react-hook-form@7.75.0(react@19.2.6)))(next-safe-action@8.5.2(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react-hook-form@7.75.0(react@19.2.6))(react@19.2.6)':
+  '@next-safe-action/adapter-react-hook-form@2.0.6(@hookform/resolvers@5.2.2(react-hook-form@7.75.0(react@19.2.6)))(next-safe-action@8.6.0(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react-hook-form@7.75.0(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@hookform/resolvers': 5.2.2(react-hook-form@7.75.0(react@19.2.6))
       next: 16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      next-safe-action: 8.5.2(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      next-safe-action: 8.6.0(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
       react-hook-form: 7.75.0(react@19.2.6)
@@ -5277,8 +5274,6 @@ snapshots:
       character-entities: 2.0.2
 
   deep-is@0.1.4: {}
-
-  deepmerge-ts@7.1.5: {}
 
   define-data-property@1.1.4:
     dependencies:
@@ -6583,7 +6578,7 @@ snapshots:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
-  nanoid@3.3.17: {}
+  nanoid@3.3.18: {}
 
   napi-postinstall@0.3.4: {}
 
@@ -6603,9 +6598,8 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  next-safe-action@8.5.2(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
+  next-safe-action@8.6.0(next@16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
-      deepmerge-ts: 7.1.5
       next: 16.3.0(@babel/core@7.29.7)(@types/node@25.6.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
@@ -6821,7 +6815,7 @@ snapshots:
 
   postcss@8.5.25:
     dependencies:
-      nanoid: 3.3.17
+      nanoid: 3.3.18
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
