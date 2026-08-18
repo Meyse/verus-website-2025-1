@@ -94,8 +94,31 @@ export function ProtocolLibrariesSection() {
     >
       <div className="min-w-0 border-b border-gray-200 px-8 py-8 dark:border-gray-800 md:px-14 md:py-10">
         <h2 className="font-display text-[24px] font-medium tracking-tight text-gray-800 dark:text-white md:text-[30px]">
-          The essential TypeScript stack
+          TypeScript protocol libraries
         </h2>
+        <div className="mt-4 max-w-[760px] space-y-3 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
+          <p>
+            An application can create a structured request, deliver it by link
+            or QR code, and verify the wallet response. It can also call a Verus
+            node for chain data and protocol operations. The two approaches can
+            be used separately or together.
+          </p>
+          <p>
+            The libraries shown here use TypeScript. The verusd JSON-RPC
+            interface can also be called from other programming languages.
+          </p>
+        </div>
+        <div className="mt-5 max-w-[760px] text-[13px] leading-relaxed tracking-normal text-gray-500 dark:text-gray-400">
+          <p className="font-medium text-gray-700 dark:text-gray-200">
+            Current wallet support
+          </p>
+          <p className="mt-1">
+            Support varies by request type and wallet. Verus Mobile currently
+            places identity updates, app encryption, user-data requests, and
+            data-packet requests behind the Enable experimental deeplinks
+            setting.
+          </p>
+        </div>
       </div>
 
       <div className="grid min-w-0 grid-cols-1 gap-px bg-gray-200 dark:bg-gray-800 md:grid-cols-2 lg:grid-cols-4">

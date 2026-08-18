@@ -1,19 +1,13 @@
 import type {Metadata} from 'next'
-import type {LucideIcon} from 'lucide-react'
 
 import Image from 'next/image'
 
 import {env} from '@/configs/env'
-import {
-  ArrowRight,
-  BadgeCheck,
-  ExternalLink,
-  KeyRound,
-  ScanLine,
-} from 'lucide-react'
+import {ArrowRight, ExternalLink} from 'lucide-react'
 import {IoLogoDiscord} from 'react-icons/io5'
 
 import {createBreadcrumbJsonLd, createWebPageJsonLd} from '@/lib/seo/schema'
+import {cn} from '@/lib/utils'
 
 import {Button} from '@/components/ui/button'
 import {BgWrapper} from '@/components/bg-wrapper'
@@ -79,29 +73,29 @@ const dreamBreadcrumbJsonLd = createBreadcrumbJsonLd([
 
 type ModelStep = {
   body: string
-  icon: LucideIcon
   title: string
 }
 
 const coreModelSteps: ModelStep[] = [
   {
-    icon: ScanLine,
     title: 'The app creates a request',
-    body: 'The request describes one or more supported actions and where the wallet should return the response.',
+    body: 'The request describes the actions and where the wallet should return its response.',
   },
   {
-    icon: KeyRound,
     title: 'The user reviews the request',
     body: 'The wallet shows the requested actions and asks the user to approve or reject them.',
   },
   {
-    icon: BadgeCheck,
     title: 'The app verifies the response',
-    body: 'After approval, the wallet returns a signed GenericResponse. The app verifies it before continuing.',
+    body: 'The wallet returns a signed GenericResponse, which the app verifies before continuing.',
   },
 ]
 
 const dreamHighlights = [
+  {
+    title: 'DREAM:',
+    body: 'The Decentralized, Rights-preserving, Encrypted Application Model.',
+  },
   {
     title: 'Use your identity across apps:',
     body: 'Instead of making a new account for every app, you use a VerusID: a digital identity you control.',
@@ -129,7 +123,8 @@ const comparisonRows = [
   {
     layer: 'Data',
     regular: 'The server stores records it can read.',
-    dream: 'The server can store encrypted data it cannot read.',
+    dream:
+      'Encrypted data can stay with the user, on a server that cannot read it, or with their VerusID.',
   },
   {
     layer: 'Payments',
@@ -403,29 +398,37 @@ export default function DreamPage() {
               </div>
             </section>
 
-            <div className="mx-auto mt-24 max-w-[1320px] md:mt-32">
+            <div className="mx-auto mt-16 max-w-[1100px] md:mt-20">
               <div className="mx-auto max-w-[760px]">
                 <h2 className="font-display text-[28px] font-medium leading-[1.2] tracking-tight text-gray-800 dark:text-white md:text-[44px]">
                   How a DREAM request works
                 </h2>
               </div>
 
-              <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-3">
-                {coreModelSteps.map((step) => {
-                  const Icon = step.icon
+              <div className="mt-6 grid overflow-hidden rounded-lg border border-gray-200 bg-white/60 dark:border-gray-800 dark:bg-white/[0.02] md:mt-8 md:grid-cols-3">
+                {coreModelSteps.map((step, index) => {
+                  const hasNextStep = index < coreModelSteps.length - 1
 
                   return (
                     <div
                       key={step.title}
-                      className="min-h-[200px] rounded-lg border border-gray-200 bg-white/60 p-6 dark:border-gray-800 dark:bg-white/[0.02] md:p-8"
+                      className={cn(
+                        'relative flex min-w-0 items-start gap-4 px-5 py-5 md:px-6 md:py-6',
+                        index > 0 &&
+                          'border-t border-gray-200 dark:border-gray-800 md:border-l md:border-t-0'
+                      )}
                     >
-                      <Icon className="h-7 w-7 text-gray-900 dark:text-white" />
-                      <h3 className="mt-7 text-[20px] font-bold leading-tight tracking-normal text-gray-800 dark:text-white">
-                        {step.title}
-                      </h3>
-                      <p className="mt-4 max-w-[360px] text-[17px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300">
-                        {step.body}
-                      </p>
+                      <div className="min-w-0">
+                        <h3 className="text-[16px] font-semibold leading-tight tracking-normal text-gray-800 dark:text-white">
+                          {step.title}
+                        </h3>
+                        <p className="mt-1.5 text-[14px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[15px]">
+                          {step.body}
+                        </p>
+                      </div>
+                      {hasNextStep && (
+                        <ArrowRight className="absolute -bottom-3 left-1/2 z-10 h-6 w-6 -translate-x-1/2 rotate-90 rounded-full border border-gray-200 bg-white p-1 text-gray-400 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-500 md:-right-3 md:bottom-auto md:left-auto md:top-1/2 md:-translate-y-1/2 md:translate-x-0 md:rotate-0" />
+                      )}
                     </div>
                   )
                 })}
@@ -539,6 +542,10 @@ export default function DreamPage() {
                     </tbody>
                   </table>
                 </div>
+                <p className="mt-5 text-[13px] leading-relaxed tracking-normal text-gray-500 dark:text-gray-400 md:px-6">
+                  Content attached to a VerusID is recorded on-chain. Encryption
+                  can hide the contents, but not the identity update itself.
+                </p>
               </div>
             </div>
 

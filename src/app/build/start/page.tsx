@@ -16,7 +16,7 @@ import {JsonLd} from '@/components/seo/json-ld'
 export const metadata: Metadata = {
   title: {absolute: 'Build on Verus | Developer Documentation'},
   description:
-    'Get started with Verus developer resources, documentation, and protocol libraries. Learn about VerusID, VDXF, DeFi, and more.',
+    'Build wallet-ready requests or connect directly to Verus nodes with testnet tools, TypeScript libraries, and guides for VerusID, VDXF, and DeFi.',
   keywords:
     'Verus development, VerusID, VDXF, blockchain development, DeFi development, Verus documentation, Verus TypeScript libraries',
 
@@ -62,7 +62,7 @@ function DeveloperDocsMenu() {
       <summary
         className={cn(
           buttonVariants({variant: 'verusPrimary', size: 'verusWide'}),
-          'w-full max-w-full cursor-pointer list-none select-none md:w-fit [&::-webkit-details-marker]:hidden'
+          'w-full max-w-full cursor-pointer select-none list-none md:w-fit [&::-webkit-details-marker]:hidden'
         )}
       >
         Open developer docs
@@ -121,9 +121,9 @@ export default function BuildStartPage() {
                     Start building
                   </h1>
                   <p className="mt-4 max-w-[760px] break-words text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 max-md:max-w-[calc(100vw-4rem)] md:mt-6 md:text-[17px]">
-                    Use this page as a practical entry point for docs, testnet
-                    access, CLI downloads, protocol libraries, and the core
-                    guides for building with VerusID, VDXF, currencies, DeFi,
+                    Build wallet-ready requests or connect directly to Verus
+                    nodes. Find testnet access, CLI downloads, TypeScript
+                    libraries, and guides for VerusID, VDXF, currencies, DeFi,
                     and data.
                   </p>
 

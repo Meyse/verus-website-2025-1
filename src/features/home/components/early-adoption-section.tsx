@@ -120,10 +120,9 @@ export async function EarlyAdoptionSection() {
                 Build more, code less
               </h3>
               <p className="text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:text-[17px]">
-                Developers can use API calls from common languages to work with
-                identities, currencies, chains, data, encryption, and DeFi.
-                Nodes validate the resulting transactions through protocol
-                rules.
+                Create requests for identity, payments, data, and encryption
+                that compatible wallets present for approval. Connect directly
+                to Verus nodes for currencies, chain data, and DeFi.
               </p>
             </div>
             <Button
