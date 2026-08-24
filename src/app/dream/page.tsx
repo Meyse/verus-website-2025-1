@@ -87,7 +87,7 @@ const coreModelSteps: ModelStep[] = [
   },
   {
     title: 'The app verifies the response',
-    body: 'The wallet returns a signed GenericResponse, which the app verifies before continuing.',
+    body: 'The wallet returns a signed response, which the app verifies before continuing.',
   },
 ]
 
