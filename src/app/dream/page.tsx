@@ -97,20 +97,20 @@ const dreamHighlights = [
     body: 'The Decentralized, Rights-preserving, Encrypted Application Model.',
   },
   {
-    title: 'Use your identity across apps:',
-    body: 'Instead of making a new account for every app, you use a VerusID: a digital identity you control.',
+    title: 'Choose how you identify:',
+    body: 'Use the same VerusID across several apps, or different VerusIDs for different roles and purposes.',
   },
   {
     title: 'Keep app data encrypted:',
-    body: 'Apps can store and sync encrypted records without giving their servers the material needed to read them.',
+    body: 'Apps can keep encrypted records on your devices or sync them through a service that does not have the material needed to read them.',
   },
   {
     title: 'Review requests in the wallet:',
-    body: 'Your wallet shows requests for sign-in, identity updates, payments, or data access before you approve them.',
+    body: 'Your wallet shows each request for sign-in, an identity update, a payment, encryption, or data access before you approve it.',
   },
   {
     title: 'Approve payments without giving the app custody:',
-    body: "A payment can be included in the same wallet request, so the app can receive it without holding the user's funds.",
+    body: 'A payment can be part of the same wallet request, while the funds remain under your control until approval.',
   },
 ]
 
@@ -251,23 +251,25 @@ export default function DreamPage() {
               </h2>
               <div className="space-y-5 text-[15px] leading-relaxed tracking-normal text-gray-600 dark:text-gray-300 md:space-y-6 md:text-[17px]">
                 <p>
-                  Most apps create an account, store readable user data, and
-                  connect to a separate payment provider. DREAM gives compatible
-                  apps a structured way to request authentication, payments,
-                  identity actions, and app encryption through a Verus wallet.
+                  Many apps create and manage user accounts, store readable user
+                  data, and rely on separate payment providers. DREAM gives
+                  applications a structured way to request sign-in, payments,
+                  identity updates, encryption, and data access through a
+                  compatible Verus wallet.
                 </p>
                 <p>
-                  The wallet presents the request to the user and returns a
-                  signed response after approval. The application verifies that
-                  response and continues its normal workflow. Its server can
-                  store encrypted records and the metadata needed to sync them
-                  without holding the material required to decrypt those
-                  records.
+                  The user chooses which VerusID to use and reviews the requested
+                  actions in the wallet. After approval, the wallet returns a
+                  signed response, which the application verifies before
+                  continuing.
                 </p>
                 <p>
                   Applications still run their own interfaces, servers, and
-                  business logic. DREAM reduces the identity, funds, and
-                  readable private data they need to control.
+                  business logic, and decide how and where data is stored. They
+                  can keep records encrypted without requiring servers or storage
+                  providers to hold the material needed to read them. DREAM
+                  reduces the need for applications to control user identities,
+                  hold user funds, or store readable private data.
                 </p>
               </div>
             </div>
@@ -369,8 +371,10 @@ export default function DreamPage() {
                         and folder information are encrypted on the device
                         before they are saved or uploaded. If cloud sync is
                         enabled, the service receives encrypted records rather
-                        than readable content. An approved second device can
-                        download those records and unlock them locally.
+                        than readable content. Anyone who restores the same
+                        wallet from its seed on another device and approves the
+                        same encryption request can download and unlock those
+                        records.
                       </p>
                       <p>
                         It fits the DREAM model because the app provides useful
