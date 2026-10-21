@@ -6,6 +6,7 @@ import ProofsJSON from '@/data/vdxfid/proofsJSON'
 import {verifyMessage} from '@/features/verify/server/verify-message'
 
 import {isValidUrl, verusBlockchainProof, verusWebProof} from '../lib/utils'
+import {fetchProofPage} from './fetch_proof_page'
 
 /**
  * Verifies a message against the Verus API
@@ -50,7 +51,7 @@ export async function verificationCheck(
   const controllerVdxfid =
     ProofsJSON.controller.vdxfid || 'i9TbCypmPKRpKPZDjk3YcCEZXK6wmPTXjw'
 
-  let verifyKey = data[controllerVdxfid]
+  const verifyKey = data[controllerVdxfid]
 
   // Handle URL verification (for social media)
   if (isValidUrl(verifyKey)) {
@@ -58,20 +59,7 @@ export async function verificationCheck(
     console.log(`Verification Check: Processing URL proof: ${verifyKey}`)
     try {
       console.log(`Verification Check: Fetching content from ${verifyKey}...`)
-      if (verifyKey.includes('reddit')) {
-        if (verifyKey.slice(-1) === '/')
-          verifyKey = verifyKey.substring(0, verifyKey.length - 1)
-        verifyKey += '.json'
-      }
-      const response = await fetch(verifyKey, {
-        cache: 'no-cache',
-      })
-      // console.info('verification with VerifyKey response', response)
-      if (!response.ok) {
-        console.error(`URL fetch error: ${response.status} for ${verifyKey}`)
-        throw new Error(`URL fetch error: ${response.status}`)
-      }
-      verifiedData = await response.text()
+      verifiedData = await fetchProofPage(verifyKey)
       // console.info('verification with VerifyKey verifiedData', verifiedData)
       console.log(
         `Verification Check: Content fetched from ${verifyKey}. Length: ${verifiedData.length}`
