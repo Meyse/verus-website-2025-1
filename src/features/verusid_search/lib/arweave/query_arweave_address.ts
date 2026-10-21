@@ -3,7 +3,7 @@ import 'server-only'
 import IdentityJSON from '@/data/vdxfid/identityJSON'
 
 import {HexToBase64, isBase64url} from '../utils'
-import {arweave} from './arweave'
+import {arweaveGraphqlGateways} from './arweave'
 import {buildQuery} from './build_query'
 
 type ArweaveEdge = {
@@ -14,6 +14,41 @@ type ArweaveEdge = {
 }
 
 const publicVdxfid = IdentityJSON.public.vdxfid
+
+// The Arweave client ignores its timeout setting, so abort hung gateways here
+const GATEWAY_TIMEOUT_MS = 10000
+
+// Try each gateway in order. An empty result can be an index gap, so it moves
+// on to the next gateway too.
+const queryOwnerTransactions = async (query: ReturnType<typeof buildQuery>) => {
+  let lastError: Error | undefined
+
+  for (const gateway of arweaveGraphqlGateways) {
+    const host = gateway.api.config.host
+    try {
+      const apiResult = await gateway.api.post('/graphql', query, {
+        signal: AbortSignal.timeout(GATEWAY_TIMEOUT_MS),
+      })
+
+      if (!apiResult.ok) {
+        const status =
+          typeof apiResult.status === 'number' ? `${apiResult.status} ` : ''
+        throw new Error(`API error: ${status}${apiResult.statusText}`)
+      }
+      const edges = apiResult.data.data.transactions.edges as ArweaveEdge[]
+      if (edges.length) return edges
+
+      console.log(`queryArweaveAddress: No owner transactions on ${host}`)
+    } catch (error) {
+      console.error(`queryArweaveAddress: Query error on ${host}`, error)
+      lastError = error instanceof Error ? error : new Error(String(error))
+    }
+  }
+
+  // Rethrow so the outer cache wrapper does not store a gateway outage as a miss
+  if (lastError) throw lastError
+  return []
+}
 
 export const queryArweaveAddress = async (address: string) => {
   console.log(
@@ -30,17 +65,7 @@ export const queryArweaveAddress = async (address: string) => {
     try {
       console.log('queryArweaveAddress: Querying API for owner transactions')
 
-      const query = buildQuery(ownerAddress)
-      const apiResult = await arweave.api.post('/graphql', query)
-
-      if (!apiResult.ok) {
-        const status =
-          typeof apiResult.status === 'number' ? `${apiResult.status} ` : ''
-        throw new Error(`API error: ${status}${apiResult.statusText}`)
-      }
-      console.log(apiResult.data.data.transactions)
-      const ownerResult = apiResult.data.data.transactions
-        .edges as ArweaveEdge[]
+      const ownerResult = await queryOwnerTransactions(buildQuery(ownerAddress))
 
       console.log(
         'queryArweaveAddress: Received owner query result',
@@ -82,16 +107,6 @@ export const queryArweaveAddress = async (address: string) => {
             manifestTxs[0].node.id
           )
           return manifestTxs[0].node.id
-        }
-
-        // Last resort - WSrNhh1VQ_c18hHKhATXw0wEWoMoeaYiYcGkvNNYNfk for cragorn's specific case
-        const knownTxs = ownerResult.find(
-          (edge: ArweaveEdge) =>
-            edge.node.id === 'WSrNhh1VQ_c18hHKhATXw0wEWoMoeaYiYcGkvNNYNfk'
-        )
-        if (knownTxs) {
-          console.log('queryArweaveAddress: Using known data transaction')
-          return 'WSrNhh1VQ_c18hHKhATXw0wEWoMoeaYiYcGkvNNYNfk'
         }
 
         console.log(
