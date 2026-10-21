@@ -14,6 +14,8 @@ export async function DisplayProfile({verusId}: {verusId: string}) {
   console.log(profile)
 
   const profileData = await getVerusProfile(profile.identity)
+  // Proof checks lowercase the name, so every spelling shares one cache entry
+  const userId = verusId.toLowerCase()
 
   return (
     <div className="mx-auto max-w-2xl overflow-hidden rounded-xl border border-blue-100/80 bg-white/90 shadow-[0_4px_20px_-8px_rgba(0,0,0,0.1)] backdrop-blur-sm dark:border-blue-900/30 dark:bg-gray-800/90 dark:shadow-[0_4px_20px_-8px_rgba(0,0,0,0.3)]">
@@ -75,7 +77,7 @@ export async function DisplayProfile({verusId}: {verusId: string}) {
             {profileData?.services && (
               <VerifiedSocialLinks
                 services={profileData.services}
-                userId={verusId}
+                userId={userId}
               />
             )}
 
@@ -84,7 +86,7 @@ export async function DisplayProfile({verusId}: {verusId: string}) {
               <CryptoAddressProvider>
                 <VerifiedCryptoAddresses
                   keys={profileData.keys}
-                  userId={verusId}
+                  userId={userId}
                 />
               </CryptoAddressProvider>
             )}
