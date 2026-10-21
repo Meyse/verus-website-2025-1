@@ -29,19 +29,25 @@ const peopleJsonLd = createCollectionPageJsonLd({
   mainEntity: {
     '@type': 'ItemList',
     name: 'Profiled Verus contributors',
-    itemListElement: teamMembers.map((member, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@type': 'Person',
-        name: member.name,
-        jobTitle: member.title,
-        description: member.description,
-        sameAs: member.twitterHandle
-          ? [`${env.NEXT_PUBLIC_TWITTER}/${member.twitterHandle}`]
-          : undefined,
-      },
-    })),
+    itemListElement: teamMembers.map((member, index) => {
+      const sameAs = [
+        member.twitterHandle &&
+          `${env.NEXT_PUBLIC_TWITTER}/${member.twitterHandle}`,
+        member.linkedinUrl,
+      ].filter(Boolean)
+
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Person',
+          name: member.name,
+          jobTitle: member.title,
+          description: member.description,
+          sameAs: sameAs.length > 0 ? sameAs : undefined,
+        },
+      }
+    }),
   },
 })
 

@@ -7,7 +7,7 @@ export const teamMembers: ProfileCardProps[] = [
     title: 'Lead developer',
     description:
       "Former Vice President and Technical Fellow at Microsoft, recognized founder and architect of Microsoft's .NET platform, ex-Technical Fellow of Microsoft's advertising platform, ex-CTO, Parallels Corporation, experienced distributed computing and machine learning architect.",
-    twitterHandle: 'MikeToutonghi',
+    linkedinUrl: 'https://www.linkedin.com/in/michaeltoutonghi',
   },
   {
     name: 'Michael F. Toutonghi',

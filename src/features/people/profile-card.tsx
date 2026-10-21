@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import {env} from '@/configs/env'
-import {FaXTwitter} from 'react-icons/fa6'
+import {FaLinkedin, FaXTwitter} from 'react-icons/fa6'
 
 import {cn} from '@/lib/utils'
 
@@ -11,6 +11,7 @@ export type ProfileCardProps = {
   description: string
 
   twitterHandle?: string
+  linkedinUrl?: string
   index?: number
 }
 
@@ -20,6 +21,7 @@ export function ProfileCard({
   description,
 
   twitterHandle,
+  linkedinUrl,
   index = 0,
 }: ProfileCardProps) {
   const isMdLeftColumn = index % 2 === 0
@@ -59,6 +61,18 @@ export function ProfileCard({
         >
           <span>@{twitterHandle}</span>
           <FaXTwitter className="h-4 w-4" />
+        </Link>
+      )}
+
+      {linkedinUrl && (
+        <Link
+          href={linkedinUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-auto inline-flex w-fit items-center gap-2 rounded-lg text-[14px] font-medium text-gray-600 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
+        >
+          <span>LinkedIn</span>
+          <FaLinkedin className="h-4 w-4" />
         </Link>
       )}
     </article>
