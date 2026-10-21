@@ -28,7 +28,7 @@
     "lint": "eslint .",
     "test:projects-security": "tsx --test src/features/projects/project-markdown.test.tsx src/features/projects/server/registry.test.ts",
     "test:verusid-cache": "node scripts/check-verusid-cache-contract.js",
-    "test:verusid-arweave": "tsx --conditions=react-server --test src/features/verusid_search/lib/arweave/query_arweave_address.test.ts"
+    "test:verusid-search": "tsx --conditions=react-server --test src/features/verusid_search/lib/arweave/query_arweave_address.test.ts src/features/verusid_search/server/fetch_proof_page.test.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
